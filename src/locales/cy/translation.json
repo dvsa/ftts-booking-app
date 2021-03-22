@@ -1,0 +1,619 @@
+{
+    "generalContent": {
+        "pageTitle": "cy- Book your theory test - GOV.UK",
+        "errorPrefix": "cy-Error",
+        "back": "cy-Back",
+        "changeLink": "cy-Change",
+        "continueButton": "cy-Continue",
+        "confirmChangeButton": "cy-Confirm change and continue",
+        "warning": "cy-Warning",
+        "errorSummaryTitle": "cy-There is a problem",
+        "contactEmail": "cy-placeholder@dvsa.gov.uk",
+        "testTypes": {
+            "car": "cy-Car",
+            "motorcycle": "cy-Motorcycle"
+        },
+        "phaseBanner": {
+            "tag": "cy-alpha",
+            "content": "cy-This is a new service – your {{-openLink}}feedback{{-closeLink}} will help us to improve it. // {{ target  }} //"
+        },
+        "yes": "cy-Yes",
+        "no": "cy-No",
+        "footer": {
+            "moreInfo": "cy-Find more information about",
+            "bookingLink": "cy-booking a theory test",
+            "bookingLinkUrl": "https://www.gov.uk/book-theory-test?target=cy",
+            "findOut": "cy-Find out",
+            "covidImpact": "cy-how theory tests are affected by coronavirus (COVID-19)",
+            "covidImpactLink": "https://www.gov.uk/guidance/coronavirus-theory-tests?target=cy",
+            "enquiriesHeader": "cy-DVSA theory test enquiries",
+            "telephone": "cy-Telephone: 0300 200 1122",
+            "openingHours": "cy-Monday to Friday, 9am to 10pm",
+            "callCharges": "cy-Find out about call charges",
+            "callChargesUrl": "https://www.gov.uk/call-charges"
+        },
+        "cookie": {
+            "cookieText": "cy-GOV.UK uses cookies to make the site simpler.",
+            "cookieLink": "#cy",
+            "cookieLinkText": "cy-Find out more about cookies"
+        },
+        "bookingReference": "cy-Booking reference",
+        "cancelContact": {
+            "phone": "cy-01234 456789"
+        },
+        "time": {
+            "am": "cy-am",
+            "pm": "cy-pm"
+        },
+        "language": {
+            "english": "cy-English",
+            "welsh": "cy-Cymraeg (Welsh)",
+            "turkish": "cy-Turkish",
+            "portuguese": "cy-Portuguese",
+            "polish": "cy-Polish",
+            "farsi": "cy-Farsi",
+            "cantonese": "cy-Cantonese",
+            "arabic": "cy-Arabic"
+        }
+    },
+    "chooseSupport": {
+        "pageTitle": "cy-Do you need support",
+        "heading1": "cy-Get the right support during your theory test",
+        "heading2": "cy-You may be able to select the support you want and book your test online now.",
+        "para1": "cy-We want you to have everything you need to take your test.",
+        "para2": "cy-Many types of support are available if, for example, you:",
+        "para3": "cy-You can {{-openLink}}cy-learn more about the types of support available{{-closeLink}}. cy-These include:",
+        "para4": "cy-Alternatively, you can tell us you want support and we'll get in touch with you.",
+        "para5": "cy-This may suit you better because we'll be able to:",
+        "list1-1": "cy-find reading difficult",
+        "list1-2": "cy-have a disability",
+        "list1-3": "cy-have a health condition",
+        "list2-1": "cy-voiceover with headphones",
+        "list2-2": "cy-British Sign Language (on-screen or in-person)",
+        "list2-3": "cy-extra time to complete your test",
+        "list2-4": "cy-someone reading the questions for you",
+        "list2-5": "cy-having the questions worded differently",
+        "list3-1": "cy-talk to you about how we can help",
+        "list3-2": "cy-make any special arrangements you might need",
+        "list3-3": "cy-talk about whether we need any evidence to support your request",
+        "legend": "cy-Do you want support for your theory test?",
+        "errorMessage": "cy-You must select one option.",
+        "yes": "cy-Yes",
+        "no": "cy-No",
+        "cancelChangeButton": "cy-Cancel and keep existing selection"
+    },
+    "details": {
+        "pageTitle": "cy-Candidate details",
+        "heading": "cy-Details of the person taking the theory test",
+        "headingSupport": "cy-Provide a few details to get the right support",
+        "p1": "cy-Enter the driving licence details of the person taking the test.",
+        "p2": "cy-These details are checked and used to show information about the candidate's available tests and any test history.",
+        "p3": "cy-It's important the information is entered exactly as it looks on the driving licence.",
+        "exampleLabel": "cy-See example",
+        "exampleLabelSupport": "cy-Example",
+        "errorMessage": "cy-The details entered aren't correct. Please enter the details exactly as they appear on the licence",
+        "firstnamesField": {
+            "label": "cy-First and middle names",
+            "description": "cy-Enter the first and any middle names of the person taking the test. Do not include Miss, Ms, Mrs or Mr.",
+            "hint": "cy-See section 2 of the driving licence"
+        },
+        "surnameField": {
+            "label": "cy-Last names",
+            "description": "cy-Enter the surname of the person taking the test.",
+            "hint": "cy-See section 1 of the driving licence"
+        },
+        "licenceNumberField": {
+            "label": "cy-Driving licence number",
+            "description": "cy-Enter the 16-digit driving licence number of the person taking the test.",
+            "hint": "cy-See section 5 of the driving licence"
+        },
+        "dobField": {
+            "label": "cy-Date of birth",
+            "description": "cy-Enter the date of birth of the person taking the test.",
+            "hint": "cy-For example, 12 11 2007",
+            "dayLabel": "cy-Day",
+            "monthLabel": "cy-Month",
+            "yearLabel": "cy-Year"
+        }
+    },
+    "contactDetails": {
+        "pageTitle": "cy-Email address",
+        "heading": "cy-Email of the person taking the theory test",
+        "description": "cy-We need an email address to send a booking confirmation and a payment receipt.",
+        "hint": "cy-Make sure this is the email for the person taking the theory test.",
+        "changeAlert": "cy-You can change the email address associated with this booking or {{-openLink}}keep the last one saved{{-closeLink}}.",
+        "emailLabel": "cy-Email address",
+        "confirmEmailLabel": "cy-Confirm email address",
+        "emailValidationError": "cy-Enter a valid email address",
+        "emailTooLong": "cy-Email address must be 100 characters or fewer",
+        "unmatchingError": "cy-Ensure confirmation email address matches email address",
+        "cancelChangeButton": "cy-Cancel and keep existing email",
+        "nonStandardAccommodation": {
+            "heading": "cy-Enter your email address",
+            "description": "cy-Confirmation of your support request will be emailed to you."
+        }
+    },
+    "testType": {
+        "pageTitle": "cy-Test type",
+        "heading": "cy-Which theory test are you booking?",
+        "changeAlert": "cy-You can change the test type or {{-openLink}}keep your existing choice{{-closeLink}}.",
+        "changeWarning": "cy-Important: if you change the test type here and continue to make this booking, all details previously entered will be replaced.",
+        "cancelChangeButton": "cy-Cancel and keep existing test type",
+        "subheading": "cy-Booking other types of theory tests",
+        "entitlementText": "cy-To drive a particular type of vehicle, you need an ‘entitlement’ for that category on your driving licence.",
+        "licenceCategoryText": "cy-Visit",
+        "licenceCategoryLinkText": "cy-driving licence categories for more information",
+        "validationError": "cy-You need to select an option."
+    },
+    "testLanguage": {
+        "pageTitle": "cy-Choose language",
+        "heading": "cy-Which language do you want to appear on screen during the theory test?",
+        "subheading": "cy-Choose a language",
+        "validationError": "cy-You must select a language",
+        "changeAlert": "cy-You can change the test language or {{-openLink}}keep your existing choice{{-closeLink}}.",
+        "cancelChangeButton": "cy-Cancel and keep existing language"
+    },
+    "support": {
+        "pageTitle": "cy-Additional support"
+    },
+    "bsl": {
+        "pageTitle": "cy-BSL"
+    },
+    "voiceOver": {
+        "pageTitle": "cy-Voice over"
+    },
+    "otherSupport": {
+        "pageTitle": "cy-Other support"
+    },
+    "additionalSupport": {
+        "pageTitle": "cy-Additional support"
+    },
+    "translator": {
+        "heading": "cy-Which language do you want translated?",
+        "description": "cy-Tell us which language you want translated so you can take your driving theory test.",
+        "hint": "cy-Enter language",
+        "errorMessages": {
+            "empty": "cy-Enter the language you need translated",
+            "tooLong": "cy-The translation language description must be 100 characters or fewer"
+        }
+    },
+    "findTestCentre": {
+        "pageTitle": "cy-Find test centre",
+        "heading": "cy-Choose a theory test centre",
+        "subheading": "cy-Find your nearest driving theory test centre",
+        "listHeader": "cy-You can:",
+        "listItem1": "cy-get a map and directions to the centre",
+        "listItem2": "cy-check any special instructions for using the centre",
+        "searchLabel": "cy-Enter a postcode, town or city name or region. You can also use landmarks",
+        "searchButton": "cy-Find",
+        "errorNotRecognised": "cy-No location results match your search. Please try again.",
+        "editMode": {
+            "changeAlert": "cy-You can change the test location here or {{-openLink}}keep your existing choice{{-closeLink}}.",
+            "importantWarning": "cy-If you select a new location here, it will replace your previous choice. Date and time slots will still be subject to availability.",
+            "cancelChangeButton": "cy-Cancel and keep previously selected test location"
+        }
+    },
+    "selectTestCentre": {
+        "pageTitle": "cy-Choose test centre",
+        "heading": "cy-Choose a theory test centre",
+        "thereAre": "cy-There are",
+        "testCentresNear": "cy-test centres near",
+        "milesLink": "cy-See miles",
+        "kmLink": "cy-See kilometres",
+        "mapLink": "cy-View on Google Maps",
+        "aboutCentreHeading": "cy-About this test centre",
+        "description": "cy-Description",
+        "selectButton": "cy-Select",
+        "seeMoreButton": "cy-See {{incrementValue}} more",
+        "mapSelectHint": "cy-Select a test centre on the map",
+        "listTabLabel": "cy-List of centres",
+        "mapTabLabel": "cy-See on map",
+        "error": {
+            "heading": "cy-That search didn't work",
+            "paragraph1": "cy-A technical problem interrupted the location search.",
+            "paragraph2": "cy-You can {{-openLink}}try another search now{{-closeLink}} or wait and try again later. If this problem persists, contact DVSA."
+        },
+        "editMode": {
+            "changeAlert": "cy-You can change the test location here or {{-openLink}}keep your existing choice{{-closeLink}}."
+        }
+    },
+    "selectDate": {
+        "pageTitle": "cy-Enter test date",
+        "heading": "cy-Enter a date to check for available theory test time slots",
+        "description": "cy-If no test slots are available on this date, this service can help you find one on another day.",
+        "hint": "cy-For example, 12 11 2007",
+        "dayLabel": "cy-Day",
+        "monthLabel": "cy-Month",
+        "yearLabel": "cy-Year",
+        "errorMessages": {
+            "dayEmpty": "cy-You need to enter a day",
+            "monthEmpty": "cy-You need to enter a month",
+            "yearEmpty": "cy-You need to enter a year",
+            "dateNotValid": "cy-Enter a valid date",
+            "dateInPast": "cy-Date must be in the future",
+            "dateIsToday": "cy-No test slots are available today. Try another date.",
+            "dateBeyond6Months": "cy-Date must be within 6 months of today"
+        },
+        "editMode": {
+            "changeAlert": "cy-You can change the test slot here or {{-openLink}}keep the date and time previously selected{{-closeLink}}.",
+            "importantWarning": "cy-If you select a new date and time here they will replace the details previously entered. Date and time slots are both subject to availability.",
+            "cancelChangeButton": "cy-Cancel and keep previously selected date and time"
+        }
+    },
+    "chooseAppointment": {
+        "pageTitle": "cy-Test time",
+        "heading": "cy-Choose a time for the theory test",
+        "instruction": "cy-Check time slots at a different test centre",
+        "desktop": {
+            "previous": "cy-Previous week",
+            "next": "cy-Next week"
+        },
+        "mobile": {
+            "previous": "cy-Previous",
+            "next": "cy-Next"
+        },
+        "morning": "cy-Morning",
+        "afternoon": "cy-Afternoon",
+        "editMode": {
+            "changeAlert": "cy-You can change the test time here or {{-openLink}}keep the time previously selected{{-closeLink}}.\nDate and time slots are both subject to availability."
+        },
+        "warning1": "cy-No availability. Try another day.",
+        "warningPast": "cy-Days in the past cannot be viewed",
+        "warningSixMonths": "cy-This day is not yet available for booking. Check regularly as this may change."
+    },
+    "checkYourAnswers": {
+        "pageTitle": "cy-Check your answers",
+        "heading": "cy-Check your answers",
+        "personalDetails": {
+            "heading": "cy-Personal details",
+            "nameLabel": "cy-Name",
+            "dobLabel": "cy-Date of birth",
+            "licenceNumLabel": "cy-Driving licence number",
+            "emailLabel": "cy-Email address"
+        },
+        "testDetails": {
+            "heading": "cy-Test details",
+            "testTypeLabel": "cy-Test type",
+            "costLabel": "cy-Cost",
+            "timeDateLabel": "cy-Test time and date",
+            "locationLabel": "cy-Test location",
+            "testLanguageLabel": "cy-On-screen language",
+            "additionalSupportLabel": "cy-Additional support",
+            "bslLabel": "cy-British Sign Language",
+            "voiceoverLabel": "cy-Voiceover language"
+        },
+        "continueButton": "cy-Continue and pay"
+    },
+    "bookingConfirmation": {
+        "pageTitle": "cy-Booking confirmed",
+        "heading": "cy-Theory test booking confirmed",
+        "panelBookingRef": "cy-Your booking reference is important",
+        "keepItSafe": "cy-Keep it safe",
+        "keepBookingRef": "cy-Keep your booking reference safe.",
+        "bookingRefPrompt": "cy-You'll need it to check, cancel or reschedule this test. Consider taking a screenshot, or",
+        "printLink": "cy-print this page.",
+        "testTypeLabel": "cy-Test type",
+        "dateLabel": "cy-Test time and date",
+        "locationLabel": "cy-Test location",
+        "testLanguageLabel": "cy-On-screen language",
+        "bslLabel": "cy-British Sign Language",
+        "voiceoverLabel": "cy-Voiceover language",
+        "importantSubheading": "cy-Important",
+        "personMust": "cy-The person taking the test must:",
+        "arrive": "cy-arrive 15 minutes before the test start time",
+        "bringLicence": "cy-bring their driving licence (Old-style, paper licence-holders should also bring a valid passport, or other photo-ID)",
+        "centreSubheading": "cy-Security at the test centre",
+        "security": "cy-All test centres are security monitored.",
+        "itemsCheck": "cy-As you enter the test room, you'll be checked for items that could be used to cheat. Your test will not go ahead if you do not allow this check.",
+        "cheatWarning": "cy-It is illegal to cheat in a theory test. You can be sent to prison and banned from driving.",
+        "belongingsSubheading": "cy-Personal belongings",
+        "itemsPrompt": "cy-When you arrive at the test centre, all personal items must be placed in the secure locker provided. These items include:",
+        "items": {
+            "food": "cy-food and drink",
+            "earpieces": "cy-ear-pieces or headphones",
+            "phones": "cy-mobile phones and other electronic devices",
+            "hats": "cy-hats, bags or coats",
+            "watches": "cy-watches",
+            "books": "cy-books and revision notes"
+        },
+        "foundItems": "cy-If you are found to have any of these items in the test room:",
+        "voided": "cy-your test may be stopped and voided",
+        "leave": "cy-you may be asked to leave",
+        "refunded": "cy-the test fee may not be refunded",
+        "waitingSubheading": "cy-No waiting facilities",
+        "noWaiting": "cy-Test centres have no waiting facilities for any adults or children accompanying candidates.",
+        "prepare": "cy-Prepare for the test",
+        "learnMore": "cy-Learn more about preparing for a car theory test including free practice tests here:",
+        "learnMoreLink": "https://www.gov.uk/theory-test/revision-and-practice",
+        "learnMoreLinkText": "cy-www.gov.uk/theory-test/revision-and-practice",
+        "cancelSubheading": "cy-Checking, moving or cancelling this theory test",
+        "cancellationThreeDays": "cy-Theory tests can be moved or cancelled up to 3 clear working days before without penalty.",
+        "cancellationPolicy": "cy-If this booking is changed or cancelled after {{latestRefundDate}} no refund will be made.",
+        "checkDetails": "cy-Check the details of this test here:",
+        "checkDetailsLink": "https://www.gov.uk/check-theory-test",
+        "checkDetailsLinkText": "cy-www.gov.uk/check-theory-test",
+        "reschedule": "cy-Reschedule this test here:",
+        "rescheduleLink": "https://www.gov.uk/change-theory-test",
+        "rescheduleLinkText": "cy-www.gov.uk/change-theory-test",
+        "cancel": "cy-Cancel this test here:",
+        "cancelLink": "https://www.gov.uk/cancel-theory-test",
+        "cancelLinkText": "cy-www.gov.uk/cancel-theory-test",
+        "nonStandardAccommodation": {
+            "pageHeading": "cy-Success: your details have been received",
+            "panelContact": "cy-We will contact you within one working day to arrange your theory test",
+            "panelBookingRef": "cy-Your reference ",
+            "printPagePrompt": "cy-You may find it useful to ",
+            "prepareSubheading": "cy-Prepare for the test",
+            "prepareParagraph": "cy-Learn more about preparing for a car theory test including free practise tests here: ",
+            "preparePracticeLink": "cy-www.gov.uk/theory-test/revision-and-practise",
+            "supportParagraph": "cy-For some kinds of support you may be asked to provide a letter from a teacher or doctor."
+        }
+    },
+    "changeLocationTime": {
+        "pageTitle": "cy-Change test details",
+        "title": "cy-What do you want to change?",
+        "changeAlert": "cy-You can change your previous response here or {{-openLink}}go back and keep it{{-closeLink}}.",
+        "description": "cy-Select one option. Your existing booking will be held until you make and confirm any changes.",
+        "validationError": "cy-Please select what you want to change",
+        "changeTimeOnlyOption": {
+            "label": "cy-Just the time of the theory test",
+            "hint": "cy-New time slots on your existing test day may not be available."
+        },
+        "changeTimeAndDateOption": {
+            "label": "cy-Time and date of the theory test",
+            "hint": "cy-Your existing time slot may be unavailable on a different day."
+        },
+        "changeLocationOption": {
+            "label": "cy-Location of the theory test",
+            "hint": "cy-Your existing date and time slot may be unavailable at a different location."
+        },
+        "confirmChangeButton": "cy-Change and continue",
+        "cancelChangeButton": "cy-Cancel and keep your selection"
+    },
+    "manageBookingLogin": {
+        "pageTitle": "cy-Booking reference and driving licence number",
+        "heading": "cy-Enter the booking reference and driving licence number of the person taking the theory test",
+        "bookingReferenceField": {
+            "label": "cy-Booking reference",
+            "description": "cy-The booking reference number was sent to the email address used to book the theory test. If you have not received a booking reference, contact",
+            "inlineLabel": "cy-Enter the booking reference number"
+        },
+        "licenceNumberField": {
+            "heading": "cy-Driving licence number",
+            "label": "cy-Enter your driving licence number",
+            "description": "cy-It's important that the driving licence number is entered exactly as it looks on the driving licence of the person taking the test.",
+            "hint": "cy-See section 5 of the driving licence",
+            "exampleLabel": "cy-See example"
+        },
+        "errorMessages": {
+            "fieldsLeftBlank": "cy-Enter both the booking reference and candidate's driving licence number to access this booking",
+            "incorrectDetails": "cy-This booking cannot be accessed using the information entered. Check both the booking reference and driving licence number are correct and try again."
+        }
+    },
+    "manageBookingHome": {
+        "pageTitle": "cy-Booking reference and driving licence number",
+        "header": "cy-Your theory test bookings",
+        "bookingsDescription-1": "cy-You have",
+        "bookingsDescription-2": "cy-theory tests booked.",
+        "noBookings": "cy-You have no theory tests booked.",
+        "bookNewTestLink": "cy-You can {{-openLink}}book another theory test here{{-closeLink}}.",
+        "tableHeaderC1": "cy-Test type",
+        "tableHeaderC2": "cy-Test time and date",
+        "tableHeaderC3": "cy-Booking reference",
+        "buttonView": "cy-View booking",
+        "buttonPrevious": "cy-Previous certificates",
+        "buttonTests": "cy-Theory test history",
+        "bookingsWithErrors": {
+            "header": "cy-A technical problem means these test bookings cannot be found:",
+            "contentLine1": "cy-Please contact DVSA to recover or reschedule this test.",
+            "contact": {
+                "email": "cy-example@dvsa.gov.uk",
+                "telephone": "cy-Telephone: {{-openBold}}00000 000 000{{-closeBold}}",
+                "openingHours": "cy-{{-openBold}}Monday{{-closeBold}} to {{-openBold}}Friday{{-closeBold}}, {{-openBold}}8am{{-closeBold}} to {{-openBold}}4pm{{-closeBold}}"
+            }
+        }
+    },
+    "manageBookingChange": {
+        "pageTitle": "cy-Change, reschedule or cancel test",
+        "heading": "cy-Change, reschedule or cancel this theory test",
+        "refundWarningText": "cy-You cannot get a refund or reschedule this test after {{date}}.",
+        "testTodayWarningText": "cy-This test is today. Changes are no longer possible.",
+        "technicalProblemWarningText": "cy-A technical problem means this booking cannot currently be cancelled or changed. Please try again later.",
+        "testTypes": "cy-Test type",
+        "testTimeDate": "cy-Test time and date",
+        "testLocation": "cy-Test location",
+        "testLanguage": "cy-On-screen language",
+        "bsl": "cy-British Sign Language",
+        "voiceover": "cy-Voiceover language",
+        "cancelTest": "cy-Cancel this test",
+        "buttonCancel": "cy-Cancel test",
+        "buttonChange": "cy-Change"
+    },
+    "manageBookingCancel": {
+        "pageTitle": "cy-Cancel test",
+        "heading": "cy-Cancel this theory test",
+        "description": "cy-Select one option. When you select",
+        "description-2": "cy-your existing booking will be permanently removed.",
+        "buttonCancel": "cy-Confirm theory test cancellation",
+        "buttonKeep": "cy-Keep existing booking",
+        "help": "cy-Help with your booking",
+        "contact": "cy-Contact the Driver and Vehicle Standards Agency (DVSA) to get help cancelling your theory test appointment.",
+        "support": "cy-DVSA theory test booking support",
+        "telephone": "cy-Telephone 01234 567890",
+        "niPrompt": "cy-There’s a different service to cancel your theory test in Northern Ireland."
+    },
+    "manageBookingCancelConfirmation": {
+        "pageTitle": "cy-Test cancelled",
+        "bannerTitle": "cy-Theory test cancelled",
+        "bannerSubtitle": "cy-Your reference number",
+        "cancelDescription": "cy-This driving theory test has been cancelled.",
+        "summaryListRows": {
+            "testType": "cy-Test type",
+            "testTimeDate": "cy-Test time and date",
+            "testLocation": "cy-Test location",
+            "voiceover": "cy-Voiceover language",
+            "testLanguage": "cy-Test language",
+            "bsl": "cy-British Sign Language"
+        },
+        "buttonChange": "cy-Change another booking",
+        "buttonBookNewTest": "cy-Book a new theory test",
+        "error": {
+            "heading": "cy-Booking not cancelled",
+            "contentLine1": "cy-A technical problem prevented this booking from being cancelled.",
+            "contentLine2": "cy-You can {{-openLink}}try again to cancel this booking{{-closeLink}}. If this problem persists, contact DVSA."
+        }
+    },
+    "manageBookingCheckChange": {
+        "pageTitle": "cy-Confirm change to test",
+        "heading": "cy-Confirm change to theory test",
+        "buttonConfirm": "cy-Confirm change",
+        "buttonCancel": "cy-Cancel and keep previous details",
+        "error": {
+            "heading": "cy-Booking change not successful",
+            "general": {
+                "contentLine1": "cy-A technical problem prevented this test from being changed.",
+                "contentLine2": "cy-You can {{-openLink}}try again to change this booking{{-closeLink}}. If this problem persists, contact DVSA."
+            },
+            "slotUnavailable": {
+                "contentLine1": "cy-The new test slot you attempted to book is no longer available. {{-openLink}}Select another slot and try again{{-closeLink}}.",
+                "contentLine2": "cy-Contact DVSA if you have any questions. The existing booking remains unchanged."
+            },
+            "noRetry": {
+                "contentLine1": "cy-A technical problem means your booking cannot be found.",
+                "contentLine2": "cy-Please contact DVSA to recover or reschedule this test."
+            }
+        }
+    },
+    "manageBookingChangeConfirmation": {
+        "pageTitle": "cy-Test updated",
+        "bannerTitle": "cy-Theory test updated",
+        "buttonViewAllBookings": "cy-View all bookings",
+        "buttonMakeAnotherChange": "cy-Make another change"
+    },
+    "voiceover": {
+        "pageTitle": "cy-Choose voiceover",
+        "pageHeading": "cy-Which voiceover language do you want?",
+        "validationError": "cy-You must select one option.",
+        "editMode": {
+            "pageHeading": "cy-Do you want a voiceover used during the test?",
+            "validationError": "cy-You must select a voiceover language. Alternatively, select 'I do not want a voiceover'.",
+            "contentLine1": "cy-Instructions and the test questions will be read aloud through headphones provided in the test room.",
+            "changeAlert": "cy-You can change your mind here about hearing a voiceover used during the test, or ",
+            "changeAlertLink": "cy-go back and keep your previous choice",
+            "yesOptionPrefix": "cy-Yes, I want a voiceover in ",
+            "noOption": "cy-No, I do not want a voiceover",
+            "confirmChangeButton": "cy-Confirm change and continue",
+            "cancelChangeButton": "cy-Cancel and keep your existing choice"
+        }
+    },
+    "manageBookingChangeBSL": {
+        "pageTitle": "cy-Choose BSL",
+        "pageHeading": "cy-Do you want British Sign Language used during the test?",
+        "formHint": "cy-Instructions and the test questions will be signed on screen in the test room.",
+        "errorBannerNotification": "cy-You need to select an option.",
+        "bslFormOption": "cy-Yes, I want British Sign Language",
+        "noneFormOption": "cy-No, I do not want British Sign Language",
+        "editMode": {
+            "pageHeading": "cy-Do you want British Sign Language?",
+            "changeAlert": "cy-You can change your mind about including British Sign Language in this theory test or {{-openLink}}go back and keep your previous choice{{-closeLink}}.",
+            "cancelChangeButton": "cy-Cancel and keep your existing choice"
+        }
+    },
+    "leavingNsa": {
+        "pageTitle": "cy-Leaving NSA",
+        "heading": "cy-Book your theory test online now or wait and talk to us first",
+        "paragraph1": "cy-You can select 'Continue' to book your theory test online now.",
+        "paragraph2": "cy-Or, if you prefer, select 'Talk to our support team' and we'll contact you at a convenient time to:",
+        "bullet1": "cy-talk through your needs",
+        "bullet2": "cy-check you have the right support",
+        "bullet3": "cy-book your test for you",
+        "supportButton": "cy-Talk to our support team"
+    },
+    "stayingNsa": {
+        "pageTitle": "cy-Staying NSA",
+        "pageHeading": "cy-We'll contact you about support for your theory test",
+        "paragraph1": "cy-Thank you for providing these details. You won't be able to book your test online right now. We need to know a little more about the kind of support that will help you.",
+        "paragraph2": "cy-Tell us how to contact you and we'll get in touch to make arrangements.",
+        "paragraph3": "cy-It will help us arrange your test if you can tell us where and when you would like to take it."
+    },
+    "customSupport": {
+        "pageTitle": "cy-Custom Support",
+        "pageHeading": "cy-Tell us what support you need",
+        "paragraph1": "cy-Accessible support is available to help make your theory test more comfortable.",
+        "paragraph2": "cy-You can provide more information about what you need here.",
+        "paragraph3": "cy-Select 'Continue' if you would prefer to talk about this when we contact you.",
+        "paragraph4": "cy-Some types of support need time to arrange. This means you may not be able to book online now.",
+        "inputHint": "cy-Tell us what you need (optional)",
+        "errorMessage": "cy-The text you enter here must be 4000 characters or fewer"
+    },
+    "selectSupportType": {
+        "pageTitle": "cy-Which type of support do you need",
+        "heading1": "cy-What test support do you want?",
+        "para1": "cy-Accessible support is available to make your theory test more comfortable.",
+        "para2": "cy-Select the items you want for your test. If you need something else, select 'Other'.",
+        "option1": "cy-On-screen using British Sign Language",
+        "option2": "cy-An interpreter next to me using British Sign Language",
+        "option3": "cy-Headphones and voiceover",
+        "option4": "cy-A translator",
+        "option5": "cy-Extra time",
+        "option6": "cy-Someone to ask the test questions in a different way (an Oral Language Modifier)",
+        "option7": "cy-Someone to read the test to me and enter my answers",
+        "option8": "cy-Other",
+        "errors": {
+            "noneSelected": "cy-You must select at least one option. If the support you want is not listed, select 'Other'.",
+            "badCombination": "cy-You have selected sign language and voiceover. Please select only one of these options. If the support you want is not listed, select 'Other'."
+        }
+    },
+    "voicemail": {
+        "pageTitle": "cy-Voicemail",
+        "pageHeading": "cy-Can we leave telephone messages if we can't reach you?",
+        "errorBannerNotification": "cy-You must select an option"
+    },
+    "preferredDay": {
+        "pageTitle": "cy-Preferred Date",
+        "pageHeading": "cy-Is there a day and time that's best for you?",
+        "paragraph1": "cy-Tell us if there's a particular time of day, or day of the week that's better for you. We will try to arrange your test around these choices.",
+        "paragraph2": "cy-If you are flexible about when you take your test, select 'I will decide this later'.",
+        "radioHint": "cy-Select one option.",
+        "option1": "cy-I want a particular time or day",
+        "option1Hint": "cy-Enter more details (optional)",
+        "option2": "cy-I will decide this later",
+        "validationError": "cy-You must select an option.",
+        "errorMessage": "cy-The text you enter here must be 4000 characters or fewer"
+    },
+    "preferredLocation": {
+        "pageTitle": "cy-Preferred Location",
+        "pageHeading": "cy-Do you know which test locations you want?",
+        "paragraph1": "cy-Tell us if your test needs to be a in a particular place.",
+        "paragraph2": "cy-If you are flexible about where you take your test, select 'I will decide this later'.",
+        "radioHint": "cy-Select one option.",
+        "option1": "cy-I know which locations I want",
+        "option1Content": {
+            "paragraph1": "cy-Tell us if there are particular locations that would be better for taking your test. For example, 'Leeds and Bradford' or 'south London'.",
+            "paragraph2": "cy-You can also include any test centre features that would help you to take your test. For example:",
+            "bullet1": "cy-close to a train station or bus stop",
+            "bullet2": "cy-close to car parking",
+            "bullet3": "cy-not located in a high-rise building"
+        },
+        "option1Hint": "cy-Enter the test locations you want",
+        "option2": "cy-I will decide this later",
+        "validationError": "cy-You must select an option.",
+        "errorMessage": "cy-The text you enter here must be 4000 characters or fewer"
+    },
+    "telephoneContact": {
+        "pageTitle": "cy-Telephone Contact",
+        "heading": "cy-Would you prefer to be contacted by telephone?",
+        "hintText": "cy-Select one option.",
+        "telephoneLabel": "cy-Enter your telephone number",
+        "noSelectionError": "cy-You must select an option",
+        "noTelephoneError": "cy-Enter a telephone number",
+        "telephoneTooLongError": "cy-The telephone number must be 50 characters or fewer"
+    },
+    "errors": {
+        "500": {
+            "heading": "cy-Service temporarily unavailable",
+            "description": "cy-A technical problem with our system means this service isn't available right now.",
+            "apology": "cy-We're very sorry. Please try again later."
+        }
+    }
+}

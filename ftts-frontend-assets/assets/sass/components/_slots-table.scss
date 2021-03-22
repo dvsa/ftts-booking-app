@@ -1,0 +1,34 @@
+.slots-table {
+  width: 100%;
+  border: 1px solid #979797;
+  box-sizing: border-box;
+}
+.slots-table:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.slots-table__header {
+  float: left;
+  width: 100%;
+  padding: 15px 10px 0 10px;
+  border-bottom: 1px solid #979797;
+  background: #d8d8d8;
+  box-sizing: border-box;
+}
+
+.slots-table table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.slots-table td {
+  padding: 10px;
+  vertical-align: top;
+  text-align: left;
+}
+
+.slots-table__cell-border-right {
+  border-right: 1px solid #979797;
+}

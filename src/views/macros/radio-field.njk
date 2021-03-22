@@ -1,0 +1,13 @@
+{% macro radioField(label, id, name, radioValue, chosenValue, hintText) %}
+<div class="govuk-radios__item">
+	<input class="govuk-radios__input" id="{{ id }}" name="{{ name }}" type="radio" value="{{ radioValue }}"
+				 {% if chosenValue | lower === radioValue | lower %} checked {% endif %}>
+
+	<label class="govuk-label govuk-radios__label" for="{{ id }}">
+		{{ label | safe }}
+	</label>
+  {% if hintText %}
+    <div id="{{ id }}-hint" class="govuk-hint govuk-radios__hint"> {{ hintText }} </div>
+  {% endif %}
+</div>
+{% endmacro %}

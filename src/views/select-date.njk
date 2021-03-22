@@ -1,0 +1,165 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{% block page_title %}
+  {{ t('selectDate.pageTitle') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% if not inEditMode %}
+    <div role="navigation" aria-label="back">
+      {{ govukBackLink({
+        text: t('generalContent.back'),
+        href: selectTestCentreLink
+      }) }}
+    </div>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+  {% include "includes/error-banner.njk" %}
+
+  {% if inEditMode %}
+    <div class="alert govuk-body govuk-!-margin-bottom-8">
+      {{ t('selectDate.editMode.changeAlert', {
+        openLink: '<a href="../check-your-answers">',
+        closeLink: '</a>'
+      }) | nl2br | safe }}
+      <br>
+      {{ govukWarningText({
+        text: t('selectDate.editMode.importantWarning'),
+        iconFallbackText: "Important",
+        classes: 'govuk-!-margin-bottom-0'
+      }) }}
+    </div>
+  {% endif %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form method="POST">
+        <div class="govuk-form-group {% if errors %} govuk-form-group--error {% endif %}">
+          <fieldset class="govuk-fieldset" role="group">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl govuk-!-margin-bottom-8">
+              <h1 class="govuk-fieldset__heading">
+                {{ t('selectDate.heading') }}
+              </h1>
+            </legend>
+            <p>{{ t('selectDate.description') }}</p>
+            <span class="govuk-hint">{{ t('selectDate.hint') }}</span>
+            {% if errors %}
+              <span class="govuk-error-message">
+                <span class="govuk-visually-hidden">Error:</span> {{ errors[0].msg }}
+              </span>
+            {% endif %}
+            <div class="govuk-date-input" id="date" style="display: inline-block">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="day">
+                    {{ t('selectDate.dayLabel') }}
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2 {% if 'day'|existsAsAnErrorIn(errors) or 'date'|existsAsAnErrorIn(errors) %} govuk-input--error {% endif %}" id="day" name="day" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ day }}">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="month">
+                    {{ t('selectDate.monthLabel') }}
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2 {% if 'month'|existsAsAnErrorIn(errors) or 'date'|existsAsAnErrorIn(errors) %} govuk-input--error {% endif %}" id="month" name="month" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ month }}">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="year">
+                    {{ t('selectDate.yearLabel') }}
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4 {% if 'year'|existsAsAnErrorIn(errors) or 'date'|existsAsAnErrorIn(errors) %} govuk-input--error {% endif %}" id="year" name="year" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ year }}">
+                </div>
+              </div>
+            </div>
+            <div id="date-picker-container" class="hidden">
+              <img id="date-picker-icon" src="{{assetPath}}/images/calendar-icon.svg" width="45" alt="date picker">
+              <div id="date-picker" class="hidden">
+                <div id="calendar" class="hello-week"></div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        {% if inEditMode %}
+          <button id="submit" type="submit" class="govuk-button govuk-!-margin-right-1">{{ t('generalContent.confirmChangeButton') }}</button>
+          <a href="../check-your-answers" id="cancel" class="govuk-button govuk-button--secondary">{{ t('selectDate.editMode.cancelChangeButton') }}</a>
+        {% else %}
+          <button id="submit" type="submit" class="govuk-button"> {{ t('generalContent.continueButton') }}</button>
+        {% endif %}
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+
+  <script src="{{assetPath}}/javascripts/hello.week.min.js"></script>
+  <script nonce="{{scriptNonce}}">
+    if (!browserIsIE()) {
+      var datePickerContainer = document.getElementById('date-picker-container')
+      datePickerContainer.classList.remove('hidden');
+
+      var datePickerIcon = document.getElementById('date-picker-icon');
+      var datePicker = document.getElementById('date-picker');
+
+      var calendar = new HelloWeek({
+          selector: '#calendar',
+          langFolder: '/public/langs/',
+          lang: 'en',
+          disablePastDays: true,
+          minDate: {{ minDate | safe }},
+          maxDate: {{ maxDate | safe }},
+          onSelect: onSelectDate
+      });
+
+      datePickerIcon.addEventListener('click', function(e) {
+        showDatePicker();
+        e.stopPropagation();
+      });
+
+      document.addEventListener('click', function(e) {
+        var clickedOffDatePicker = !datePicker.contains(e.target);
+        if (clickedOffDatePicker) {
+          hideDatePicker();
+        }
+      });
+    }
+
+    function onSelectDate() {
+      hideDatePicker();
+      populateDateField(calendar.getDays()[0]);
+    }
+
+    function populateDateField(date) {
+      var splitDate = date.split('/');
+      document.getElementById('day').value = splitDate[0];
+      document.getElementById('month').value = splitDate[1];
+      document.getElementById('year').value = splitDate[2];
+    }
+
+    function showDatePicker() {
+      datePicker.classList.remove('hidden');
+    }
+
+    function hideDatePicker() {
+      datePicker.classList.add('hidden');
+    }
+
+    function browserIsIE() {
+      var userAgent = window.navigator.userAgent;
+      var isIE = /MSIE|Trident/.test(userAgent);
+      return isIE;
+    }
+  </script>
+
+{% endblock %}

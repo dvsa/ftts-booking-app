@@ -1,0 +1,57 @@
+import { PaymentModel } from './payment-model';
+import * as DestinationRequest from '../../../node_modules/testcafe-hammerhead/lib/request-pipeline/destination-request';
+import { LANGUAGE } from '../../../src/domain/enums';
+
+export const testPayment: PaymentModel = new PaymentModel('1234567890123456', '1225', '123');
+
+export enum TEST_TYPE {
+  CAR = 'car',
+  MOTORCYCLE = 'motorcycle',
+}
+
+export const LANGUAGES: Map<string, string> = new Map([
+  [LANGUAGE.ENGLISH, 'English'],
+  [LANGUAGE.WELSH, 'Cymraeg (Welsh)'],
+]);
+
+export const searchWithGBPostcode = 'B1 1TT';
+export const searchWithNIPostcode = 'BT7 1NT';
+export const searchWithPartialPostcode = 'B15';
+export const searchWithAreaName = 'Belfast international airport';
+export const searchWithCityName = 'London';
+export const searchWithEscapeJavaScript = 'Nice site, I think I\'ll take it. <script>alert(\'Executing JS\')</script>';
+export const searchWithLongTerm = 'The main childrens library in the Birmingham city near the new street train station, adjacent to victoria square point where the book fair will be held in this summer 2020 The main childrens library in the Birmingham city near the new street train station, adjacent to victoria square point where the book fair will be held in this summer 2020 The main childrens library in the Birmingham city near the new street train station, adjacent to victoria square point where the book fair will be held in this summer20';
+export const searchWithInvalid2Characters = 'B1';
+export const searchWithInvalid513Characters = 'The main childrens library in the Birmingham city near the new street train station, adjacent to victoria square point where the book fair will be held in this summer 2020 The main childrens library in the Birmingham city near the new street train station, adjacent to victoria square point where the book fair will be held in this summer 2020 The main childrens library in the Birmingham city near the new street train station, adjacent to victoria square point where the book fair will be held in this summer 20';
+export const searchWithZeroReults = 'warningZeroResults';
+export const searchWithError = 'errorUnknownError';
+export const generalTitle = '- Book your theory test - GOV.UK';
+export const stringWith101Chars = 'dfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfg';
+export const stringWith4001Chars = 'dfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgdfgdsfgsfgdfgdsfga';
+
+// Manage bookings data - Local
+export const bookingReference1 = 'A-000-000-001';
+export const bookingReference2 = 'A-000-000-002';
+export const bookingReference3 = 'A-000-000-003';
+export const bookingReference4 = 'A-000-000-004';
+export const drivingLicenceGBSingleBooking = 'AAAAA061102W97YT';
+export const drivingLicenceNISingleBooking = '17874131';
+export const drivingLicenceGBMultipleBookings = 'BBBBB061102W97YT';
+export const drivingLicenceNIMultipleBookings = '55667788';
+export const drivingLicenceGBCSCBookingSuccess = 'CCCCC061102W97YT';
+export const drivingLicenceGBCSCBookingFailure = 'DDDDD061102W97YT';
+export const drivingLicenceGBPrevPassed = 'EEEEE061102W97YT';
+export const drivingLicenceGBPrevFailed = 'FFFFF061102W97YT';
+export const drivingLicenceErrorHandling = 'GGGGG061102W97YT';
+
+// Manage bookings data - FTTS Shire
+export const bookingReferenceGB = 'B-000-049-764';
+export const drivingLicenceGB = 'JONES061102W97YT';
+export const bookingReferenceNI = 'B-000-069-802';
+export const drivingLicenceNI = '17874131';
+
+export const setRequestTimeout = new Promise<void>((resolve) => {
+  DestinationRequest.XHR_TIMEOUT = 120000;
+  DestinationRequest.TIMEOUT = 120000;
+  resolve();
+});

@@ -1,0 +1,146 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/panel/macro.njk" import govukPanel %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "macros/collapsed-centre-location.njk" import collapsedCentreLocation %}
+
+
+{% block page_title %}
+  {{ t('bookingConfirmation.pageTitle') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full govuk-!-margin-bottom-3">
+    {% set panelHTML %}
+      <span>{{ t('bookingConfirmation.panelBookingRef') }}</span>
+      <br>
+      <span class="govuk-!-font-size-48 govuk-!-font-weight-bold">{{ bookingRef }}</span>
+      <br>
+      <span>{{ t('bookingConfirmation.keepItSafe') }}</span>
+    {% endset %}
+    {{
+      govukPanel({
+        titleText: t('bookingConfirmation.heading'),
+        html: panelHTML,
+        attributes: { 'data-automation-id': 'confirmation-panel' }
+      })
+    }}
+  </div>
+
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-!-margin-top-6 govuk-!-margin-bottom-6">
+      <p class="govuk-body">
+        <strong>{{ t('bookingConfirmation.keepBookingRef') }}</strong> {{ t('bookingConfirmation.bookingRefPrompt') }} <span id="nonJsPrint" data-automation-id="nonJsPrint">{{ t('bookingConfirmation.printLink') }}</span><a href="#" class="govuk-body hidden" id="printTrigger" data-automation-id="printTrigger">{{ t('bookingConfirmation.printLink') }}</a>
+      </p>
+    </div>
+
+    {% if voiceover | lower == 'no' %}
+      {% set voiceoverOption = t('generalContent.no') %}
+    {% else %}
+      {% set voiceoverOption = t('generalContent.language.' + voiceover | lower) %}
+    {% endif %}
+
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: t('bookingConfirmation.testTypeLabel')
+          },
+          value: {
+            text: t('generalContent.testTypes.' + testType)
+          },
+          attributes: {
+            'data-automation-id': 'test-type'
+          }
+        },
+        {
+          key: {
+            text: t('bookingConfirmation.dateLabel')
+          },
+          value: {
+            html: dateTime | asFullDateTimeWithoutWeekday
+          },
+          attributes: {
+            'data-automation-id': 'test-date'
+          }
+        },
+        {
+          key: {
+            text: t('bookingConfirmation.locationLabel')
+          },
+          value: {
+            html: collapsedCentreLocation(centre)
+          },
+          attributes: {
+            'data-automation-id': 'test-location'
+          }
+        },
+        {
+          key: {
+            text: t('bookingConfirmation.testLanguageLabel')
+          },
+          value: {
+            text: language
+          },
+          attributes: {
+            'data-automation-id': 'test-language'
+          }
+        },
+                {
+          key: {
+            text: t('bookingConfirmation.bslLabel')
+          },
+          value: {
+            text: bsl
+          },
+          attributes: {
+            'data-automation-id': 'bsl'
+          }
+        },
+        {
+          key: {
+            text: t('bookingConfirmation.voiceoverLabel')
+          },
+          value: {
+            text: voiceoverOption
+          },
+          attributes: {
+            'data-automation-id': 'voiceover'
+          }
+        }
+      ]
+    }) }}
+
+    {% include "includes/booking-confirmation-instructions.njk" %}
+  </div>
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script nonce="{{scriptNonce}}">
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', enablePrintButton);
+  } else {
+    enablePrintButton();
+  }
+
+  function printPage(e) {
+    window.print();
+    e.stopPropagation();
+  }
+
+  function enablePrintButton() {
+    const printTrigger = document.getElementById('printTrigger');
+    printTrigger.classList.remove('hidden');
+    printTrigger.onclick = printPage;
+
+    const nonJsPrintSpan = document.getElementById('nonJsPrint');
+    nonJsPrintSpan.classList.add('hidden');
+  }
+</script>
+{% endblock %}

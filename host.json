@@ -1,0 +1,19 @@
+{
+  "version": "2.0",
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
+    "version": "[1.*, 3.0.0)"
+  },
+  "functionTimeout": "00:10:00",
+  "extensions": {
+    "http": {
+      "routePrefix": "",
+      "maxOutstandingRequests": 1000,
+      "maxConcurrentRequests": 1000,
+      "dynamicThrottlesEnabled": false
+    }
+  },
+  "logging": {
+    "fileLoggingMode": "always"
+  }
+}

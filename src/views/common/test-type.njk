@@ -1,0 +1,80 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{% block page_title %}
+  {{ t('testType.pageTitle') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% if not inEditMode and backLink %}
+    <div role="navigation" aria-label="back">
+      {{ govukBackLink({
+        text: t('generalContent.back'),
+        href: backLink
+      }) }}
+    </div>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/error-banner.njk" %}
+
+{% if inEditMode and not errors %}
+  <div class="alert govuk-body govuk-!-margin-bottom-8">
+    {{ t('testType.changeAlert', {
+      openLink: '<a href="../check-your-answers">',
+      closeLink: '</a>'
+    }) | safe }}
+    <div class="govuk-warning-text govuk-!-margin-top-2 govuk-!-margin-bottom-0">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-warning-text__assistive">{{ t('generalContent.warning') }}</span>
+          {{ t('testType.changeWarning') }}
+      </strong>
+    </div>
+  </div>
+{% endif %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-form-group">
+      <form method="POST">
+        {% set hasError = "testType"|existsAsAnErrorIn(errors) %}
+        {% set errorObject = null %}
+        {% if hasError %}
+          {% set errorObject = {
+            text: "testType"|fieldErrorMessage(errors)
+          } %}
+        {% endif %}
+        {{ govukRadios({
+          idPrefix: "testType",
+          name: "testType",
+          fieldset: {
+            legend: {
+              text: t('testType.heading'),
+              isPageHeading: true,
+              classes: 'govuk-fieldset__legend--xl'
+            }
+          },
+          items: tests,
+          errorMessage: errorObject
+        }) }}
+        <br>
+        {% if inEditMode %}
+          <button id="submit" type="submit" class="govuk-button govuk-!-margin-right-1">{{ t('generalContent.confirmChangeButton') }}</button>
+          <a href="../check-your-answers" id="cancel" class="govuk-button govuk-button--secondary">{{ t('testType.cancelChangeButton') }}</a>
+        {% else %}
+          <button id="submit" type="submit" class="govuk-button">{{ t('generalContent.continueButton') }}</button>
+        {% endif %}
+      </form>
+    </div>
+
+    <h2 class="govuk-heading-l">{{ t('testType.subheading') }}</h2>
+    <p class="govuk-body">{{ t('testType.entitlementText') }}</p>
+    <p class="govuk-body">{{ t('testType.licenceCategoryText') }} <a href="https://www.gov.uk/driving-licence-categories" target="_blank">{{ t('testType.licenceCategoryLinkText') }}</a>.</p>
+  </div>
+</div>
+
+{% endblock %}

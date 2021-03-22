@@ -1,0 +1,67 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/panel/macro.njk" import govukPanel %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "macros/collapsed-centre-location.njk" import collapsedCentreLocation %}
+
+{% block page_title %}
+  {{ t('bookingConfirmation.pageTitle') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    {% set panelHTML %}
+      <span class="govuk-!-font-weight-bold"> {{ t('bookingConfirmation.nonStandardAccommodation.panelContact') }}</span>
+      <br>
+      <span class="govuk-!-font-size-36">{{ t('bookingConfirmation.nonStandardAccommodation.panelBookingRef') }}</span>
+      <br>
+      <span class="govuk-!-font-size-36 govuk-!-font-weight-bold">{{ bookingRef }}</span>
+      <br>
+    {% endset %}
+    {{
+      govukPanel({
+        titleText: t('bookingConfirmation.nonStandardAccommodation.pageHeading'),
+        html: panelHTML,
+        attributes: { 'data-automation-id': 'confirmation-panel' }
+      })
+    }}
+  </div>
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-!-margin-bottom-5">
+      <p class="govuk-body">
+        {{ t('bookingConfirmation.nonStandardAccommodation.printPagePrompt') }} <span id="nonJsPrint" data-automation-id="nonJsPrint">{{ t('bookingConfirmation.printLink') }}</span><a id="printTrigger" data-automation-id="printTrigger" href="#" class="govuk-body hidden">{{ t('bookingConfirmation.printLink') }}</a>
+      </p>
+    </div>
+    {% include "includes/booking-confirmation-instructions.njk" %}
+  </div>
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script nonce="{{scriptNonce}}">
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', enablePrintButton);
+  } else {
+    enablePrintButton();
+  }
+
+  function printPage(e) {
+    window.print();
+    e.stopPropagation();
+  }
+
+  function enablePrintButton() {
+    const printTrigger = document.getElementById('printTrigger');
+    printTrigger.classList.remove('hidden');
+    printTrigger.onclick = printPage;
+
+    const nonJsPrintSpan = document.getElementById('nonJsPrint');
+    nonJsPrintSpan.classList.add('hidden');
+  }
+</script>
+{% endblock %}

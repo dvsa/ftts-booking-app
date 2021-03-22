@@ -1,0 +1,7 @@
+{% if shouldShowCookieMessage %}
+  <div class="app-cookie-banner">
+    <p class="app-cookie-banner__message">
+      {{ t('generalContent.cookie.cookieText') }} <a href="{{ t('generalContent.cookie.cookieLink') }}">{{ t('generalContent.cookie.cookieLinkText') }}</a>
+    </p>
+  </div>
+{% endif %}

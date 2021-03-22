@@ -1,0 +1,46 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "macros/collapsed-centre-location.njk" import collapsedCentreLocation %}
+
+
+{% block page_title %}
+  {{ t('manageBookingCancel.pageTitle') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  <div role="navigation" aria-label="back">
+    {{ govukBackLink({
+      text: t('generalContent.back'),
+      href: ['../', booking.reference] | join('')
+    }) }}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">{{ t('manageBookingCancel.heading') }}</h1>
+    <p class="govuk-body">
+      <p>{{ t('manageBookingCancel.description') }} <span class="govuk-!-font-weight-bold">‘{{ t('manageBookingCancel.buttonCancel') }}’</span> {{ t('manageBookingCancel.description-2') }}</p>
+
+      <form method="post" class="govuk-body govuk-!-margin-top-5">
+        <button type="submit" class="govuk-button govuk-button--warning govuk-!-margin-right-3">{{ t('manageBookingCancel.buttonCancel') }}</button>
+        <a href="../{{booking.reference}}" class="govuk-button govuk-button--secondary">{{ t('manageBookingCancel.buttonKeep') }}</a>
+      </form>
+
+      <hr>
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-5">{{ t('manageBookingCancel.help') }}</h2>
+      <p class="govuk-body">{{ t('manageBookingCancel.contact') }}</p>
+      <h3 class="govuk-heading-s">{{ t('manageBookingCancel.support') }}</h3>
+      <a class="govuk-body" href="mailto:{{t('generalContent.contactEmail')}}?subject=DVSA: ">{{t('generalContent.contactEmail')}}</a>
+      <p class="govuk-body">{{ t('manageBookingCancel.telephone') }}</p>
+      <div class="govuk-inset-text">{{ t('manageBookingCancel.niPrompt') }}</div>
+    </p>
+  </div>
+</div>
+
+{% endblock %}

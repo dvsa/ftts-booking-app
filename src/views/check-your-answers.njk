@@ -1,0 +1,224 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "macros/collapsed-centre-location.njk" import collapsedCentreLocation %}
+
+{% include "includes/error-banner.njk" %}
+
+{% block page_title %}
+  {{ t('checkYourAnswers.pageTitle') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  <div role="navigation" aria-label="back">
+    {{ govukBackLink({
+      text: t('generalContent.back'),
+      href: 'choose-appointment'
+    }) }}
+  </div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+    <h1 class="govuk-heading-xl">{{ t('checkYourAnswers.heading') }}</h1>
+
+    <h2 class="govuk-heading-m">{{ t('checkYourAnswers.personalDetails.heading') }}</h2>
+
+    {{ govukSummaryList({
+      classes: "govuk-!-margin-bottom-9",
+      rows: [
+        {
+          key: {
+            text: t('checkYourAnswers.personalDetails.nameLabel')
+          },
+          value: {
+            text: [firstNames, surname] | join(" ")
+          },
+          classes: "govuk-summary-list__row--no-border"
+        },
+        {
+          key: {
+            text: t('checkYourAnswers.personalDetails.dobLabel')
+          },
+          value: {
+            text: dateOfBirth | asFullDateWithoutWeekday
+          },
+          classes: "govuk-summary-list__row--no-border"
+        },
+        {
+          key: {
+            text: t('checkYourAnswers.personalDetails.licenceNumLabel')
+          },
+          value: {
+            text: licenceNumber
+          }
+        },
+        {
+          key: {
+            text: t('checkYourAnswers.personalDetails.emailLabel')
+          },
+          value: {
+            text: emailAddress
+          },
+          actions: {
+            items: [
+              {
+                href: 'contact-details',
+                text: t('generalContent.changeLink'),
+                visuallyHiddenText: t('checkYourAnswers.personalDetails.emailLabel')
+              }
+            ]
+          }
+        }
+      ]
+    }) }}
+
+    <h2 class="govuk-heading-m">{{ t('checkYourAnswers.testDetails.heading') }}</h2>
+
+    {% if target === 'gb'%}
+      {% set languageActionItems = [
+        {
+          href: 'test-language',
+          text: t('generalContent.changeLink'),
+          visuallyHiddenText: t('checkYourAnswers.testDetails.testLanguageLabel')
+        }
+      ] %}
+    {% endif %}
+
+    {% if voiceover == t('generalContent.no') %}
+      {% set voiceoverValue = t('generalContent.no') %}
+    {% else %}
+      {% set voiceoverValue = t('generalContent.language.' + voiceover | lower) %}
+    {% endif %}
+
+    {{ govukSummaryList({
+      classes: "govuk-!-margin-bottom-9",
+      rows: [
+        {
+          key: {
+            text: t('checkYourAnswers.testDetails.testTypeLabel')
+          },
+          value: {
+            text: t('generalContent.testTypes.' + testType)
+          },
+          actions: {
+            items: [
+              {
+                href: 'test-type',
+                text: t('generalContent.changeLink'),
+                visuallyHiddenText: t('checkYourAnswers.testDetails.testTypeLabel')
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: t('checkYourAnswers.testDetails.costLabel')
+          },
+          value: {
+            text: "£23"
+          }
+        },
+        {
+          key: {
+            text: t('checkYourAnswers.testDetails.timeDateLabel')
+          },
+          value: {
+            text: dateTime | asFullDateTimeWithoutWeekday
+          },
+          actions: {
+            items: [
+              {
+                href: 'change-location-time',
+                text: t('generalContent.changeLink'),
+                visuallyHiddenText: t('checkYourAnswers.testDetails.timeLabel')
+              }
+            ]
+          },
+          classes: "govuk-summary-list__row--no-border"
+        },
+        {
+          key: {
+            text: t('checkYourAnswers.testDetails.locationLabel')
+          },
+          value: {
+            text: collapsedCentreLocation(testCentre)
+          }
+        },
+        {
+          key: {
+            text: t('checkYourAnswers.testDetails.testLanguageLabel')
+          },
+          value: {
+            text: testLanguage
+          },
+          actions: {
+            items: languageActionItems
+          }
+        },
+        {
+          key: {
+            text: t('checkYourAnswers.testDetails.additionalSupportLabel')
+          },
+          value: {
+            text: additionalSupport
+          },
+          actions: {
+            items: [
+              {
+                href: 'choose-support',
+                text: t('generalContent.changeLink'),
+                visuallyHiddenText: t('checkYourAnswers.testDetails.additionalSupportLabel')
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: t('checkYourAnswers.testDetails.bslLabel')
+          },
+          value: {
+            text: bsl
+          },
+          actions: {
+            items: [
+              {
+                href: '/bsl',
+                text: t('generalContent.changeLink'),
+                visuallyHiddenText: t('checkYourAnswers.testDetails.bslLabel')
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: t('checkYourAnswers.testDetails.voiceoverLabel')
+          },
+          value: {
+            text: voiceoverValue
+          },
+          actions: {
+            items: [
+              {
+                href: '../change-voiceover',
+                text: t('generalContent.changeLink'),
+                visuallyHiddenText: t('checkYourAnswers.testDetails.voiceoverLabel')
+              }
+            ]
+          }
+        }
+      ]
+    }) }}
+
+    <form action="check-your-answers" method="POST">
+      {{ govukButton({
+        text: t('checkYourAnswers.continueButton')
+      }) }}
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

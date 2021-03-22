@@ -1,0 +1,54 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
+
+{% block page_title %}
+  {{ t('customSupport.pageTitle') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  <div role="navigation" aria-label="back">
+    {{ govukBackLink({
+      text: t('generalContent.back'),
+      href: '/select-support-options',
+      attributes: { 'data-automation-id': 'back' }
+    }) }}
+  </div>
+{% endblock %}
+
+{% block content %}
+  {% include "includes/error-banner.njk" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl" data-automation-id="heading">{{ t('customSupport.pageHeading') }}</h1>
+      <p class="govuk-body">{{ t('customSupport.paragraph1') }}</p>
+      <p class="govuk-body">{{ t('customSupport.paragraph2') }}</p>
+      <p class="govuk-body">{{ t('customSupport.paragraph3') }}</p>
+      <p class="govuk-body">{{ t('customSupport.paragraph4') }}</p>
+
+      <form method="post">
+        {{ govukCharacterCount({
+          id: "support",
+          name: "support",
+          maxlength: 4000,
+          label: {
+            text: t('customSupport.inputHint')
+          },
+          value: savedCustomSupport,
+          errorMessage: {
+            text: t('customSupport.errorMessage')
+          } if errors and errors.length > 0 else false,
+          attributes: { 'data-automation-id': 'input' }
+        }) }}
+
+        {{ govukButton({
+          text: t('generalContent.continueButton'),
+          classes: 'govuk-!-margin-right-1',
+          attributes: { 'data-automation-id': 'continue', 'type': 'submit' }
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

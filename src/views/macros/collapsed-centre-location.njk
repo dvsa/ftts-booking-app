@@ -1,0 +1,15 @@
+{% macro collapsedCentreLocation(centre) %}
+  <p>
+    <span class="govuk-!-font-weight-bold">{{ centre.name }}</span>
+    {% if centre.addressLine1 | length %}
+      <br>{{ centre.addressLine1 }},
+    {% endif %}
+    {% if centre.addressLine2 | length %}
+      <br>{{ centre.addressLine2 }},
+    {% endif %}
+    {% if centre.addressCounty | length %}
+      <br>{{ centre.addressCounty }},
+    {% endif %}
+    <br>{{ centre.addressCity }} {{ centre.addressPostalCode }}
+  </p>
+{% endmacro %}

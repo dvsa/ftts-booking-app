@@ -1,0 +1,305 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/tabs/macro.njk" import govukTabs %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{% block page_title %}
+  {{ t('selectTestCentre.pageTitle') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% if not inEditMode %}
+    <div role="navigation" aria-label="back">
+      {{ govukBackLink({
+        text: t('generalContent.back'),
+        href: 'find-test-centre'
+      }) }}
+    </div>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+  {% if inEditMode %}
+    <div class="alert govuk-body govuk-!-margin-bottom-8">
+      {{ t('selectTestCentre.editMode.changeAlert', {
+        openLink: '<a href="../check-your-answers">',
+        closeLink: '</a>'
+      }) | nl2br | safe }}
+    </div>
+  {% endif %}
+
+  {% include "includes/error-banner.njk" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+          <h1 class="govuk-fieldset__heading" style="word-break: break-word;">
+          {{ t('selectTestCentre.heading') }}
+          </h1>
+        </legend>
+      </fieldset>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row govuk-!-margin-top-4">
+    <div class="govuk-grid-column-full govuk-body">
+      {{ t('selectTestCentre.thereAre') }} <span id="centreCount">{{ centres | length }}</span> {{ t('selectTestCentre.testCentresNear') }} <span class="govuk-body govuk-!-font-weight-bold" id="inputSearchQuery">{{ searchQuery | escape }}</span>
+      -
+      <a href="find-test-centre" id="changeQuery">
+        {{ t('generalContent.changeLink') }}
+      </a>
+    </div>
+  </div>
+
+  {% if centres | length %}
+
+  {% set listPanel %}
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <span id="toggleDistanceUnit" class="govuk-body govuk-!-margin-bottom-0" style="float:right">
+          {% if distanceUom === "km" %}
+            <a href="?distanceUom=miles">
+              {{ t('selectTestCentre.milesLink') }}
+            </a>
+          {% else %}
+            <a href="?distanceUom=km">
+              {{ t('selectTestCentre.kmLink') }}
+            </a>
+          {% endif %}
+        </span>
+      </div>
+    </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <div class="govuk-form-group">
+          <form method="post">
+            <fieldset class="govuk-fieldset" aria-describedby="list-of-test-centres">
+              {% for centre in centres %}
+                <div class="test-centre">
+                  <div class="govuk-table__row govuk-!-padding-top-4">
+                    {% if centre.distance %}
+                      <span style="float: right" class="govuk-body govuk-!-padding-top-2 govuk-!-padding-right-1 govuk-!-font-weight-bold centre-distance">
+                        {% if distanceUom === "km" %}
+                          {{ centre.distance | milesToKilometres | formatDistance }} km
+                        {% else %}
+                          {{ centre.distance | formatDistance }} miles
+                        {% endif %}
+                      </span>
+                    {% endif %}
+                    <div class="govuk-!-padding-top-2">
+                      <h2 class="govuk-heading-m centre-name" for="centre-{{loop.index}}">
+                        {{centre.name}}
+                      </h2>
+                      <span class="govuk-body">
+                        <ul class="govuk-list">
+                          {% if centre.addressLine1 | length %}
+                            <li>
+                              <span class="govuk-!-font-weight-bold centre-address-line-1">{{centre.addressLine1}}</span>
+                            </li>
+                          {% endif %}
+                          {% if centre.addressLine2 | length %}
+                            <li class="centre-address-line-2">
+                              {{centre.addressLine2}}
+                            </li>
+                          {% endif %}
+                          <li class="centre-address-city">
+                            {{centre.addressCity}}
+                          </li>
+                          <li class="centre-address-postal-code">
+                            {{centre.addressPostalCode}}
+                          </li>
+                        </ul>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="govuk-table__row">
+                    <span class="govuk-body">
+                      {% set query = ([centre.addressLine1, centre.addressLine2, centre.addressPostalCode] | join(' ')) | urlencode %}
+                      <a href="https://www.google.com/maps/search/?api=1&query={{query}}" target="_blank">
+                        {{ t('selectTestCentre.mapLink') }}
+                      </a>
+                    </span>
+                  </div>
+                  <div class="govuk-table__row">
+                    <div class="govuk-table__cell">
+                      <details class="govuk-details">
+                        <summary class="govuk-details__summary centre-summary">
+                          <span class="govuk-details__summary-text">
+                            {{ t('selectTestCentre.aboutCentreHeading') }}
+                          </span>
+                        </summary>
+                        <div class="govuk-details__text centre-additional-info">
+                          <p class="govuk-!-margin-bottom-2">
+                            <strong>{{ t('selectTestCentre.description') }}: </strong><p>{{ centre.description | replace("\n", "</p><p>") | safe }}</p>
+                          </p>
+                        </div>
+                      </details>
+                      <button type="submit" name="centre" value="{{ centre | dump | escape }}" class="govuk-button govuk-button--secondary select-test-centre">
+                        {{ t('selectTestCentre.selectButton') }} <span class="govuk-visually-hidden">{{centre.name}}</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </fieldset>
+          </form>
+          {% if centres | length >= numberOfResults and numberOfResults < 50 %}
+            <div class="govuk-grid-row govuk-!-margin-top-8">
+              <div class="govuk-grid-column-full">
+                <a id="showMoreCentres" href="?numberOfResults={{nextNumberOfResults}}&distanceUom={{distanceUom}}" class="govuk-button govuk-button--secondary full-width-button">
+                  {{ t('selectTestCentre.seeMoreButton', { incrementValue: testCentreIncrementValue }) }}
+                </a>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  {% endset %}
+
+  {% set mapPanel %}
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-three-quarters-from-desktop float-right-desktop">
+        <div id="map" class="govuk-body responsive-map"></div>
+      </div>
+      <div class="govuk-grid-column-one-quarter-from-desktop">
+        <div class="govuk-body govuk-!-padding-top-1">
+          <span id="map-select-hint" class="govuk-!-font-weight-bold">{{ t('selectTestCentre.mapSelectHint') }}</span>
+          <form method="post">
+            {% for centre in centres %}
+              <div class="map-centre-details" id="map-centre-{{ centre.testCentreId }}" style="display:none">
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-0 map-centre-name">{{ centre.name }}</h2>
+                <p class="govuk-body map-centre-distance">
+                  {% if distanceUom === "km" %}
+                    {{ centre.distance | milesToKilometres | formatDistance }} km
+                  {% else %}
+                    {{ centre.distance | formatDistance }} miles
+                  {% endif %}
+                </p>
+                <button type="submit" name="centre" value="{{ centre | dump | escape }}" class="govuk-button govuk-button--secondary hide-on-desktop map-select-centre">Select <span class="govuk-visually-hidden">centre</span></button>
+                <ul class="govuk-list">
+                  <li><span class="govuk-!-font-weight-bold map-centre-address-line-1">{{ centre.addressLine1 }}</span></li>
+                  {% if centre.addressLine2 | length %}
+                  <li class="map-centre-address-line-2">{{ centre.addressLine2 }}</li>
+                  {% endif %}
+                  <li class="map-centre-address-city">{{ centre.addressCity }}</li>
+                  <li class="map-centre-address-postal-code">{{ centre.addressPostalCode }}</li>
+                </ul>
+                <p class="govuk-body">
+                  {% set query = ([centre.addressLine1, centre.addressLine2, centre.addressPostalCode] | join(' ')) | urlencode %}
+                  <a href="https://www.google.com/maps/search/?api=1&query={{query}}" target="_blank">
+                    {{ t('selectTestCentre.mapLink') }}
+                  </a>
+                </p>
+                <button type="submit" name="centre" value="{{ centre | dump | escape }}" class="govuk-button govuk-button--secondary show-on-desktop map-select-centre">
+                  {{ t('selectTestCentre.selectButton') }} <span class="govuk-visually-hidden">{{ centre.name }}</span>
+                </button>
+              </div>
+            {% endfor %}
+          </form>
+        </div>
+      </div>
+    </div>
+  {% endset %}
+
+  {{ govukTabs({
+    id: 'tabs',
+    items: [
+      {
+        label: t('selectTestCentre.listTabLabel'),
+        id: 'panel1',
+        panel: {
+          html: listPanel
+        }
+      },
+      {
+        label: t('selectTestCentre.mapTabLabel'),
+        id: 'panel2',
+        panel: {
+          html: mapPanel
+        }
+      }
+    ]
+  }) }}
+
+  {% endif %}
+
+{% endblock %}
+
+{% block pageScripts %}
+
+  {% if centres | length %}
+
+  <script nonce="{{scriptNonce}}">
+    var centres = {{ centres | dump | safe }};
+    var map;
+    var bounds;
+    var infowindow;
+
+    function initMap() {
+      // Create map
+      map = new google.maps.Map(document.getElementById('map'), {
+        mapTypeControl: false,
+        streetViewControl: false,
+        fullscreenControl: false,
+      });
+      bounds = new google.maps.LatLngBounds();
+      infowindow = new google.maps.InfoWindow();
+
+      // Add marker pin for each centre
+      for (i = 0; i < centres.length; i++) {
+        var centre = centres[i];
+        var position = new google.maps.LatLng(centre.latitude, centre.longitude);
+        var marker = new google.maps.Marker({
+            position: position,
+            map: map,
+            title: centre.name
+        });
+        marker.addListener('click', createMarkerCallback(marker, centre));
+        bounds.extend(position);
+      }
+
+      // Centre and fit map to the pins added
+      map.fitBounds(bounds);
+
+      // On page load, the map tab is hidden so the map zoom doesn't get centred correctly
+      // Refit the map to the bounds if the map tab is opened
+      var mapTab = document.getElementById('tab_panel2');
+      mapTab.addEventListener('click', function() {
+        map.fitBounds(bounds);
+      });
+    }
+
+    function createMarkerCallback(marker, centre) {
+      return function() {
+        // Set and open callout on top of marker pin
+        var formattedAddress =
+          [centre.addressLine1, centre.addressLine2, centre.addressCity, centre.addressPostalCode]
+            .filter(Boolean) // Skip if empty/null
+            .join('<br>');
+        var calloutContent =
+          '<div id="markerCallout" class="govuk-body-s govuk-!-margin-bottom-0" style="min-width:200px">' +
+          '<span class="govuk-!-font-weight-bold">' + centre.name + '</span><br>' +
+          formattedAddress +
+          '</div>';
+        infowindow.setContent(calloutContent);
+        infowindow.open(map, marker);
+
+        // Hide 'select a centre' hint and show relevant centre details beside map
+        document.getElementById('map-select-hint').style.display = 'none';
+        const allCentreDetails = document.getElementsByClassName('map-centre-details');
+        for (i = 0; i < allCentreDetails.length; i++) {
+          allCentreDetails[i].style.display = 'none';
+        }
+        document.getElementById('map-centre-' + centre.testCentreId).style.display = 'block';
+      }
+    }
+  </script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key={{mapsApiKey}}&callback=initMap">
+  </script>
+
+  {% endif %}
+
+{% endblock %}

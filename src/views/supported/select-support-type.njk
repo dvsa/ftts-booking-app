@@ -1,0 +1,55 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{% block page_title %}
+  {{ t('selectSupportType.pageTitle') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  <div role="navigation" aria-label="back">
+    {{ govukBackLink({
+      text: t('generalContent.back'),
+      href: '/',
+      attributes: {
+        'data-automation-id': 'back'
+      }
+    }) }}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/error-banner.njk" %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl" data-automation-id="heading">{{ t('selectSupportType.heading1') }}</h1>
+    <p class="govuk-body">{{ t('selectSupportType.para1') }}</p>
+    <form method="post">
+      {% set fieldName = 'selectSupportType' %}
+      {{ govukCheckboxes({
+        idPrefix: fieldName,
+        name: fieldName,
+        errorMessage: fieldName | fieldErrorObject(errors),
+        fieldset: {
+          legend: {
+            text: t('selectSupportType.para2'),
+            isPageHeading: false,
+            classes: 'govuk-body govuk-!-margin-bottom-5'
+          }
+        },
+        items: options
+      }) }}
+      {{ govukButton({
+        attributes: {
+          'data-automation-id': 'submit'
+        },
+        text: t('generalContent.continueButton')
+      }) }}
+    </form>
+  </div>
+</div>
+
+{% endblock %}

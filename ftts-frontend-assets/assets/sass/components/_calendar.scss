@@ -1,0 +1,251 @@
+.all-unset {
+  all: unset;
+  background-color: transparent;
+  border-style: none;
+  color: inherit;
+  display: inline;
+  font-family: inherit;
+  font-size: inherit;
+  margin: 0;
+  max-height: none;
+  max-width: none;
+  padding: 0;
+}
+
+.calendar {
+  margin-right: 0;
+  margin-left: 0;
+  padding: 8px;
+  background-color: #d8d8d8;
+  border: 1px solid #979797;
+  font-family: 'nta', Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+.calendar ul {
+  list-style-type: none;
+}
+
+.calendar:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.calendar-section {
+  box-sizing: border-box;
+  width: 50%;
+  float: left;
+  padding: 0 4px;
+}
+
+.calendar-month {
+  padding: 5px 5px 5px 5px;
+  width: 100%;
+  background: #4e9e97;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.calendar-month ul {
+  margin: 0;
+  padding: 0;
+}
+
+.calendar-month ul li {
+  color: white;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.calendar-month .prev {
+  float: left;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  cursor: pointer;
+}
+
+.calendar-month .next {
+  float: right;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  cursor: pointer;
+}
+
+.calendar-weekdays {
+  margin: 0;
+  padding: 5px 0;
+  background-color: #d8d8d8;
+  box-sizing: border-box;
+}
+
+.calendar-month ul li {
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+.calendar-weekdays li {
+  display: inline-block;
+  width: 12.5%;
+  color: black;
+  text-align: center;
+  font-size: 15px;
+}
+
+.calendar-days {
+  padding: 0;
+  background: white;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.calendar-days button {
+  width: 100%;
+}
+
+.calendar-days li {
+  list-style-type: none;
+  display: inline-block;
+  width: 12.5%;
+  text-align: center;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.calendar-days .active {
+  background: black;
+  -webkit-text-fill-color: white;
+  color: white;
+  cursor: pointer;
+}
+
+.calendar-cell-available {
+  background-color: white;
+  color: black;
+}
+.calendar-cell-available:hover {
+  cursor: pointer;
+}
+
+.calendar-cell-unavailable {
+  background-color: white;
+  opacity: 0.2;
+}
+
+@media only screen and (max-width: 940px) {
+  .calendar-section {
+    width: 100%;
+  }
+}
+
+.hello-week {
+  width: 14em;
+  @extend .govuk-body;
+
+  .navigation {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+  }
+
+  .prev,
+  .next {
+    padding: 1em;
+    cursor: pointer;
+  }
+
+  .period {
+    width: 100%;
+    font-weight: 400;
+    text-align: center;
+  }
+
+  .month {
+    display: flex;
+    flex-wrap: wrap;
+    cursor: pointer;
+    background-color: govuk-colour('light-grey');
+    outline: 1px solid govuk-colour('dark-grey');
+  }
+  
+  .week {
+    display: flex;
+    &.rtl {
+      flex-direction: row-reverse;
+    }
+    
+    .day {
+      color: govuk-colour('black');
+      text-decoration: none;
+    }
+  }
+
+  .day {
+    padding: 0.5em 0;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 14.28571%;
+    transition: background-color 0.2s cubic-bezier(0.25, 0.1, 0.49, 0.9);
+    background-color: govuk-colour('white');
+    outline: 1px solid govuk-colour('dark-grey');
+    color: govuk-colour('blue');
+    text-decoration: underline;
+
+    &.is-weekend {
+      color:  govuk-colour('dark-blue');
+    }
+    
+    &.is-today {
+      border-bottom: 4px solid govuk-colour('blue');
+      padding-bottom: calc(0.5em - 4px);
+    }
+    
+    &.is-selected {
+      background-color: govuk-colour('blue');
+      color: govuk-colour('white');
+    }
+    
+    &.is-disabled {
+      cursor: not-allowed;
+      background-color: govuk-colour('light-grey');
+      color: govuk-colour('dark-grey');
+      text-decoration: none;
+    }
+  }
+}
+
+#date-picker-container {
+  position: relative;
+  vertical-align: bottom;
+  display: inline-block;
+}
+
+#date-picker-icon {
+  cursor: pointer;
+  vertical-align: bottom;
+}
+
+#date-picker {
+  position: absolute;
+  top: 0;
+  right: 0;
+  @include govuk-media-query($from: tablet) {
+    left: 0; // Anchor to left on larger screens
+  };
+  z-index: 1;
+  display: table;
+  background-color: white;
+  border: 2px solid;
+  padding: 0px 20px;
+  display: table;
+}
+
+.hidden {
+  display: none !important;
+}

@@ -1,0 +1,10 @@
+{
+  "paths": {
+    "public": "public/",
+    "assets" : "assets/",
+    "javascripts" : "javascripts/",
+    "nodeModules": "node_modules/",
+    "govuk": "govuk-frontend/govuk/",
+    "lib": "lib/"
+  }
+}

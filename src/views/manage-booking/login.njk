@@ -1,0 +1,78 @@
+{% extends "layout.njk" %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/details/macro.njk" import govukDetails %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{% block page_title %}
+  {{ t('manageBookingLogin.pageTitle') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  <div role="navigation" aria-label="back">
+    {{ govukBackLink({
+      text: t('generalContent.back'),
+      href: 'start'
+    }) }}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/error-banner.njk" %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {% call govukFieldset({
+      legend: {
+        text: t('manageBookingLogin.heading'),
+        classes: 'govuk-fieldset__legend--xl',
+        isPageHeading: true
+      }
+    }) %}
+    <form method="post">
+      <h2 class="govuk-heading-m">{{ t('manageBookingLogin.bookingReferenceField.label') }}</h2>
+      <p class="govuk-body">{{ t('manageBookingLogin.bookingReferenceField.description') }}
+        <a href="mailto:{{ t('generalContent.contactEmail') }}">{{ t('generalContent.contactEmail') }}</a>.
+      </p>
+      {{ govukInput({
+        label: {
+          text: t('manageBookingLogin.bookingReferenceField.inlineLabel')
+        },
+        id: 'bookingReference',
+        name: 'bookingReference',
+        value: bookingReference
+      }) }}
+
+      <h2 class="govuk-heading-m">{{ t('manageBookingLogin.licenceNumberField.heading') }}</h2>
+      <p class="govuk-body">{{ t('manageBookingLogin.licenceNumberField.description') }}</p>
+      {{ govukInput({
+        label: {
+          text: t('manageBookingLogin.licenceNumberField.label')
+        },
+        hint: {
+          text: t('manageBookingLogin.licenceNumberField.hint')
+        },
+        id: 'licenceNumber',
+        name: 'licenceNumber',
+        value: licenceNumber
+      }) }}
+      {{ govukDetails({
+        summaryText: t('details.exampleLabel'),
+        html: '<img src="/public/images/example-licence-number.png" alt="licence number example" class="govuk-!-width-three-quarters">'
+      }) }}
+
+      {{ govukButton({
+        text: t('generalContent.continueButton'),
+        attributes: {
+          'data-automation-id': 'submit'
+        }
+      }) }}
+    </form>
+    {% endcall %}
+  </div>
+</div>
+
+{% endblock %}

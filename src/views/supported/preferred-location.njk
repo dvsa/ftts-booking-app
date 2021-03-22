@@ -1,0 +1,93 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% block page_title %}
+  {{ t('preferredLocation.pageTitle') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  <div role="navigation" aria-label="back">
+    {{ govukBackLink({
+      text: t('generalContent.back'),
+      href: '/preferred-day',
+      attributes: { 'data-automation-id': 'back' }
+    }) }}
+  </div>
+{% endblock %}
+
+{% block content %}
+  {% include "includes/error-banner.njk" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl" data-automation-id="heading">{{ t('preferredLocation.pageHeading') }}</h1>
+      <p class="govuk-body">{{ t('preferredLocation.paragraph1') }}</p>
+      <p class="govuk-body">{{ t('preferredLocation.paragraph2') }}</p>
+
+      <form method="post">
+        {% set inputHtml %}
+          <p class="govuk-body">{{ t('preferredLocation.option1Content.paragraph1') }}</p>
+          <p class="govuk-body">{{ t('preferredLocation.option1Content.paragraph2') }}</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>{{ t('preferredLocation.option1Content.bullet1') }}</li>
+            <li>{{ t('preferredLocation.option1Content.bullet2') }}</li>
+            <li>{{ t('preferredLocation.option1Content.bullet3') }}</li>
+          </ul>
+
+          {{ govukCharacterCount({
+            id: "locationInput",
+            name: "locationInput",
+            maxlength: 4000,
+            label: {
+              text: t('preferredLocation.option1Hint')
+            },
+            value: savedPreferredLocation,
+            errorMessage: "locationInput" | fieldErrorObject(errors),
+            attributes: { 'data-automation-id': 'input' }
+          }) }}
+        {% endset %}
+
+        {% set fieldName = 'preferredLocationOption' %}
+        {{ govukRadios({
+          idPrefix: fieldName,
+          name: fieldName,
+          fieldset: {
+            legend: {
+              text: t('preferredLocation.radioHint')
+            }
+          },
+          items: [
+            {
+              value: "particularLocation",
+              text: t('preferredLocation.option1'),
+              conditional: {
+                html: inputHtml
+              },
+              checked: preferredLocationOption === 'particularLocation',
+              attributes: { 'data-automation-id': 'particularLocation' }
+            },
+            {
+              value: "decideLater",
+              text: t('preferredLocation.option2'),
+              checked: preferredLocationOption === 'decideLater',
+              attributes: { 'data-automation-id': 'decideLater' }
+            }
+          ],
+          errorMessage: fieldName | fieldErrorObject(errors)
+        }) }}
+
+        {{ govukButton({
+          text: t('generalContent.continueButton'),
+          classes: 'govuk-!-margin-right-1',
+          attributes: {
+            'data-automation-id': 'continue',
+            'type': 'submit'
+          }
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

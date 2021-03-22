@@ -1,0 +1,137 @@
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{% extends "layout.njk" %}
+
+{% block page_title %}
+  {{ heading }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  <div role="navigation" aria-label="back">
+    {{ govukBackLink({
+      text: t('generalContent.back'),
+      href: 'login'
+    }) }}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+      {% if bookingsWithErrors.length > 0 %}
+        {% set html %}
+          <p class="govuk-notification-banner__heading">
+            {{ t('manageBookingHome.bookingsWithErrors.header') }}
+          </p>
+          <ul class="govuk-list govuk-list--bullet">
+            {% for booking in bookingsWithErrors %}
+              <li>{{ booking.reference }}</li>
+            {% endfor %}
+          </ul>
+          <p class="govuk-body">{{ t('manageBookingHome.bookingsWithErrors.contentLine1') }}</p>
+          <div class="govuk-!-margin-bottom-1">
+            <a href="mailto:{{ t('manageBookingHome.bookingsWithErrors.contact.email') }}">{{ t('manageBookingHome.bookingsWithErrors.contact.email') }}</a>
+          </div>
+          <div class="govuk-!-margin-bottom-1">
+            {{t('manageBookingHome.bookingsWithErrors.contact.telephone', {
+              openBold: '<span class="govuk-!-font-weight-bold">',
+              closeBold: '</span>'
+            }) | safe }}
+          </div>
+          <div>
+            {{t('manageBookingHome.bookingsWithErrors.contact.openingHours', {
+              openBold: '<span class="govuk-!-font-weight-bold">',
+              closeBold: '</span>'
+            }) | safe }}
+          </div>
+        {% endset %}
+
+        {{ govukNotificationBanner({
+          html: html
+        }) }}
+      {% endif %}
+
+    <h1 class="govuk-heading-xl">{{ t('manageBookingHome.header') }}</h1>
+    <p class="govuk-body">
+      {% if bookings.length > 0 %}
+        {{ t('manageBookingHome.bookingsDescription-1') }}
+        <strong>{{ bookings.length }}</strong>
+        {{ t('manageBookingHome.bookingsDescription-2') }}
+      {% else %}
+        {{ t('manageBookingHome.noBookings') }}
+      {% endif %}
+    </p>
+    <p class="govuk-body">
+      {{ t('manageBookingHome.bookNewTestLink', {
+        openLink: '<a href="/choose-support">',
+        closeLink: '</a>'
+      }) | safe }}
+    </p>
+    {% if bookings.length > 0 %}
+      <table class="govuk-table responsive-table responsive-table--compact" role="grid">
+        <thead>
+          <tr role="row">
+            <th scope="col">{{ t('manageBookingHome.tableHeaderC1') }}</th>
+            <th scope="col">{{ t('manageBookingHome.tableHeaderC2') }}</th>
+            <th scope="col">{{ t('manageBookingHome.tableHeaderC3') }}</th>
+            <th>&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for booking in bookings %}
+            <tr role="row">
+              <td role="gridcell" class="always-border">
+                <span class="table-heading" aria-hidden="true">{{ t('manageBookingHome.tableHeaderC1') }}:</span>
+                {{ t('generalContent.testTypes.' + booking.testType) }}
+              </td>
+              <td role="gridcell" class="always-border">
+                <span class="table-heading" aria-hidden="true">{{ t('manageBookingHome.tableHeaderC2') }}:</span>
+                {{ booking.testDate | asFullDateTimeWithoutWeekday }}
+              </td>
+              <td role="gridcell">
+                <span class="table-heading" aria-hidden="true">{{ t('manageBookingHome.tableHeaderC3') }}:</span>
+                {{ booking.reference }}
+              </td>
+              <td role="gridcell" class="table-button-cell">
+                <form method="get" action="{{ booking.reference }}">
+                  {{ govukButton({
+                    text: t('manageBookingHome.buttonView'),
+                    classes: 'govuk-button--secondary table-button'
+                  }) }}
+                </form>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% endif %}
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half-from-desktop">
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-half-from-desktop">
+            <form method="get" action="">
+              {{ govukButton({
+                text: t('manageBookingHome.buttonPrevious'),
+                classes: 'govuk-button--secondary',
+                attributes: { style: 'width:100%' }
+              }) }}
+            </form>
+          </div>
+          <div class="govuk-grid-column-one-half-from-desktop">
+              {{ govukButton({
+                text: t('manageBookingHome.buttonTests'),
+                classes: 'govuk-button--secondary',
+                attributes: { style: 'width:100%' }
+              }) }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

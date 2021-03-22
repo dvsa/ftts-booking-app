@@ -1,0 +1,80 @@
+{% extends "layout.njk" %}
+{% from "macros/text-field.njk" import textField %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+
+{% block page_title %}
+  {{ t('contactDetails.pageTitle') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% if backLink %}
+    <div role="navigation" aria-label="back">
+      {{ govukBackLink({
+        text: t('generalContent.back'),
+        href: backLink,
+        attributes: { 'data-automation-id': 'back' }
+      }) }}
+    </div>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/error-banner.njk" %}
+
+{% if inEditMode and not errors %}
+  <div class="alert govuk-body govuk-!-margin-bottom-8">
+    {{ t('contactDetails.changeAlert', {
+      openLink: '<a href="check-your-answers">',
+      closeLink: '</a>'
+    }) | safe }}
+  </div>
+{% endif %}
+
+{% if standardAccommodation %}
+  {% set heading = t('contactDetails.heading') %}
+{% else %}
+  {% set heading = t('contactDetails.nonStandardAccommodation.heading') %}
+{% endif %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="POST">
+      {% call govukFieldset({
+        legend: {
+          text: heading,
+          classes: "govuk-fieldset__legend--xl",
+          isPageHeading: true
+        }
+      }) %}
+        <p class="govuk-body">
+          <p>
+            {% if standardAccommodation %}
+              {{ t('contactDetails.description') }}
+            {% else %}
+              {{ t('contactDetails.nonStandardAccommodation.description') }}
+            {% endif %}
+          </p>
+          {% if standardAccommodation %}
+            <p>
+              {{ t('contactDetails.hint') }}
+            </p>
+          {% endif %}
+        </p>
+        {{ textField(label=t('contactDetails.emailLabel'), id="email", dataAutomationId="email", name="email", errors=errors, value=emailValue) }}
+        {{ textField(label=t('contactDetails.confirmEmailLabel'), id="confirmEmail", dataAutomationId="confirmEmail", name="confirmEmail", errors=errors, value=confirmEmailValue) }}
+      {% endcall %}
+
+      {% if inEditMode %}
+        <button id="submit" data-automation-id="submit" type="submit" class="govuk-button govuk-!-margin-right-1">{{ t('generalContent.confirmChangeButton') }}</button>
+        <a href="../check-your-answers" id="cancel" data-automation-id="cancel" class="govuk-button govuk-button--secondary">{{ t('contactDetails.cancelChangeButton') }}</a>
+      {% else %}
+        <button id="submit" data-automation-id="submit" type="submit" class="govuk-button">{{ t('generalContent.continueButton') }}</button>
+      {% endif %}
+    </form>
+  </div>
+</div>
+
+{% endblock %}

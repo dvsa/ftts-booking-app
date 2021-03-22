@@ -1,0 +1,619 @@
+{
+    "generalContent": {
+        "pageTitle": "ni- Book your theory test - GOV.UK",
+        "errorPrefix": "ni-Error",
+        "back": "ni-Back",
+        "changeLink": "ni-Change",
+        "continueButton": "ni-Continue",
+        "confirmChangeButton": "ni-Confirm change and continue",
+        "warning": "ni-Warning",
+        "errorSummaryTitle": "ni-There is a problem",
+        "contactEmail": "ni-placeholder@dvsa.gov.uk",
+        "testTypes": {
+            "car": "ni-Car",
+            "motorcycle": "ni-Motorcycle"
+        },
+        "phaseBanner": {
+            "tag": "ni-alpha",
+            "content": "ni-This is a new service – your {{-openLink}}feedback{{-closeLink}} will help us to improve it. // {{ target  }} //"
+        },
+        "yes": "ni-Yes",
+        "no": "ni-No",
+        "footer": {
+            "moreInfo": "ni-Find more information about",
+            "bookingLink": "ni-booking a theory test",
+            "bookingLinkUrl": "https://www.gov.uk/book-theory-test?target=ni",
+            "findOut": "ni-Find out",
+            "covidImpact": "ni-how theory tests are affected by coronavirus (COVID-19)",
+            "covidImpactLink": "https://www.gov.uk/guidance/coronavirus-theory-tests?target=ni",
+            "enquiriesHeader": "ni-DVSA theory test enquiries",
+            "telephone": "ni-Telephone: 0300 200 1122",
+            "openingHours": "ni-Monday to Friday, 9am to 10pm",
+            "callCharges": "ni-Find out about call charges",
+            "callChargesUrl": "https://www.gov.uk/call-charges?target=ni"
+        },
+        "cookie": {
+            "cookieText": "ni-GOV.UK uses cookies to make the site simpler.",
+            "cookieLink": "#ni",
+            "cookieLinkText": "ni-Find out more about cookies"
+        },
+        "bookingReference": "ni-Booking reference",
+        "cancelContact": {
+            "phone": "ni-01234 456789"
+        },
+        "time": {
+            "am": "ni-am",
+            "pm": "ni-pm"
+        },
+        "language": {
+            "english": "ni-English",
+            "welsh": "ni-Cymraeg (Welsh)",
+            "turkish": "ni-Turkish",
+            "portuguese": "ni-Portuguese",
+            "polish": "ni-Polish",
+            "farsi": "ni-Farsi",
+            "cantonese": "ni-Cantonese",
+            "arabic": "ni-Arabic"
+        }
+    },
+    "chooseSupport": {
+        "pageTitle": "ni-Do you need support",
+        "heading1": "ni-Get the right support during your theory test",
+        "heading2": "ni-You may be able to select the support you want and book your test online now.",
+        "para1": "ni-We want you to have everything you need to take your test.",
+        "para2": "ni-Many types of support are available if, for example, you:",
+        "para3": "ni-You can {{-openLink}}ni-learn more about the types of support available{{-closeLink}}. ni-These include:",
+        "para4": "ni-Alternatively, you can tell us you want support and we'll get in touch with you.",
+        "para5": "ni-This may suit you better because we'll be able to:",
+        "list1-1": "ni-find reading difficult",
+        "list1-2": "ni-have a disability",
+        "list1-3": "ni-have a health condition",
+        "list2-1": "ni-voiceover with headphones",
+        "list2-2": "ni-British Sign Language (on-screen or in-person)",
+        "list2-3": "ni-extra time to complete your test",
+        "list2-4": "ni-someone reading the questions for you",
+        "list2-5": "ni-having the questions worded differently",
+        "list3-1": "ni-talk to you about how we can help",
+        "list3-2": "ni-make any special arrangements you might need",
+        "list3-3": "ni-talk about whether we need any evidence to support your request",
+        "legend": "ni-Do you want support for your theory test?",
+        "errorMessage": "ni-You must select one option.",
+        "yes": "ni-Yes",
+        "no": "ni-No",
+        "cancelChangeButton": "ni-Cancel and keep existing selection"
+    },
+    "details": {
+        "pageTitle": "ni-Candidate details",
+        "heading": "ni-Details of the person taking the theory test",
+        "headingSupport": "ni-Provide a few details to get the right support",
+        "p1": "ni-Enter the driving licence details of the person taking the test.",
+        "p2": "ni-These details are checked and used to show information about the candidate's available tests and any test history.",
+        "p3": "ni-It's important the information is entered exactly as it looks on the driving licence.",
+        "exampleLabel": "ni-See example",
+        "exampleLabelSupport": "ni-Example",
+        "errorMessage": "ni-The details entered aren't correct. Please enter the details exactly as they appear on the licence",
+        "firstnamesField": {
+            "label": "ni-First and middle names",
+            "description": "ni-Enter the first and any middle names of the person taking the test. Do not include Miss, Ms, Mrs or Mr.",
+            "hint": "ni-See section 2 of the driving licence"
+        },
+        "surnameField": {
+            "label": "ni-Last names",
+            "description": "ni-Enter the surname of the person taking the test.",
+            "hint": "ni-See section 1 of the driving licence"
+        },
+        "licenceNumberField": {
+            "label": "ni-Driving licence number",
+            "description": "ni-Enter the 16-digit driving licence number of the person taking the test.",
+            "hint": "ni-See section 5 of the driving licence"
+        },
+        "dobField": {
+            "label": "ni-Date of birth",
+            "description": "ni-Enter the date of birth of the person taking the test.",
+            "hint": "ni-For example, 12 11 2007",
+            "dayLabel": "ni-Day",
+            "monthLabel": "ni-Month",
+            "yearLabel": "ni-Year"
+        }
+    },
+    "contactDetails": {
+        "pageTitle": "ni-Email address",
+        "heading": "ni-Email of the person taking the theory test",
+        "description": "ni-We need an email address to send a booking confirmation and a payment receipt.",
+        "hint": "ni-Make sure this is the email for the person taking the theory test.",
+        "changeAlert": "ni-You can change the email address associated with this booking or {{-openLink}}keep the last one saved{{-closeLink}}.",
+        "emailLabel": "ni-Email address",
+        "confirmEmailLabel": "ni-Confirm email address",
+        "emailValidationError": "ni-Enter a valid email address",
+        "emailTooLong": "ni-Email address must be 100 characters or fewer",
+        "unmatchingError": "ni-Ensure confirmation email address matches email address",
+        "cancelChangeButton": "ni-Cancel and keep existing email",
+        "nonStandardAccommodation": {
+            "heading": "ni-Enter your email address",
+            "description": "ni-Confirmation of your support request will be emailed to you."
+        }
+    },
+    "testType": {
+        "pageTitle": "ni-Test type",
+        "heading": "ni-Which theory test are you booking?",
+        "changeAlert": "ni-You can change the test type or {{-openLink}}keep your existing choice{{-closeLink}}.",
+        "changeWarning": "ni-Important: if you change the test type here and continue to make this booking, all details previously entered will be replaced.",
+        "cancelChangeButton": "ni-Cancel and keep existing test type",
+        "subheading": "ni-Booking other types of theory tests",
+        "entitlementText": "ni-To drive a particular type of vehicle, you need an ‘entitlement’ for that category on your driving licence.",
+        "licenceCategoryText": "ni-Visit",
+        "licenceCategoryLinkText": "ni-driving licence categories for more information",
+        "validationError": "ni-You need to select an option."
+    },
+    "testLanguage": {
+        "pageTitle": "ni-Choose language",
+        "heading": "ni-Which language do you want to appear on screen during the theory test?",
+        "subheading": "ni-Choose a language",
+        "validationError": "ni-You must select a language",
+        "changeAlert": "ni-You can change the test language or {{-openLink}}keep your existing choice{{-closeLink}}.",
+        "cancelChangeButton": "ni-Cancel and keep existing language"
+    },
+    "support": {
+        "pageTitle": "ni-Additional support"
+    },
+    "bsl": {
+        "pageTitle": "ni-BSL"
+    },
+    "voiceOver": {
+        "pageTitle": "ni-Voice over"
+    },
+    "otherSupport": {
+        "pageTitle": "ni-Other support"
+    },
+    "additionalSupport": {
+        "pageTitle": "ni-Additional support"
+    },
+    "translator": {
+        "heading": "ni-Which language do you want translated?",
+        "description": "ni-Tell us which language you want translated so you can take your driving theory test.",
+        "hint": "ni-Enter language",
+        "errorMessages": {
+            "empty": "ni-Enter the language you need translated",
+            "tooLong": "ni-The translation language description must be 100 characters or fewer"
+        }
+    },
+    "findTestCentre": {
+        "pageTitle": "ni-Find test centre",
+        "heading": "ni-Choose a theory test centre",
+        "subheading": "ni-Find your nearest driving theory test centre",
+        "listHeader": "ni-You can:",
+        "listItem1": "ni-get a map and directions to the centre",
+        "listItem2": "ni-check any special instructions for using the centre",
+        "searchLabel": "ni-Enter a postcode, town or city name or region. You can also use landmarks",
+        "searchButton": "ni-Find",
+        "errorNotRecognised": "ni-No location results match your search. Please try again.",
+        "editMode": {
+            "changeAlert": "ni-You can change the test location here or {{-openLink}}keep your existing choice{{-closeLink}}.",
+            "importantWarning": "ni-If you select a new location here, it will replace your previous choice. Date and time slots will still be subject to availability.",
+            "cancelChangeButton": "ni-Cancel and keep previously selected test location"
+        }
+    },
+    "selectTestCentre": {
+        "pageTitle": "ni-Choose test centre",
+        "heading": "ni-Choose a theory test centre",
+        "thereAre": "ni-There are",
+        "testCentresNear": "ni-test centres near",
+        "milesLink": "ni-See miles",
+        "kmLink": "ni-See kilometres",
+        "mapLink": "ni-View on Google Maps",
+        "aboutCentreHeading": "ni-About this test centre",
+        "description": "ni-Description",
+        "selectButton": "ni-Select",
+        "seeMoreButton": "ni-See {{incrementValue}} more",
+        "mapSelectHint": "ni-Select a test centre on the map",
+        "listTabLabel": "ni-List of centres",
+        "mapTabLabel": "ni-See on map",
+        "error": {
+            "heading": "ni-That search didn't work",
+            "paragraph1": "ni-A technical problem interrupted the location search.",
+            "paragraph2": "ni-You can {{-openLink}}try another search now{{-closeLink}} or wait and try again later. If this problem persists, contact DVSA."
+        },
+        "editMode": {
+            "changeAlert": "ni-You can change the test location here or {{-openLink}}keep your existing choice{{-closeLink}}."
+        }
+    },
+    "selectDate": {
+        "pageTitle": "ni-Enter test date",
+        "heading": "ni-Enter a date to check for available theory test time slots",
+        "description": "ni-If no test slots are available on this date, this service can help you find one on another day.",
+        "hint": "ni-For example, 12 11 2007",
+        "dayLabel": "ni-Day",
+        "monthLabel": "ni-Month",
+        "yearLabel": "ni-Year",
+        "errorMessages": {
+            "dayEmpty": "ni-You need to enter a day",
+            "monthEmpty": "ni-You need to enter a month",
+            "yearEmpty": "ni-You need to enter a year",
+            "dateNotValid": "ni-Enter a valid date",
+            "dateInPast": "ni-Date must be in the future",
+            "dateIsToday": "ni-No test slots are available today. Try another date.",
+            "dateBeyond6Months": "ni-Date must be within 6 months of today"
+        },
+        "editMode": {
+            "changeAlert": "ni-You can change the test slot here or {{-openLink}}keep the date and time previously selected{{-closeLink}}.",
+            "importantWarning": "ni-If you select a new date and time here they will replace the details previously entered. Date and time slots are both subject to availability.",
+            "cancelChangeButton": "ni-Cancel and keep previously selected date and time"
+        }
+    },
+    "chooseAppointment": {
+        "pageTitle": "ni-Test time",
+        "heading": "ni-Choose a time for the theory test",
+        "instruction": "ni-Check time slots at a different test centre",
+        "desktop": {
+            "previous": "ni-Previous week",
+            "next": "ni-Next week"
+        },
+        "mobile": {
+            "previous": "ni-Previous",
+            "next": "ni-Next"
+        },
+        "morning": "ni-Morning",
+        "afternoon": "ni-Afternoon",
+        "editMode": {
+            "changeAlert": "ni-You can change the test time here or {{-openLink}}keep the time previously selected{{-closeLink}}.\nDate and time slots are both subject to availability."
+        },
+        "warning1": "ni-No availability. Try another day.",
+        "warningPast": "ni-Days in the past cannot be viewed",
+        "warningSixMonths": "ni-This day is not yet available for booking. Check regularly as this may change."
+    },
+    "checkYourAnswers": {
+        "pageTitle": "ni-Check your answers",
+        "heading": "ni-Check your answers",
+        "personalDetails": {
+            "heading": "ni-Personal details",
+            "nameLabel": "ni-Name",
+            "dobLabel": "ni-Date of birth",
+            "licenceNumLabel": "ni-Driving licence number",
+            "emailLabel": "ni-Email address"
+        },
+        "testDetails": {
+            "heading": "ni-Test details",
+            "testTypeLabel": "ni-Test type",
+            "costLabel": "ni-Cost",
+            "timeDateLabel": "ni-Test time and date",
+            "locationLabel": "ni-Test location",
+            "testLanguageLabel": "ni-On-screen language",
+            "additionalSupportLabel": "ni-Additional support",
+            "bslLabel": "ni-British Sign Language",
+            "voiceoverLabel": "ni-Voiceover language"
+        },
+        "continueButton": "ni-Continue and pay"
+    },
+    "bookingConfirmation": {
+        "pageTitle": "ni-Booking confirmed",
+        "heading": "ni-Theory test booking confirmed",
+        "panelBookingRef": "ni-Your booking reference is important",
+        "keepItSafe": "ni-Keep it safe",
+        "keepBookingRef": "ni-Keep your booking reference safe.",
+        "bookingRefPrompt": "ni-You'll need it to check, cancel or reschedule this test. Consider taking a screenshot, or",
+        "printLink": "ni-print this page.",
+        "testTypeLabel": "ni-Test type",
+        "dateLabel": "ni-Test time and date",
+        "locationLabel": "ni-Test location",
+        "testLanguageLabel": "ni-On-screen language",
+        "bslLabel": "ni-British Sign Language",
+        "voiceoverLabel": "ni-Voiceover language",
+        "importantSubheading": "ni-Important",
+        "personMust": "ni-The person taking the test must:",
+        "arrive": "ni-arrive 15 minutes before the test start time",
+        "bringLicence": "ni-bring their driving licence (Old-style, paper licence-holders should also bring a valid passport, or other photo-ID)",
+        "centreSubheading": "ni-Security at the test centre",
+        "security": "ni-All test centres are security monitored.",
+        "itemsCheck": "ni-As you enter the test room, you'll be checked for items that could be used to cheat. Your test will not go ahead if you do not allow this check.",
+        "cheatWarning": "ni-It is illegal to cheat in a theory test. You can be sent to prison and banned from driving.",
+        "belongingsSubheading": "ni-Personal belongings",
+        "itemsPrompt": "ni-When you arrive at the test centre, all personal items must be placed in the secure locker provided. These items include:",
+        "items": {
+            "food": "ni-food and drink",
+            "earpieces": "ni-ear-pieces or headphones",
+            "phones": "ni-mobile phones and other electronic devices",
+            "hats": "ni-hats, bags or coats",
+            "watches": "ni-watches",
+            "books": "ni-books and revision notes"
+        },
+        "foundItems": "ni-If you are found to have any of these items in the test room:",
+        "voided": "ni-your test may be stopped and voided",
+        "leave": "ni-you may be asked to leave",
+        "refunded": "ni-the test fee may not be refunded",
+        "waitingSubheading": "ni-No waiting facilities",
+        "noWaiting": "ni-Test centres have no waiting facilities for any adults or children accompanying candidates.",
+        "prepare": "ni-Prepare for the test",
+        "learnMore": "ni-Learn more about preparing for a car theory test including free practice tests here:",
+        "learnMoreLink": "https://www.gov.uk/theory-test/revision-and-practice",
+        "learnMoreLinkText": "ni-www.gov.uk/theory-test/revision-and-practice",
+        "cancelSubheading": "ni-Checking, moving or cancelling this theory test",
+        "cancellationThreeDays": "ni-Theory tests can be moved or cancelled up to 3 clear working days before without penalty.",
+        "cancellationPolicy": "ni-If this booking is changed or cancelled after {{latestRefundDate}} no refund will be made.",
+        "checkDetails": "ni-Check the details of this test here:",
+        "checkDetailsLink": "https://www.gov.uk/check-theory-test",
+        "checkDetailsLinkText": "ni-www.gov.uk/check-theory-test",
+        "reschedule": "ni-Reschedule this test here:",
+        "rescheduleLink": "https://www.gov.uk/change-theory-test",
+        "rescheduleLinkText": "ni-www.gov.uk/change-theory-test",
+        "cancel": "ni-Cancel this test here:",
+        "cancelLink": "https://www.gov.uk/cancel-theory-test",
+        "cancelLinkText": "ni-www.gov.uk/cancel-theory-test",
+        "nonStandardAccommodation": {
+            "pageHeading": "ni-Success: your details have been received",
+            "panelContact": "ni-We will contact you within one working day to arrange your theory test",
+            "panelBookingRef": "ni-Your reference ",
+            "printPagePrompt": "ni-You may find it useful to ",
+            "prepareSubheading": "ni-Prepare for the test",
+            "prepareParagraph": "ni-Learn more about preparing for a car theory test including free practise tests here: ",
+            "preparePracticeLink": "ni-www.gov.uk/theory-test/revision-and-practise",
+            "supportParagraph": "ni-For some kinds of support you may be asked to provide a letter from a teacher or doctor."
+        }
+    },
+    "changeLocationTime": {
+        "pageTitle": "ni-Change test details",
+        "title": "ni-What do you want to change?",
+        "changeAlert": "ni-You can change your previous response here or {{-openLink}}go back and keep it{{-closeLink}}.",
+        "description": "ni-Select one option. Your existing booking will be held until you make and confirm any changes.",
+        "validationError": "ni-Please select what you want to change",
+        "changeTimeOnlyOption": {
+            "label": "ni-Just the time of the theory test",
+            "hint": "ni-New time slots on your existing test day may not be available."
+        },
+        "changeTimeAndDateOption": {
+            "label": "ni-Time and date of the theory test",
+            "hint": "ni-Your existing time slot may be unavailable on a different day."
+        },
+        "changeLocationOption": {
+            "label": "ni-Location of the theory test",
+            "hint": "ni-Your existing date and time slot may be unavailable at a different location."
+        },
+        "confirmChangeButton": "ni-Change and continue",
+        "cancelChangeButton": "ni-Cancel and keep your selection"
+    },
+    "manageBookingLogin": {
+        "pageTitle": "ni-Booking reference and driving licence number",
+        "heading": "ni-Enter the booking reference and driving licence number of the person taking the theory test",
+        "bookingReferenceField": {
+            "label": "ni-Booking reference",
+            "description": "ni-The booking reference number was sent to the email address used to book the theory test. If you have not received a booking reference, contact",
+            "inlineLabel": "ni-Enter the booking reference number"
+        },
+        "licenceNumberField": {
+            "heading": "ni-Driving licence number",
+            "label": "ni-Enter your driving licence number",
+            "description": "ni-It's important that the driving licence number is entered exactly as it looks on the driving licence of the person taking the test.",
+            "hint": "ni-See section 5 of the driving licence",
+            "exampleLabel": "ni-See example"
+        },
+        "errorMessages": {
+            "fieldsLeftBlank": "ni-Enter both the booking reference and candidate's driving licence number to access this booking",
+            "incorrectDetails": "ni-This booking cannot be accessed using the information entered. Check both the booking reference and driving licence number are correct and try again."
+        }
+    },
+    "manageBookingHome": {
+        "pageTitle": "ni-Booking reference and driving licence number",
+        "header": "ni-Your theory test bookings",
+        "bookingsDescription-1": "ni-You have",
+        "bookingsDescription-2": "ni-theory tests booked.",
+        "noBookings": "ni-You have no theory tests booked.",
+        "bookNewTestLink": "ni-You can {{-openLink}}book another theory test here{{-closeLink}}.",
+        "tableHeaderC1": "ni-Test type",
+        "tableHeaderC2": "ni-Test time and date",
+        "tableHeaderC3": "ni-Booking reference",
+        "buttonView": "ni-View booking",
+        "buttonPrevious": "ni-Previous certificates",
+        "buttonTests": "ni-Theory test history",
+        "bookingsWithErrors": {
+            "header": "ni-A technical problem means these test bookings cannot be found:",
+            "contentLine1": "ni-Please contact DVSA to recover or reschedule this test.",
+            "contact": {
+                "email": "ni-example@dvsa.gov.uk",
+                "telephone": "ni-Telephone: {{-openBold}}00000 000 000{{-closeBold}}",
+                "openingHours": "ni-{{-openBold}}Monday{{-closeBold}} to {{-openBold}}Friday{{-closeBold}}, {{-openBold}}8am{{-closeBold}} to {{-openBold}}4pm{{-closeBold}}"
+            }
+        }
+    },
+    "manageBookingChange": {
+        "pageTitle": "ni-Change, reschedule or cancel test",
+        "heading": "ni-Change, reschedule or cancel this theory test",
+        "refundWarningText": "ni-You cannot get a refund or reschedule this test after {{date}}.",
+        "testTodayWarningText": "ni-This test is today. Changes are no longer possible.",
+        "technicalProblemWarningText": "ni-A technical problem means this booking cannot currently be cancelled or changed. Please try again later.",
+        "testTypes": "ni-Test type",
+        "testTimeDate": "ni-Test time and date",
+        "testLocation": "ni-Test location",
+        "testLanguage": "ni-On-screen language",
+        "bsl": "ni-British Sign Language",
+        "voiceover": "ni-Voiceover language",
+        "cancelTest": "ni-Cancel this test",
+        "buttonCancel": "ni-Cancel test",
+        "buttonChange": "ni-Change"
+    },
+    "manageBookingCancel": {
+        "pageTitle": "ni-Cancel test",
+        "heading": "ni-Cancel this theory test",
+        "description": "ni-Select one option. When you select",
+        "description-2": "ni-your existing booking will be permanently removed.",
+        "buttonCancel": "ni-Confirm theory test cancellation",
+        "buttonKeep": "ni-Keep existing booking",
+        "help": "ni-Help with your booking",
+        "contact": "ni-Contact the Driver and Vehicle Standards Agency (DVSA) to get help cancelling your theory test appointment.",
+        "support": "ni-DVSA theory test booking support",
+        "telephone": "ni-Telephone 01234 567890",
+        "niPrompt": "ni-There’s a different service to cancel your theory test in Northern Ireland."
+    },
+    "manageBookingCancelConfirmation": {
+        "pageTitle": "ni-Test cancelled",
+        "bannerTitle": "ni-Theory test cancelled",
+        "bannerSubtitle": "ni-Your reference number",
+        "cancelDescription": "ni-This driving theory test has been cancelled.",
+        "summaryListRows": {
+            "testType": "ni-Test type",
+            "testTimeDate": "ni-Test time and date",
+            "testLocation": "ni-Test location",
+            "testLanguage": "ni-Test language",
+            "bsl": "ni-British Sign Language",
+            "voiceover": "ni-Voiceover language"
+        },
+        "buttonChange": "ni-Change another booking",
+        "buttonBookNewTest": "ni-Book a new theory test",
+        "error": {
+            "heading": "ni-Booking not cancelled",
+            "contentLine1": "ni-A technical problem prevented this booking from being cancelled.",
+            "contentLine2": "ni-You can {{-openLink}}try again to cancel this booking{{-closeLink}}. If this problem persists, contact DVSA."
+        }
+    },
+    "manageBookingCheckChange": {
+        "pageTitle": "ni-Confirm change to test",
+        "heading": "ni-Confirm change to theory test",
+        "buttonConfirm": "ni-Confirm change",
+        "buttonCancel": "ni-Cancel and keep previous details",
+        "error": {
+            "heading": "ni-Booking change not successful",
+            "general": {
+                "contentLine1": "ni-A technical problem prevented this test from being changed.",
+                "contentLine2": "ni-You can {{-openLink}}try again to change this booking{{-closeLink}}. If this problem persists, contact DVSA."
+            },
+            "slotUnavailable": {
+                "contentLine1": "ni-The new test slot you attempted to book is no longer available. {{-openLink}}Select another slot and try again{{-closeLink}}.",
+                "contentLine2": "ni-Contact DVSA if you have any questions. The existing booking remains unchanged."
+            },
+            "noRetry": {
+                "contentLine1": "ni-A technical problem means your booking cannot be found.",
+                "contentLine2": "ni-Please contact DVSA to recover or reschedule this test."
+            }
+        }
+    },
+    "manageBookingChangeConfirmation": {
+        "pageTitle": "ni-Test updated",
+        "bannerTitle": "ni-Theory test updated",
+        "buttonViewAllBookings": "ni-View all bookings",
+        "buttonMakeAnotherChange": "ni-Make another change"
+    },
+    "voiceover": {
+        "pageTitle": "ni-Choose voiceover",
+        "pageHeading": "ni-Which voiceover language do you want?",
+        "validationError": "ni-You must select one option.",
+        "editMode": {
+            "pageHeading": "ni-Do you want a voiceover used during the test?",
+            "validationError": "ni-You must select a voiceover language. Alternatively, select 'I do not want a voiceover'.",
+            "contentLine1": "ni-Instructions and the test questions will be read aloud through headphones provided in the test room.",
+            "changeAlert": "ni-You can change your mind here about hearing a voiceover used during the test, or ",
+            "changeAlertLink": "ni-go back and keep your previous choice",
+            "yesOptionPrefix": "ni-Yes, I want a voiceover in ",
+            "noOption": "ni-No, I do not want a voiceover",
+            "confirmChangeButton": "ni-Confirm change and continue",
+            "cancelChangeButton": "ni-Cancel and keep your existing choice"
+        }
+    },
+    "manageBookingChangeBSL": {
+        "pageTitle": "ni-Choose BSL",
+        "pageHeading": "ni-Do you want British Sign Language used during the test?",
+        "formHint": "ni-Instructions and the test questions will be signed on screen in the test room.",
+        "errorBannerNotification": "ni-You need to select an option.",
+        "bslFormOption": "ni-Yes, I want British Sign Language",
+        "noneFormOption": "ni-No, I do not want British Sign Language",
+        "editMode": {
+            "pageHeading": "ni-Do you want British Sign Language?",
+            "changeAlert": "ni-You can change your mind about including British Sign Language in this theory test or {{-openLink}}go back and keep your previous choice{{-closeLink}}.",
+            "cancelChangeButton": "ni-Cancel and keep your existing choice"
+        }
+    },
+    "leavingNsa": {
+        "pageTitle": "ni-Leaving NSA",
+        "heading": "ni-Book your theory test online now or wait and talk to us first",
+        "paragraph1": "ni-You can select 'Continue' to book your theory test online now.",
+        "paragraph2": "ni-Or, if you prefer, select 'Talk to our support team' and we'll contact you at a convenient time to:",
+        "bullet1": "ni-talk through your needs",
+        "bullet2": "ni-check you have the right support",
+        "bullet3": "ni-book your test for you",
+        "supportButton": "ni-Talk to our support team"
+    },
+    "stayingNsa": {
+        "pageTitle": "ni-Staying NSA",
+        "pageHeading": "ni-We'll contact you about support for your theory test",
+        "paragraph1": "ni-Thank you for providing these details. You won't be able to book your test online right now. We need to know a little more about the kind of support that will help you.",
+        "paragraph2": "ni-Tell us how to contact you and we'll get in touch to make arrangements.",
+        "paragraph3": "ni-It will help us arrange your test if you can tell us where and when you would like to take it."
+    },
+    "customSupport": {
+        "pageTitle": "ni-Custom Support",
+        "pageHeading": "ni-Tell us what support you need",
+        "paragraph1": "ni-Accessible support is available to help make your theory test more comfortable.",
+        "paragraph2": "ni-You can provide more information about what you need here.",
+        "paragraph3": "ni-Select 'Continue' if you would prefer to talk about this when we contact you.",
+        "paragraph4": "ni-Some types of support need time to arrange. This means you may not be able to book online now.",
+        "inputHint": "ni-Tell us what you need (optional)",
+        "errorMessage": "ni-The text you enter here must be 4000 characters or fewer"
+    },
+    "selectSupportType": {
+        "pageTitle": "ni-Which type of support do you need",
+        "heading1": "ni-What test support do you want?",
+        "para1": "ni-Accessible support is available to make your theory test more comfortable.",
+        "para2": "ni-Select the items you want for your test. If you need something else, select 'Other'.",
+        "option1": "ni-On-screen using British Sign Language",
+        "option2": "ni-An interpreter next to me using British Sign Language",
+        "option3": "ni-Headphones and voiceover",
+        "option4": "ni-A translator",
+        "option5": "ni-Extra time",
+        "option6": "ni-Someone to ask the test questions in a different way (an Oral Language Modifier)",
+        "option7": "ni-Someone to read the test to me and enter my answers",
+        "option8": "ni-Other",
+        "errors": {
+            "noneSelected": "ni-You must select at least one option. If the support you want is not listed, select 'Other'.",
+            "badCombination": "ni-You have selected sign language and voiceover. Please select only one of these options. If the support you want is not listed, select 'Other'."
+        }
+    },
+    "voicemail": {
+        "pageTitle": "ni-Voicemail",
+        "pageHeading": "ni-Can we leave telephone messages if we can't reach you?",
+        "errorBannerNotification": "ni-You must select an option"
+    },
+    "preferredDay": {
+        "pageTitle": "ni-Preferred Date",
+        "pageHeading": "ni-Is there a day and time that's best for you?",
+        "paragraph1": "ni-Tell us if there's a particular time of day, or day of the week that's better for you. We will try to arrange your test around these choices.",
+        "paragraph2": "ni-If you are flexible about when you take your test, select 'I will decide this later'.",
+        "radioHint": "ni-Select one option.",
+        "option1": "ni-I want a particular time or day",
+        "option1Hint": "ni-Enter more details (optional)",
+        "option2": "ni-I will decide this later",
+        "validationError": "ni-You must select an option.",
+        "errorMessage": "ni-The text you enter here must be 4000 characters or fewer"
+    },
+    "preferredLocation": {
+        "pageTitle": "ni-Preferred Location",
+        "pageHeading": "ni-Do you know which test locations you want?",
+        "paragraph1": "ni-Tell us if your test needs to be a in a particular place.",
+        "paragraph2": "ni-If you are flexible about where you take your test, select 'I will decide this later'.",
+        "radioHint": "ni-Select one option.",
+        "option1": "ni-I know which locations I want",
+        "option1Content": {
+            "paragraph1": "ni-Tell us if there are particular locations that would be better for taking your test. For example, 'Leeds and Bradford' or 'south London'.",
+            "paragraph2": "ni-You can also include any test centre features that would help you to take your test. For example:",
+            "bullet1": "ni-close to a train station or bus stop",
+            "bullet2": "ni-close to car parking",
+            "bullet3": "ni-not located in a high-rise building"
+        },
+        "option1Hint": "ni-Enter the test locations you want",
+        "option2": "ni-I will decide this later",
+        "validationError": "ni-You must select an option.",
+        "errorMessage": "ni-The text you enter here must be 4000 characters or fewer"
+    },
+    "telephoneContact": {
+        "pageTitle": "ni-Telephone Contact",
+        "heading": "ni-Would you prefer to be contacted by telephone?",
+        "hintText": "ni-Select one option.",
+        "telephoneLabel": "ni-Enter your telephone number",
+        "noSelectionError": "ni-You must select an option",
+        "noTelephoneError": "ni-Enter a telephone number",
+        "telephoneTooLongError": "ni-The telephone number must be 50 characters or fewer"
+    },
+    "errors": {
+        "500": {
+            "heading": "ni-Service temporarily unavailable",
+            "description": "ni-A technical problem with our system means this service isn't available right now.",
+            "apology": "ni-We're very sorry. Please try again later."
+        }
+    }
+}

@@ -1,0 +1,57 @@
+{% extends "layout.njk" %}
+{% from "macros/radio-field.njk" import radioField %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% block page_title %}
+  {{ t('changeLocationTime.pageTitle') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/error-banner.njk" %}
+
+{% if inEditMode %}
+  <div class="alert govuk-body govuk-!-margin-bottom-8">
+    {{ t('changeLocationTime.changeAlert', {
+      openLink: '<a href="' + checkAnswersLink + '">',
+      closeLink: '</a>'
+    }) | safe }}
+  </div>
+{% endif %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-form-group">
+      <form method="POST">
+        {% set fieldName = "changeLocationOrTime" %}
+        {% set hasError = fieldName|existsAsAnErrorIn(errors) %}
+        {% set errorObject = null %}
+        {% if hasError %}
+          {% set errorObject = {
+            text: fieldName|fieldErrorMessage(errors)
+          } %}
+        {% endif %}
+        {{ govukRadios({
+          name: fieldName,
+          fieldset: {
+            legend: {
+              text: t('changeLocationTime.title'),
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          hint: {
+            text: t('changeLocationTime.description')
+          },
+          errorMessage: errorObject,
+          items: options
+        }) }}
+        <br>
+        <button id="submit" type="submit" class="govuk-button govuk-!-margin-right-1">{{ t('changeLocationTime.confirmChangeButton') }}</button>
+        <a href="{{checkAnswersLink}}" id="cancel" class="govuk-button govuk-button--secondary">{{ t('changeLocationTime.cancelChangeButton') }}</a>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

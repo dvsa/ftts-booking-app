@@ -1,0 +1,113 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/panel/macro.njk" import govukPanel %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "macros/collapsed-centre-location.njk" import collapsedCentreLocation %}
+
+{% block page_title %}
+  {{ t('manageBookingCheckChange.pageTitle') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% if booking.testDate %}
+    {% set link = "/manage-booking/choose-appointment?selectedDate=" + (booking.testDate | toStartOfDay)  %}
+  {% elseif booking.language %}
+    {% set link = "/manage-booking/test-language" %}
+  {% elseif booking.voiceover %}
+      {% set link = "/manage-booking/voiceover" %}
+  {% elseif booking.bsl %}
+    {% set link="/manage-booking/bsl" %}
+  {% endif %}
+  <div role="navigation" aria-label="back">
+    {{ govukBackLink({
+      text: t('generalContent.back'),
+      href: link
+    }) }}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+{% set rows = [] %}
+
+{% if booking.testDate %}
+  {% set testDate = booking.testDate | asFullDateTimeWithoutWeekday %}
+  {% set testDetails = collapsedCentreLocation(booking.testCentre) %}
+  {% set rows = (rows.push({
+    key: {
+      text: t('manageBookingCancelConfirmation.summaryListRows.testTimeDate')
+    },
+    value: {
+      text: testDate
+    }
+  }), rows) %}
+  {% set rows = (rows.push({
+    key: {
+      text: t('manageBookingCancelConfirmation.summaryListRows.testLocation')
+    },
+    value: {
+      html: testDetails
+    }
+  }), rows) %}
+{%  endif %}
+
+{% if booking.language %}
+  {% set rows = (rows.push({
+    key: {
+      text: t('manageBookingCancelConfirmation.summaryListRows.testLanguage')
+    },
+    value: {
+      text: booking.language
+    }
+  }), rows) %}
+{%  endif %}
+
+{% if booking.voiceover %}
+  {% set rows = (rows.push({
+    key: {
+      text: t('manageBookingCancelConfirmation.summaryListRows.voiceover')
+    },
+    value: {
+      text: booking.voiceover
+    }
+  }), rows) %}
+{%  endif %}
+
+{% if booking.bsl %}
+  {% set rows = (rows.push({
+    key: {
+      text: t('manageBookingCancelConfirmation.summaryListRows.bsl')
+    },
+    value: {
+      text: booking.bsl
+    }
+  }), rows) %}
+{%  endif %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">{{ t('manageBookingCheckChange.heading') }}</h1>
+
+    {{ govukSummaryList({
+      rows: rows
+    }) }}
+
+    <form method="post" class="govuk-body govuk-!-margin-top-5">
+      {{ govukButton({
+        text: t('manageBookingCheckChange.buttonConfirm'),
+        classes: 'govuk-!-margin-right-1',
+        attributes: { id: 'submit' }
+      }) }}
+      {{ govukButton({
+        text: t('manageBookingCheckChange.buttonCancel'),
+        href: '/manage-booking/check-change/reset',
+        classes: 'govuk-button--secondary',
+        attributes: { id: 'clear' }
+      }) }}
+    </form>
+  </div>
+</div>
+{% endblock %}

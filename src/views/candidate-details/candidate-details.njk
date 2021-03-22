@@ -1,0 +1,163 @@
+{% extends "layout.njk" %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/details/macro.njk" import govukDetails %}
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{% block page_title %}
+  {{ t('details.pageTitle') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  <div role="navigation" aria-label="back">
+    {{ govukBackLink({
+      text: t('generalContent.back'),
+      href: 'choose-support'
+    }) }}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/error-banner.njk" %}
+
+{% set heading = t('details.headingSupport') if support else t('details.heading') %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {% call govukFieldset({
+      legend: {
+        text: heading,
+        classes: 'govuk-fieldset__legend--xl',
+        isPageHeading: true
+      }
+    }) %}
+    <p class="govuk-body">{{ t('details.p1') }}</p>
+    <p class="govuk-body">{{ t('details.p2') }}</p>
+    <p class="govuk-body">{{ t('details.p3') }}</p>
+    <form method="post">
+      {{ govukInput({
+        label: {
+          html: t('details.firstnamesField.label') +
+            '<p class="govuk-body govuk-!-margin-top-4">' + t('details.firstnamesField.description') + '</p>',
+          classes: "govuk-label--m",
+          isPageHeading: false
+        },
+        hint: {
+          text: t('details.firstnamesField.hint')
+        },
+        id: 'firstnames',
+        name: 'firstnames',
+        value: details.firstnames
+      }) }}
+      {% if support %}
+      <h2 class="govuk-heading-s">{{ t('details.exampleLabelSupport') }}</h2>
+      <img src="/public/images/example-licence-firstnames.png" alt="example" class="govuk-!-width-three-quarters">
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+      {% else %}
+      {{ govukDetails({
+        summaryText: t('details.exampleLabel'),
+        html: '<img src="/public/images/example-licence-firstnames.png" alt="example" class="govuk-!-width-three-quarters">'
+      }) }}
+      {% endif %}
+
+      {{ govukInput({
+        label: {
+          html: t('details.surnameField.label') +
+            '<p class="govuk-body govuk-!-margin-top-4">' + t('details.surnameField.description') + '</p>',
+          classes: "govuk-label--m",
+          isPageHeading: false
+        },
+        hint: {
+          text: t('details.surnameField.hint')
+        },
+        id: 'surname',
+        name: 'surname',
+        value: details.surname
+      }) }}
+      {% if support %}
+      <h2 class="govuk-heading-s">{{ t('details.exampleLabelSupport') }}</h2>
+      <img src="/public/images/example-licence-surname.png" alt="example" class="govuk-!-width-three-quarters">
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+      {% else %}
+      {{ govukDetails({
+        summaryText: t('details.exampleLabel'),
+        html: '<img src="/public/images/example-licence-surname.png" alt="example" class="govuk-!-width-three-quarters">',
+        open: support
+      }) }}
+      {% endif %}
+
+      {{ govukInput({
+        label: {
+          html: t('details.licenceNumberField.label') +
+            '<p class="govuk-body govuk-!-margin-top-4">' + t('details.licenceNumberField.description') + '</p>',
+          classes: "govuk-label--m",
+          isPageHeading: false
+        },
+        hint: {
+          text: t('details.licenceNumberField.hint')
+        },
+        id: 'licenceNumber',
+        name: 'licenceNumber',
+        value: details.licenceNumber
+      }) }}
+      {% if support %}
+      <h2 class="govuk-heading-s">{{ t('details.exampleLabelSupport') }}</h2>
+      <img src="/public/images/example-licence-number.png" alt="example" class="govuk-!-width-three-quarters">
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+      {% else %}
+      {{ govukDetails({
+        summaryText: t('details.exampleLabel'),
+        html: '<img src="/public/images/example-licence-number.png" alt="example" class="govuk-!-width-three-quarters">',
+        open: support
+      }) }}
+      {% endif %}
+
+      {{ govukDateInput({
+        id: 'dob',
+        fieldset: {
+          legend: {
+            isPageHeading: false,
+            html: t('details.dobField.label') +
+              '<p class="govuk-body">' + t('details.dobField.description') + '</p>',
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        hint: {
+          text: t('details.dobField.hint')
+        },
+        items: [{
+          label: t('details.dobField.dayLabel'),
+          id: 'dobDay',
+          name: 'dobDay',
+          value: details.dobDay,
+          classes: 'govuk-input--width-2'
+        }, {
+          label: t('details.dobField.monthLabel'),
+          id: 'dobMonth',
+          name: 'dobMonth',
+          value: details.dobMonth,
+          classes: 'govuk-input--width-2'
+        }, {
+          label: t('details.dobField.yearLabel'),
+          id: 'dobYear',
+          name: 'dobYear',
+          value: details.dobYear,
+          classes: 'govuk-input--width-4'
+        }]
+      }) }}
+
+      {{ govukButton({
+        attributes: {
+          'data-automation-id': 'submit'
+        },
+        text: t('generalContent.continueButton')
+      }) }}
+    </form>
+    {% endcall %}
+  </div>
+</div>
+
+{% endblock %}

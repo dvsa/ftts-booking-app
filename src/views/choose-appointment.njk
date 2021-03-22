@@ -1,0 +1,117 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{% block page_title %}
+  {{ t('chooseAppointment.pageTitle') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% if not inEditMode %}
+    <div role="navigation" aria-label="back">
+      {{ govukBackLink({
+        text: t('generalContent.back'),
+        href: selectDateLink
+      }) }}
+    </div>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/error-banner.njk" %}
+
+{% if inEditMode %}
+  <div class="alert govuk-body govuk-!-margin-bottom-8">
+    {{ t('chooseAppointment.editMode.changeAlert', {
+      openLink: '<a href="../check-your-answers">',
+      closeLink: '</a>'
+    }) | nl2br | safe }}
+  </div>
+{% endif %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-xl">
+      {{ t('chooseAppointment.heading') }}
+    </h1>
+    <p class="govuk-body">
+      <a href="find-test-centre" class="govuk-link">{{ t('chooseAppointment.instruction') }}</a>
+    </p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <ol class="appointment-tabs">
+    {% for date, day in days %}
+      <li class="tab-{{ day.distance }}{% if not day.mobile %} mobile-hidden{% endif %}">
+        <p class="tab-day"><a href="?selectedDate={{ day.date }}">{{ day.displayDay }}</a></p>
+        <p class="tab-date"><a href="?selectedDate={{ day.date }}">{{ day.displayDate }}</a></p>
+      </li>
+    {% endfor %}
+    </ol>
+    <nav role="navigation">
+      <ul class="weekly-navigation only-desktop">
+        <li class="govuk-body"><a class="govuk-link" href="?selectedDate={{ navigation.desktop.previous }}">&lt; {{ t('chooseAppointment.desktop.previous') }}</a></li>
+        <li class="govuk-body nav-next"><a class="govuk-link" href="?selectedDate={{ navigation.desktop.next }}">{{ t('chooseAppointment.desktop.next') }} &gt;</a></li>
+      </ul>
+      <ul class="weekly-navigation only-mobile">
+        <li class="govuk-body"><a class="govuk-link" href="?selectedDate={{ navigation.mobile.previous }}">&lt; {{ t('chooseAppointment.mobile.previous') }}</a></li>
+        <li class="govuk-body nav-next"><a class="govuk-link" href="?selectedDate={{ navigation.mobile.next }}">{{ t('chooseAppointment.mobile.next') }} &gt;</a></li>
+      </ul>
+    </nav>
+    <div class="appointment-slots">
+      <h2 class="govuk-heading-l">{{ selectedCentre.name }}</h2>
+      {% if isBeforeToday %}
+        <p class="govuk-body">{{ t('chooseAppointment.warningPast') }}</p>
+      {% elif isAfterSixMonths %}
+        <p class="govuk-body">{{ t('chooseAppointment.warningSixMonths') }}</p>
+      {% elif slots.size === 0 %}
+        <p class="govuk-body">{{ t('chooseAppointment.warning1') }}</p>
+      {% endif %}
+
+      {% if ampm.get('morning') %}
+      <h3 class="govuk-heading-m">{{ t('chooseAppointment.morning') }}</h3>
+      {% endif %}
+      <div class="morning-slots">
+        {% for key, slot in slots %}
+        {% if slot.isMorning == true %}
+        <form method="post">
+          {% set buttonHTML %}
+            {{ slot.displayTime }} <span class="govuk-visually-hidden">{{ t('generalContent.time.am') }}</span>
+          {% endset %}
+          {{ govukButton({
+            html: buttonHTML,
+            classes: "govuk-button--secondary"
+          }) }}
+          <input type="hidden" name="slotId" value="{{ key }}">
+        </form>
+        {% endif %}
+        {% endfor %}
+      </div>
+      {% if ampm.get('afternoon') %}
+      <h3 class="govuk-heading-m">{{ t('chooseAppointment.afternoon') }}</h3>
+      {% endif %}
+      <div class="afternoon-slots">
+        {% for key, slot in slots %}
+        {% if slot.isMorning == false %}
+        <form method="post">
+          {% set buttonHTML %}
+            {{ slot.displayTime }} <span class="govuk-visually-hidden">{{ t('generalContent.time.pm') }}</span>
+          {% endset %}
+          {{ govukButton({
+            html: buttonHTML,
+            classes: "govuk-button--secondary"
+          }) }}
+          <input type="hidden" name="slotId" value="{{ key }}">
+        </form>
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

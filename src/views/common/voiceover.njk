@@ -1,0 +1,114 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+{% block page_title %}
+  {{ t('voiceover.pageTitle') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% if inManagedBookingEditMode %}
+    {% set backLink = bookingRef %}
+  {% else %}
+    {% set backLink = '#' %}
+  {% endif %}
+
+  {% if not inEditMode %}
+    <div role="navigation" aria-label="back">
+      {{ govukBackLink({
+        text: t('generalContent.back'),
+        href: backLink,
+        attributes: { 'data-automation-id': 'back-link' }
+      }) }}
+    </div>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/error-banner.njk" %}
+
+{% if inEditMode %}
+  <div class="alert govuk-body govuk-!-margin-bottom-8">
+    <span data-automation-id="change-alert">{{ t('voiceover.editMode.changeAlert') }}</span>
+    <a href="check-your-answers" data-automation-id="change-link">{{ t('voiceover.editMode.changeAlertLink') }}</a>
+  </div>
+{% endif %}
+
+{% if inSupportMode and not (inEditMode or inManagedBookingEditMode)%}
+  {% set pageHeading = t('voiceover.pageHeading') %}
+{% elseif (inEditMode or inManagedBookingEditMode) and not inSupportMode %}
+  {% if target == 'gb' %}
+    {% set pageHeading = t('voiceover.editMode.pageHeading') %}
+  {% elseif target == 'ni' %}
+    {% set pageHeading = t('voiceover.pageHeading') %}
+  {% endif %}
+{% else %}
+  {% set pageHeading = t('voiceover.pageHeading') %}
+{% endif %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="POST">
+      {% call govukFieldset({
+        legend: {
+          text: pageHeading,
+          classes: 'govuk-fieldset__legend--xl',
+          isPageHeading: true
+        },
+        attributes: { 'data-automation-id': 'page-fieldset' }
+      })%}
+        <br>
+        {% if inEditMode or inManagedBookingEditMode and (not inSupportMode) %}
+          <p class="govuk-body" data-automation-id="voiceover-content-line">
+            {{ t('voiceover.editMode.contentLine1') }}
+          </p>
+        {% endif %}
+        {% set fieldName = "voiceover" %}
+        {% set hasError = fieldName | existsAsAnErrorIn(errors) %}
+        <div class="govuk-radios {% if hasError %}govuk-form-group--error{% endif %}">
+          {% if hasError %}
+            <span data-automation-id="{{fieldName}}-error" class="govuk-error-message">
+              {{ fieldName | fieldErrorMessage(errors) }}
+            </span>
+          {% endif %}
+          {% if availableOptionsArray.length == '2' %}
+            {% set radioClasses = 'govuk-radios--inline' %}
+          {% endif %}
+          {{ govukRadios({
+            name: fieldName,
+            classes: radioClasses,
+            items: availableOptionsArray,
+            attributes: { 'data-automation-id': 'voiceover' }
+          })}}
+        </div>
+      {% endcall %}
+      <br>
+      {% if inEditMode %}
+        {{ govukButton({
+          text: t('voiceover.editMode.confirmChangeButton'),
+          classes: 'govuk-!-margin-right-1',
+          type: 'submit',
+          attributes: { 'data-automation-id': 'submit' }
+        }) }}
+        {{ govukButton({
+          text: t('voiceover.editMode.cancelChangeButton'),
+          classes: 'govuk-button--secondary',
+          href:'check-your-answers',
+          attributes: { 'data-automation-id': 'cancel' }
+        }) }}
+      {% else %}
+        {{ govukButton({
+          text: t('generalContent.continueButton'),
+          classes: 'govuk-!-margin-right-1',
+          type: 'submit',
+          attributes: { 'data-automation-id': 'submit' }
+        }) }}
+      {% endif %}
+    </form>
+  </div>
+</div>
+
+{% endblock %}

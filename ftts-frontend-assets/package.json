@@ -1,0 +1,35 @@
+{
+  "name": "ftts-frontend-assets",
+  "description": "FTTS Frontend assets. Shared resources for frontend apps for FTTS projects",
+  "version": "1.0.1",
+  "private": true,
+  "engines": {
+    "node": ">=12"
+  },
+  "scripts": {
+    "lint": "standard",
+    "watch-assets": "gulp watch",
+    "generate-assets": "gulp generate-assets",
+    "upgrade-govuk": "gulp upgrade"
+  },
+  "dependencies": {
+    "govuk-frontend": "3.10.2"
+  },
+  "greenkeeper": {
+    "ignore": [
+      "nunjucks"
+    ]
+  },
+  "devDependencies": {
+    "gulp": "4.0.2",
+    "gulp-clean": "0.4.0",
+    "gulp-dart-sass": "1.0.2",
+    "gulp-nodemon": "2.5.0",
+    "gulp-run-command": "0.0.10",
+    "gulp-sourcemaps": "2.6.5",
+    "merge-stream": "2.0.0",
+    "npm-check-updates": "6.0.1",
+    "require-dir": "1.2.0",
+    "standard": "14.3.4"
+  }
+}

@@ -1,0 +1,55 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% block page_title %}
+  {{ t('voicemail.pageTitle') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  <div role="navigation" aria-label="back">
+    {{ govukBackLink({
+      text: t('generalContent.back'),
+      href: '',
+      attributes: { 'data-automation-id': 'back' }
+    }) }}
+  </div>
+{% endblock %}
+
+{% block content %}
+  {% include "includes/error-banner.njk" %}
+
+  {% set fieldName = "voicemail" %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl" data-automation-id="heading">{{ t('voicemail.pageHeading') }}</h1>
+      <form method="POST">
+        {{ govukRadios({
+          id: fieldName,
+          name: fieldName,
+          classes: 'govuk-radios--inline',
+          errorMessage: fieldName | fieldErrorObject(errors),
+          items: [
+            {
+              value: 'yes',
+              text: t('generalContent.yes'),
+              attributes: { 'data-automation-id': 'yes' }
+            },
+            {
+              value: 'no',
+              text: t('generalContent.no'),
+              attributes: { 'data-automation-id': 'no' }
+            }
+          ]
+        })}}
+        {{ govukButton({
+          text: t('generalContent.continueButton'),
+          classes: 'govuk-!-margin-right-1',
+          type: 'submit',
+          attributes: { 'data-automation-id': 'submit' }
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

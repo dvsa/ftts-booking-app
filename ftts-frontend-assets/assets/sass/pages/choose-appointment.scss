@@ -1,0 +1,104 @@
+.appointment-tabs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background-color: govuk-colour('light-grey');
+
+    li {
+        width: auto;
+        padding: 18px 18px 8px;
+        border: 1px solid $govuk-border-colour;
+        margin-right: -1px;
+        text-align: center;
+        width: 100%;
+
+        a {
+            color: govuk-colour('black');
+            text-decoration: none;
+        }
+
+        &.tab-0 {
+            background-color: $govuk-body-background-colour;
+            border-top: 5px solid govuk-colour('black');
+            border-bottom: none;
+            padding-top: 14px;
+        }
+
+        &.mobile-hidden {
+            display: none;
+
+            @include govuk-media-query($from: desktop) {
+                display: block;
+            }
+        }
+        
+        .tab-day,
+        .tab-date {
+            font-size: 1em;
+            margin-bottom: 10px;
+        }
+
+        .tab-day {
+            font-weight: 900;
+        }
+    }
+}
+
+.weekly-navigation {
+    list-style: none;
+    display: flex;
+    padding: 0;
+
+    &.only-mobile {
+        display: flex;
+    }
+
+    &.only-desktop {
+        display: none;
+    }
+
+    li {
+        width: 50%;
+    }
+
+    .nav-next {
+        text-align: right;
+    }
+}
+
+.morning-slots,
+.afternoon-slots {
+    button {
+        width: 100%;
+    }
+}
+
+@include govuk-media-query($from: desktop) {
+    .weekly-navigation {
+        &.only-mobile {
+            display: none;
+        }
+    
+        &.only-desktop {
+            display: flex;
+        }
+    }
+
+    .morning-slots,
+    .afternoon-slots {
+        display: flex;
+        flex-wrap: wrap;
+
+        form {
+            margin-right: 1em;
+        }
+
+        button {
+            width: auto;
+        }
+    }
+}

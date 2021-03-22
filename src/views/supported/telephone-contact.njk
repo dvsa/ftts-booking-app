@@ -1,0 +1,94 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{% block page_title %}
+  {{ t('telephoneContact.pageTitle') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  <div role="navigation" aria-label="back">
+    {{ govukBackLink({
+      text: t('generalContent.back'),
+      href: '',
+      attributes: {
+        'data-automation-id': 'back'
+      }
+    }) }}
+  </div>
+{% endblock %}
+
+{% block content %}
+  {% include "includes/error-banner.njk" %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form method="post">
+        {% set yesOptionHtml %}
+        {% set inputFieldName = 'telephoneNumber' %}
+        {{ govukInput({
+          id: inputFieldName,
+          name: inputFieldName,
+          errorMessage: inputFieldName | fieldErrorObject(errors),
+          type: 'tel',
+          value: telephoneNumber,
+          classes: 'govuk-!-width-one-third',
+          label: {
+            text: t('telephoneContact.telephoneLabel')
+          }
+        }) }}
+        {% endset %}
+        {% set radioFieldName = 'contactByTelephone' %}
+        {{ govukRadios({
+          name: radioFieldName,
+          errorMessage: radioFieldName | fieldErrorObject(errors),
+          fieldset: {
+            legend: {
+              text: t('telephoneContact.heading'),
+              isPageHeading: true,
+              classes: 'govuk-fieldset__legend--xl',
+              attributes: {
+                'data-automation-id': 'heading'
+              }
+            }
+          },
+          hint: {
+            text: t('telephoneContact.hintText'),
+            attributes: {
+              'data-automation-id': 'hint'
+            }
+          },
+          items: [
+            {
+              text: t('generalContent.yes'),
+              value: 'yes',
+              checked: contactByTelephone === 'yes',
+              attributes: {
+                'data-automation-id': 'yes'
+              },
+              conditional: {
+                html: yesOptionHtml
+              }
+            },
+            {
+              text: t('generalContent.no'),
+              value: 'no',
+              checked: contactByTelephone === 'no',
+              attributes: {
+                'data-automation-id': 'no'
+              }
+            }
+          ]
+        }) }}
+        {{ govukButton({
+          text: t('generalContent.continueButton'),
+          type: 'submit',
+          attributes: {
+            'data-automation-id': 'submit'
+          }
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

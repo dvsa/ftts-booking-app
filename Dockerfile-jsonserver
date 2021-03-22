@@ -1,0 +1,13 @@
+FROM node:12
+
+WORKDIR /app
+COPY kainos-chain.pem .
+
+WORKDIR /app/ftts-booking-app
+COPY ftts-booking-app/.npmrc .
+COPY ftts-booking-app/packag*.json ./
+RUN export NODE_EXTRA_CA_CERTS=/app/kainos-chain.pem && \
+    npm install
+COPY ftts-booking-app/ ./ 
+
+ENTRYPOINT [ "npm", "run", "start:mock-server" ]

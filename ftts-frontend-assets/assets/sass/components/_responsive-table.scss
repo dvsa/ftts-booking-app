@@ -1,0 +1,91 @@
+.responsive-table {
+  thead {
+    border: 0;
+    clip: rect(1px,1px,1px,1px);
+    height: 1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    @include govuk-media-query($from: desktop) {
+      clip: auto;
+      display: table-header-group;
+      height: auto;
+      overflow: auto;
+      position: relative;
+      width: auto;
+    }
+  }
+
+  tbody {
+    @include govuk-media-query($from: desktop) {
+      display: table-row-group;
+    }
+
+    tr {
+      display: block;
+      @include govuk-media-query($from: desktop) {
+        display: table-row;
+      }
+    }
+
+    td {
+      text-align: right;
+      display: block;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      border: none;
+      @include govuk-media-query($from: desktop) {
+        border-bottom: 1px solid #bfc1c3;
+        text-align: left;
+        display: table-cell;
+      }
+    }
+
+    .table-heading {
+      text-align: left;
+      font-weight: 700;
+      @include govuk-media-query($from: desktop) {
+        display: none;
+      }
+    }
+  }
+
+  .always-border {
+    border-bottom: 1px solid #bfc1c3 !important;
+  }
+
+  td, th {
+    padding: 10px 0px;
+    text-align: left;
+    border-bottom: 1px solid #bfc1c3;
+    white-space: nowrap;
+  }
+
+  .table-button-cell {
+    padding-top: 5px;
+    margin-bottom: 15px;
+    @include govuk-media-query($from: desktop) {
+      margin: 0;
+      padding: 10px 0px;
+    }
+  }
+
+  form {
+    width: 100%;
+  }
+
+  .table-button {
+    margin: 0;
+    width: 100%;
+    @include govuk-media-query($from: desktop) {
+      width: auto;
+      margin: 10px 0;
+      float: right;
+    }
+  }
+}

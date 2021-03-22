@@ -1,0 +1,18 @@
+// global styles for <a> and <p> tags
+$govuk-global-styles: true;
+$govuk-assets-path: '../';
+
+// Import GOV.UK Frontend
+@import "govuk-core";
+
+
+// Patterns that aren't in Frontend
+@import "patterns/check-your-answers";
+@import "patterns/related-items";
+
+// Components that aren't in Frontend
+@import "components/cookie-banner";
+@import "pages/choose-appointment";
+
+// Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
+

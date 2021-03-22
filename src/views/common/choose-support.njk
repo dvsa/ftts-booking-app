@@ -1,0 +1,84 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% block page_title %}
+  {{ t('chooseSupport.pageTitle') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  <div role="navigation" aria-label="back">
+    {{ govukBackLink({
+      text: t('generalContent.back'),
+      href: '/'
+    }) }}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/error-banner.njk" %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">{{ t('chooseSupport.heading1') }}</h1>
+    <p class="govuk-body">{{ t('chooseSupport.para1') }}</p>
+    <p class="govuk-body">{{ t('chooseSupport.para2') }}</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>{{ t('chooseSupport.list1-1') }}</li>
+      <li>{{ t('chooseSupport.list1-2') }}</li>
+      <li>{{ t('chooseSupport.list1-3') }}</li>
+    </ul>
+    <p class="govuk-body">{{ t('chooseSupport.para3', {
+      openLink: '<a href="//www.gov.uk/theory-test/reading-difficulty-disability-or-health-condition">',
+      closeLink: '</a>'
+    }) | safe }}</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>{{ t('chooseSupport.list2-1') }}</li>
+      <li>{{ t('chooseSupport.list2-2') }}</li>
+      <li>{{ t('chooseSupport.list2-3') }}</li>
+      <li>{{ t('chooseSupport.list2-4') }}</li>
+      <li>{{ t('chooseSupport.list2-5') }}</li>
+    </ul>
+    <h2 class="govuk-heading-m">{{ t('chooseSupport.heading2') }}</h2>
+    <p class="govuk-body">{{ t('chooseSupport.para4') }}</p>
+    <p class="govuk-body">{{ t('chooseSupport.para5') }}</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>{{ t('chooseSupport.list3-1') }}</li>
+      <li>{{ t('chooseSupport.list3-2') }}</li>
+      <li>{{ t('chooseSupport.list3-3') }}</li>
+    </ul>
+    <form method="post">
+      {% set fieldName = 'chooseSupport' %}
+      {{ govukRadios({
+        classes: 'govuk-radios--inline',
+        idPrefix: fieldName,
+        name: fieldName,
+        errorMessage: fieldName | fieldErrorObject(errors),
+        fieldset: {
+          legend: {
+            text: t('chooseSupport.legend'),
+            isPageHeading: false,
+            classes: 'govuk-fieldset__legend--l'
+          }
+        },
+        items: [{
+          value: 'yes',
+          text: t('chooseSupport.yes')
+        }, {
+          value: 'no',
+          text: t('chooseSupport.no')
+        }]
+      }) }}
+      {{ govukButton({
+        attributes: {
+          'data-automation-id': 'submit'
+        },
+        text: t('generalContent.continueButton')
+      }) }}
+    </form>
+	</div>
+</div>
+
+{% endblock %}

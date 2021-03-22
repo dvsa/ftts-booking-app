@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ES2019",
+    "module": "commonjs",
+    "allowJs": true,
+    "checkJs": true,
+    "outDir": "dist",
+    "strict": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true
+  },
+  "exclude": [
+    "node_modules",
+    "migrations",
+    "tests",
+    "coverage",
+    "dist",
+    "babel.config.js",
+    "ftts-frontend-assets"
+  ]
+}

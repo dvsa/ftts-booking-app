@@ -1,0 +1,72 @@
+{% if inSupportMode %}
+  <div class="govuk-!-margin-bottom-3">
+    <h2 class="govuk-heading-l" data-automation-id="prepare-subheading">{{ t('bookingConfirmation.nonStandardAccommodation.prepareSubheading') }}</h2>
+    <p class="govuk-body">{{ t('bookingConfirmation.nonStandardAccommodation.prepareParagraph') }} <a target="_blank" href="{{ t('bookingConfirmation.nonStandardAccommodation.preparePracticeLink') }}" data-automation-id="practice-link">{{ t('bookingConfirmation.nonStandardAccommodation.preparePracticeLink') }}</a>.</p>
+    <p class="govuk-body">{{ t('bookingConfirmation.nonStandardAccommodation.supportParagraph') }}</p>
+  </div>
+{% else %}
+  <div class="govuk-grid-column-full govuk-!-margin-bottom-3">
+    <h2 class="govuk-heading-l" data-automation-id="important-subheading">{{ t('bookingConfirmation.importantSubheading') }}</h2>
+    <p class="govuk-body">{{ t('bookingConfirmation.personMust') }}</p>
+    <ol class="govuk-list govuk-list--number">
+      <li>{{ t('bookingConfirmation.arrive') }}</li>
+      <li>{{ t('bookingConfirmation.bringLicence') }}</li>
+    </ol>
+  </div>
+
+  <div class="govuk-grid-column-full govuk-!-margin-bottom-3">
+    <h2 class="govuk-heading-l" data-automation-id="centre-subheading">{{ t('bookingConfirmation.centreSubheading') }}</h2>
+    <p class="govuk-body">{{ t('bookingConfirmation.security') }}</p>
+    <p class="govuk-body">{{ t('bookingConfirmation.itemsCheck') }}</p>
+    <p class="govuk-body govuk-!-font-weight-bold">{{ t('bookingConfirmation.cheatWarning') }}</p>
+  </div>
+
+  <div class="govuk-grid-column-full govuk-!-margin-bottom-3">
+    <h2 class="govuk-heading-l" data-automation-id="belongings-subheading">{{ t('bookingConfirmation.belongingsSubheading') }}</h2>
+    <p class="govuk-body">{{ t('bookingConfirmation.itemsPrompt') }}</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>{{ t('bookingConfirmation.items.food') }}</li>
+      <li>{{ t('bookingConfirmation.items.earpieces') }}</li>
+      <li>{{ t('bookingConfirmation.items.phones') }}</li>
+      <li>{{ t('bookingConfirmation.items.hats') }}</li>
+      <li>{{ t('bookingConfirmation.items.watches') }}</li>
+      <li>{{ t('bookingConfirmation.items.books') }}</li>
+    </ul>
+    <p class="govuk-body">{{ t('bookingConfirmation.foundItems') }}</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>{{ t('bookingConfirmation.voided') }}</li>
+      <li>{{ t('bookingConfirmation.leave') }}</li>
+      <li>{{ t('bookingConfirmation.refunded') }}</li>
+    </ul>
+  </div>
+
+  <div class="govuk-grid-column-full govuk-!-margin-bottom-3">
+    <h2 class="govuk-heading-l" data-automation-id="waiting-subheading">{{ t('bookingConfirmation.waitingSubheading') }}</h2>
+    <p class="govuk-body">{{ t('bookingConfirmation.noWaiting') }}</p>
+  </div>
+
+  <div class="govuk-grid-column-full govuk-!-margin-bottom-3">
+    <h2 class="govuk-heading-l" data-automation-id="prepare-message">{{ t('bookingConfirmation.prepare') }}</h2>
+    <p class="govuk-body">{{ t('bookingConfirmation.learnMore') }} <a target="_blank" href="{{ t('bookingConfirmation.learnMoreLink') }}" data-automation-id="learn-more-link">{{ t('bookingConfirmation.learnMoreLinkText') }}</a>.</p>
+  </div>
+
+  <div class="govuk-grid-column-full govuk-!-margin-bottom-3">
+    <h2 class="govuk-heading-l" data-automation-id="cancel-subheading">{{ t('bookingConfirmation.cancelSubheading') }}</h2>
+    <p class="govuk-body">
+      {{ t('bookingConfirmation.cancellationThreeDays') }}
+      {% if latestRefundDate %}{{ t('bookingConfirmation.cancellationPolicy', { latestRefundDate: latestRefundDate | asFullDateWithoutWeekday }) }}{% endif %}
+    </p>
+    <p class="govuk-body">
+      <strong>{{ t('bookingConfirmation.checkDetails') }}</strong>
+      <a target="_blank" href="{{ t('bookingConfirmation.checkDetailsLink') }}" data-automation-id="check-details-link">{{ t('bookingConfirmation.checkDetailsLinkText') }}</a>
+    </p>
+    <p class="govuk-body">
+      <strong>{{ t('bookingConfirmation.reschedule') }}</strong>
+      <a target="_blank" href="{{ t('bookingConfirmation.rescheduleLink') }}" data-automation-id="reschedule-link">{{ t('bookingConfirmation.rescheduleLinkText') }}</a>
+    </p>
+    <p class="govuk-body">
+      <strong>{{ t('bookingConfirmation.cancel') }}</strong>
+      <a target="_blank" href="{{ t('bookingConfirmation.cancelLink') }}" data-automation-id="cancel-link">{{ t('bookingConfirmation.cancelLinkText') }}</a>
+    </p>
+  </div>
+{% endif %}

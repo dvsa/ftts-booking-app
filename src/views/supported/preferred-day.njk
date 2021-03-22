@@ -1,0 +1,85 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% block page_title %}
+  {{ t('preferredDay.pageTitle') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  <div role="navigation" aria-label="back">
+    {{ govukBackLink({
+      text: t('generalContent.back'),
+      href: '/staying-nsa',
+      attributes: { 'data-automation-id': 'back' }
+    }) }}
+  </div>
+{% endblock %}
+
+{% block content %}
+  {% include "includes/error-banner.njk" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl" data-automation-id="heading">{{ t('preferredDay.pageHeading') }}</h1>
+      <p class="govuk-body">{{ t('preferredDay.paragraph1') }}</p>
+      <p class="govuk-body">{{ t('preferredDay.paragraph2') }}</p>
+
+      <form method="post">
+        {% set inputHtml %}
+          {{ govukCharacterCount({
+            id: "dayInput",
+            name: "dayInput",
+            maxlength: 4000,
+            label: {
+              text: t('preferredDay.option1Hint')
+            },
+            value: savedPreferredDay,
+            errorMessage: "dayInput" | fieldErrorObject(errors),
+            attributes: { 'data-automation-id': 'input' }
+          }) }}
+        {% endset %}
+
+        {% set fieldName = 'preferredDayOption' %}
+        {{ govukRadios({
+          idPrefix: fieldName,
+          name: fieldName,
+          fieldset: {
+            legend: {
+              text: t('preferredDay.radioHint')
+            }
+          },
+          items: [
+            {
+              value: "particularDay",
+              text: t('preferredDay.option1'),
+              conditional: {
+                html: inputHtml
+              },
+              checked: preferredDayOption === 'particularDay',
+              attributes: { 'data-automation-id': 'particularDay' }
+            },
+            {
+              value: "decideLater",
+              text: t('preferredDay.option2'),
+              checked: preferredDayOption === 'decideLater',
+              attributes: { 'data-automation-id': 'decideLater' }
+            }
+          ],
+          errorMessage: fieldName | fieldErrorObject(errors)
+        }) }}
+
+        {{ govukButton({
+          text: t('generalContent.continueButton'),
+          classes: 'govuk-!-margin-right-1',
+          attributes: {
+            'data-automation-id': 'continue',
+            'type': 'submit'
+          }
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

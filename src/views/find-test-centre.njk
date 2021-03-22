@@ -1,0 +1,79 @@
+{% extends "layout.njk" %}
+{% from "macros/text-field.njk" import textField %}
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{% block page_title %}
+  {{ t('findTestCentre.pageTitle') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% if not inEditMode %}
+    <div role="navigation" aria-label="back">
+      {{ govukBackLink({
+        text: t('generalContent.back'),
+        href: backLink
+      }) }}
+    </div>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/error-banner.njk" %}
+
+{% if inEditMode %}
+  <div class="alert govuk-body govuk-!-margin-bottom-8">
+    {{ t('findTestCentre.editMode.changeAlert', {
+      openLink: '<a href="../check-your-answers">',
+      closeLink: '</a>'
+    }) | nl2br | safe }}
+    <br>
+    {{ govukWarningText({
+      text: t('findTestCentre.editMode.importantWarning'),
+      iconFallbackText: "Important",
+      classes: 'govuk-!-margin-bottom-0'
+    }) }}
+  </div>
+{% endif %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+      <h1 class="govuk-fieldset__heading">
+        {{ t('findTestCentre.heading') }}
+      </h1>
+    </legend>
+    <p class="govuk-body">{{ t('findTestCentre.subheading') }}</p>
+    <p class="govuk-body">{{ t('findTestCentre.listHeader') }}</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        {{ t('findTestCentre.listItem1') }}
+      </li>
+      <li>
+        {{ t('findTestCentre.listItem2') }}
+      </li>
+    </ul>
+    <div class="govuk-grid-column-two-thirds grey-bounding">
+      <form method="POST">
+        <fieldset class="govuk-fieldset" role="group">
+          {{ textField(
+            label=t('findTestCentre.searchLabel'),
+            id="searchQuery",
+            name="searchQuery",
+            errors=errors,
+            value=searchQuery
+          )}}
+        </fieldset>
+        {% if inEditMode %}
+          <button id="submit" type="submit" class="govuk-button"> {{ t('findTestCentre.searchButton') }} </button>
+          <a href="../check-your-answers" id="cancel" class="govuk-button govuk-button--secondary">{{ t('findTestCentre.editMode.cancelChangeButton') }}</a>
+        {% else %}
+          <button id="submit" type="submit" class="govuk-button"> {{ t('findTestCentre.searchButton') }} </button>
+        {% endif %}
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

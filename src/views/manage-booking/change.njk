@@ -1,0 +1,230 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "macros/collapsed-centre-location.njk" import collapsedCentreLocation %}
+
+
+{% block page_title %}
+  {{ t('manageBookingChange.pageTitle') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  <div role="navigation" aria-label="back">
+    {{ govukBackLink({
+      text: t('generalContent.back'),
+      href: 'home'
+    }) }}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+{% set hideLanguageChangeButton = "" %}
+{% if target === 'ni' %}
+  {% set hideLanguageChangeButton = "govuk-!-display-none" %}
+{% endif %}
+
+{% if bslRequested %}
+  {% set bsl = t('generalContent.yes') %}
+{% else %}
+  {% set bsl = t('generalContent.no') %}
+{% endif %}
+
+{% if voiceoverRequested %}
+  {% set voiceoverText = voiceover %}
+{% else %}
+  {% set voiceoverText = t('generalContent.no') %}
+{% endif %}
+
+{% set testLanguageText = '' %}
+{% if testLanguage %}
+  {% set testLanguageText = t('generalContent.language.' + testLanguage.key() | lower) %}
+{% endif %}
+
+{% set hideChangeButtons = '' %}
+{% set hideCancelTestRow = '' %}
+{% if bookingCannotBeRescheduled or errorCalculatingWorkingDays %}
+  {% set hideChangeButtons = 'govuk-!-display-none' %}
+{% endif %}
+{% if bookingCannotBeCancelled or errorCalculatingWorkingDays %}
+  {% set hideCancelTestRow = 'govuk-!-display-none' %}
+{% endif %}
+
+{% set changeLocationTimeLink = '/manage-change-location-time/' + booking.reference %}
+{% set changeTestLanguageLink = '/manage-booking/test-language' %}
+{% set changeBSLLink = '/manage-booking/bsl' %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">{{ t('manageBookingChange.heading') }}</h1>
+    <p class="govuk-body">
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-warning-text__assistive">{{ t('generalContent.warning') }}</span>
+          {% if testIsToday %}
+            {{ t('manageBookingChange.testTodayWarningText') }}
+          {% elseif errorCalculatingWorkingDays %}
+            {{ t('manageBookingChange.technicalProblemWarningText') }}
+          {% else %}
+            {{ t('manageBookingChange.refundWarningText', { date: lastRefundOrRescheduleDate | asFullDateWithoutWeekday }) }}
+          {% endif %}
+        </strong>
+      </div>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: t('generalContent.bookingReference')
+            },
+            value: {
+              text: booking.reference
+            },
+            actions: {
+              items: [
+                {
+                  href: '#',
+                  text: '',
+                  visuallyHiddenText: 'Booking reference cannot be changed',
+                  classes: "govuk-!-display-none"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: t('manageBookingChange.testTypes')
+            },
+            value: {
+              text: t('generalContent.testTypes.' + booking.testType)
+            },
+            actions: {
+              items: [
+                {
+                  href: '#',
+                  text: t('manageBookingChange.buttonChange'),
+                  visuallyHiddenText: t('manageBookingChange.testTypes') | lower,
+                  classes: "govuk-button govuk-button--secondary " + hideChangeButtons
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: t('manageBookingChange.testTimeDate')
+            },
+            value: {
+              html: booking.testDate | asFullDateTimeWithoutWeekday
+            },
+            actions: {
+              items: [
+                {
+                  href: changeLocationTimeLink,
+                  text: t('manageBookingChange.buttonChange'),
+                  visuallyHiddenText: t('manageBookingChange.testDetails') | lower,
+                  classes: "govuk-button govuk-button--secondary " + hideChangeButtons
+                }
+              ]
+            },
+            classes: "govuk-summary-list__row--no-border"
+        },
+        {
+          key: {
+            text: t('manageBookingChange.testLocation')
+          },
+          value: {
+            text: collapsedCentreLocation(booking.testCentre)
+          },
+          actions: {
+            items: [
+              {
+                href: '#',
+                text: '',
+                visuallyHiddenText: 'Test Location cannot be changed',
+                classes: "govuk-!-display-none"
+              }
+              ]
+            }
+        },
+          {
+            key: {
+              text: t('manageBookingChange.testLanguage')
+            },
+            value: {
+              text: testLanguageText
+            },
+            actions: {
+              items: [
+                {
+                  href: changeTestLanguageLink,
+                  text: t('manageBookingChange.buttonChange'),
+                  visuallyHiddenText: t('manageBookingChange.testLanguage') | lower,
+                  classes: "govuk-button govuk-button--secondary " + hideChangeButtons + " " + hideLanguageChangeButton
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: t('manageBookingChange.bsl')
+            },
+            value: {
+              text: bsl
+            },
+            actions: {
+              items: [
+                {
+                  href: changeBSLLink,
+                  text: t('manageBookingChange.buttonChange'),
+                  visuallyHiddenText: t('manageBookingChange.bsl') | lower,
+                  classes: "govuk-button govuk-button--secondary " + hideChangeButtons
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: t('manageBookingChange.voiceover')
+            },
+            value: {
+              text: voiceoverText
+            },
+            actions: {
+              items: [
+                {
+                  href: '/manage-booking/voiceover',
+                  text: t('manageBookingChange.buttonChange'),
+                  visuallyHiddenText: t('manageBookingChange.bsl') | lower,
+                  classes: "govuk-button govuk-button--secondary " + hideChangeButtons
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: t('manageBookingChange.cancelTest')
+            },
+            value: {
+              text: ''
+            },
+            classes: hideCancelTestRow,
+            actions: {
+              items: [
+                {
+                  href: booking.reference + '/cancel',
+                  text: t('manageBookingChange.buttonCancel'),
+                  classes: "govuk-button govuk-button--warning"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+    </p>
+  </div>
+</div>
+
+{% endblock %}

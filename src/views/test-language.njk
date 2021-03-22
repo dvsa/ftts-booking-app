@@ -1,0 +1,74 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "macros/radio-field.njk" import radioField %}
+
+{% block page_title %}
+  {{ t('testLanguage.pageTitle') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% if not inEditMode %}
+    {% if inManagedBookingEditMode %}
+      {% set backLinkHref = booking.bookingRef %}
+    {% else %}
+      {% set backLinkHref = "test-type" %}
+    {% endif %}
+    <div role="navigation" aria-label="back">
+      {{ govukBackLink({
+        text: t('generalContent.back'),
+        href: backLinkHref
+      }) }}
+    </div>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/error-banner.njk" %}
+
+{% if inEditMode and not errors %}
+  <div class="alert govuk-body govuk-!-margin-bottom-8">
+    {{ t('testLanguage.changeAlert', {
+      openLink: '<a href="check-your-answers">',
+      closeLink: '</a>'
+    }) | safe }}
+  </div>
+{% endif %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		<div class="govuk-form-group">
+			<form method="POST">
+				<fieldset class="govuk-fieldset govuk-!-margin-bottom-4" aria-describedby="changed-name-hint">
+					<legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+						<h1 class="govuk-fieldset__heading">{{ t('testLanguage.heading') }}</h1>
+					</legend> <br>
+					<p id="changed-name-hint" class="govuk-body">
+							{{ t('testLanguage.subheading') }}
+					</p>
+					{% set fieldName = "testLanguage" %}
+					{% set hasError = fieldName|existsAsAnErrorIn(errors) %}
+          <div id="testLanguage" class="govuk-radios govuk-radios--inline {% if hasError %}govuk-form-group--error{% endif %}">
+            {% if hasError %}
+            <span id="{{fieldName}}-error" class="govuk-error-message">
+              {{ fieldName|fieldErrorMessage(errors) }}
+            </span>
+            {% endif %}
+            {% for languageKey, languageLabel in availableLanguages %}
+              {{ radioField(t('generalContent.language.' + languageKey), languageKey, fieldName, languageKey,  chosenTestLanguage) }}
+            {% endfor %}
+          </div>
+				</fieldset> <br>
+        {% if inEditMode %}
+          <button id="submit" type="submit" class="govuk-button govuk-!-margin-right-1">{{ t('generalContent.confirmChangeButton') }}</button>
+          <a href="../check-your-answers" id="cancel" class="govuk-button govuk-button--secondary">{{ t('testLanguage.cancelChangeButton') }}</a>
+        {% else %}
+          <button id="submit" type="submit" class="govuk-button">{{ t('generalContent.continueButton') }}</button>
+        {% endif %}
+			</form>
+		</div>
+
+	</div>
+</div>
+
+{% endblock %}
