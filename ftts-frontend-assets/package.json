@@ -13,7 +13,7 @@
     "upgrade-govuk": "gulp upgrade"
   },
   "dependencies": {
-    "govuk-frontend": "3.10.2"
+    "govuk-frontend": "3.11.0"
   },
   "greenkeeper": {
     "ignore": [
