@@ -37,7 +37,7 @@
     "start:mock-server": "ts-node tests/mocks/server.ts"
   },
   "dependencies": {
-    "@azure/identity": "1.2.2",
+    "@azure/identity": "1.3.0",
     "@dvsa/azure-logger": "3.0.6",
     "@dvsa/cds-retry": "0.0.14",
     "@dvsa/ftts-auth-client": "1.0.1",
