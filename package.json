@@ -51,7 +51,7 @@
     "cors": "2.8.5",
     "dayjs": "1.9.6",
     "dotenv": "8.2.0",
-    "dynamics-web-api": "1.6.11",
+    "dynamics-web-api": "1.7.3",
     "express": "4.17.1",
     "express-session": "1.17.1",
     "express-validator": "6.9.2",
