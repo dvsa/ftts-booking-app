@@ -58,7 +58,7 @@
     "express-writer": "0.0.4",
     "govuk-frontend": "3.10.2",
     "helmet": "4.2.0",
-    "i18next": "19.8.3",
+    "i18next": "19.9.2",
     "i18next-browser-languagedetector": "6.0.1",
     "minify": "6.0.1",
     "nunjucks": "3.2.2",
