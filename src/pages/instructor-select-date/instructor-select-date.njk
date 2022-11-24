@@ -1,0 +1,155 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "loading-component.njk" import loadingComponent %}
+
+{% block page_title %}
+  {{ t('selectDate.heading') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% if not inEditMode %}
+    <div role="navigation" aria-label="back">
+      {{ govukBackLink({
+        text: t('generalContent.back'),
+        href: selectTestCentreLink,
+        attributes: {
+          id: 'backButton'
+        }
+      }) }}
+    </div>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+  {% include "error-banner.njk" %}
+  {{ loadingComponent(t('selectDate.loadingScreen.loadingHeading'), t('selectDate.loadingScreen.loadingCaption')) }}
+
+  {% if inEditMode %}
+    <div class="alert govuk-body govuk-!-margin-bottom-8" id="editModeBanner">
+      {{ t('selectDate.editMode.changeAlert', {
+        openLink: '<a href="check-your-answers" class="govuk-link">',
+        closeLink: '</a>'
+      }) | nl2br | safe }}
+      <br>
+      {{ govukWarningText({
+        text: t('selectDate.editMode.importantWarning'),
+        iconFallbackText: 'Important',
+        classes: 'govuk-!-margin-bottom-0'
+      }) }}
+    </div>
+  {% endif %}
+
+  <div class="govuk-grid-row" id="pageContent">
+    <div class="govuk-grid-column-two-thirds">
+      <form method="POST" id="form">
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+        <div class="govuk-form-group {% if errors %} govuk-form-group--error {% endif %}">
+          <fieldset class="govuk-fieldset" role="group">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl govuk-!-margin-bottom-8">
+              <h1 class="govuk-fieldset__heading">
+              {% if isManagedBookingSession %}
+                {{ t('selectDate.manageBooking.heading') }}
+              {% else %}
+                {{ t('selectDate.heading') }}
+              {% endif %}
+              </h1>
+            </legend>
+
+            {% if isManagedBookingSession %}
+              <ul class="govuk-list govuk-list--bullet">
+                <li>{{ t('selectDate.manageBooking.li1') | safe }}.</li>
+              </ul>
+            {% else %}
+              <div class="govuk-warning-text govuk-!-margin-top-2 govuk-!-margin-bottom-0">
+                <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                <strong class="govuk-warning-text__text">
+                  <span class="govuk-warning-text__assistive">{{ t('generalContent.warning') }}</span>
+                    {{ t('selectDate.importantWarning') }}
+                </strong>
+              </div>
+              <p class="govuk-body">{{ t('selectDate.description') }}</p>
+              <h2 class="govuk-heading-m">{{ t('selectDate.selectDate') }}</h2>
+            {% endif %}
+
+            <span class="govuk-hint">{{ t('selectDate.hint') }}</span>
+            {% if errors %}
+              <span class="govuk-error-message">
+                <span class="govuk-visually-hidden">Error:</span> {{ errors[0].msg }}
+              </span>
+            {% endif %}
+            <div class="govuk-date-input date-picker" id="date" style="display: inline-block">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="day">
+                    {{ t('selectDate.dayLabel') }}
+                  </label>
+                  <input class="govuk-input govuk-date-input__input date-picker-day govuk-input--width-2 {% if 'day'|existsAsAnErrorIn(errors) or 'date'|existsAsAnErrorIn(errors) %} govuk-input--error {% endif %}" id="day" name="day" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ day }}">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="month">
+                    {{ t('selectDate.monthLabel') }}
+                  </label>
+                  <input class="govuk-input govuk-date-input__input date-picker-month govuk-input--width-2 {% if 'month'|existsAsAnErrorIn(errors) or 'date'|existsAsAnErrorIn(errors) %} govuk-input--error {% endif %}" id="month" name="month" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ month }}">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="year">
+                    {{ t('selectDate.yearLabel') }}
+                  </label>
+                  <input class="govuk-input govuk-date-input__input date-picker-year govuk-input--width-4 {% if 'year'|existsAsAnErrorIn(errors) or 'date'|existsAsAnErrorIn(errors) %} govuk-input--error {% endif %}" id="year" name="year" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ year }}">
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        {% if inEditMode %}
+          <button id="continueButton" type="submit" class="govuk-button govuk-!-margin-right-1">{{ t('generalContent.confirmChangeButton') }}</button>
+          <a href="check-your-answers" id="cancel" class="govuk-button govuk-button--secondary">{{ t('selectDate.editMode.cancelChangeButton') }}</a>
+        {% else %}
+          <button id="continueButton" type="submit" class="govuk-button"> {{ t('generalContent.continueButton') }}</button>
+        {% endif %}
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+  <script src="{{ 'javascripts/loading-spinner.min.js' | asset }}"></script>
+  <script nonce="{{scriptNonce}}">
+    new LoadingSpinner(
+      {
+        formId: "form",
+        elementsToHide: ["pageContent", "backButton", "error-banner", "editModeBanner"],
+        elementsToDisable: ["continueButton"],
+        triggerElements: ["form"],
+        triggerEvent: "submit",
+      }
+    );
+  </script>
+
+  <script src="{{ 'javascripts/date-picker.min.js' | asset }}"></script>
+  <script nonce="{{scriptNonce}}">
+    var minDate = new Date({{minDate}});
+    minDate.setDate(minDate.getDate() + 1);
+
+    new DatePicker(document.querySelector('.date-picker'), {
+      language: '{{locale}}',
+      maxDate: new Date({{maxDate}}),
+      minDate: minDate,
+    });
+  </script>
+  {% if cookiesEnabled %}
+    <script src="{{ 'javascripts/google-analytics-helper.min.js' | asset }}"></script>
+    <script nonce="{{scriptNonce}}">
+      configureEnterADateEvent('form', '{{ organisation }}', '{{ journeyName }}');
+    </script>
+  {% endif %}
+{% endblock %}

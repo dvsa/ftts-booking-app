@@ -1,0 +1,15 @@
+{% extends "layout.njk" %}
+
+{% block page_title %}
+  {{ t('details.noTests.heading') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-xl">{{ t('details.noTests.heading') }}</h1>
+      <p class="govuk-body">{{ t('details.noTests.description') }}</p>
+      {% include "enquiries-footer.njk" %}
+    </div>
+  </div>
+{% endblock %}

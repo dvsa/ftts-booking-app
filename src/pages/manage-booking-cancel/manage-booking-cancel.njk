@@ -1,0 +1,71 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "collapsed-centre-location.njk" import collapsedCentreLocation %}
+{% from "loading-component.njk" import loadingComponent %}
+
+{% block page_title %}
+  {{ t('manageBookingCancel.heading') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  <div role="navigation" aria-label="back">
+    {{ govukBackLink({
+      text: t('generalContent.back'),
+      href: ['../', booking.reference] | join(''),
+      attributes: {
+        id: 'backButton'
+      }
+    }) }}
+  </div>
+{% endblock %}
+
+{% block content %}
+{{ loadingComponent(t('manageBookingCancel.loadingScreen.loadingHeading'), t('manageBookingCancel.loadingScreen.loadingCaption')) }}
+
+<div class="govuk-grid-row" id="pageContent">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">{{ t('manageBookingCancel.heading') }}</h1>
+    <p class="govuk-body">
+      <p>{{ t('manageBookingCancel.description') }} <span class="govuk-!-font-weight-bold">‘{{ t('manageBookingCancel.buttonCancel') }}’</span> {{ t('manageBookingCancel.description-2') }}</p>
+
+      <form method="post" class="govuk-body govuk-!-margin-top-5" id="form">
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+        <button type="submit" id="continueButton" data-automation-id="cancel" class="govuk-button govuk-button--warning govuk-!-margin-right-3">{{ t('manageBookingCancel.buttonCancel') }}</button>
+        <a href="../{{booking.reference}}" data-automation-id="keep" class="govuk-button govuk-button--secondary">{{ t('manageBookingCancel.buttonKeep') }}</a>
+      </form>
+
+      <hr>
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-5">{{ t('manageBookingCancel.help') }}</h2>
+      <p class="govuk-body">{{ t('manageBookingCancel.contact') }}</p>
+      <h3 class="govuk-heading-s">{{ t('manageBookingCancel.support') }}</h3>
+      <p class="govuk-body"><a class="govuk-link" href="mailto:{{t('generalContent.contactEmail')}}">{{t('generalContent.contactEmail')}}</a></p>
+      <p class="govuk-body">{{ t('manageBookingCancel.telephone') }}</p>
+      <div class="govuk-inset-text">
+        {{ t('manageBookingCancel.differentServicePrompt', {
+          openLink: '<a href="' + t('manageBookingCancel.differentServiceLink') + '" class="govuk-link">',
+          closeLink: '</a>'
+        }) | safe }}
+      </div>
+    </p>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+  <script src="{{ 'javascripts/loading-spinner.min.js' | asset }}"></script>
+  <script nonce="{{scriptNonce}}">
+    new LoadingSpinner(
+      {
+        formId: "form",
+        elementsToHide: ["pageContent", "backButton", "error-banner"],
+        elementsToDisable: ["continueButton"],
+        triggerElements: ["form"],
+        triggerEvent: "submit",
+      }
+    )
+  </script>
+{% endblock %}

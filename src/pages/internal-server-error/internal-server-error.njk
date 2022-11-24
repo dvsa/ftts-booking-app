@@ -1,0 +1,25 @@
+{% extends "layout.njk" %}
+
+{% block page_title %}
+  {{ t('errors.500.heading') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-xl">{{ t('errors.500.heading') }}</h1>
+    <p class="govuk-body">{{ t('errors.500.description') }}</p>
+    <p class="govuk-body">{{ t('errors.500.apology') }}</p>
+    <hr/>
+    {% set bookingLinkUrl = t('generalContent.footer.bookingLinkUrl') %}
+    {% if isInstructor %}
+      {% set bookingLinkUrl = t('generalContent.footer.instructorBookingLinkUrl') %}
+    {% endif %}
+    <p class="govuk-body">{{ t('generalContent.footer.moreInfo') }} <a class="govuk-link" href="{{bookingLinkUrl}}" target="_blank">{{ t('generalContent.footer.bookingLink') }}</a>.</p>
+    {% if target === 'ni'%}
+      <p class="govuk-body">{{ t('generalContent.footer.findOut') }} <a class="govuk-link" href="{{t('generalContent.footer.covidImpactLink')}}" target="_blank">{{ t('generalContent.footer.covidImpact') }}</a>.</p>
+    {% endif %}
+    {% include "enquiries-footer.njk" %}
+  </div>
+</div>
+{% endblock %}

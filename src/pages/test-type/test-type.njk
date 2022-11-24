@@ -1,0 +1,189 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% if inSupportMode %}
+  {% set heading = t('testType.support-heading') %}
+{% else %}
+  {% set heading = t('testType.heading') %}
+{% endif %}
+
+{% block page_title %}
+  {{ heading }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% if not inEditMode and backLink %}
+    <div role="navigation" aria-label="back">
+      {{ govukBackLink({
+        text: t('generalContent.back'),
+        href: backLink,
+        attributes: {
+          'data-automation-id': 'back'
+        }
+      }) }}
+    </div>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+{% include "error-banner.njk" %}
+
+{% if inEditMode and not errors %}
+  <div class="alert govuk-body govuk-!-margin-bottom-8">
+    {{ t('testType.changeAlert', {
+      openLink: '<a href="' + backLink + '" class="govuk-link">',
+      closeLink: '</a>'
+    }) | safe }}
+    <div class="govuk-warning-text govuk-!-margin-top-2 govuk-!-margin-bottom-0">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-warning-text__assistive">{{ t('generalContent.warning') }}</span>
+          {{ t('testType.changeWarning') }}
+      </strong>
+    </div>
+  </div>
+{% endif %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-form-group">
+      <form method="POST">
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+        {% macro push(items, test) %}
+          {% set priceHint = (test.price | formatPrice) if test.price and not test.isZeroCostBooking  %}
+          {% set compensationHint %}
+            <p class="govuk-body">
+              {{ t('testType.compensationHint') }}
+            </p>
+            {% if not isInstructor or target === 'gb' %}
+              <p class="govuk-body">
+                {{ t('testType.compensationRefundLink', {
+                  openLink: '<a href="/manage-booking/" class="govuk-link">',
+                  closeLink: '</a>'
+                }) | safe }}
+              </p>
+            {% endif %}
+          {% endset %}
+          {% set testHint = compensationHint | safe if test.isCompensationBooking else priceHint %}
+          {% set items = (items.push(
+            {
+              value: test.key,
+              text: t('generalContent.testTypes.' + test.key),
+              label: {
+                classes: 'govuk-label--s'
+              },
+              hint: {
+                text: testHint
+              },
+              attributes: {
+                'data-automation-id': test.key,
+                'data-is-compensation': test.isCompensationBooking
+              },
+              checked: chosenTestType === test.key
+            }
+          ), items) %}
+        {% endmacro %}
+
+        {% set items = [] %}
+
+        {{ push(items, tests.get('car')) if tests.has('car') }}
+        {{ push(items, tests.get('motorcycle')) if tests.has('motorcycle') }}
+
+        {% if tests.has('lgvmc') or tests.has('lgvhpt') or tests.has('lgvcpc') or tests.has('lgvcpcc') %}
+          {% set items = (items.push({ divider: t('testType.lgvGroupHeading') }), items) %}
+          {{ push(items, tests.get('lgvmc')) if tests.has('lgvmc') }}
+          {{ push(items, tests.get('lgvhpt')) if tests.has('lgvhpt') }}
+          {{ push(items, tests.get('lgvcpc')) if tests.has('lgvcpc') }}
+          {{ push(items, tests.get('lgvcpcc')) if tests.has('lgvcpcc') }}
+        {% endif %}
+
+        {% if tests.has('pcvmc') or tests.has('pcvhpt') or tests.has('pcvcpc') or tests.has('pcvcpcc') %}
+          {% set items = (items.push({ divider: t('testType.pcvGroupHeading') }), items) %}
+          {{ push(items, tests.get('pcvmc')) if tests.has('pcvmc') }}
+          {{ push(items, tests.get('pcvhpt')) if tests.has('pcvhpt') }}
+          {{ push(items, tests.get('pcvcpc')) if tests.has('pcvcpc') }}
+          {{ push(items, tests.get('pcvcpcc')) if tests.has('pcvcpcc') }}
+        {% endif %}
+
+        {% if tests.has('taxi') %}
+          {% set items = (items.push({ divider: t('testType.taxiGroupHeading') }), items) %}
+          {{ push(items, tests.get('taxi')) }}
+        {% endif %}
+
+        {% if isInstructor %}
+          {{ push(items, tests.get('adip1')) if tests.has('adip1') }}
+          {{ push(items, tests.get('adihpt')) if tests.has('adihpt') }}
+          {{ push(items, tests.get('ers')) if tests.has('ers') }}
+          {{ push(items, tests.get('adip1dva')) if tests.has('adip1dva') }}
+          {{ push(items, tests.get('amip1')) if tests.has('amip1') }}
+        {% endif %}
+
+        {% set hintHtml %}
+          <p class="govuk-body">{{ t('testType.hintLine1') }}</p>
+          {{ t('testType.hintLine2') }}
+        {% endset %}
+
+        {{ govukRadios({
+          classes: 'radio-groups',
+          idPrefix: 'testType',
+          name: 'testType',
+          fieldset: {
+            legend: {
+              text: heading,
+              isPageHeading: true,
+              classes: 'govuk-fieldset__legend--xl govuk-!-margin-bottom-6',
+              attributes: {
+                'data-automation-id': 'header'
+              }
+            }
+          },
+          hint: {
+            html: hintHtml
+          },
+          items: items,
+          errorMessage: 'testType' | fieldErrorObject(errors)
+        }) }}
+
+        <br>
+        {% if inEditMode %}
+          {{ govukButton({
+            text: t('generalContent.confirmChangeButton'),
+            type: 'submit',
+            classes: 'govuk-!-margin-right-1',
+            attributes: {
+              'data-automation-id': 'submit'
+            }
+          }) }}
+          {{ govukButton({
+            text: t('testType.cancelChangeButton'),
+            href: backLink,
+            classes: 'govuk-button--secondary',
+            attributes: {
+              'data-automation-id': 'cancel'
+            }
+          }) }}
+        {% else %}
+          {{ govukButton({
+            text: t('generalContent.continueButton'),
+            type: 'submit',
+            attributes: {
+              'data-automation-id': 'submit'
+            }
+          }) }}
+        {% endif %}
+      </form>
+    </div>
+
+    {% if not isInstructor %}
+      <h2 class="govuk-heading-l">{{ t('testType.subheading') }}</h2>
+      <p class="govuk-body">{{ t('testType.entitlementText') }}</p>
+      <p class="govuk-body"><a href="{{ t('testType.licenceCategoryLinkUrl') }}" target="_blank" class="govuk-link">{{ t('testType.licenceCategoryLinkText') }}<span class="govuk-visually-hidden"> ({{ t('generalContent.linkOpensInNewTab') }})</span></a></p>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}

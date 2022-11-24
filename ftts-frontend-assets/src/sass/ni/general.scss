@@ -1,0 +1,111 @@
+.govuk- {
+    &body,
+    &link,
+    &heading-xl,
+    &heading-l,
+    &heading-m,
+    &heading-s,
+    &fieldset__legend--xl,
+    &fieldset__legend--l,
+    &list,
+    &label,
+    &inset-text,
+    &header__link,
+    &tag,
+    &phase-banner__text,
+    &notification-banner__title,
+    &notification-banner__heading,
+    &notification-banner__link,
+    &back-link,
+    &warning-text__text,
+    &summary-list__key,
+    &summary-list__value,
+    &summary-list__value p {
+        font-family: Lato, "GDS Transport", sans-serif;
+    }
+
+    &heading-xl,
+    &fieldset__legend--xl {
+        margin-bottom: 1.1em;
+    }
+
+    &body {
+        margin-bottom: 1em;
+        color: #222;
+    }
+
+    &link {
+        color: $nidirect-brand-blue;
+
+        &:active,
+        &:focus,
+        &:link,
+        &:visited {
+            background-color: transparent;
+            box-shadow: none;
+        }
+    }
+
+    &back-link,
+    &notification-banner__link,
+    &tabs__tab,
+    &header__link {
+        &:active,
+        &:focus,
+        &:link,
+        &:visited {
+            background-color: transparent;
+            box-shadow: none;
+        }
+    }
+
+    &list {
+        li {
+            margin-bottom: 0.6em;
+        }
+    }
+
+    &error-summary:focus,
+    &notification-banner:focus {
+        outline: none;
+    }
+
+    &warning-text__icon {
+        border-color: $nidirect-brand-blue;
+        background-color: $nidirect-brand-blue;
+    }
+
+    &panel--confirmation {
+        background-color: $nidirect-brand-blue;
+    }
+
+    &details__summary:focus {
+        background-color: transparent;
+        box-shadow: none;
+    }
+}
+
+.radio-groups .govuk-radios__divider {
+    font-family: Lato, "GDS Transport", sans-serif;
+}
+
+.appointment-tabs a {
+    &:active,
+    &:focus,
+    &:link,
+    &:visited {
+        background-color: transparent;
+        box-shadow: none;
+    }
+}
+
+.appointment-tabs {
+    li {
+        a:focus{
+            background-color: $nidirect-brand-blue;      
+            color: $nidirect-white;
+            box-shadow: 0 -2px $nidirect-brand-blue, 0 4px $nidirect-white;
+        }
+    }
+}
+

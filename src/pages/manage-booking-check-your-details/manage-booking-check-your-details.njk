@@ -1,0 +1,241 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+{% from "loading-component.njk" import loadingComponent %}
+{% from "centre-location.njk" import centreLocation %}
+
+{% include "error-banner.njk" %}
+
+{% block page_title %}
+  {{ t('checkYourDetails.manageBooking.heading') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  <div role="navigation" aria-label="back">
+    {{ govukBackLink({
+      text: t('generalContent.back'),
+      href: backLink,
+      attributes: {
+        'data-automation-id': 'back',
+        id: 'backButton'
+      }
+    }) }}
+  </div>
+{% endblock %}
+
+{% block content %}
+  {{ loadingComponent(t('generalContent.loadingScreen.loadingHeading'), t('generalContent.loadingScreen.loadingCaption')) }}
+
+  {% set htmlSupportType %}
+    <ul class="govuk-list">
+      {% for support in supportTypes %}
+        {% if support === 'foreignLanguageInterpreter' %}
+          {% if target === 'ni' %}
+            <li>{{ t('manageBookingChange.testSupportNeeded.' + support) + foreignlanguageselected }}</li>
+          {% endif %}
+        {% else %}
+          <li> {{ t('manageBookingChange.testSupportNeeded.' + support) }} </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  {% endset %}
+
+  {% set bslRequested %}
+    {% if bsl %}
+      {{ t('generalContent.yes') }}
+    {% else %}
+      {{ t('generalContent.no') }}
+    {% endif %}
+  {% endset %}
+
+  {% set voiceoverRequested %}
+    {% if voiceover === 'none' %}
+      {{ t('generalContent.no') }}
+    {% else %}
+      {{ t('generalContent.language.' + voiceover) }}
+    {% endif %}
+  {% endset %}
+
+  <div class="govuk-grid-row" id="pageContent">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      <h1 class="govuk-heading-xl" data-automation-id="heading">
+        <span class="govuk-caption-xl">{{ t('generalContent.bookingReference') }}: {{ bookingReference }}</span>
+        {{ t('checkYourDetails.manageBooking.heading') }}
+      </h1>
+
+      <h2 class="govuk-heading-m" data-automation-id="personal-details-heading">{{ t('checkYourAnswers.personalDetails.heading') }}</h2>
+
+      {{ govukSummaryList({
+        classes: 'ftts-summary-list govuk-!-margin-bottom-9',
+        rows: [
+          {
+            key: {
+              text: t('checkYourAnswers.personalDetails.nameLabel')
+            },
+            value: {
+              text: candidateName
+            }
+          },
+          {
+            key: {
+              text: t('checkYourAnswers.personalDetails.dobLabel')
+            },
+            value: {
+              text: dateOfBirth | asFullDateWithoutWeekday
+            }
+          },
+          {
+            key: {
+              text: t('checkYourAnswers.personalDetails.licenceNumLabel')
+            },
+            value: {
+              text: licenceNumber
+            },
+            classes: 'no-action'
+          },
+          {
+            key: {
+              text: t('checkYourAnswers.personalDetails.telephoneLabel')
+            },
+            value: {
+              text: telephoneNumber or t('checkYourAnswers.supportDetails.addedNoDetails')
+            }
+          },
+          {
+            key: {
+              text: t('checkYourAnswers.personalDetails.emailLabel')
+            },
+            value: {
+              text: emailAddress or t('checkYourAnswers.supportDetails.addedNoDetails')
+            }
+          },
+          {
+            key: {
+              text: t('checkYourAnswers.personalDetails.voicemailLabel')
+            },
+            value: {
+              text: t('generalContent.yes') if voicemail else t('generalContent.no')
+            }
+          } if telephoneNumber
+        ]
+      })}}
+
+      <h2 class="govuk-heading-m" data-automation-id="personal-details-heading">{{ t('checkYourAnswers.testDetails.heading') }}</h2>
+
+      {{ govukSummaryList({
+        classes: 'ftts-summary-list govuk-!-margin-bottom-9',
+        rows: [
+          {
+            key: {
+              text: t('checkYourAnswers.testDetails.testTypeLabel')
+            },
+            value: {
+              text: t('generalContent.testTypes.' + testType)
+            }
+          },
+          {
+            key: {
+              text: t('checkYourAnswers.testDetails.costLabel')
+            },
+            value: {
+              text: (cost | formatPrice)
+            }
+          },
+          {
+            key: {
+              text: t('checkYourAnswers.testDetails.testSlot')
+            },
+            value: {
+              html: '<p>' + dateTime | asFullDateTimeWithoutWeekday + '</p><p>' + centreLocation(testCentre) + '</p>'
+            },
+            actions: {
+              items: [
+                {
+                  href: '#',
+                  text: t('generalContent.changeLink'),
+                  visuallyHiddenText: t('checkYourAnswers.testDetails.testSlot'),
+                  attributes: {
+                    'data-automation-id': 'test-slot'
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m" data-automation-id="support-details-heading">{{ t('checkYourAnswers.supportDetails.heading') }}</h2>
+
+      {{ govukSummaryList({
+        classes: 'ftts-summary-list govuk-!-margin-bottom-9',
+        rows: [
+          {
+            key: {
+              text: t('manageBookingChange.testSupportNeeded.heading')
+            },
+            value: {
+              html: htmlSupportType
+            }
+          },
+          {
+            key: {
+              text: t('manageBookingChange.testLanguage')
+            },
+            value: {
+              text: testLanguage
+            }
+          },
+          {
+            key: {
+              text: t('checkYourDetails.manageBooking.bsl')
+            },
+            value: {
+              text: bslRequested
+            }
+          },
+            {
+            key: {
+              text: t('checkYourDetails.manageBooking.voiceover')
+            },
+            value: {
+              text: voiceoverRequested
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukWarningText({
+        text: t('checkYourAnswers.paymentWarning'),
+        iconFallbackText: t('generalContent.warning')
+      }) }}
+
+      <form action="check-your-details" method="POST" id="form">
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+        {{ govukButton({
+          text: t('checkYourAnswers.continueAndPayButton'),
+          attributes: {
+            'data-automation-id': 'continue',
+            id: 'continueButton'
+          }
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}
+
+{% block pageScripts %}
+  <script src="{{ 'javascripts/loading-spinner.min.js' | asset }}"></script>
+  <script nonce="{{scriptNonce}}">
+    new LoadingSpinner(
+      {
+        formId: "form",
+        elementsToHide: ["pageContent", "backButton", "error-banner"],
+        elementsToDisable: ["continueButton"],
+        triggerElements: ["form"],
+        triggerEvent: "submit",
+      }
+    )
+  </script>
+{% endblock %}

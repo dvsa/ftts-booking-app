@@ -1,0 +1,171 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "loading-component.njk" import loadingComponent %}
+
+{% block page_title %}
+  {{ t('chooseAppointment.heading') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% if not inEditMode %}
+    <div role="navigation" aria-label="back">
+      {{ govukBackLink({
+        text: t('generalContent.back'),
+        href: backLink,
+        attributes: {
+          id: 'backButton'
+        }
+      }) }}
+    </div>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+{% include "error-banner.njk" %}
+{{ loadingComponent(t('selectDate.loadingScreen.loadingHeading'), t('selectDate.loadingScreen.loadingCaption')) }}
+
+{% if inEditMode %}
+  <div class="alert govuk-body govuk-!-margin-bottom-8" id="editModeBanner">
+    {{ t('chooseAppointment.editMode.changeAlert', {
+      openLink: '<a href="' + checkAnswersLink + '" class="govuk-link">',
+      closeLink: '</a>'
+    }) | nl2br | safe }}
+  </div>
+{% endif %}
+
+<div class="govuk-grid-row" id="heading">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-xl">
+      {{ t('chooseAppointment.heading') }}
+    </h1>
+    <p class="govuk-body">
+      <a href="find-test-centre" class="govuk-link">{{ t('chooseAppointment.instruction') }}</a>
+    </p>
+  </div>
+</div>
+
+<div class="govuk-grid-row" id="pageContent">
+  <div class="govuk-grid-column-full">
+    <ol class="appointment-tabs">
+    {% for date in weekView %}
+      <li class="{{ 'tab-0' if date === selectedDate }} {{ 'mobile-hidden' if date not in weekViewMobile }}">
+        {# Do not make these into govuk-link #}
+        <a href="?selectedDate={{ date }}#slots" id="appointmentDate-{{ loop.index }}">
+          <span class="tab-day">{{ date | asWeekday }}</span>
+          <span class="tab-date">{{ date | asFullDateWithoutYear }}</span>
+        </a>
+        {% set slotsCount = slotsByDate[date].length or 0 %}
+        {% if slotsCount > 0 %}
+          {% if slotsCount > 1 %}
+            <span class="tab-slots-available govuk-body-s"> {{ slotsCount }} {{ t('chooseAppointment.slotsAvailable') }}</span>
+          {% else %}
+            <span class="tab-slots-available govuk-body-s"> 1 {{ t('chooseAppointment.OneSlotAvailable') }}</span>
+          {% endif %}
+        {% else %}
+          <span class="tab-slots-not-availabe govuk-body-s"> {{t('chooseAppointment.noSlots')}}</span>
+        {% endif %}
+      </li>
+    {% endfor %}
+    </ol>
+
+    <nav role="navigation">
+      <ul class="weekly-navigation only-desktop">
+        <li class="govuk-body"><a class="govuk-link" id="lastWeek-desktop" href="?selectedDate={{ navigation.desktop.previous }}">&lt; {{ t('chooseAppointment.desktop.previous') }}</a></li>
+        <li class="govuk-body nav-next"><a class="govuk-link" id="nextWeek-desktop" href="?selectedDate={{ navigation.desktop.next }}">{{ t('chooseAppointment.desktop.next') }} &gt;</a></li>
+      </ul>
+      <ul class="weekly-navigation only-mobile">
+        <li class="govuk-body"><a class="govuk-link" id="lastWeek-mobile" href="?selectedDate={{ navigation.mobile.previous }}">&lt; {{ t('chooseAppointment.mobile.previous') }}</a></li>
+        <li class="govuk-body nav-next"><a class="govuk-link" id="nextWeek-mobile" href="?selectedDate={{ navigation.mobile.next }}">{{ t('chooseAppointment.mobile.next') }} &gt;</a></li>
+      </ul>
+    </nav>
+
+    <div class="appointment-slots" id="slots">
+      <h2 class="govuk-heading-l">{{ testCentreName }}</h2>
+      {% if isBeforeToday %}
+        <p class="govuk-body">{{ t('chooseAppointment.warningPast') }}</p>
+      {% elif isBeforeEligible or isAfterEligible %}
+        {% if isBeforeEligible %}
+          <p class="govuk-body">{{ t('chooseAppointment.warningBeforeEligibility') }} <strong>{{ eligibleFromDate | asFullDateWithoutWeekday }}</strong></p>
+        {% else %}
+          <p class="govuk-body">{{ t('chooseAppointment.warningAfterEligibility') }}</p>
+        {% endif %}
+        <p class="govuk-body">
+          <a href="select-date">{{ t('chooseAppointment.selectAnotherDateLink') }}</a>
+        </p>
+      {% elif isAfterSixMonths %}
+        <p class="govuk-body">{{ t('chooseAppointment.warningSixMonths') }}</p>
+      {% elif morningSlots.length === 0 and afternoonSlots.length === 0 %}
+        <p class="govuk-body">{{ t('chooseAppointment.warning1') }}</p>
+      {% else %}
+        {% set showAppointments = true %}
+      {% endif %}
+
+      {% if showAppointments %}
+        <p class="govuk-visually-hidden">{{ selectedDate | asFullDateWithWeekday }}</p>
+        {% if morningSlots.length > 0 %}
+          <h3 class="govuk-heading-m">{{ t('chooseAppointment.morning') }}</h3>
+          <div class="morning-slots">
+            {% for slot in morningSlots %}
+              <form method="post">
+                <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+                {% set buttonHTML %}
+                  {{ slot.startDateTime | asLocalTimeWithoutAmPm }} <span class="govuk-visually-hidden">{{ t('generalContent.time.am') }}</span>
+                {% endset %}
+                {{ govukButton({
+                  html: buttonHTML,
+                  classes: 'govuk-button--secondary'
+                }) }}
+                <input type="hidden" name="slotId" value="{{ slot.startDateTime }}">
+              </form>
+            {% endfor %}
+          </div>
+        {% endif %}
+        {% if afternoonSlots.length > 0 %}
+          <h3 class="govuk-heading-m">{{ t('chooseAppointment.afternoon') }}</h3>
+          <div class="afternoon-slots">
+            {% for slot in afternoonSlots %}
+              <form method="post">
+                <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+                {% set buttonHTML %}
+                  {{ slot.startDateTime | asLocalTimeWithoutAmPm }} <span class="govuk-visually-hidden">{{ t('generalContent.time.pm') }}</span>
+                {% endset %}
+                {{ govukButton({
+                  html: buttonHTML,
+                  classes: 'govuk-button--secondary'
+                }) }}
+                <input type="hidden" name="slotId" value="{{ slot.startDateTime }}">
+              </form>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script src="{{ 'javascripts/loading-spinner.min.js' | asset }}"></script>
+<script nonce="{{scriptNonce}}">
+  const weekView = {{ weekView | dump | safe }};
+  const triggerElements = ["nextWeek-desktop", "lastWeek-desktop", "nextWeek-mobile", "lastWeek-mobile"];
+
+  if (weekView) {
+    for (let i = 0; i < weekView.length; i++) {
+      triggerElements.push(`appointmentDate-${i+1}`);
+    }
+  }
+
+  new LoadingSpinner(
+    {
+      elementsToHide: ["pageContent", "editModeBanner", "error-banner", "backButton", "heading"],
+      triggerEvent: "click",
+      triggerElements,
+    }
+  );
+</script>
+{% endblock %}

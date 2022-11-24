@@ -1,0 +1,101 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% if inEditMode %}
+  {% set heading = t('manageBookingChangeBSL.editMode.heading') %}
+{% else %}
+  {% set heading = t('manageBookingChangeBSL.heading') %}
+{% endif %}
+
+{% block page_title %}
+  {{ heading }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+ {% if not inEditMode %}
+    <div role="navigation" aria-label="back">
+      {{ govukBackLink({
+        text: t('generalContent.back'),
+        href: bookingRef
+      }) }}
+    </div>
+  {% endif %}
+{% endblock %}
+{% block content %}
+
+  {% include "error-banner.njk" %}
+
+  {% if inEditMode and not errors %}
+    <div class="alert govuk-body govuk-!-margin-bottom-8">
+      {{ t('manageBookingChangeBSL.editMode.changeAlert', {
+        openLink: '<a href="check-your-answers" class="govuk-link">',
+        closeLink: '</a>'
+      }) | nl2br | safe }}
+    </div>
+  {% endif %}
+
+  {% set fieldName = "bsl" %}
+  {% set hasError = fieldName | existsAsAnErrorIn(errors) %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        {{ heading }}
+      </h1>
+      <p class="govuk-body">
+        {{ t('manageBookingChangeBSL.formHint') }}
+      </p>
+      <form method="POST">
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+        <div class="{% if hasError %}govuk-form-group--error{% endif %}">
+          {% if hasError %}
+            <span id="{{fieldName}}-error" class="govuk-error-message">
+              {{ fieldName | fieldErrorMessage(errors) }}
+            </span>
+          {% endif %}
+          {{ govukRadios({
+            id: 'bsl',
+            name: fieldName,
+            items: [
+              {
+                value: 'yes',
+                text: t('manageBookingChangeBSL.bslFormOption'),
+                checked: chosenBSL === 'yes'
+              },
+              {
+                value: 'no',
+                text: t('manageBookingChangeBSL.noneFormOption'),
+                checked: chosenBSL === 'no'
+              }
+            ]
+          })}}
+        </div>
+        {% if inEditMode %}
+          {{ govukButton({
+            text: t('generalContent.confirmChangeButton'),
+            classes: 'govuk-!-margin-right-1',
+            type: 'submit',
+            attributes: { id: 'submit' }
+          }) }}
+          {{ govukButton({
+            text: t('manageBookingChangeBSL.editMode.cancelChangeButton'),
+            href: 'check-your-answers',
+            classes: "govuk-button--secondary",
+            attributes: { id: 'cancel' }
+          }) }}
+        {% else %}
+          {{ govukButton({
+            text: t('generalContent.continueButton'),
+            classes: 'govuk-!-margin-right-1',
+            type: 'submit',
+            attributes: { id: 'submit' }
+          }) }}
+        {% endif %}
+      </form>
+    </div>
+  </div>
+{% endblock %}
+
+{% block pageScripts %}
+{% endblock %}

@@ -1,0 +1,120 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% block page_title %}
+  {{ t('preferredLocation.heading') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% if not inEditMode %}
+    <div role="navigation" aria-label="back">
+      {{ govukBackLink({
+        text: t('generalContent.back'),
+        href: backLink,
+        attributes: { 'data-automation-id': 'back' }
+      }) }}
+    </div>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  {% include "error-banner.njk" %}
+
+  {% if inEditMode and not errors %}
+    <div class="alert govuk-body govuk-!-margin-bottom-8">
+      {{ t('generalContent.editMode.changeAlert', {
+        openLink: '<a href="' + backLink + '" data-automation-id="alert-back-link" class="govuk-link">',
+        closeLink: '</a>'
+      }) | nl2br | safe }}
+    </div>
+  {% endif %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl" data-automation-id="heading">{{ t('preferredLocation.heading') }}</h1>
+      <p class="govuk-body">{{ t('preferredLocation.paragraph1') }}</p>
+      <p class="govuk-body">{{ t('preferredLocation.paragraph2') }}</p>
+
+      <form method="post">
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+        {% set inputHtml %}
+          <p class="govuk-body">{{ t('preferredLocation.option1Content.paragraph1') }}</p>
+
+          {{ govukCharacterCount({
+            id: 'locationInput',
+            name: 'locationInput',
+            maxlength: 4000,
+            label: {
+              text: t('preferredLocation.option1Hint')
+            },
+            value: savedPreferredLocation,
+            errorMessage: 'locationInput' | fieldErrorObject(errors),
+            attributes: {
+              'data-automation-id': 'input'
+            }
+          }) }}
+        {% endset %}
+
+        {% set fieldName = 'preferredLocationOption' %}
+        {{ govukRadios({
+          idPrefix: fieldName,
+          name: fieldName,
+          fieldset: {
+            legend: {
+              text: t('preferredLocation.radioHint')
+            }
+          },
+          items: [{
+            value: 'particularLocation',
+            text: t('preferredLocation.option1'),
+            conditional: {
+              html: inputHtml
+            },
+            checked: preferredLocationOption === 'particularLocation',
+            attributes: {
+              'data-automation-id': 'particularLocation'
+            }
+          }, {
+            value: 'decideLater',
+            text: t('preferredLocation.option2'),
+            checked: preferredLocationOption === 'decideLater',
+            attributes: {
+              'data-automation-id': 'decideLater'
+            }
+          }],
+          errorMessage: fieldName | fieldErrorObject(errors)
+        }) }}
+
+        {% if inEditMode %}
+          {{ govukButton({
+            text: t('generalContent.confirmChangeButton'),
+            type: 'submit',
+            classes: 'govuk-!-margin-right-1',
+            attributes: {
+              'data-automation-id': 'submit'
+            }
+          }) }}
+          {{ govukButton({
+            text: t('manageBookingChangeBSL.editMode.cancelChangeButton'),
+            href: backLink,
+            classes: 'govuk-button--secondary',
+            attributes: {
+              'data-automation-id': 'cancel'
+            }
+          }) }}
+        {% else %}
+          {{ govukButton({
+            text: t('generalContent.continueButton'),
+            attributes: {
+              'data-automation-id': 'submit',
+              'type': 'submit'
+            }
+          }) }}
+        {% endif %}
+      </form>
+    </div>
+  </div>
+{% endblock %}

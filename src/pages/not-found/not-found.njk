@@ -1,0 +1,28 @@
+{% extends "layout.njk" %}
+
+{% block page_title %}
+  {{ t('errors.404.heading') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-xl">{{ t('errors.404.heading') }}</h1>
+    <p class="govuk-body">{{ t('errors.404.paragraph1') }}</p>
+    <p class="govuk-body">{{ t('errors.404.paragraph2') }}</p>
+    <p class="govuk-body">
+      {{ t('errors.404.gbServiceLinkText', {
+        openLink: '<a href="' + t('errors.404.gbServiceLinkUrl') + '" data-automation-id="gbServiceLink" class="govuk-link">',
+        closeLink: '</a>'
+      }) | safe }}
+    </p>
+    <p class="govuk-body">
+      {{ t('errors.404.niServiceLinkText', {
+        openLink: '<a href="' + t('errors.404.niServiceLinkUrl') + '" data-automation-id="niServiceLink" class="govuk-link">',
+        closeLink: '</a>'
+      }) | safe }}
+    </p>
+  </div>
+</div>
+{% endblock %}
+

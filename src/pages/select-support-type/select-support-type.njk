@@ -1,0 +1,86 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{% block page_title %}
+  {{ t('selectSupportType.heading') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% if not inEditMode %}
+    <div role="navigation" aria-label="back">
+      {{ govukBackLink({
+        text: t('generalContent.back'),
+        href: backLink,
+        attributes: {
+          'data-automation-id': 'back'
+        }
+      }) }}
+    </div>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+{% include "error-banner.njk" %}
+
+  {% if inEditMode and not errors %}
+    <div class="alert govuk-body govuk-!-margin-bottom-8">
+      {{ t('selectSupportType.editMode.changeAlert', {
+        openLink: '<a href="' + backLink + '" data-automation-id="alert-back-link" class="govuk-link">',
+        closeLink: '</a>'
+      }) | nl2br | safe }}
+      <div class="govuk-warning-text govuk-!-margin-top-2 govuk-!-margin-bottom-0">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-warning-text__assistive">{{ t('generalContent.warning') }}</span>
+            {{ t('selectSupportType.editMode.importantWarning') }}
+        </strong>
+      </div>
+    </div>
+  {% endif %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl" data-automation-id="heading">{{ t('selectSupportType.heading') }}</h1>
+    <p class="govuk-body">{{ t('selectSupportType.para1') }}</p>
+    <form method="post">
+      <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+      {% set fieldName = 'selectSupportType' %}
+      {{ govukCheckboxes({
+        idPrefix: fieldName,
+        name: fieldName,
+        errorMessage: fieldName | fieldErrorObject(errors),
+        items: options
+      }) }}
+      {% if inEditMode %}
+        {{ govukButton({
+          text: t('generalContent.confirmChangeButton'),
+          type: 'submit',
+          classes: 'govuk-!-margin-right-1',
+          attributes: {
+            'data-automation-id': 'submit'
+          }
+        }) }}
+        {{ govukButton({
+          text: t('selectSupportType.editMode.cancelChangeButton'),
+          href: backLink,
+          classes: 'govuk-button--secondary',
+          attributes: {
+            'data-automation-id': 'cancel'
+          }
+        }) }}
+      {% else %}
+        {{ govukButton({
+          attributes: {
+            'data-automation-id': 'submit'
+          },
+          text: t('generalContent.continueButton')
+        }) }}
+      {% endif %}
+    </form>
+  </div>
+</div>
+
+{% endblock %}

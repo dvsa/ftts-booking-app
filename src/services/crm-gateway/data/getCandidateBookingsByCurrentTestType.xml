@@ -1,0 +1,21 @@
+<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+  <entity name="ftts_bookingproduct">
+    <attribute name="ftts_bookingproductid" />
+    <order attribute="ftts_productid" descending="false" />
+    <filter type="and">
+      <condition attribute="ftts_candidateid" operator="eq" value="${candidateId}" />
+      <condition attribute="ftts_selected" operator="eq" value="true" />
+      <condition attribute="ftts_testdate" operator="gt" value="${DATE_NOW}" />
+    </filter>
+    <link-entity name="ftts_booking" from="ftts_bookingid" to="ftts_bookingid" link-type="inner" alias="ad">
+      <filter type="and">
+        <condition attribute="ftts_bookingstatus" operator="eq" value="${BOOKING_STATUS_CONFIRMED}" />
+      </filter>
+    </link-entity>
+    <link-entity name="product" from="productid" to="ftts_productid" link-type="inner" alias="ae">
+      <filter type="and">
+        <condition attribute="productnumber" operator="eq" value="${testType}" />
+      </filter>
+    </link-entity>
+  </entity>
+</fetch>

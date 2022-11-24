@@ -1,0 +1,33 @@
+.govuk-input,
+.govuk-textarea,
+.govuk-checkboxes__label::before,
+.govuk-checkboxes__input:focus + .govuk-checkboxes__label::before,
+.govuk-checkboxes__input:active + .govuk-checkboxes__label::before,
+.govuk-radios__label::before,
+.govuk-radios__input:active + .govuk-radios__label::before,
+.govuk-radios__input:focus + .govuk-radios__label::before {
+  background-color: $nidirect-white;
+  border: 1px solid darken($nidirect-mid-grey, 30%);
+  padding: 9px 18px;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.govuk-input:focus,
+.govuk-textarea:focus,
+.govuk-checkboxes__input:focus + .govuk-checkboxes__label::before,
+.govuk-checkboxes__input:active + .govuk-checkboxes__label::before,
+.govuk-radios__input:focus + .govuk-radios__label::before,
+.govuk-radios__input:active + .govuk-radios__label::before {
+  border-color: $nidirect-brand-blue;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
+  outline: 0;
+}
+
+.govuk-input--width-2 {
+    max-width: 7ex;
+}
+
+.govuk-error-summary__list a:focus {
+  background-color: transparent;
+  box-shadow: none;
+}

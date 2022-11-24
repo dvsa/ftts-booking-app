@@ -1,0 +1,13 @@
+<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+  <entity name="ftts_nsabookingslot">
+    <attribute name="ftts_bookingid" />
+    <attribute name="ftts_status" />
+    <attribute name="ftts_reservationid" />
+    <attribute name="ftts_expirydate" />
+    <attribute name="ftts_organisationid" />
+    <attribute name="ftts_testdate" />
+    <filter type="or">
+      ${bookingidConditions}
+    </filter>
+  </entity>
+</fetch>

@@ -1,0 +1,110 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/panel/macro.njk" import govukPanel %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+{% from "collapsed-centre-location.njk" import collapsedCentreLocation %}
+
+{% block timeoutNotification %}
+{% endblock %}
+
+{% block page_title %}
+   {{t('bookingConfirmation.nonStandardAccommodation.evidenceNeededHeading')}} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    {% set panelHTML %}
+      <span class="govuk-!-font-weight-bold"> {{ t('bookingConfirmation.nonStandardAccommodation.panelContact') }}</span>
+      <br><br>
+      <span class="govuk-!-font-size-36">{{ t('bookingConfirmation.nonStandardAccommodation.panelBookingRef') }}</span>
+      <br>
+      <span class="govuk-!-font-size-36 govuk-!-font-weight-bold">{{ bookingRef }}</span>
+      <br>
+    {% endset %}
+    {{
+      govukPanel({
+        titleText: t('bookingConfirmation.nonStandardAccommodation.evidenceNeededHeading'),
+        html: panelHTML,
+        attributes: { 'data-automation-id': 'confirmation-panel' }
+      })
+    }}
+  </div>
+  <br>
+  <div class="govuk-grid-column-two-thirds">
+
+    {% include "booking-confirmation-nsa-general-info.njk" %}
+
+    <h2 class="govuk-heading-l" data-automation-id="what-to-do-next">{{ t('bookingConfirmation.nonStandardAccommodation.whatToDoNow.header') }}</h2>
+    <h3 class="govuk-heading-m" data-automation-id="email-your-evidence">{{ t('bookingConfirmation.nonStandardAccommodation.whatToDoNow.emailEvidence') }}</h3>
+    <p class="govuk-body">{{ t('bookingConfirmation.nonStandardAccommodation.whatToDoNow.emailEvidenceParagraph1') }}<a href="mailto:{{ t('bookingConfirmation.nonStandardAccommodation.whatToDoNow.email') }}" class="govuk-link">{{ t('bookingConfirmation.nonStandardAccommodation.whatToDoNow.email') }}</a> </p>
+    <p class="govuk-body">{{ t('bookingConfirmation.nonStandardAccommodation.whatToDoNow.emailEvidenceParagraph2') }}</p>
+
+    <h3 class="govuk-heading-m" data-automation-id="booking-confirmation-important">{{ t('bookingConfirmation.nonStandardAccommodation.importantInfo.header') }}</h3>
+    <p class="govuk-body">{{ t('bookingConfirmation.nonStandardAccommodation.importantInfo.paragraph') }}</p>
+    <p class="govuk-body">{{ t('bookingConfirmation.nonStandardAccommodation.importantInfo.supportRquestRef') }} <strong>{{ bookingRef }}</strong><br>
+      {{ t('bookingConfirmation.nonStandardAccommodation.importantInfo.fullname') }}<br>
+      {{ t('bookingConfirmation.nonStandardAccommodation.importantInfo.drivingLicenceNo') }}
+    </p>
+
+    <h3 class="govuk-heading-m" data-automation-id="other-ways-to-send-evidence">{{ t('bookingConfirmation.nonStandardAccommodation.otherWaysToSendEvidence.header') }}</h3>
+    <p class="govuk-body">{{ t('bookingConfirmation.nonStandardAccommodation.otherWaysToSendEvidence.paragraph') }}</p>
+    <p class="govuk-body">{{ t('bookingConfirmation.nonStandardAccommodation.otherWaysToSendEvidence.addressLine1') }}<br>
+      {{ t('bookingConfirmation.nonStandardAccommodation.otherWaysToSendEvidence.addressLine2') }}<br>
+      {{ t('bookingConfirmation.nonStandardAccommodation.otherWaysToSendEvidence.addressLine3') }}<br>
+      {{ t('bookingConfirmation.nonStandardAccommodation.otherWaysToSendEvidence.addressLine4') }}
+    </p>
+
+    {% if deafCandidate %}
+      <h3 class="govuk-heading-m" data-automation-id="when-no-evidence-required">{{ t('bookingConfirmation.nonStandardAccommodation.additionalTextForDeafUsers.title') }}</h3>
+      <p class="govuk-body">{{ t('bookingConfirmation.nonStandardAccommodation.additionalTextForDeafUsers.paragraph') }}</p>
+    {% endif %}
+
+    <h3 class="govuk-heading-m" data-automation-id="your-evidence">{{ t('bookingConfirmation.nonStandardAccommodation.evidenceRequirements.header') }}</h3>
+    <p class="govuk-body">{{ t('bookingConfirmation.nonStandardAccommodation.evidenceRequirements.title') }}</p>
+    <ul class="govuk-list govuk-list--bullet">
+        <li>{{ t('bookingConfirmation.nonStandardAccommodation.evidenceRequirements.point1') }}</li>
+        <li>{{ t('bookingConfirmation.nonStandardAccommodation.evidenceRequirements.point2') }}</li>
+        <li>{{ t('bookingConfirmation.nonStandardAccommodation.evidenceRequirements.point3') }}</li>
+        <li>{{ t('bookingConfirmation.nonStandardAccommodation.evidenceRequirements.point4') }}</li>
+        <li>{{ t('bookingConfirmation.nonStandardAccommodation.evidenceRequirements.point5') }}</li>
+      </ul>
+    <p class="govuk-body">{{ t('bookingConfirmation.nonStandardAccommodation.evidenceRequirements.linkIntro') }}</p>
+    <p class="govuk-body"><a href= "{{ t('bookingConfirmation.nonStandardAccommodation.evidenceRequirements.link') }}" target="_blank" class="govuk-link"> {{ t('bookingConfirmation.nonStandardAccommodation.evidenceRequirements.link') }} </a></p>
+    <h3 class="govuk-heading-m" data-automation-id="when-we-get-your-evidence">{{ t('bookingConfirmation.nonStandardAccommodation.evidenceRecieved.header') }}</h3>
+    <p class="govuk-body">{{ t('bookingConfirmation.nonStandardAccommodation.evidenceRecieved.paragraph') }}</p>
+
+    {% include "contact-information.njk" %}
+  </div>
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script nonce="{{scriptNonce}}">
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', enablePrintButton);
+  } else {
+    enablePrintButton();
+  }
+
+  function printPage(e) {
+    window.print();
+    e.stopPropagation();
+  }
+
+  function enablePrintButton() {
+    const printTrigger = document.getElementById('printTrigger');
+    printTrigger.classList.remove('hidden');
+    printTrigger.onclick = printPage;
+
+    const nonJsPrintSpan = document.getElementById('nonJsPrint');
+    nonJsPrintSpan.classList.add('hidden');
+  }
+</script>
+{% endblock %}

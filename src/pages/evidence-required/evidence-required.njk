@@ -1,0 +1,47 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block page_title %}
+  {{ t('evidence.required.heading') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  <div role="navigation" aria-label="back">
+    {{ govukBackLink({
+      text: t('generalContent.back'),
+      href: backLink,
+      attributes: { 'data-automation-id': 'back' }
+    }) }}
+  </div>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl" data-automation-id="heading">{{ t('evidence.required.heading') }}</h1>
+      <p class="govuk-body">{{ t('evidence.required.description') }}</p>
+      <h2 class="govuk-heading-m">{{ t('evidence.required.subheader') }}</h2>
+      <p class="govuk-body">{{ t('evidence.required.subdescription') }}</p>
+      <p class="govuk-body">{{ t('evidence.required.listCaption') }}</p>
+      <ol class="govuk-list govuk-list--bullet">
+        <li>{{ t('evidence.required.line1') }}</li>
+        <li>{{ t('evidence.required.line2') }}</li>
+        <li>{{ t('evidence.required.line3') }}</li>
+        <li>{{ t('evidence.required.line4') }}</li>
+        <li>{{ t('evidence.required.line5') }}</li>
+      </ol>
+      {% if showExtraContent %}
+        <h2 class="govuk-heading-m">{{ t('evidence.deafCandidate.header') }}</h2>
+        <p class="govuk-body">{{ t('evidence.deafCandidate.description') }}</p>
+      {% endif %}
+      {{ govukButton({
+        text: t('generalContent.continueButton'),
+        href: 'preferred-day',
+        attributes: {
+          'data-automation-id': 'submit'
+        }
+      }) }}
+    </div>
+  </div>
+{% endblock %}

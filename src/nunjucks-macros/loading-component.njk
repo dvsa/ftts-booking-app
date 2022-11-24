@@ -1,0 +1,8 @@
+{% macro loadingComponent(heading='Loading', caption='Please wait') %}
+  <div class="govuk-grid-row hidden" id="loadingScreen" role="alert" style="text-align: center;">
+    <h1 class="govuk-heading-l">{{ heading }}</h1>
+    <p class="govuk-body">{{ caption }}</p>
+    {% set loadingImgPath = 'images/loadinggif.gif' | asset %}
+    <img src="{{ loadingImgPath }}" alt="Loading..." width="50">
+  </div>
+{% endmacro %}

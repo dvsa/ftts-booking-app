@@ -1,0 +1,55 @@
+{% from "govuk/components/cookie-banner/macro.njk" import govukCookieBanner %}
+
+{% if not cookiesEnabled and not onPolicyPage %}
+  {% set html %}
+    <p>{{ t('generalContent.cookie.cookieP1') }}</p>
+    <p>{{ t('generalContent.cookie.cookieP2') }}</p>
+  {% endset %}
+
+  <form method="GET">
+    {{ govukCookieBanner({
+      ariaLabel: t('generalContent.cookie.cookieHeader'),
+      classes: 'js-cookie-banner',
+      messages: [
+        {
+          headingText: t('generalContent.cookie.cookieHeader'),
+          html: html,
+          classes: 'govuk-!-padding-top-4',
+          actions: [
+            {
+              text: t('generalContent.cookie.acceptButton'),
+              type: 'submit',
+              name: 'cookies',
+              value: 'accept'
+            },
+            {
+              text: t('generalContent.cookie.viewLink'),
+              href: '/view-cookies'
+            }
+          ]
+        }
+      ]
+    }) }}
+
+    <noscript>
+      {{ govukCookieBanner({
+        ariaLabel: t('generalContent.cookie.cookieHeader'),
+        messages: [
+          {
+            headingText: t('generalContent.cookie.cookieHeader'),
+            html: html,
+            classes: 'govuk-!-padding-top-4',
+            actions: [
+              {
+                type: 'submit',
+                name: 'viewCookies',
+                text: t('generalContent.cookie.viewLink'),
+                value: 'redirect'
+              }
+            ]
+          }
+        ]
+      }) }}
+    </noscript>
+  </form>
+{% endif %}

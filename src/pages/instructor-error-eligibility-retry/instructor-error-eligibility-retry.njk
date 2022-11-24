@@ -1,0 +1,18 @@
+{% extends "layout.njk" %}
+
+{% block page_title %}
+  {{ t('details.retry.heading') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-xl">{{ t('details.retry.heading') }}</h1>
+      <p class="govuk-body">{{ t('details.retry.description', {
+        openLink: '<a class="govuk-link" href="/instructor/choose-support">',
+        closeLink: '</a>'
+      }) | safe }}</p>
+      {% include "enquiries-footer.njk" %}
+    </div>
+  </div>
+{% endblock %}

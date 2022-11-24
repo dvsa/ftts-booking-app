@@ -1,0 +1,34 @@
+{% extends "layout.njk" %}
+
+{% block page_title %}
+  {{ t('manageBookingCheckChange.error.heading') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-xl">{{ t('manageBookingCheckChange.error.heading') }}</h1>
+    {% if slotUnavailable %}
+      <p class="govuk-body">
+        {{ t('manageBookingCheckChange.error.slotUnavailable.contentLine1', {
+          openLink: '<a href="/manage-booking/'+bookingRef+'" class="govuk-link">',
+          closeLink: '</a>'
+        }) | safe }}
+      </p>
+      <p class="govuk-body">{{ t('manageBookingCheckChange.error.slotUnavailable.contentLine2') }}</p>
+    {% elseif canRetry %}
+      <p class="govuk-body">{{ t('manageBookingCheckChange.error.general.contentLine1') }}</p>
+      <p class="govuk-body">
+        {{ t('manageBookingCheckChange.error.general.contentLine2', {
+          openLink: '<a href="/manage-booking/'+bookingRef+'" class="govuk-link">',
+          closeLink: '</a>'
+        }) | safe }}
+      </p>
+    {% else %}
+      <p class="govuk-body">{{ t('manageBookingCheckChange.error.noRetry.contentLine1') }}</p>
+      <p class="govuk-body">{{ t('manageBookingCheckChange.error.noRetry.contentLine2') }}</p>
+    {% endif %}
+    {% include "enquiries-footer.njk" %}
+  </div>
+</div>
+{% endblock %}

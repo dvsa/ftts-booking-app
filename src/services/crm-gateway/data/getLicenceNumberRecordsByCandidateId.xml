@@ -1,0 +1,40 @@
+<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+    <entity name="ftts_licence">
+        <attribute name="ftts_licence" />
+        <attribute name="ftts_licenceid" />
+        <attribute name="ftts_address1_street1" />
+        <attribute name="ftts_address1_street2" />
+        <attribute name="ftts_address1street3" />
+        <attribute name="ftts_address1street4" />
+        <attribute name="ftts_address1_city" />
+        <attribute name="ftts_address1_postalcode" />
+        <filter type="and">
+            <condition attribute="ftts_licence" operator="eq" value="${licenceNumber}" />
+            <condition attribute="statecode" operator="eq" value="${licenceStatecode}" />
+        </filter>
+
+        <link-entity name="contact" from="contactid" to="ftts_person" link-type="inner" visible="true">
+            <attribute name="contactid" alias="candidateId" />
+            <attribute name="ftts_firstandmiddlenames" alias="firstnames" />
+            <attribute name="lastname" alias="surname" />
+            <attribute name="emailaddress1" alias="email" />
+            <attribute name="ftts_personreference" alias="personReference" />
+            <attribute name="telephone2" alias="telephone" />
+            <attribute name="ftts_title" alias="title" />
+            <attribute name="birthdate" alias="dateOfBirth" />
+            <attribute name="gendercode" alias="gender" />
+            <filter type="and">
+                <condition attribute="contactid" operator="eq" value="${candidateId}" />
+                <condition attribute="statecode" operator="eq" value="${contactStatecode}" />
+            </filter>
+
+            <link-entity name = "ftts_supportneed" from="ftts_person" to="contactid" visible="false" link-type="outer" alias="aw">
+                <attribute name="ftts_name" alias="supportNeedName" />
+                <attribute name="ftts_evidencestatus" alias="supportEvidenceStatus" />
+                <filter type="and">
+                    <condition attribute="ftts_evidencestatus" operator="eq" value="${evidenceStatus}" />
+                </filter>
+            </link-entity>
+        </link-entity>
+    </entity>
+</fetch>

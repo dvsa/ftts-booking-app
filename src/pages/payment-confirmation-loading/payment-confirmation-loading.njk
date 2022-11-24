@@ -1,0 +1,20 @@
+{% extends "layout.njk" %}
+
+{% block page_title %}
+  {{t('paymentConfirmationLoading.heading')}} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-width-container" style="text-align: center;">
+      {% set loadingImgPath = 'images/loadinggif.gif' | asset %}
+      <h1 class="govuk-heading-l"> {{t('paymentConfirmationLoading.heading')}}</h1>
+      <p class="govuk-body"> {{t('paymentConfirmationLoading.content.paragraph1')}} <br> {{t('paymentConfirmationLoading.content.paragraph2')}}</p>
+      <img src="{{ loadingImgPath }}" alt="Loading..." width="50" class="center">
+      <p class="govuk-body"> {{t('paymentConfirmationLoading.content.paragraph3')}} <br> {{t('paymentConfirmationLoading.content.paragraph4')}}</p>
+  </div>
+{% endblock %}
+
+{% block customHead %}
+    <meta http-equiv="refresh" content="{{refreshTime}};url={{redirectUrl}}" />
+{% endblock %}

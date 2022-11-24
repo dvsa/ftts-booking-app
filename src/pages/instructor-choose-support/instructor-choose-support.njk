@@ -1,0 +1,161 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+{% block page_title %}
+  {{ t('chooseSupport.heading') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% if not inEditMode %}
+    <div role="navigation" aria-label="back">
+      {{ govukBackLink({
+        text: t('generalContent.back'),
+        href: backLink,
+        attributes: {
+          'data-automation-id': 'back-link'
+        }
+      }) }}
+    </div>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+  {% include "error-banner.njk" %}
+
+  {% if inEditMode and not errors %}
+    <div class="alert govuk-body govuk-!-margin-bottom-8">
+      {{ t('chooseSupport.editMode.changeAlert', {
+        openLink: '<a href="' + backLink + '" class="govuk-link" data-automation-id="alert-back-link">',
+        closeLink: '</a>'
+      }) | nl2br | safe }}
+      <div class="govuk-warning-text govuk-!-margin-top-2 govuk-!-margin-bottom-0">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-warning-text__assistive">{{ t('generalContent.warning') }}</span>
+            {{ t('chooseSupport.editMode.importantWarning') }}
+        </strong>
+      </div>
+    </div>
+  {% endif %}
+
+  {% set chooseSupportYesOption = false %}
+  {% set chooseSupportNoOption = false %}
+
+  {% if inEditMode %}
+    {% if standardAccommodation %}
+      {% set chooseSupportNoOption = true %}
+    {% else %}
+      {% set chooseSupportYesOption = true %}
+    {% endif %}
+  {% endif %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl" data-automation-id="main-heading">{{ t('chooseSupport.heading') }}</h1>
+      {% if target == 'gb' %}
+        {% set bannerContent %}
+          <p class="govuk-notification-banner__heading">{{ t('chooseSupport.warning.banner-part1') }}</p>
+          <p class="govuk-notification-banner__heading">{{ t('chooseSupport.warning.banner-part2') }}</p>
+        {% endset %}
+
+        {{ govukNotificationBanner({
+          html: bannerContent,
+          titleText: t('chooseSupport.warning.banner-heading')
+        }) }}
+      {% endif %}
+      <p class="govuk-body">{{ t('chooseSupport.para1') }}</p>
+      <p class="govuk-body">{{ t('chooseSupport.para2') }}</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>{{ t('chooseSupport.list1-1') }}</li>
+        <li>{{ t('chooseSupport.list1-2') }}</li>
+        <li>{{ t('chooseSupport.list1-3') }}</li>
+      </ul>
+      <p class="govuk-body">{{ t('chooseSupport.para3', {
+        openLink: '<a href="//www.gov.uk/theory-test/reading-difficulty-disability-or-health-condition" class="govuk-link" data-automation-id="support-help-link">',
+        closeLink: '</a>'
+      }) | safe }}</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>{{ t('chooseSupport.list2-1') }}</li>
+        <li>{{ t('chooseSupport.list2-2') }}</li>
+        {% if target === 'ni'%}
+          <li>{{ t('chooseSupport.list2-3') }}</li>
+        {% endif %}
+        <li>{{ t('chooseSupport.list2-4') }}</li>
+        <li>{{ t('chooseSupport.list2-5') }}</li>
+        <li>{{ t('chooseSupport.list2-6') }}</li>
+      </ul>
+      <h2 class="govuk-heading-m" data-automation-id="sub-heading">{{ t('chooseSupport.heading2') }}</h2>
+      <p class="govuk-body">{{ t('chooseSupport.para4') }}</p>
+      <p class="govuk-body">{{ t('chooseSupport.para5') }}</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>{{ t('chooseSupport.list3-1') }}</li>
+        <li>{{ t('chooseSupport.list3-2') }}</li>
+        <li>{{ t('chooseSupport.list3-3') }}</li>
+      </ul>
+      <form method="post" action="/instructor/choose-support">
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+        {% set fieldName = 'chooseSupport' %}
+        {{ govukRadios({
+          classes: 'govuk-radios--inline',
+          idPrefix: fieldName,
+          name: fieldName,
+          errorMessage: fieldName | fieldErrorObject(errors),
+          fieldset: {
+            legend: {
+              text: t('chooseSupport.legend'),
+              isPageHeading: false,
+              classes: 'govuk-fieldset__legend--l'
+            }
+          },
+          items: [{
+            value: 'yes',
+            text: t('chooseSupport.yes'),
+            checked: chooseSupportYesOption,
+            attributes: {
+              'data-automation-id': 'support-yes'
+            }
+          }, {
+            value: 'no',
+            text: t('chooseSupport.no'),
+            checked: chooseSupportNoOption,
+            attributes: {
+              'data-automation-id': 'support-no'
+            }
+          }]
+        }) }}
+        {% if inEditMode %}
+          {{ govukButton({
+            text: t('chooseSupport.editMode.confirmChangeButton'),
+            type: 'submit',
+            classes: 'govuk-!-margin-right-1',
+            attributes: {
+              'data-automation-id': 'submit'
+            }
+          }) }}
+          {{ govukButton({
+            text: t('chooseSupport.editMode.cancelChangeButton'),
+            href: backLink,
+            classes: 'govuk-button--secondary',
+            attributes: {
+              'data-automation-id': 'cancel'
+            }
+          }) }}
+        {% else %}
+          {{ govukButton({
+            text: t('generalContent.continueButton'),
+            type: 'submit',
+            classes: 'govuk-!-margin-right-1',
+            attributes: {
+              'data-automation-id': 'submit'
+            }
+          }) }}
+        {% endif %}
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,45 @@
+<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+  <entity name="ftts_bookingproduct">
+    <attribute name="ftts_bookingproductid" />
+    <attribute name="ftts_reference" />
+    <attribute name="ftts_bookingid" />
+    <attribute name="ftts_bookingstatus" />
+    <attribute name="ftts_testdate" />
+    <attribute name="ftts_testlanguage" />
+    <attribute name="ftts_voiceoverlanguage" />
+    <attribute name="ftts_additionalsupportoptions" />
+    <attribute name="ftts_paymentstatus" />
+    <attribute name="ftts_price" />
+    <attribute name="ftts_salesreference" />
+    <attribute name="createdon" />
+
+    <order attribute="ftts_reference" descending="true" />
+    <link-entity name="ftts_booking" from="ftts_bookingid" to="ftts_bookingid" link-type="inner" alias="booking">
+      <attribute name="ftts_governmentagency" />
+      <attribute name="ftts_reference" alias="bookingReference" />
+      <attribute name="ftts_origin" />
+      <attribute name="ftts_enableeligibilitybypass" />
+      <attribute name="ftts_nonstandardaccommodation" />
+      <attribute name="ftts_owedcompbookingassigned" />
+      <attribute name="ftts_owedcompbookingrecognised" />
+      <attribute name="ftts_zerocostbooking" />
+      <attribute name="ftts_testsupportneed" />
+      <attribute name="ftts_foreignlanguageselected" />
+      <attribute name="ftts_voicemailmessagespermitted" />
+      <attribute name="ftts_nsastatus" />
+      <attribute name="ftts_nivoiceoveroptions" />
+    </link-entity>
+
+    <link-entity name="product" from="productid" to="ftts_productid" link-type="inner" alias="product">
+      <attribute name="productid" />
+      <attribute name="parentproductid" />
+      <attribute name="name" />
+      <attribute name="productnumber" />
+    </link-entity>
+
+    <filter type="and">
+      <condition attribute="ftts_candidateid" operator="eq" value="${candidateId}" />
+      <condition attribute="ftts_bookingstatus" operator="eq" value="675030006" />
+    </filter>
+  </entity>
+</fetch>

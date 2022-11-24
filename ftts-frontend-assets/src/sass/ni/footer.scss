@@ -1,0 +1,34 @@
+.govuk-footer__licence-logo,
+.govuk-footer__licence-description,
+.govuk-footer__copyright-logo {
+    display: none;
+}
+
+.govuk-footer__heading,
+.govuk-footer__section-break {
+    border-bottom: none;
+}
+
+.govuk-footer__inline-list-item {
+    border-right-color: $nidirect-dark-grey;
+    border-right-style: solid;
+    border-right-width: 1px;
+    padding: 0 9px;
+    margin: 0;
+}
+
+.govuk-footer__link {
+    &:link,
+    &:focus,
+    &:active,
+    &:visited {
+        text-decoration: none;
+        color: $nidirect-brand-blue;
+    }
+    &:hover {
+        text-decoration: underline;
+        color: $nidirect-dark-blue;
+        background-color: transparent;
+        box-shadow: none;
+    }
+}

@@ -1,0 +1,70 @@
+.govuk-button {
+    display: inline-block;
+    font-weight: 400;
+    touch-action: manipulation;
+    cursor: pointer;
+    padding: 9px 18px;
+    font-size: 18px;
+    line-height: 1.5;
+    border-radius: 0;
+    color: $nidirect-white;
+    background-color: $nidirect-brand-blue;
+    border-color: $nidirect-brand-blue;
+    box-shadow: none;
+
+    &:active,
+    &:focus,
+    &:hover,
+    &:focus:not(:active):not(:hover) {
+        background-color: darken($nidirect-brand-blue, 10%);
+        color: $nidirect-white;
+        border-color: lighten($nidirect-brand-blue, 5%);
+        box-shadow: none;
+    }
+
+    &--secondary {
+        background-color: $nidirect-mid-grey;
+        color: #222;
+        background-color: $nidirect-white;
+        border-color: rgba(0, 0, 0, 0.1);
+    }
+
+    &--secondary:active,
+    &--secondary:hover,
+    &--secondary:focus,
+    &--secondary:focus:not(:active):not(:hover) {
+        color: #222;
+        background-color: $nidirect-mid-grey;
+        border-color: rgba(0, 0, 0, 0.1);
+    }
+
+    &--warning,
+    &--warning:link {
+        color: $nidirect-white;
+        background-color: $nidirect-red;
+        border-color: $nidirect-red;
+    }
+
+    &--warning:active,
+    &--warning:hover,
+    &--warning:focus,
+    &--warning:focus:not(:active):not(:hover) {
+        color: $nidirect-white;
+        background-color: darken($nidirect-red, 10%);
+        border-color: $nidirect-red;
+    }
+
+    &.show-on-desktop {
+        display: none;
+        @include govuk-media-query($from: desktop) {
+            display: block;
+        }
+    }
+
+    &.hide-on-desktop {
+        display: block;
+        @include govuk-media-query($from: desktop) {
+            display: none;
+        }
+    }
+}

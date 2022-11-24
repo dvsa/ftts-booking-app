@@ -1,0 +1,104 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% block page_title %}
+  {{ t('voicemail.heading') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% if not inEditMode %}
+    <div role="navigation" aria-label="back">
+      {{ govukBackLink({
+        text: t('generalContent.back'),
+        href: backLink,
+        attributes: {
+          'data-automation-id': 'back'
+        }
+      }) }}
+    </div>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  {% include "error-banner.njk" %}
+
+  {% if inEditMode and not errors %}
+    <div class="alert govuk-body govuk-!-margin-bottom-8">
+      {{ t('telephoneContact.editMode.changeAlert', {
+        openLink: '<a href="' + backLink + '" data-automation-id="alert-back-link" class="govuk-link">',
+        closeLink: '</a>'
+      }) | nl2br | safe }}
+    </div>
+  {% endif %}
+
+  {% set fieldName = "voicemail" %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form method="POST">
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+        {% call govukFieldset({
+          legend: {
+            text: t('voicemail.heading'),
+            classes: 'govuk-fieldset__legend--xl govuk-!-margin-bottom-7',
+            isPageHeading: true
+          }
+        }) %}
+          {{ govukRadios({
+            id: fieldName,
+            name: fieldName,
+            classes: 'govuk-radios--inline',
+            errorMessage: fieldName | fieldErrorObject(errors),
+            items: [
+              {
+                value: 'yes',
+                text: t('generalContent.yes'),
+                checked: voicemailYes,
+                attributes: {
+                  'data-automation-id': 'yes'
+                }
+              },
+              {
+                value: 'no',
+                text: t('generalContent.no'),
+                checked: voicemailNo,
+                attributes: {
+                  'data-automation-id': 'no'
+                }
+              }
+            ]
+          })}}
+        {% endcall %}
+        {% if inEditMode %}
+          {{ govukButton({
+            text: t('generalContent.confirmChangeButton'),
+            type: 'submit',
+            classes: 'govuk-!-margin-right-1',
+            attributes: {
+              'data-automation-id': 'submit'
+            }
+          }) }}
+          {{ govukButton({
+            text: t('generalContent.cancelChangeButton'),
+            href: backLink,
+            classes: 'govuk-button--secondary',
+            attributes: {
+              'data-automation-id': 'cancel'
+            }
+          }) }}
+        {% else %}
+          {{ govukButton({
+            text: t('generalContent.continueButton'),
+            classes: 'govuk-!-margin-right-1',
+            type: 'submit',
+            attributes: {
+              'data-automation-id': 'submit'
+            }
+          }) }}
+        {% endif %}
+      </form>
+    </div>
+  </div>
+{% endblock %}

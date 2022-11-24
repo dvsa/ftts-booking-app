@@ -1,0 +1,235 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{% block page_title %}
+  {{ t('accessibilityStatement.heading') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  <div role="navigation" aria-label="back">
+    {{ govukBackLink({
+      text: t('generalContent.back'),
+      href: backLink,
+      attributes: {
+        'data-automation-id': 'back-link'
+      }
+    }) }}
+  </div>
+{% endblock %}
+
+{% block content %}
+  {% set contactLink = 'https://www.gov.uk/contact-dvsa' %}
+
+  {% if target == 'ni' %}
+    {% set contactLink = 'mailto:dvta.info.managementunit@infrastructure-ni.gov.uk' %}
+  {% endif %}
+
+  <h1 class="govuk-heading-xl govuk-!-margin-top-3" data-automation-id="accessibility-statement-heading">{{ t('accessibilityStatement.heading') }}</h1>
+
+  <p class="govuk-body">
+    {% if target == 'ni' %}
+      {{ t('accessibilityStatement.para1', {
+        openFirstLink: '<a href="https://www.nidirect.gov.uk/services/book-change-or-cancel-your-theory-test-online" class="govuk-link" data-automation-id="book-link">',
+        openSecondLink: '<a href="https://www.nidirect.gov.uk/" class="govuk-link" data-automation-id="nidirect-link">',
+        closeLink: '</a>'
+      }) | safe }}
+    {% else %}
+      {{ t('accessibilityStatement.para1', {
+        openBold: '<span class="govuk-body govuk-!-font-weight-bold">',
+        closeLink: '</span>'
+      }) | safe }}
+    {% endif %}
+  </p>
+
+  <p class="govuk-body">{{ t('accessibilityStatement.para2') }}</p>
+
+  <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
+    <li>{{ t('accessibilityStatement.list1-1') }}</li>
+    <li>{{ t('accessibilityStatement.list1-2') }}</li>
+    <li>{{ t('accessibilityStatement.list1-3') }}</li>
+    <li>{{ t('accessibilityStatement.list1-4') }}</li>
+    <li>{{ t('accessibilityStatement.list1-5') }}</li>
+  </ul>
+
+  <p class="govuk-body">{{ t('accessibilityStatement.para3') }}</p>
+
+  <p class="govuk-body">
+    {{ t('accessibilityStatement.para4', {
+      openLink: '<a href="https://mcmw.abilitynet.org.uk/" class="govuk-link" data-automation-id="ability-net-link">',
+      closeLink: '</a>'
+    }) | safe }}
+  </p>
+
+  <h2 class="govuk-heading-l govuk-!-margin-top-7" data-automation-id="how-accessible-heading">{{ t('accessibilityStatement.heading2') }}</h2>
+
+  <p class="govuk-body">{{ t('accessibilityStatement.para5') }}</p>
+
+  <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
+    <li>{{ t('accessibilityStatement.list2-1') }}</li>
+    <li>{{ t('accessibilityStatement.list2-2') }}</li>
+    <li>{{ t('accessibilityStatement.list2-3') }}</li>
+    <li>{{ t('accessibilityStatement.list2-4') }}</li>
+    <li>{{ t('accessibilityStatement.list2-5') }}</li>
+  </ul>
+
+  <p class="govuk-body">{{ t('accessibilityStatement.para6') }}</p>
+
+  <h2 class="govuk-heading-l govuk-!-margin-top-7">{{ t('accessibilityStatement.heading3') }}</h2>
+
+  <p class="govuk-body">
+    {{ t('accessibilityStatement.para7', {
+      openLink: '<a href="' + contactLink + '" class="govuk-link" data-automation-id="contact-link">',
+      closeLink: '</a>'
+    }) | safe }}
+  </p>
+
+  <ul class="govuk-list govuk-list--bullet">
+    <li>{{ t('accessibilityStatement.list3-1') }}</li>
+    <li>{{ t('accessibilityStatement.list3-2') }}</li>
+    <li>{{ t('accessibilityStatement.list3-3') }}</li>
+  </ul>
+
+  <p class="govuk-body">
+    {% if target == 'ni' %}
+      {{ t('accessibilityStatement.para8', {
+        openLink: '<a href="https://www.nidirect.gov.uk/forms/feedback" class="govuk-link" data-automation-id="contact-link-2">',
+        closeLink: '</a>'
+      }) | safe }}
+    {% else %}
+    {{ t('accessibilityStatement.para8', {
+      openLink: '<a href="https://www.gov.uk/contact-dvsa" class="govuk-link" data-automation-id="contact-link-2">',
+      closeLink: '</a>'
+    }) | safe }}
+    {% endif %}
+  </p>
+
+  <h2 class="govuk-heading-l govuk-!-margin-top-7">{{ t('accessibilityStatement.heading4') }}</h2>
+
+  <p class="govuk-body">
+    {{ t('accessibilityStatement.para9', {
+      openLink: '<a href="' + contactLink + '" class="govuk-link" data-automation-id="contact-link-3">',
+      closeLink: '</a>'
+    }) | safe }}
+  </p>
+
+  <h2 class="govuk-heading-l govuk-!-margin-top-7">{{ t('accessibilityStatement.heading5') }}</h2>
+
+  <p class="govuk-body">
+    {% if target == 'ni' %}
+      {{ t('accessibilityStatement.para10', {
+        openLink: '<a href="https://www.equalityni.org" class="govuk-link" data-automation-id="eass-link">',
+        closeLink: '</a>'
+      }) | safe }}
+    {% else %}
+      {{ t('accessibilityStatement.para10', {
+        openLink: '<a href="https://www.equalityadvisoryservice.com/" class="govuk-link" data-automation-id="eass-link">',
+        closeLink: '</a>'
+      }) | safe }}
+    {% endif %}
+  </p>
+
+  <h2 class="govuk-heading-l govuk-!-margin-top-7">{{ t('accessibilityStatement.heading6') }}</h2>
+
+  <p class="govuk-body">
+    {% if target == 'ni' %}
+      {{ t('accessibilityStatement.para11', {
+        openLink: '<a href="https://www.nidirect.gov.uk/contacts/driver-vehicle-agency-dva-northern-ireland" class="govuk-link" data-automation-id="contact-link-4">',
+        closeLink: '</a>'
+      }) | safe }}
+    {% else %}
+      {{ t('accessibilityStatement.para11', {
+        openLink: '<a href="https://www.gov.uk/contact-dvsa" class="govuk-link" data-automation-id="contact-link-4">',
+        closeLink: '</a>'
+      }) | safe }}
+    {% endif %}
+  </p>
+
+  <h2 class="govuk-heading-l govuk-!-margin-top-7">{{ t('accessibilityStatement.heading7') }}</h2>
+
+  <p class="govuk-body">{{ t('accessibilityStatement.para12') }}</p>
+
+  <h2 class="govuk-heading-l govuk-!-margin-top-7">{{ t('accessibilityStatement.heading8') }}</h2>
+
+  <p class="govuk-body">
+    {{ t('accessibilityStatement.para13', {
+      openLink: '<a href="https://www.w3.org/TR/WCAG21/" class="govuk-link" data-automation-id="w3-link">',
+      closeLink: '</a>'
+    }) | safe }}
+  </p>
+
+  <h2 class="govuk-heading-l govuk-!-margin-top-7">{{ t('accessibilityStatement.heading9') }}</h2>
+
+  <p class="govuk-body">{{ t('accessibilityStatement.para14') }}</p>
+
+  <h2 class="govuk-heading-l govuk-!-margin-top-7">{{ t('accessibilityStatement.heading10') }}</h2>
+  <h3 class="govuk-heading-m govuk-!-margin-top-3">{{ t('accessibilityStatement.heading11') }}</h3>
+
+  <h4 class="govuk-heading-s">{{ t('accessibilityStatement.heading12') }}</h4>
+
+  <ul class="govuk-list govuk-list--bullet">
+    <li>{{ t('accessibilityStatement.list4-1') }}</li>
+    <li>{{ t('accessibilityStatement.list4-2') }}</li>
+    <li>{{ t('accessibilityStatement.list4-3') }}</li>
+  </ul>
+
+  <h4 class="govuk-heading-s">{{ t('accessibilityStatement.heading13') }}</h4>
+
+  <ul class="govuk-list govuk-list--bullet">
+    <li>{{ t('accessibilityStatement.list5-1') }}</li>
+    <li>{{ t('accessibilityStatement.list5-2') }}</li>
+    <li>{{ t('accessibilityStatement.list5-3') }}</li>
+  </ul>
+
+  <h3 class="govuk-heading-m govuk-!-margin-top-3">{{ t('accessibilityStatement.heading14') }}</h3>
+
+  <h4 class="govuk-heading-s">{{ t('accessibilityStatement.heading15') }}</h4>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>{{ t('accessibilityStatement.list6-1') }}</li>
+    <li>{{ t('accessibilityStatement.list6-2') }}</li>
+    <li>{{ t('accessibilityStatement.list6-3') }}</li>
+  </ul>
+
+  <h3 class="govuk-heading-m govuk-!-margin-top-3">{{ t('accessibilityStatement.heading16') }}</h3>
+
+  <h4 class="govuk-heading-s">{{ t('accessibilityStatement.heading17') }}</h4>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>{{ t('accessibilityStatement.list7-1') }}</li>
+    <li>{{ t('accessibilityStatement.list7-2') }}</li>
+  </ul>
+
+  <h4 class="govuk-heading-s">{{ t('accessibilityStatement.heading18') }}</h4>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>{{ t('accessibilityStatement.list8-1') }}</li>
+    <li>{{ t('accessibilityStatement.list8-2') }}</li>
+  </ul>
+
+  <h4 class="govuk-heading-s">{{ t('accessibilityStatement.heading19') }}</h4>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>{{ t('accessibilityStatement.list9-1') }}</li>
+    <li>{{ t('accessibilityStatement.list9-2') }}</li>
+  </ul>
+
+  <p class="govuk-body">{{ t('accessibilityStatement.para15') }}</p>
+
+  <h2 class="govuk-heading-l govuk-!-margin-top-7">{{ t('accessibilityStatement.heading20') }}</h2>
+
+  <p class="govuk-body">
+    {{ t('accessibilityStatement.para16', {
+      openLink: '<a href="https://www.w3.org/TR/WCAG21/" class="govuk-link" data-automation-id="w3-link-2">',
+      closeLink: '</a>'
+    }) | safe }}
+  </p>
+
+  <h2 class="govuk-heading-l govuk-!-margin-top-7">{{ t('accessibilityStatement.heading21') }}</h2>
+
+  <p class="govuk-body">{{ t('accessibilityStatement.para17') }}</p>
+
+  <h2 class="govuk-heading-l govuk-!-margin-top-7">{{ t('accessibilityStatement.heading22') }}</h2>
+
+  <p class="govuk-body">{{ t('accessibilityStatement.para18') }}</p>
+
+  <h2 class="govuk-heading-l govuk-!-margin-top-7">{{ t('accessibilityStatement.heading23') }}</h2>
+
+  <p class="govuk-body">{{ t('accessibilityStatement.para19') }}</p>
+  <p class="govuk-body">{{ t('accessibilityStatement.para20') }}</p>
+{% endblock %}

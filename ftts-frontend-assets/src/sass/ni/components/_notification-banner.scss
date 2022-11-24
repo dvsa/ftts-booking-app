@@ -1,0 +1,11 @@
+.govuk-notification-banner--success {
+    border-color: $nidirect-brand-blue;
+    background-color: $nidirect-brand-blue;
+
+    .govuk-notification-banner__link {
+        &:link,
+        &:visited {
+            color: $nidirect-brand-blue;
+        }
+    }
+}

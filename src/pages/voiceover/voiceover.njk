@@ -1,0 +1,107 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+{% if not isNonStandardJourney %}
+  {% set heading = t('voiceover.editMode.heading') %}
+{% else %}
+  {% set heading = t('voiceover.heading') %}
+{% endif %}
+
+{% block page_title %}
+  {{ heading }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% if inManagedBookingEditMode %}
+    {% set backLink = bookingRef %}
+  {% else %}
+    {% set backLink = backLink %}
+  {% endif %}
+
+  {% if not inEditMode %}
+    <div role="navigation" aria-label="back">
+      {{ govukBackLink({
+        text: t('generalContent.back'),
+        href: backLink,
+        attributes: { 'data-automation-id': 'back-link' }
+      }) }}
+    </div>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+{% include "error-banner.njk" %}
+
+{% if inEditMode %}
+  <div class="alert govuk-body govuk-!-margin-bottom-8">
+    <span data-automation-id="change-alert">{{ t('voiceover.editMode.changeAlert') }}</span>
+    <a href="{{ backLink }}" data-automation-id="change-link" class="govuk-link">{{ t('voiceover.editMode.changeAlertLink') }}</a>
+  </div>
+{% endif %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="POST">
+      <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+      {% call govukFieldset({
+        legend: {
+          text: heading,
+          classes: 'govuk-fieldset__legend--xl',
+          isPageHeading: true
+        },
+        attributes: { 'data-automation-id': 'page-fieldset' }
+      })%}
+        <br>
+        {% if not isNonStandardJourney %}
+          <p class="govuk-body" data-automation-id="voiceover-content-line">
+            {{ t('voiceover.editMode.contentLine1') }}
+          </p>
+        {% elif isNonStandardJourney and target == 'ni' %}
+          <p class="govuk-body">{{ t('voiceover.supportMode.paragraph1') }}</p>
+          <p class="govuk-body">
+            {{ t('voiceover.supportMode.paragraph2', {
+              openLink: '<a href="select-support-type" data-automation-id="select-support-link" class="govuk-link">',
+              closeLink: '</a>'
+            }) | safe }}
+          </p>
+        {% endif %}
+        {% set fieldName = "voiceover" %}
+        {{ govukRadios({
+          name: fieldName,
+          classes:  'govuk-radios--inline' if radioItems.length === 2,
+          items: radioItems,
+          attributes: { 'data-automation-id': 'voiceover' },
+          errorMessage: fieldName | fieldErrorObject(errors)
+        })}}
+      {% endcall %}
+      <br>
+      {% if inEditMode %}
+        {{ govukButton({
+          text: t('voiceover.editMode.confirmChangeButton'),
+          classes: 'govuk-!-margin-right-1',
+          type: 'submit',
+          attributes: { 'data-automation-id': 'submit' }
+        }) }}
+        {{ govukButton({
+          text: t('voiceover.editMode.cancelChangeButton'),
+          classes: 'govuk-button--secondary',
+          href: backLink,
+          attributes: { 'data-automation-id': 'cancel' }
+        }) }}
+      {% else %}
+        {{ govukButton({
+          text: t('generalContent.continueButton'),
+          classes: 'govuk-!-margin-right-1',
+          type: 'submit',
+          attributes: { 'data-automation-id': 'submit' }
+        }) }}
+      {% endif %}
+    </form>
+  </div>
+</div>
+
+{% endblock %}

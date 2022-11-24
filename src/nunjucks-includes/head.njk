@@ -1,0 +1,8 @@
+{% if target === 'ni' %}
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&amp;display=swap" rel="stylesheet">
+  <link href="{{ 'stylesheets/ni.css' | asset }}" media="all" rel="stylesheet" type="text/css" />
+{% else %}
+  <link href="{{ 'stylesheets/booking.css' | asset }}" media="all" rel="stylesheet" type="text/css" />
+{% endif %}
+{% block customStylesheets %}{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+{% block page_title %}
+  {{ t('manageBookingRefundConfirmation.heading') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block timeoutNotification %}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    {% set panelHTML %}
+      {{ t('manageBookingRefundConfirmation.bannerSubtitle') }}
+      <br>
+      <span class="govuk-!-font-size-48 govuk-!-font-weight-bold">{{ bookingReference }}</span>
+    {% endset %}
+
+    {{ govukPanel({
+        titleText: t('manageBookingRefundConfirmation.heading'),
+        html: panelHTML
+    }) }}
+  </div>
+
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-m govuk-!-margin-top-3">{{ t('manageBookingRefundConfirmation.whatHappensNext') }}</h2>
+
+    <p class="govuk-body">{{ t('manageBookingRefundConfirmation.body-1') }}</p>
+
+    <p class="govuk-body">{{ t('manageBookingRefundConfirmation.body-2') }}</p>
+
+    <div class="govuk-!-margin-top-3 govuk-!-margin-bottom-3">
+      <a href="{{ bookTheoryTestLink }}" id="book-new-test" class="govuk-button govuk-button--primary govuk-!-margin-right-2">{{ t('manageBookingRefundConfirmation.bookNewTest') }}</a>
+      <a href="{{ homeLink }}" id="change-booking" class="govuk-button govuk-button--secondary">{{ t('manageBookingRefundConfirmation.manageExistingBookings') }}</a>
+    </div>
+
+    <hr>
+
+    <ul class="govuk-list">
+      <li class="govuk-!-font-weight-bold govuk-!-margin-bottom-2">{{ t('manageBookingRefundConfirmation.support') }}</li>
+      <li><a href="mailto:{{ t('generalContent.contactEmail') }}" class="govuk-link">{{ t('generalContent.contactEmail')}}</a></li>
+      <li>{{ t('generalContent.footer.telephone') }}</li>
+      <li>{{ t('generalContent.footer.openingHours') }}</li>
+    </ul>
+  </div>
+</div>
+{% endblock %}

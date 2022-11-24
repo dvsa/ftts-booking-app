@@ -1,0 +1,232 @@
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/tag/macro.njk" import govukTag %}
+
+{% extends "layout.njk" %}
+
+{% block page_title %}
+  {{ t('manageBookingHome.heading') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  <div role="navigation" aria-label="back">
+    {{ govukBackLink({
+      text: t('generalContent.back'),
+      href: 'login'
+    }) }}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+  {% if compensationEligibleNotificationLink %}
+    {% set html %}
+      <p class="govuk-notification-banner__heading">
+        {{ t('manageBookingHome.bookingCompensationAlert', {
+            openLink: '<a href="' + compensationEligibleNotificationLink + '" class="govuk-link">',
+            closeLink: '</a>'
+          }) | safe }}
+      </p>
+    {% endset %}
+    {{ govukNotificationBanner ({
+        html: html,
+        titleText: t('generalContent.important'),
+        titleId: 'govuk-notification-compensationEligible',
+        attributes: {
+          id: 'compensationEligibleNotification',
+          'data-automation-id': 'bookingsWithCompensationEligible'
+            }
+        }) }}
+  {% endif %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        {% if bookingsWithErrors.length > 0 %}
+          {% set html %}
+            <p class="govuk-notification-banner__heading">
+              {{ t('manageBookingHome.bookingsWithErrors.header') }}
+            </p>
+            <ul class="govuk-list govuk-list--bullet">
+              {% for booking in bookingsWithErrors %}
+                <li>{{ booking.reference }}</li>
+              {% endfor %}
+            </ul>
+            <p class="govuk-body">{{ t('manageBookingHome.bookingsWithErrors.contentLine1') }}</p>
+            <div class="govuk-!-margin-bottom-1">
+              <a href="mailto:{{ t('manageBookingHome.bookingsWithErrors.contact.email') }}" class="govuk-link">{{ t('manageBookingHome.bookingsWithErrors.contact.email') }}</a>
+            </div>
+            <div class="govuk-!-margin-bottom-1">
+              {{t('manageBookingHome.bookingsWithErrors.contact.telephone', {
+                openBold: '<span class="govuk-!-font-weight-bold">',
+                closeBold: '</span>'
+              }) | safe }}
+            </div>
+            <div>
+              {{t('manageBookingHome.bookingsWithErrors.contact.openingHours', {
+                openBold: '<span class="govuk-!-font-weight-bold">',
+                closeBold: '</span>'
+              }) | safe }}
+            </div>
+          {% endset %}
+
+          {{ govukNotificationBanner({
+            html: html,
+            titleText: t('generalContent.important'),
+            attributes: {
+              id: 'bookingsWithErrorsBanner',
+              'data-automation-id': 'bookingsWithErrorsBanner'
+            }
+          }) }}
+        {% endif %}
+
+      <h1 class="govuk-heading-xl">{{ t('manageBookingHome.heading') }}</h1>
+
+      {% if bookings.length === 0 %}
+        <p class="govuk-body">
+          {{ t('manageBookingHome.noBookings') }}
+        </p>
+      {% endif %}
+
+      {% set rows = [] %}
+
+      {% if bookings.length > 0 %}
+
+        {% for booking in bookings %}
+
+          {% set nsaStatus = '' %}
+          {% set canViewSlots = false %}
+
+          {% for bookingDetail in nsaBookingDetails %}
+            {% if bookingDetail.bookingId === booking.bookingId %}
+              {% set nsaStatus = bookingDetail.nsaStatus %}
+              {% if bookingDetail.canViewSlots %}
+                {% set canViewSlots = true %}
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+
+          {% set isDraft = false %}
+          {% if booking.bookingStatus === 675030006 %}
+            {% set isDraft = true %}
+          {% endif %}
+
+          {% set govTag = '' %}
+          {% if booking.owedCompensationBooking %}
+            {% set govTag %}
+              {{ govukTag({
+                    classes: 'govuk-tag--blue',
+                    text: t('manageBookingHome.bookingIsCancelled')
+              }) }}
+            {% endset %}
+          {% elif isDraft %}
+            {% if nsaStatus !== '' %}
+              {% set govTag %}
+                {{ govukTag({
+                  classes: 'govuk-tag',
+                  text: t('manageBookingHome.nsa.' + nsaStatus)
+                }) }}
+              {% endset %}
+            {% endif %}
+          {% else %}
+            {% set govTag %}
+              {{ govukTag({
+                classes: 'govuk-tag--green',
+                text: t('manageBookingHome.bookingIsBooked')
+              }) }}
+            {% endset %}
+          {% endif %}
+
+          {% set action = '' %}
+          {% if booking.owedCompensationBooking %}
+            {% set action %}
+              <div>
+                <a href="{{ compensationEligibleNotificationLink }}" aria-label="{{ t('manageBookingHome.buttonBookReplacementTest') + ' ' + t('manageBookingHome.bookingReferenceLabel') + booking.reference }}">{{ t('manageBookingHome.buttonBookReplacementTest') }}</a>
+              </div>
+              {% if not booking.isZeroCostBooking %}
+                {{ t('manageBookingHome.or') }}
+                <div>
+                  <a href="request-refund/?ref={{ booking.reference }}" aria-label="{{ t('manageBookingHome.buttonRequestRefund') + ' ' + t('manageBookingHome.bookingReferenceLabel') + booking.reference }}">{{ t('manageBookingHome.buttonRequestRefund') }}</a>
+                </div>
+              {% endif %}
+            {% endset %}
+          {% else %}
+            {% if not isDraft %}
+              {% set action %}
+                <div>
+                  <a href="{{ booking.reference }}" aria-label="{{ t('manageBookingHome.buttonViewBooking') + ' ' + t('manageBookingHome.bookingReferenceLabel') + booking.reference }}">{{ t('manageBookingHome.buttonViewBooking') }}</a>
+                </div>
+              {% endset %}
+            {% else %}
+              {% if canViewSlots %}
+                {% set action %}
+                  <div>
+                    <a href="{{ booking.reference }}" aria-label="{{ t('manageBookingHome.buttonViewBooking') + ' ' + t('manageBookingHome.bookingReferenceLabel') + booking.reference }}">{{ t('manageBookingHome.nsa.selectTimeOption') }}</a>
+                  </div>
+                {% endset %}
+              {% endif %}
+            {% endif %}
+          {% endif %}
+
+          {% set rows = (rows.push([
+            {
+              html: '<span class="table-heading" aria-hidden="true">' + t('manageBookingHome.tableHeaderC1') + ':</span> ' + t('generalContent.testTypes.' + booking.product.productnumber | fromProductNumber),
+              attributes: {
+                role: 'gridcell'
+              }
+            },
+            {
+              html: '<span class="table-heading" aria-hidden="true">' + (t('manageBookingHome.tableHeaderC2Nsa') if nsaFeatureToggle else t('manageBookingHome.tableHeaderC2')) + ':</span> ' + (booking.testDate | asFullDateTimeWithoutWeekday if booking.testDate),
+              attributes: {
+                role: 'gridcell'
+              }
+            },
+            {
+              html: '<span class="table-heading" aria-hidden="true">' + t('manageBookingHome.tableHeaderC3') + ':</span> ' + booking.reference,
+              attributes: {
+                role: 'gridcell'
+              }
+            },
+            {
+              html: '<span class="table-heading" aria-hidden="true">' + t('manageBookingHome.tableHeaderC4') + ':</span> ' + govTag,
+              attributes: {
+                role: 'gridcell'
+              }
+            },
+            {
+              html: '<span class="table-heading" aria-hidden="true">' + t('manageBookingHome.tableHeaderC5') + ':</span>' + action,
+              classes: 'table-button-cell',
+              attributes: {
+                role: 'gridcell'
+              }
+            }
+          ]), rows) %}
+        {% endfor %}
+
+        {{ govukTable({
+          firstCellIsHeader: false,
+          classes: 'responsive-table',
+          head: [
+            {
+              text: t('manageBookingHome.tableHeaderC1')
+            },
+            {
+              text: t('manageBookingHome.tableHeaderC2Nsa') if nsaFeatureToggle else t('manageBookingHome.tableHeaderC2')
+            },
+            {
+              text: t('manageBookingHome.tableHeaderC3')
+            },
+            {
+              text: t('manageBookingHome.tableHeaderC4')
+            },
+            {
+              text: t('manageBookingHome.tableHeaderC5')
+            }
+          ],
+          rows: rows
+        }) }}
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

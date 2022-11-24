@@ -1,0 +1,40 @@
+{% extends "layout.njk" %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+
+{% block page_title %}
+  {{ t('bookingExists.heading') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  <div role="navigation" aria-label="back">
+    {{ govukBackLink({
+      text: t('generalContent.back'),
+      href: backLink,
+      attributes: { 'data-automation-id': 'back' }
+    }) }}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl" data-automation-id="main-heading">{{ t('bookingExists.heading') }}</h1>
+
+      <p>{{ t('bookingExists.paragraph1') }}</p>
+      <p>{{ t('bookingExists.paragraph2') }}</p>
+
+      <p class="govuk-body">
+        {{ t('bookingExists.paragraph3', {
+          openLink: '<a href="/manage-booking/login" class="govuk-link" data-automation-id="manage-booking-login-link">',
+          closeLink: '</a>'
+        }) | safe }}
+      </p>
+
+    </div>
+  </div>
+
+{% endblock %}}

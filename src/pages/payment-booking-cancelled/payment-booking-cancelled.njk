@@ -1,0 +1,21 @@
+{% extends "layout.njk" %}
+
+{% block timeoutNotification %}
+{% endblock %}
+
+{% block page_title %}
+  {{ t('checkYourAnswers.bookingCancelled.heading') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-xl">{{ t('checkYourAnswers.bookingCancelled.heading') }}</h1>
+    <p class="govuk-body">{{ t('checkYourAnswers.bookingCancelled.contentLine1') }}</p>
+    <p class="govuk-body">{{ t('checkYourAnswers.bookingCancelled.contentLine2') }}</p>
+    <a href="{{startAgainLink}}" id="startButton" class="govuk-button govuk-button--start govuk-!-margin-top-3">
+      {{ t('checkYourAnswers.bookingCancelled.startAgainButton') }}
+    </a>
+  </div>
+</div>
+{% endblock %}

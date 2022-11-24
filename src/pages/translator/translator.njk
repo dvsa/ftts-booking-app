@@ -1,0 +1,93 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block page_title %}
+  {{ t('translator.heading') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% if not inEditMode %}
+    <div role="navigation" aria-label="back">
+      {{ govukBackLink({
+        href: backLink,
+        attributes: {
+          'data-automation-id': 'back'
+        },
+        text: t('generalContent.back')
+      }) }}
+    </div>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+  {% include "error-banner.njk" %}
+
+  {% if inEditMode and not errors %}
+    <div class="alert govuk-body govuk-!-margin-bottom-8">
+      {{ t('translator.editMode.changeAlert', {
+        openLink: '<a href="' + backLink + '" data-automation-id="alert-back-link" class="govuk-link">',
+        closeLink: '</a>'
+      }) | nl2br | safe }}
+    </div>
+  {% endif %}
+
+  {% set fieldName = 'translator' %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form method="post">
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+        <h1 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--xl" for="{{fieldName}}" data-automation-id="heading">
+              {{ t('translator.heading') }}
+            </label>
+        </h1>
+        <p class="govuk-body" data-automation-id="paragraph1">
+          {{ t('translator.description') }}
+        </p>
+        {{ govukTextarea({
+          id: fieldName,
+          name: fieldName,
+          errorMessage: fieldName | fieldErrorObject(errors),
+          value: value,
+          attributes: {
+            'data-automation-id': fieldName
+          },
+          hint: {
+            text: t('translator.hint')
+          }
+        }) }}
+
+        {% if inEditMode %}
+          {{ govukButton({
+            text: t('generalContent.confirmChangeButton'),
+            type: 'submit',
+            classes: 'govuk-!-margin-right-1',
+            attributes: {
+              'data-automation-id': 'submit'
+            }
+          }) }}
+          {{ govukButton({
+            text: t('manageBookingChangeBSL.editMode.cancelChangeButton'),
+            href: backLink,
+            classes: 'govuk-button--secondary',
+            attributes: {
+              'data-automation-id': 'cancel'
+            }
+          }) }}
+        {% else %}
+          {{ govukButton({
+            text: t('generalContent.continueButton'),
+            attributes: {
+              'data-automation-id': 'submit'
+            }
+          }) }}
+        {% endif %}
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{% block page_title %}
+  {{ t('selectTestCentre.error.heading') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  <div role="navigation" aria-label="back">
+    {{ govukBackLink({
+      text: t('generalContent.back'),
+      href: 'find-test-centre',
+      attributes: {
+        'data-automation-id': 'back'
+      }
+    }) }}
+  </div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-xl" data-automation-id="heading">{{ t('selectTestCentre.error.heading') }}</h1>
+    <p class="govuk-body">{{ t('selectTestCentre.error.paragraph1') }}</p>
+    <p class="govuk-body">
+      {{ t('selectTestCentre.error.paragraph2', {
+        openLink: '<a href="find-test-centre" data-automation-id="retry" class="govuk-link">',
+        closeLink: '</a>'
+      }) | nl2br | safe }}
+    </p>
+    {% include "enquiries-footer.njk" %}
+  </div>
+</div>
+{% endblock %}

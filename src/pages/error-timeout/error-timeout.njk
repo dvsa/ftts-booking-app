@@ -1,0 +1,22 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block page_title %}
+  {{ t('errors.timeout.title') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block timeoutNotification %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-xl">{{ t('errors.timeout.heading') }}</h1>
+      <p class="govuk-body govuk-!-font-weight-bold">{{ t('errors.timeout.description') }}</p>
+      <p class="govuk-body">{{ t('errors.timeout.action', {
+        openLink: '<a href="' + startAgainLink + '" class="govuk-link">',
+        closeLink: '</a>'
+      }) | nl2br | safe }}</p>
+    </div>
+  </div>
+{% endblock %}

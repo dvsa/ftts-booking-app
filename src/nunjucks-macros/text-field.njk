@@ -1,0 +1,23 @@
+{% macro textField(label, id, dataAutomationId, name, value, errors, example) %}
+{% set hasError = name|existsAsAnErrorIn(errors)%}
+<div class="govuk-form-group {% if hasError %}govuk-form-group--error{% endif %} govuk-!-margin-bottom-7" >
+  <label class="govuk-label" for="{{ id }}"> {{ label }} </label>
+  {% if example %}
+  <details class="govuk-details govuk-!-margin-bottom-0">
+    <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">
+        {{ example.label }}
+      </span>
+    </summary>
+    <div class="govuk-details__text">
+      {{ example.description }}
+      <img class="govuk-!-margin-top-1" src="{{ example.imgURL | asset}}" style="width:150%">
+    </div>
+  </details>
+  {% endif %}
+	<span id="{{ name }}-error" class="govuk-error-message govuk-!-margin-bottom-1">
+      {{ name|fieldErrorMessage(errors) }}
+	</span>
+	<input class="govuk-input {% if hasError %}govuk-input--error{% endif %}" id="{{ id }}" data-automation-id="{{ dataAutomationId }}" name="{{ name }}" type="text" value="{{ value }}">
+</div>
+{% endmacro %}

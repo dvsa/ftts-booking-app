@@ -1,0 +1,50 @@
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{% extends "layout.njk" %}
+
+{% block page_title %}
+  {{ t('manageBookingRequestRefund.heading') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  <div role="navigation" aria-label="back">
+    {{ govukBackLink({
+      text: t('generalContent.back'),
+      href: backLink
+    }) }}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<h1 class="govuk-heading-xl" data-automation-id="request-refund-heading">{{ t('manageBookingRequestRefund.heading') }}</h1>
+
+<p class="govuk-body">
+  {{ t('manageBookingRequestRefund.body-1', {
+    openBold: '<span class="govuk-body govuk-!-font-weight-bold">',
+    closeBold: '</span>'
+  }) | safe }}
+</p>
+
+<p class="govuk-body"> {{ t('manageBookingRequestRefund.body-2') }}</p>
+
+<form method="POST">
+  <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+  <input type="hidden" name="bookingReference" value="{{ bookingRef }}" />
+  {{ govukButton({
+    text: t('manageBookingRequestRefund.confirmRefundButton'),
+    classes: 'govuk-button--warning govuk-!-margin-right-2',
+    type: 'submit',
+    attributes: { id: 'confirm-refund' }
+  }) }}
+
+  {{ govukButton({
+    text: t('manageBookingRequestRefund.payReplacementTestButton'),
+    classes: 'govuk-button--secondary',
+    href: bookTheoryTestLink,
+    attributes: { id: 'book-compensation-test' }
+  }) }}
+</form>
+
+{% endblock %}

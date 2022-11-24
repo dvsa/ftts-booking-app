@@ -1,0 +1,31 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+
+{% block page_title %}
+  {{ t('alreadyReceivedSupportRequest.heading') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  <div role="navigation" aria-label="back">
+    {{ govukBackLink({
+      text: t('generalContent.back'),
+      href: backLink,
+      attributes: {
+        'data-automation-id': 'back'
+      }
+    }) }}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl" data-automation-id="heading">{{ t('alreadyReceivedSupportRequest.heading') }}</h1>
+      <p class="govuk-body">{{ t('alreadyReceivedSupportRequest.paragraph1') }}</p>
+      <p class="govuk-body">{{ t('alreadyReceivedSupportRequest.paragraph2') }}</p>
+      <p class="govuk-body">{{ t('alreadyReceivedSupportRequest.paragraph3') }}</p>
+    </div>
+  </div>
+{% endblock %}

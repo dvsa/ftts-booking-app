@@ -1,0 +1,16 @@
+<ul class="govuk-list">
+  {% if not standardAccommodation and not inManageBookingMode %}
+    <li class="govuk-!-font-weight-bold">{{ t('generalContent.footer.enquiriesHeader') }}</li>
+    <li><a href="mailto:{{ t('generalContent.contactEmail') }}" class="govuk-link">{{ t('generalContent.contactEmail')}}</a></li>
+    <li>{{ t('generalContent.footer.telephone') }}</li>
+    <li>{{ t('generalContent.footer.openingHours') }}</li>
+    <li><a href="{{ t('generalContent.footer.callChargesUrl') }}" target="_blank" class="govuk-link">{{ t('generalContent.footer.callCharges') }}</a></li>
+  {% else %}
+    <p class="govuk-body">
+      {{ t('generalContent.footer.enquiryInformation', {
+        openLink: '<a class="govuk-link" href="' + t('generalContent.contactLink') + '">',
+        closeLink: '</a>'
+      }) | safe }}
+    </p>
+  {% endif %}
+</ul>

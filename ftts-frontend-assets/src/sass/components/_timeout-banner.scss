@@ -1,0 +1,9 @@
+.fttsTimeoutBannerNonJs {
+    display: none;
+}
+
+noscript {
+    .fttsTimeoutBannerNonJs {
+        display: block;
+    }
+}

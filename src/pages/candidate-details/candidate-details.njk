@@ -1,0 +1,213 @@
+{% extends "layout.njk" %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/details/macro.njk" import govukDetails %}
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "loading-component.njk" import loadingComponent %}
+
+{% set heading = t('details.headingSupport') if inSupportMode else t('details.heading') %}
+{% set imgRoot = 'images/ni/' if target === 'ni' else 'images/' %}
+
+{% block page_title %}
+  {{ heading }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  <div role="navigation" aria-label="back">
+    {{ govukBackLink({
+      text: t('generalContent.back'),
+      href: '/choose-support',
+      attributes: {
+        'data-automation-id': 'back',
+        id: 'backButton'
+      }
+    }) }}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+{% include "error-banner.njk" %}
+{{ loadingComponent(t('details.loadingScreen.loadingHeading'), t('details.loadingScreen.loadingCaption')) }}
+
+{% set heading = t('details.headingSupport') if inSupportMode else t('details.heading') %}
+<div class="govuk-grid-row" id="pageContent">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="post" id="form">
+      <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+      <h1 class="govuk-heading-xl">{{ heading }}</h1>
+      <p class="govuk-body">{{ t('details.p1') }}</p>
+      <p class="govuk-body">{{ t('details.p2') }}</p>
+      <p class="govuk-body">{{ t('details.p3') }}</p>
+      {{ govukInput({
+        label: {
+          html: t('details.firstnamesField.label'),
+          classes: "govuk-label--m",
+          isPageHeading: false
+        },
+        hint: {
+          html: '<p class="govuk-body govuk-!-margin-top-4">' + t('details.firstnamesField.description') + '</p>' +
+            t('details.firstnamesField.hint') +
+            '<p class="govuk-hint">' + t('details.firstnamesField.example') + '</p>'
+        },
+        id: 'firstnames',
+        name: 'firstnames',
+        value: details.firstnames,
+        attributes: {
+          'data-automation-id': 'firstnames'
+        }
+      }) }}
+      {% set licenceFirstnamesImgPath = (imgRoot + 'example-licence-firstnames.png') | asset %}
+      {% if inSupportMode %}
+        <h2 class="govuk-heading-s">{{ t('details.exampleLabelSupport') }}</h2>
+        <img src="{{ licenceFirstnamesImgPath }}" alt="" class="govuk-!-width-three-quarters">
+        <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+      {% else %}
+        {{ govukDetails({
+          summaryHtml: t('details.seeExampleLabel') + ' <span class="govuk-visually-hidden">' + t('details.firstNamesExampleLabel') + '</span>',
+          html: '<img src="' + licenceFirstnamesImgPath + '" alt="' + t('details.firstnamesField.imageAltText') + '" class="govuk-!-width-three-quarters">',
+          attributes: {
+            'data-automation-id': 'firstnames-example-link'
+          }
+        }) }}
+      {% endif %}
+
+      {{ govukInput({
+        label: {
+          html: t('details.surnameField.label'),
+          classes: 'govuk-label--m',
+          isPageHeading: false
+        },
+        hint: {
+          html: '<p class="govuk-body govuk-!-margin-top-4">' + t('details.surnameField.description') + '</p>' +
+            t('details.surnameField.hint') +
+            '<p class="govuk-hint">' + t('details.surnameField.example') + '</p>'
+        },
+        id: 'surname',
+        name: 'surname',
+        value: details.surname,
+        attributes: {
+          'data-automation-id': 'surname'
+        }
+      }) }}
+      {% set licenceSurnameImgPath = (imgRoot + 'example-licence-surname.png') | asset %}
+      {% if inSupportMode %}
+        <h2 class="govuk-heading-s">{{ t('details.exampleLabelSupport') }}</h2>
+        <img src="{{ licenceSurnameImgPath }}" alt="" class="govuk-!-width-three-quarters">
+        <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+      {% else %}
+        {{ govukDetails({
+          summaryHtml: t('details.seeExampleLabel') + ' <span class="govuk-visually-hidden">' + t('details.lastNameExampleLabel') + '</span>',
+          html: '<img src="' + licenceSurnameImgPath + '" alt="' + t('details.surnameField.imageAltText') + '" class="govuk-!-width-three-quarters">',
+          open: inSupportMode,
+          attributes: {
+            'data-automation-id': 'surname-example-link'
+          }
+        }) }}
+      {% endif %}
+
+      {{ govukInput({
+        label: {
+          html: t('details.licenceNumberField.label'),
+          classes: "govuk-label--m",
+          isPageHeading: false
+        },
+        hint: {
+          html: '<p class="govuk-body govuk-!-margin-top-4">' + t('details.licenceNumberField.description') + '</p>' +
+            t('details.licenceNumberField.hint') +
+            '<p class="govuk-hint">' + t('details.licenceNumberField.example') + '</p>'
+        },
+        id: 'licenceNumber',
+        name: 'licenceNumber',
+        value: details.licenceNumber,
+        attributes: {
+          'data-automation-id': 'licenceNumber'
+        }
+      }) }}
+      {% set licenceNumberImgPath = (imgRoot + 'example-licence-number.png') | asset %}
+      {% if inSupportMode %}
+        <h2 class="govuk-heading-s">{{ t('details.exampleLabelSupport') }}</h2>
+        <img src="{{ licenceNumberImgPath }}" alt="" class="govuk-!-width-three-quarters">
+        <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+      {% else %}
+        {{ govukDetails({
+          summaryHtml: t('details.seeExampleLabel') + ' <span class="govuk-visually-hidden">' + t('details.licenceNumberExampleLabel') + '</span>',
+          html: '<img src="' + licenceNumberImgPath + '" alt="' + t('details.licenceNumberField.imageAltText') + '" class="govuk-!-width-three-quarters">',
+          open: inSupportMode,
+          attributes: {
+            'data-automation-id': 'licenceNumber-example-link'
+          }
+        }) }}
+      {% endif %}
+
+      {% call govukFieldset() %}
+        <label class="govuk-label govuk-label--m" for="dob">
+          {{ t('details.dobField.label') }}
+        </label>
+        {{ govukDateInput({
+          id: 'dob',
+          hint: {
+            html: '<p class="govuk-body govuk-!-margin-top-4">' + t('details.dobField.description') + '</p>' +
+              t('details.dobField.hint')
+          },
+          items: [{
+            label: t('details.dobField.dayLabel'),
+            id: 'dobDay',
+            name: 'dobDay',
+            value: details.dobDay,
+            classes: 'govuk-input--width-2',
+            attributes: {
+              'data-automation-id': 'day'
+            }
+          }, {
+            label: t('details.dobField.monthLabel'),
+            id: 'dobMonth',
+            name: 'dobMonth',
+            value: details.dobMonth,
+            classes: 'govuk-input--width-2',
+            attributes: {
+              'data-automation-id': 'month'
+            }
+          }, {
+            label: t('details.dobField.yearLabel'),
+            id: 'dobYear',
+            name: 'dobYear',
+            value: details.dobYear,
+            classes: 'govuk-input--width-4',
+            attributes: {
+              'data-automation-id': 'year'
+            }
+          }]
+        }) }}
+      {% endcall %}
+      {{ govukButton({
+        attributes: {
+          'data-automation-id': 'submit',
+          id: 'continueButton'
+        },
+        type: 'submit',
+        text: t('generalContent.continueButton')
+      }) }}
+    </form>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+  <script src="{{ 'javascripts/loading-spinner.min.js' | asset }}"></script>
+  <script nonce="{{scriptNonce}}">
+    new LoadingSpinner(
+      {
+        formId: "form",
+        elementsToHide: ["pageContent", "backButton", "error-banner"],
+        elementsToDisable: ["continueButton"],
+        triggerElements: ["form"],
+        triggerEvent: "submit",
+      }
+    )
+  </script>
+{% endblock %}

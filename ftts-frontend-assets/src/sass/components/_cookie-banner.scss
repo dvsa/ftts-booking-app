@@ -1,0 +1,19 @@
+.govuk-cookie-banner {
+  display: flex;
+  
+  .govuk-cookie-banner__message {
+    width: 100%;
+  }
+}
+
+.js-cookie-banner {
+  &.govuk-cookie-banner {
+    display: none;
+  }
+}
+
+.js-enabled {
+  .js-cookie-banner {
+    display: flex;
+  }
+}

@@ -1,0 +1,26 @@
+.responsive-map {
+  height: 300px;
+  @include govuk-media-query($from: desktop) {
+    height: 500px;
+  }
+}
+
+.float-right-desktop {
+  @include govuk-media-query($from: desktop) {
+    float: right;
+  }
+}
+
+.show-on-desktop {
+  display: none;
+  @include govuk-media-query($from: desktop) {
+    display: block;
+  }
+}
+
+.hide-on-desktop {
+  display: block;
+  @include govuk-media-query($from: desktop) {
+    display: none;
+  }
+}

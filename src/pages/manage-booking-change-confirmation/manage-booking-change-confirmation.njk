@@ -1,0 +1,133 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/panel/macro.njk" import govukPanel %}
+{% from "collapsed-centre-location.njk" import collapsedCentreLocation %}
+
+{% block page_title %}
+  {{ t('manageBookingChangeConfirmation.heading') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block timeoutNotification %}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+{% set testDate = booking.testDate | asFullDateTimeWithoutWeekday %}
+{% set testDetails = collapsedCentreLocation(booking.testCentre) %}
+
+{% if voiceoverRequested %}
+  {% set voiceoverText = t('generalContent.language.' + booking.voiceover) %}
+{% else %}
+  {% set voiceoverText = t('generalContent.no') %}
+{% endif %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    {% set panelHTML %}
+      {{ t('bookingConfirmation.panelBookingRef') }}<br>
+      <span class="govuk-!-font-size-48 govuk-!-font-weight-bold">{{ booking.reference }}</span><br>
+      {{ t('bookingConfirmation.keepItSafe') }}
+    {% endset %}
+
+    {{ govukPanel({
+        titleText: t('manageBookingChangeConfirmation.heading'),
+        html: panelHTML
+    }) }}
+  </div>
+
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-!-margin-top-6 govuk-!-margin-bottom-6">
+      <p class="govuk-body">
+        <strong>{{ t('bookingConfirmation.keepBookingRef') }}</strong> {{ t('bookingConfirmation.bookingRefPrompt') }} <span id="nonJsPrint">{{ t('bookingConfirmation.printLink') }}</span><a id="printTrigger" href="#" class="govuk-link hidden">{{ t('bookingConfirmation.printLink') }}</a>
+      </p>
+    </div>
+
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: t('manageBookingChange.testTypes')
+          },
+          value: {
+            text: t('generalContent.testTypes.' + booking.testType)
+          }
+        },
+        {
+          key: {
+            text: t('manageBookingChange.testTimeDate')
+          },
+          value: {
+            html: testDate
+          }
+        },
+        {
+          key: {
+            text: t('manageBookingChange.testLocation')
+          },
+          value: {
+            html: testDetails
+          }
+        },
+        {
+          key: {
+            text: t('manageBookingChange.testLanguage')
+          },
+          value: {
+            text: booking.language
+          }
+        },
+        {
+          key: {
+            text: t('manageBookingChange.bsl')
+          },
+          value: {
+            text: booking.bsl
+          }
+        } if bslAvailable,
+        {
+          key: {
+            text: t('manageBookingChange.voiceover')
+          },
+          value: {
+            text: voiceoverText
+          }
+        } if voiceoverAvailable
+      ]
+    }) }}
+  </div>
+
+  {% include "booking-confirmation-instructions.njk" %}
+
+  <div class="govuk-grid-column-two-thirds">
+    <a href="/manage-booking/home" id="view-all-bookings" class="govuk-button govuk-!-margin-right-1">{{ t('manageBookingChangeConfirmation.buttonViewAllBookings') }}</a>
+    <a href="/manage-booking/{{ booking.reference }}" id="make-another-change" class="govuk-button govuk-button--secondary">{{ t('manageBookingChangeConfirmation.buttonMakeAnotherChange') }}</a>
+  </div>
+</div>
+{% endblock %}
+
+{% block pageScripts %}
+  <script nonce="{{scriptNonce}}">
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', enablePrintButton);
+    } else {
+      enablePrintButton();
+    }
+
+    function printPage(e) {
+      window.print();
+      e.stopPropagation();
+    }
+
+    function enablePrintButton() {
+      const printTrigger = document.getElementById('printTrigger');
+      printTrigger.classList.remove('hidden');
+      printTrigger.onclick = printPage;
+
+      const nonJsPrintSpan = document.getElementById('nonJsPrint');
+      nonJsPrintSpan.classList.add('hidden');
+    }
+  </script>
+{% endblock %}

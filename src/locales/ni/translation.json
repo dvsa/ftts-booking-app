@@ -1,0 +1,1417 @@
+{
+    "generalContent": {
+        "pageTitle": "- Book your theory test - nidirect.gov.uk",
+        "serviceName": "Book a theory test",
+        "skipToMainContent": "Skip to main content",
+        "niDirect": "NI Direct",
+        "errorPrefix": "Error",
+        "back": "Back",
+        "changeLink": "Change",
+        "continueButton": "Continue",
+        "confirmChangeButton": "Confirm change and continue",
+        "cancelChangeButton": "Cancel and keep existing choice",
+        "warning": "Warning",
+        "important": "Important",
+        "errorSummaryTitle": "There is a problem",
+        "contactEmail": "DVA.TheoryTestSupportNI@dvsa.gov.uk",
+        "contactLink": "https://www.nidirect.gov.uk/articles/driving-theory-test",
+        "linkOpensInNewTab": "opens in a new tab",
+        "testTypes": {
+            "car": "Car",
+            "motorcycle": "Motorcycle",
+            "lgvmc": "LGV - multiple choice",
+            "lgvhpt": "LGV - hazard perception",
+            "lgvcpc": "LGV - Driver Certificate of Professional Competence (CPC)",
+            "lgvcpcc": "LGV to PCV conversion",
+            "pcvmc": "PCV - multiple choice",
+            "pcvhpt": "PCV - hazard perception",
+            "pcvcpc": "PCV - Driver Certificate of Professional Competence (CPC)",
+            "pcvcpcc": "PCV to LGV conversion",
+            "taxi": "Taxi",
+            "adip1": "ADI Part 1",
+            "adihpt": "ADI hazard perception",
+            "ers": "Enhanced Rider Scheme",
+            "adip1dva": "ADI Part 1",
+            "amip1": "AMI Part 1"
+        },
+        "abbreviatedSupportTypes": {
+            "onScreenBsl": "Sign language (on-screen)",
+            "bslInterpreter": "Sign language (interpreter)",
+            "extraTime": "Extra time",
+            "readingSupport": "Reading support with answer entry",
+            "other": "Other",
+            "translator": "Translator",
+            "voiceover": "Voiceover"
+        },
+        "phaseBanner": {
+            "tag": "beta",
+            "content": "This is a new service – your {{-openLink}}feedback{{-closeLink}} will help us to improve it."
+        },
+        "notificationBanner": {
+            "tags": {
+                "success": "Success"
+            }
+        },
+        "yes": "Yes",
+        "no": "No",
+        "footer": {
+            "moreInfo": "Find more information about",
+            "bookingLink": "booking a theory test",
+            "bookingLinkUrl": "https://www.nidirect.gov.uk/services/book-your-theory-test-online",
+            "instructorBookingLinkUrl": "https://www.nidirect.gov.uk/services/book-your-adi-or-ami-theory-test-online",
+            "findOut": "Find out",
+            "covidImpact": "how theory tests are affected by coronavirus (COVID-19)",
+            "covidImpactLink": "https://www.nidirect.gov.uk/articles/coronavirus-covid-19-and-motoring",
+            "enquiriesHeader": "DVA theory test enquiries",
+            "enquiryInformation": "Get the telephone number or email address if you want to {{-openLink}}contact DVA{{-closeLink}}.",
+            "telephone": "Telephone: 0345 6006700",
+            "openingHours": "Monday to Friday, 8am to 4pm (except public holidays)",
+            "callCharges": "Find out about call charges",
+            "callChargesUrl": "https://www.nidirect.gov.uk/articles/contacting-08-and-03-numbers",
+            "cookiesLink": "Cookies",
+            "termsLink": "Terms and Conditions",
+            "govUk": {
+                "englishLink": "English",
+                "welshLink": "Cymraeg",
+                "privacyLink": "Privacy Information Notice",
+                "accessibilityLink": "Accessibility",
+                "supportLinks": "Support Links",
+                "builtBy": "Built by the {{-openLink}}Driver and Vehicle Standards Agency{{-closeLink}}",
+                "footerLicence": "All content is available under the {{-openLink}}Open Government Licence v3.0{{-closeLink}}, except where otherwise stated",
+                "copyright": "© Crown copyright"
+            },
+            "niDirect": {
+                "crownLink": "© Crown copyright",
+                "privacyLink": "Privacy",
+                "accessibilityLink": "Accessibility statement"
+            }
+        },
+        "cookie": {
+            "cookieHeader": "Use of cookies",
+            "cookieP1": "We use some essential cookies to make this service work.",
+            "cookieP2": "We’d also like to use analytics cookies so we can understand how you use the service and make improvements.",
+            "acceptButton": "Accept cookies",
+            "viewLink": "View cookies",
+            "acceptLabel": "accept",
+            "rejectLabel": "reject"
+        },
+        "bookingReference": "Booking reference",
+        "cancelContact": {
+            "phone": "0345 6006700"
+        },
+        "time": {
+            "am": "am",
+            "pm": "pm"
+        },
+        "language": {
+            "english": "English",
+            "welsh": "Cymraeg (Welsh)",
+            "turkish": "Turkish",
+            "portuguese": "Portuguese",
+            "polish": "Polish",
+            "farsi": "Farsi",
+            "cantonese": "Cantonese",
+            "arabic": "Arabic"
+        },
+        "editMode": {
+            "changeAlert": "You can change your mind about this or you {{-openLink}}can keep your existing choice{{-closeLink}}."
+        },
+        "loadingScreen": {
+            "loadingHeading": "Booking in progress",
+            "loadingCaption": "Please wait a few moments while this booking is made."
+        }
+    },
+    "bookingExists": {
+        "heading": "A confirmed booking for this test already exists",
+        "paragraph1": "There is already a confirmed booking for the test you are trying to book.",
+        "paragraph2": "You cannot book this test while an identical booking exists in the system.",
+        "paragraph3": "You can {{-openLink}}check your theory test appointment details{{-closeLink}}."
+    },
+    "cookiePolicy": {
+        "notificationPreferenceSet": {
+            "heading": "You've set your cookie preferences. ",
+            "link": "Go back to the page you were looking at"
+        },
+        "heading": "Use of cookies on this service",
+        "heading2": "Cookies used on this service",
+        "heading3": "Service application cookies",
+        "heading4": "Analytics cookies",
+        "heading5": "Third-party cookies",
+        "para1": "This service puts small files (known as 'cookies') onto your computer to collect information about how to use the service",
+        "para2": "Cookies are used to remember the notifications you've seen so that we don't show them to you again. They are not used to identify you personally",
+        "para3": "You will normally see a message before a cookie is stored on your computer.",
+        "para4": "This service uses cookie types that allow the system to work securely and consistently. These are:",
+        "para5": "This service sets a number of cookies to remember what you have done on the site and what messages you have seen.",
+        "para6": "You may see a pop-up cookies message when you first visit the service. We'll store a cookie so that your computer knows you have seen it and knows not to show it again.",
+        "para7": "We use Google Analytics software to collect information about how you use the service. This helps us make the service better for its users. Google Analytics stores information about:",
+        "para8": "Google doesn't collect or store your personal information, for example your name or address, so this information can't be used to identify who you are. We don't allow Google to use or share our analytics data.",
+        "para9": "Google Analytics uses these cookies:",
+        "para10": "Feedback survey",
+        "para11": "We use SmartSurvey to collect feedback comments. If you use the feedback survey, SmartSurvey will save extra cookies to your computer to track your progress through it. See the SmartSurvey privacy policy for more information.",
+        "para12": "Government services",
+        "para13": "Most services we link to are run by different government departments, for example HM Revenue and Customs (HMRC) or the Home Office",
+        "para14": "These services may set additional cookies and, if so, will have their own cookies policy.",
+        "list1-1": "service application cookies",
+        "list1-2": "analytics cookies",
+        "list1-3": "third-party cookies",
+        "list2-1": "the service pages you visit",
+        "list2-2": "how long you spend on each page",
+        "list2-3": "how you got to the site",
+        "list2-4": "what you click on while you're visiting the site",
+        "table1": {
+            "head1": "Name",
+            "head2": "Purpose",
+            "head3": "Expires",
+            "row1-1": "cm-user-preferences",
+            "row1-2": "Stores your acknowledgement of cookie use on this service",
+            "row1-3": "1 year",
+            "row2-1": "ftts",
+            "row2-2": "Stores a session identifier to keep track of your choices and data you have entered. This is required to complete a booking or make any changes during the booking process.",
+            "row2-3": "30 minutes"
+        },
+        "table2": {
+            "head1": "Name",
+            "head2": "Purpose",
+            "head3": "Expires",
+            "row1-1": "_ga",
+            "row1-2": "This helps us count how many people visit the service by tracking if you've visited before",
+            "row1-3": "2 years",
+            "row2-1": "_gat",
+            "row2-2": "Used to manage the rate at which the page view requests are made",
+            "row2-3": "10 minutes",
+            "row3-1": "_gid",
+            "row3-2": "Used to distinguish between users of the service",
+            "row3-3": "24 hours"
+        },
+        "table3": {
+            "head1": "Name",
+            "head2": "Purpose",
+            "head3": "Expires",
+            "row1-1": "_visid_incap_{ID}",
+            "row1-2": "Used to relate sessions to a specific visitor’s device",
+            "row1-3": "1 year",
+            "row2-1": "_incap_ses_{ID}",
+            "row2-2": "Used to relate HTTP requests to a particular visit",
+            "row2-3": "When you close your browser",
+            "row3-1": "_nlbi_{ID}",
+            "row3-2": "Used to direct website traffic load to servers",
+            "row3-3": "When you close your browser",
+            "row4-1": "reese84",
+            "row4-2": "Persists the token used to grant access to protected endpoints",
+            "row4-3": "5 minutes",
+            "row5-1": "reese84-resubmit-token",
+            "row5-2": "Alleviate the problem of some browser dropping the post body when showing an interstitial page (to force the load of Imperva JavaScript) on a POST request. This is done by preserving the original post body as an encrypted payload in the cookie.",
+            "row5-3": "60 seconds"
+        },
+        "table4": {
+            "head1": "Name",
+            "head2": "Purpose",
+            "head3": "Expires",
+            "row1-1": "Queue-it",
+            "row1-2": "This cookie allows the volume of users to be managed when there is a high demand on the service.",
+            "row1-3": "1 year",
+            "row2-1": "QueueITAccepted-{ID}",
+            "row2-2": "This cookie allows the volume of users to be managed when there is a high demand on the service.",
+            "row2-3": "30 minutes"
+        },
+        "legendText": "You can choose to turn off analytics cookies",
+        "cookiesOn": "On",
+        "cookiesOff": "Off",
+        "submitButton": "Save cookie settings",
+        "imperva": {
+            "heading": "Imperva Incapsula cookies",
+            "para1": "Imperva Incapsula cookies help the Imperva Incapsula service identify malicious activity.",
+            "para2": "The cookies store information in an anonymous form. They don't collect or store any personal information (e.g. names or addresses) so this information can't easily be used to identify who the user is."
+        },
+        "queueit": {
+            "heading": "Queue-It cookies"
+        },
+        "nonJs": {
+            "heading1": "Use of cookies on this service",
+            "para1": "Cookies are files saved on your phone, tablet or computer when you visit a website.",
+            "para2": "We use cookies to store information about how you use this service, such as the pages you visit.",
+            "para3": "Cookie settings",
+            "para4": "We use Javascript to set most of our cookies. Unfortunately Javascript is not running on your browser, so you cannot change your settings. You can try:",
+            "list1-1": "reloading the page",
+            "list1-2": "turning on Javascript in your browser",
+            "para5": "Third-party and government services",
+            "para6": "Most services we link to are run by different government departments, for example HM Revenue and Customs (HMRC) or the Home Office. We also use SmartSurvey to collect feedback comments.",
+            "para7": "These services may set additional cookies and, if so, will have their own cookies policy.",
+            "para8": "Government services",
+            "para9": "Most services we link to are run by different government departments, for example HM Revenue and Customs (HMRC) or the Home Office",
+            "para10": "These services may set additional cookies and, if so, will have their own cookies policy."
+        }
+    },
+    "accessibilityStatement": {
+        "heading": "Accessibility statement",
+        "para1": "This accessibility statement applies to to the {{-openFirstLink}}Driver & Vehicle Agency (DVA) Learner booking for Theory Test website{{-closeLink}} which can be accessed through the {{-openSecondLink}}nidirect.gov.uk{{-closeLink}} domain.",
+        "para2": "This website is run by the Department for Infrastructure. It is designed to be used by as many people as possible. The text should be clear and simple to understand. You should be able to:",
+        "list1-1": "change colours, contrast levels and fonts",
+        "list1-2": "zoom in up to 300% without the text spilling off the screen",
+        "list1-3": "navigate most of the website using just a keyboard",
+        "list1-4": "navigate most of the website using speech recognition software",
+        "list1-5": "use most of the website using a screenreader (including the most recent versions of JAWS, NVDA and VoiceOver)",
+        "para3": "The text we’ve used is designed to be clear and easy to understand.",
+        "para4": "{{-openLink}}AbilityNet{{-closeLink}} has advice on making your device easier to use if you have a disability.",
+        "heading2": "How accessible this website is",
+        "para5": "Parts of this website are not fully accessible. For example:",
+        "list2-1": "the text will not adjust to become a single column when you change the size of the browser window",
+        "list2-2": "some online forms are difficult to navigate using just a keyboard",
+        "list2-3": "some of our error messages do not provide enough information to enable a user to correct the error",
+        "list2-4": "magnification is limited on the map on the ‘Choose a test centre’ page",
+        "list2-5": "our service has a timeout which might interfere with users completing tasks",
+        "para6": "We will update the statement when issues are fixed or when we expect them to be fixed.",
+        "heading3": "Feedback and contact information",
+        "para7": "{{-openLink}}Contact us{{-closeLink}} if you need information in a different format, for example accessible PDF, large print, easy read, audio recording or braille. Please provide:",
+        "list3-1": "the web address (URL) of the content",
+        "list3-2": "your email address and name",
+        "list3-3": "the format you need",
+        "para8": "If you cannot view the map showing test centre locations {{-openLink}}contact us{{-closeLink}} for directions.",
+        "heading4": "Reporting accessibility problems with this website",
+        "para9": "We’re always looking to improve the accessibility of this website. If you experience a problem not listed on this page or think we’re not meeting accessibility requirements, you can {{-openLink}}contact us{{-closeLink}}.",
+        "heading5": "Enforcement procedure",
+        "para10": "The {{-openLink}}Equality Commission for Northern Ireland{{-closeLink}} is responsible for enforcing the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the ‘accessibility regulations’).",
+        "heading6": "Contacting us by phone or visiting us in person",
+        "para11": "{{-openLink}}Find out how to contact us{{-closeLink}}",
+        "heading7": "Technical information about this website’s accessibility",
+        "para12": "The Driver & Vehicle Agency (DVA) Northern Ireland is committed to making its website accessible, in accordance with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.",
+        "heading8": "Compliance status",
+        "para13": "This website is partially compliant with the {{-openLink}}Web Content Accessibility Guidelines version 2.1{{-closeLink}} AA standard, due to the non-compliances listed below.",
+        "heading9": "Non-accessible content",
+        "para14": "Non-accessible content is listed here with the reasons for its inaccessibility.",
+        "heading10": "Non-compliance with the accessibility regulations",
+        "heading11": "Accessing information",
+        "heading12": "2. Incorrectly marked up list (A)",
+        "list4-1": "Lists of features ‘About this test centre’ on the ‘Choose your test centre’ page lack correct elements.",
+        "list4-2": "Fails success criterion 1.3.1 Info and Relationships (Level A)",
+        "list4-3": "We plan to fix this by September 2021.",
+        "heading13": "3. Ambiguous link purpose(A)",
+        "list5-1": "Links on the ‘booking confirmed’ page do not describe what will happen when activated. This is intended to make the links usable when printed.",
+        "list5-2": "Fails success Criterion 2.4.4 Link Purpose (In Context) (Level A)",
+        "list5-3": "We plan to fix this by September 2021",
+        "heading14": "Interactive tools",
+        "heading15": "10. Calendar access (A)",
+        "list6-1": "The service uses a supplementary calendar date picker to populate a date field which does not function correctly for users of assistive technologies. There is an alternative text entry method for selecting a date.",
+        "list6-2": "This fails success criteria 4.1.2 Name, Role, Value (Level A), 2.1.1 Keyboard (Level A).",
+        "list6-3": "We plan to fix this by September 2021",
+        "heading16": "Payment gateway",
+        "heading17": "1. Ambiguous image alt (A)",
+        "list7-1": "Payment security provider logo image alt text is missing which may confuse screenreader users.",
+        "list7-2": "Fails success criterion 1.1.1 non-text content (level A)",
+        "heading18": "2. Skip links (A)",
+        "list8-1": "Skip links are not always present, which may prevent screenreader and keyboard only users from skipping repetitive content.",
+        "list8-2": "Fails success criterion 2.4.1 Bypass Blocks (Level A)",
+        "heading19": "3. Heading structures (A)",
+        "list9-1": "No headings structure used which may prevent users who primarily use the headings structure to navigate efficiently.",
+        "list9-2": "Fails success criteria 2.4.1 Bypass Blocks (Level A) and 1.3.1 Info and Relationships (Level A)",
+        "para15": "We are working with our payment gateway provider to agree a date for the resolution of these issues.",
+        "heading20": "Disproportionate burden",
+        "para16": "We intend to make our services compliant with the {{-openLink}}Web Content Accessibility Guidelines version 2.1{{-closeLink}} AA standard. We are not claiming disproportionate burden for any part of our accessibility plan.",
+        "heading21": "Content that is not within the scope of the accessibility regulations",
+        "para17": "In order to book a theory test, you will need to provide information from your driving licence. The form that you add this information to has error messages that are deliberately vague if any information is entered incorrectly. Error messages on this screen must not tell hackers if some of the information is incorrect.",
+        "heading22": "What we are doing to improve accessibility",
+        "para18": "We have accessibility fixes captured in our service roadmap. They will be applied by September 2021.",
+        "heading23": "Preparation of this accessibility statement",
+        "para19": "This statement was prepared on 24 May 2021. It was last updated on 11 June 2021.",
+        "para20": "This website was last tested on 17 May 2021. The test was carried out by Digital Accessibility Centre (DAC). Every page was tested."
+    },
+    "confirmSupport": {
+        "heading": "You did not tell us what type of support you need",
+        "paragraph1": "Your request might take longer to arrange if you do not tell us what support you need",
+        "paragraph2": "Select one option",
+        "radio1": "Tell us what support you need",
+        "radio2": "Book your theory test now without support",
+        "radio3": "Continue without telling us what support you need - this may take longer to arrange",
+        "error": "Select one option from the list"
+    },
+    "supportAlert": {
+        "heading": "Before you continue with your support request",
+        "para1-heading": "Get the support you need",
+        "para1": "You will see the different support types available after you have entered more information.",
+        "para2-heading": "Some types of support require evidence",
+        "para2": "For some types of support we need to see evidence. This can be a letter, email, assessment or report that proves you currently have a health condition or disability, or find reading difficult.",
+        "para3-heading": "When you don't need to provide evidence",
+        "para3": "Evidence is not needed to get:",
+        "list1-1": "voiceover with headphones",
+        "list1-2": "on-screen British Sign Language (BSL) - with extra time, if selected",
+        "list1-3": "a sign language interpreter or lipspeaker - with extra time, if selected",
+        "list1-4": "support of language interpreter",
+        "continue": "Continue and get support",
+        "go-back": "Book online without support"
+    },
+    "chooseSupport": {
+        "heading": "Get the right support during your theory test",
+        "heading2": "You may be able to select the support you need and book your test online now",
+        "para1": "We want you to have everything you need to take your test.",
+        "para2": "Many types of support are available if, for example, you:",
+        "para3": "You can {{-openLink}}learn more about the types of support available{{-closeLink}}. These include:",
+        "para4": "Or you can tell us you need support and we'll get in touch with you.",
+        "para5": "This may suit you better because we'll be able to:",
+        "list1-1": "find reading difficult",
+        "list1-2": "have a disability",
+        "list1-3": "have a health condition",
+        "list2-1": "voiceover with headphones provided",
+        "list2-2": "British Sign Language (on-screen or in-person)",
+        "list2-3": "translator",
+        "list2-4": "extra time to complete your test",
+        "list2-5": "someone reading the questions for you",
+        "list2-6": "having the questions worded differently",
+        "list3-1": "talk to you about how we can help",
+        "list3-2": "make any special arrangements you might need",
+        "list3-3": "talk about whether we need any evidence to support your request",
+        "legend": "Do you need support for your theory test?",
+        "errorMessage": "You must select either 'Yes' or 'No'.",
+        "yes": "Yes",
+        "no": "No",
+        "editMode": {
+            "changeAlert": "You can change your mind about getting support or {{-openLink}}keep your existing choice{{-closeLink}}.",
+            "importantWarning": "Important: If you do change your mind, you may need to update other information in this booking.",
+            "confirmChangeButton": "Confirm change and continue",
+            "cancelChangeButton": "Cancel and keep existing choice"
+        }
+    },
+    "details": {
+        "heading": "Details of the person taking the theory test",
+        "headingSupport": "Provide a few details to get the right support",
+        "p1": "Enter the driving licence details of the person taking the test.",
+        "p2": "These details are checked and used to show which test types are available.",
+        "p3": "It's important the information is entered exactly as it looks on the driving licence.",
+        "seeExampleLabel": "See example",
+        "firstNamesExampleLabel": "- of where to find first and middle names on a driving licence",
+        "lastNameExampleLabel": "- of where to find last name on a driving licence",
+        "licenceNumberExampleLabel": "- of where to find driving licence number on a driving licence",
+        "exampleLabelSupport": "Example",
+        "errorMessage": "You must enter these details as they appear on the driving licence. Please check them carefully and try again.",
+        "firstnamesField": {
+            "label": "First and middle names",
+            "description": "Enter the first and any middle names of the person taking the test. Do not include their title.",
+            "hint": "See section 2 of the driving licence.",
+            "example": "For example, JOHN WILLIAM.",
+            "imageAltText": "Image showing where to find first and middle names on a driving licence"
+        },
+        "surnameField": {
+            "label": "Last names",
+            "description": "Enter the surname of the person taking the test.",
+            "hint": "See section 1 of the driving licence.",
+            "example": "For example, JONES.",
+            "imageAltText": "Image showing where to find last name on a driving licence"
+        },
+        "licenceNumberField": {
+            "label": "Driving licence number",
+            "description": "Enter the 8-digit driving licence number of the person taking the test.",
+            "hint": "See section 5 of the driving licence.",
+            "example": "For example, 06159200.",
+            "imageAltText": "Image showing where to find driving licence number on a driving licence"
+        },
+        "dobField": {
+            "label": "Date of birth",
+            "description": "Enter the date of birth of the person taking the test.",
+            "hint": "For example, 21 10 1998",
+            "dayLabel": "Day",
+            "monthLabel": "Month",
+            "yearLabel": "Year"
+        },
+        "personalReference": {
+            "label": "Payment receipt number",
+            "description": "Enter payment receipt number from your instructor registration email"
+        },
+        "noTests": {
+            "heading": "You are not eligible for driving theory tests",
+            "description": "Based on the information provided, you are not eligible for any tests. Contact DVA to find out more."
+        },
+        "retry": {
+            "heading": "There was a problem",
+            "description": "A technical problem interrupted this service. You can {{-openLink}}try again to book this theory test{{-closeLink}} or wait and try later. If this problem persists, contact DVA."
+        },
+        "loadingScreen": {
+            "loadingHeading": "Checking information",
+            "loadingCaption": "Please wait a few moments while these details are checked."
+        }
+    },
+    "emailContact": {
+        "heading": "Email of the person taking the theory test",
+        "description": "We need an email address to send a booking confirmation and a payment receipt.",
+        "emailDescription": "We’ll use this to send a confirmation email, a payment receipt and the test result.",
+        "hint": "The person taking the test must be able to access this email account.",
+        "changeAlert": "You can change the email address associated with this booking or {{-openLink}}keep the last one saved{{-closeLink}}.",
+        "emailLabel": "Email address",
+        "confirmEmailLabel": "Confirm email address",
+        "emailValidationError": "Enter a valid email address",
+        "confirmEmailValidationError": "Enter a valid confirmation email address",
+        "emailTooLong": "Email address must be 100 characters or fewer",
+        "unmatchingError": "Ensure confirmation email address matches email address",
+        "cancelChangeButton": "Cancel and keep existing email",
+        "nonStandardAccommodation": {
+            "heading": "Provide an email address",
+            "description": "We'll only use this email address to confirm your support request."
+        }
+    },
+    "testType": {
+        "heading": "Which theory test are you booking?",
+        "support-heading": "Which theory test type do you need support for?",
+        "hintLine1": "You are eligible to take tests for these vehicle types.",
+        "hintLine2": "Select the one you want to book now",
+        "compensationHint": "You recently had a theory test cancelled. Select this option to book a replacement test.",
+        "compensationRefundLink": "{{-openLink}}Request a refund{{-closeLink}} if you no longer need a theory test.",
+        "lgvGroupHeading": "Large goods vehicle (LGV)",
+        "pcvGroupHeading": "Passenger carrying vehicle (PCV)",
+        "taxiGroupHeading": "Taxi",
+        "changeAlert": "You can change the test type or {{-openLink}}keep your existing choice{{-closeLink}}.",
+        "changeWarning": "Important: if you change the test type and continue, you will need to enter the booking details again.",
+        "cancelChangeButton": "Cancel and keep existing test type",
+        "subheading": "Booking other types of theory tests",
+        "entitlementText": "You must have a category entitlement on your driving licence for any type of vehicle you want to drive.",
+        "licenceCategoryLinkText": "Learn more about driving licence categories",
+        "licenceCategoryLinkUrl": "https://www.nidirect.gov.uk/information-and-services/driver-licensing/information-vehicles-you-can-drive",
+        "validationError": "You need to select a theory test"
+    },
+    "supportedLanguages": {
+        "heading": "Language support for the theory test",
+        "description": "Theory tests are available in {{-openBold}}English{{-closeBold}}, {{-openBold}}Welsh{{-closeBold}} and {{-openBold}}sign language{{-closeBold}}.",
+        "descriptionERS": "Theory tests are available in {{-openBold}}English{{-closeBold}} and {{-openBold}}sign language{{-closeBold}}.",
+        "hint": "No other languages are available."
+    },
+    "receivedSupportRequest": {
+        "heading": "We have received a support request",
+        "paragraph1": "There is already a theory test support request with these details in our response queue.",
+        "paragraph2": "We are currently responding to a high number of enquiries but we will contact you as soon as possible.",
+        "paragraph3": "You can continue to book a new test online now, or wait for us to contact you.",
+        "warningText": "If you continue and make a new booking now:",
+        "warningOption1": "your support options will be limited to voiceover or on-screen sign language",
+        "warningOption2": "your existing support request will be {{-openBold}}cancelled{{-closeBold}}",
+        "continue": "Continue and make a booking"
+    },
+    "testLanguage": {
+        "heading": "Which language do you want to appear on screen during the theory test?",
+        "subheading": "Choose a language",
+        "validationError": "You must select a language",
+        "changeAlert": "You can change the test language or {{-openLink}}keep your existing choice{{-closeLink}}.",
+        "cancelChangeButton": "Cancel and keep existing language"
+    },
+    "translator": {
+        "heading": "Which language do you want translated?",
+        "description": "Tell us which language you want translated so you can take your driving theory test.",
+        "hint": "Enter language",
+        "errorMessages": {
+            "empty": "Enter the language you need translated",
+            "tooLong": "The translation language description must be 100 characters or fewer"
+        },
+        "editMode": {
+            "changeAlert": "You can change your mind about which language you want translated during your test. Or you can {{-openLink}}keep your existing choice{{-closeLink}}."
+        }
+    },
+    "findTestCentre": {
+        "heading": "Find a theory test centre",
+        "subheading": "Find your most convenient test centre",
+        "listHeader": "You can:",
+        "listItem1": "see test centres on a map",
+        "listItem2": "get test centre addresses and other information",
+        "searchLabel": "Enter a postcode, town or city",
+        "searchButton": "Find a theory test centre",
+        "errorNotRecognised": "No location results match your search. Please try again.",
+        "editMode": {
+            "changeAlert": "You can change the test location here or {{-openLink}}keep your existing choice{{-closeLink}}.",
+            "importantWarning": "If you select a new location here, it will replace your previous choice. Date and time slots will still be subject to availability.",
+            "cancelChangeButton": "Cancel and keep previously selected test location"
+        }
+    },
+    "selectTestCentre": {
+        "heading": "Select a theory test centre",
+        "thereAre": "There are",
+        "testCentresNear": "test centres near",
+        "changeLinkMore": "the theory test centre search location",
+        "kilometers": "km",
+        "miles": "miles",
+        "milesLink": "See miles",
+        "kmLink": "See kilometres",
+        "mapLink": "View {{-centre}} test centre on Google Maps",
+        "aboutCentreHeading": "About this test centre",
+        "description": "Description",
+        "select": "Select",
+        "centre": "centre",
+        "selectButton": "Select",
+        "seeMoreButton": "See {{incrementValue}} more",
+        "mapSelectHint": "Select a test centre on the map",
+        "listTabLabel": "List of centres",
+        "mapTabLabel": "See on map",
+        "error": {
+            "heading": "That search didn't work",
+            "paragraph1": "A technical problem interrupted the location search.",
+            "paragraph2": "You can {{-openLink}}try another search now{{-closeLink}} or wait and try again later. If this problem persists, contact DVA."
+        },
+        "editMode": {
+            "changeAlert": "You can change the test location here or {{-openLink}}keep your existing choice{{-closeLink}}."
+        }
+    },
+    "selectDate": {
+        "heading": "Enter a date to check for available theory test time slots",
+        "description": "If no test slots are available on this date, this service can help you find one on another day.",
+        "importantWarning": "You can move or cancel your test up to 3 clear working days before the test date without losing your fee",
+        "hint": "For example, 31 10 2022",
+        "dayLabel": "Day",
+        "monthLabel": "Month",
+        "yearLabel": "Year",
+        "selectDate": "Select a date",
+        "loadingScreen": {
+            "loadingHeading": "Checking information",
+            "loadingCaption": "Please wait a few moments while the availability is checked. This can take up to one minute."
+        },
+        "manageBooking": {
+            "heading": "Enter a date for the theory test",
+            "li1": "You can move or cancel a test <strong>up to 3 clear working days</strong> before the test date without losing your fee"
+        },
+        "errorMessages": {
+            "dayEmpty": "You need to enter a day",
+            "monthEmpty": "You need to enter a month",
+            "yearEmpty": "You need to enter a year",
+            "dateNotValid": "Enter a valid date",
+            "dateInPast": "Date must be in the future",
+            "dateIsTodayOrTomorrow": "There are no slots available today or tomorrow. Try another date.",
+            "dateBeyond6Months": "Date must be within 6 months of today"
+        },
+        "editMode": {
+            "changeAlert": "You can change the test slot here or {{-openLink}}keep the date and time previously selected{{-closeLink}}.",
+            "importantWarning": "If you select a new date and time here they will replace the details previously entered. Date and time slots are both subject to availability.",
+            "cancelChangeButton": "Cancel and keep previously selected date and time"
+        }
+    },
+    "chooseAppointment": {
+        "heading": "Choose a time for the theory test",
+        "instruction": "Check time slots at a different test centre",
+        "desktop": {
+            "previous": "Previous week",
+            "next": "Next week"
+        },
+        "mobile": {
+            "previous": "Previous",
+            "next": "Next"
+        },
+        "morning": "Morning",
+        "afternoon": "Afternoon",
+        "editMode": {
+            "changeAlert": "You can change the test time here or {{-openLink}}keep the time previously selected{{-closeLink}}.\nDate and time slots are both subject to availability."
+        },
+        "warning1": "There is no availability on this date. Try another day.",
+        "warningPast": "Days in the past cannot be viewed",
+        "warningAfterEligibility": "You are not eligible to take tests on the day selected. For eligibility queries, contact DVA.",
+        "warningBeforeEligibility": "You are not eligible to take tests on the date selected. The earliest date you can book the test for is",
+        "warningSixMonths": "This day is not yet available for booking. Check regularly as this may change.",
+        "selectAnotherDateLink": "Select another date",
+        "errorMessages": {
+            "invalidSlot": "A technical problem interrupted this service. Please select the appointment slot again."
+        },
+        "noSlots": "No slots",
+        "slotsAvailable": "slots",
+        "OneSlotAvailable": "1 slot"
+    },
+    "checkYourAnswers": {
+        "heading": "Check your details before paying",
+        "headingNoPayment": "Check your details",
+        "personalDetails": {
+            "heading": "Personal details",
+            "nameLabel": "Name",
+            "dobLabel": "Date of birth",
+            "licenceNumLabel": "Driving licence number",
+            "emailLabel": "Email address",
+            "telephoneLabel": "Telephone",
+            "voicemailLabel": "Consent to leave you phone messages"
+        },
+        "testDetails": {
+            "heading": "Test details",
+            "testTypeLabel": "Test type",
+            "testSlot": "Test slot",
+            "costLabel": "Cost",
+            "alreadyPaidLabel": "Already paid",
+            "timeDateLabel": "Test time and date",
+            "locationLabel": "Test location",
+            "timeDateLocationLabel": "Test time, date or location",
+            "testLanguageLabel": "On-screen language"
+        },
+        "supportDetails": {
+            "heading": "Support Details",
+            "supportRequestedLabel": "Support requested",
+            "supportTypesLabel": "Support types you selected",
+            "voiceoverLabel": "Voiceover language",
+            "bslLabel": "On-screen British Sign Language",
+            "translatorLabel": "Translator language",
+            "supportDetailsLabel": "Support details you added",
+            "preferredDayLabel": "Preferred time for test",
+            "particularDay": "I want a particular time or day",
+            "preferredLocationLabel": "Preferred locations for test",
+            "particularLocation": "I know which locations I want",
+            "addedNoDetails": "You added no details",
+            "decideLater": "I will decide this later",
+            "bslUnchangeable": "To add sign language to this test you must first remove voiceover",
+            "voiceoverUnchangeable": "To add voiceover to this test you must first remove sign language"
+        },
+        "paymentWarning": "Complete the payment process within 30 minutes. If you do not, this booking will be cancelled but you may still be charged. You will have to start your booking again and the test slot you were trying to book may no longer be available.",
+        "bookingCancelled": {
+            "heading": "Booking process cancelled",
+            "contentLine1": "This booking process has been cancelled. No booking has been made and you have not been charged.",
+            "contentLine2": "You can start your booking again but the test slot you were trying to book may no longer be available.",
+            "startAgainButton": "Start again"
+        },
+        "error": {
+            "heading": "There was a problem",
+            "general": {
+                "contentLine1": "A technical problem interrupted this service.",
+                "contentLine2": "You can {{-openLink}}try again to submit your support request{{-closeLink}} ",
+                "contentLine3": "or wait and try later. ",
+                "contentLine4": "If this problem persists, contact DVA"
+            },
+            "paymentInitiation": {
+                "contentLine1": "A technical problem means payments cannot be made at the moment. You can {{-openLink}}try again to pay{{-closeLink}} or wait and try later. If this problem persists, contact DVA."
+            },
+            "paymentConfirmation": {
+                "contentLine1": "A technical problem means your payment cannot be confirmed. This booking has been cancelled.",
+                "contentLine2": "If the payment is found to have been successful, it will be refunded as soon as possible.",
+                "contentLine3": "We're very sorry. Please {{-openLink}}try again to book your theory test{{-closeLink}}.",
+                "contentLine4": "If this problem persists, contact DVA."
+            },
+            "paymentUnsuccessful": {
+                "contentLine1": "A technical problem means your payment was not successful. This booking has been cancelled.",
+                "contentLine2": "We're very sorry. Please {{-openLink}}try again to book your theory test{{-closeLink}}.",
+                "contentLine3": "If this problem persists, {{-openLink}}contact DVA{{-closeLink}}."
+            },
+            "paymentSystemError": {
+                "heading": "Sorry, there is a problem with the service",
+                "contentLine1": "Try again later.",
+                "contentLine2": "We have not saved your booking. You will have to {{-openLink}}start again{{-closeLink}}.",
+                "contentLine3": "If your payment went through, DVA will refund you within 7 business days",
+                "contentLine4": "{{-openLink}}Contact DVA{{-closeLink}} if you continue to have issues with your booking. Use the reference {{bookingReference}}",
+                "contact": "https://www.nidirect.gov.uk/articles/driving-theory-test"
+            },
+            "slotConfirmation": {
+                "contentLine1": "We're very sorry. A technical problem disrupted this booking. The order has been cancelled. Its reference is {{bookingReference}}.",
+                "contentLine2": "If your payment went through, DVA will refund it within 7 business days.",
+                "contentLine3": "You can {{-openLink}}try booking again now{{-closeLink}} or wait and try later. If this problem persists, contact DVA."
+            },
+            "bslVoiceoverOption": {
+                "contentLine1": "The combination of sign language and voiceover is not available. Select either one of these options and try again."
+            }
+        },
+        "continueButton": "Continue",
+        "continueAndPayButton": "Continue and pay"
+    },
+    "checkYourDetails": {
+        "heading": "Check your details",
+        "manageBooking": {
+            "heading": "Check theory test details",
+            "bsl": "On-screen British Sign Language (BSL)",
+            "voiceover": "Voiceover with headphones"
+        }
+    },
+    "bookingConfirmation": {
+        "heading": "Theory test booking confirmed",
+        "panelBookingRef": "Your booking reference is important",
+        "keepItSafe": "Keep it safe",
+        "keepBookingRef": "Keep your booking reference safe.",
+        "bookingRefPrompt": "You'll need it to check, change or cancel this test. Consider taking a screenshot, or",
+        "printLink": "print this page.",
+        "testTypeLabel": "Test type",
+        "dateLabel": "Test time and date",
+        "locationLabel": "Test location",
+        "testLanguageLabel": "On-screen language",
+        "bslLabel": "On-screen British Sign Language",
+        "voiceoverLabel": "Voiceover language",
+        "importantSubheading": "Important",
+        "importantStatement": "Make sure you arrive 15 minutes before your test time. This is to sign in, prove your identity and get ready for the test.",
+        "importantCovidPolicy": "You must comply with the test centre COVID-19 safety measures and wearing of face coverings which can be checked here - ",
+        "importantCovidLinkText": "Coronavirus (Covid 19) and motoring",
+        "importantCovidLink": "https://www.nidirect.gov.uk/articles/coronavirus-covid-19-and-motoring",
+        "provingIdentitySubheading": "Proving your identity",
+        "provingIdentitySubheadingStatement": "You must bring these items to your test:",
+        "provingIdentityFirstBullet": "both parts of your valid signed Northern Ireland driving licence (photocard and paper counterpart) or",
+        "provingIdentityCandidateSecondBullet": "your valid signed GB photocard licence showing your provisional entitlement, and a printed summary (dated within a week of your test date) of your driving licence record from {{-openLink}}www.gov.uk/view-driving-licence{{-closeLink}}",
+        "provingIdentityInstructorSecondBullet": "your valid signed GB photocard licence and a printed summary (dated within a week of your test date) of your driving licence record from {{-openLink}}www.gov.uk/view-driving-licence{{-closeLink}}",
+        "provingIdentitySecondBulletLink": "https://www.gov.uk/view-driving-licence",
+        "provingIdentityCandidateAdditionalStatement": "If your GB photocard licence does not show your provisional entitlement you must obtain written confirmation form the DVLA of your provisional entitelement.",
+        "provingIdentityOldStyle": "If you have an old style non-photographic licence, you must bring acceptable photographic evidence of your identity as well as your licence. You can learn more about which types of photographic ID are acceptable on the government's wesbite, {{-openLink}}www.nidirect.gov.uk/motoring{{-closeLink}}",
+        "provingIdentityOldStyleLink": "https://www.nidirect.gov.uk/motoring",
+        "cancelWarning": "Your test may be cancelled and you could lose your fee if you are late or do not bring the right documents with you",
+        "personMust": "The person taking the test must:",
+        "arrive": "arrive 15 minutes before the test start time",
+        "bringLicence": "bring their driving licence (Old-style, paper licence-holders should also bring a valid passport, or other photo-ID)",
+        "centreSubheading": "Security at the test centre",
+        "security": "All test centres are security monitored.",
+        "itemsCheck": "As you enter the test room, you'll be checked for items that could be used to cheat. Your test may not go ahead if you do not allow this check.",
+        "cheatWarning": "It is illegal to cheat in a theory test. You can be sent to prison and banned from driving.",
+        "belongingsSubheading": "Personal belongings",
+        "itemsPrompt": "When you arrive at the test centre, all devices should be switched off and personal items must be placed in the secure locker provided. Items include but are not limited to:",
+        "items": {
+            "food": "food and drink",
+            "earpieces": "earpieces or headphones",
+            "phones": "mobile phones and other electronic devices",
+            "hats": "hats, bags and coats",
+            "watches": "watches",
+            "books": "books and revision notes"
+        },
+        "largeItems": "Large items cannot be stored in our test centres.",
+        "securityChecks": "As part of our security checks, you may be asked to remove or adjust outer clothing, personal belongings or accessories.",
+        "foundItems": "If you cannot store all your items or are found to have any of these items in the test room:",
+        "voided": "your test may be stopped and voided",
+        "leave": "you may be asked to leave",
+        "refunded": "the test fee may not be refunded",
+        "waitingSubheading": "No waiting facilities",
+        "noWaiting": "Test Centres have no waiting facilities for any adults or children accompanying candidates.",
+        "prepare": "Prepare for the test",
+        "learnMore": "You can learn more about preparing for a car theory test including free practice tests",
+        "learnMoreLink": "https://www.gov.uk/theory-test/revision-and-practice",
+        "learnMoreLinkCandidate": "https://www.nidirect.gov.uk/articles/preparing-theory-test",
+        "learnMoreLinkInstructor": "https://www.nidirect.gov.uk/information-and-services/driving-living/driving-instructors",
+        "afterTheTestSubheading": "After the test",
+        "afterTheTestParagraph": "We'll send the test result summary to the email address you booked with.",
+        "cancelSubheading": "Checking, changing or cancelling this test",
+        "cancellationThreeDays": "You can change or cancel this test up to 3 clear working days before the test date without losing your fee.",
+        "cancellationPolicy": "If this booking is changed or cancelled after",
+        "cancellationPolicyEnd": "no refund will be made.",
+        "checkDetails": "Check the details of this test",
+        "checkDetailsLink": "https://www.gov.uk/check-theory-test",
+        "reschedule": "Change or reschedule this test",
+        "rescheduleLink": "https://www.gov.uk/change-theory-test",
+        "cancel": "Cancel this test here:",
+        "cancelLink": "https://www.gov.uk/cancel-theory-test",
+        "cancelLinkText": "www.gov.uk/cancel-theory-test",
+        "checkChangeCancel": "Check, change or cancel this test",
+        "checkChangeCancelLinkCandidate": "https://www.nidirect.gov.uk/services/change-or-cancel-your-theory-test-online",
+        "checkChangeCancelLinkInstructor": "https://www.nidirect.gov.uk/services/change-or-cancel-your-adi-or-ami-theory-test-online",
+        "nonStandardAccommodation": {
+            "evidenceNeededHeading": "Send us evidence now to complete your support request",
+            "evidenceNotNeededHeading": "Your theory test support request has been sent",
+            "panelContact": "Your request will not be processed until this evidence is received",
+            "panelBookingRef": "Keep this reference safe ",
+            "printPagePrompt": "You may find it useful to ",
+            "importantBanner": "We are currently responding to a high number of enquiries and we will contact you as soon as possible to arrange your theory test.",
+            "emailAlsoSent": "We've also sent you an email confirming your support request.",
+            "testAndSupportDetails": {
+                "header": "Your test and support details",
+                "testType": "Test type",
+                "onScreenLanguage": "On-screen language",
+                "supportRequested": "Support requested",
+                "supportTypesSelected": "Support types you selected",
+                "preferedTime": "Preferred time for test",
+                "preferedLocation": "Preferred locations for test"
+            },
+            "whatToDoNow": {
+                "header": "What you must do now",
+                "emailEvidence":"Email your evidence",
+                "emailEvidenceParagraph1":"Email your evidence documents to: ",
+                "email": "dva.theorytestsupportni@dvsa.gov.uk",
+                "emailEvidenceParagraph2":"You can send as many documents as you need to provide evidence."
+            }, 
+            "importantInfo": {
+                "header": "Important",
+                "paragraph": "To help speed up your support request, include your:",
+                "supportRquestRef": "1. Support request reference:",
+                "fullname": "2. Full name",
+                "drivingLicenceNo": "3. Driving licence number"
+            },
+            "otherWaysToSendEvidence": {
+                "heading": "Other ways to send evidence",
+                "paragraph": "Alternatively, you can post your evidence to:", 
+                "addressLine1": "Driver and Vehicle Standards Agency",
+                "addressLine2": "PO Box 349",
+                "addressLine3": "Newcastle upon Tyne",
+                "addressLine4": "NE12 2GN"
+            },
+            "additionalTextForDeafUsers": {
+                "title": "When you don't need to provide evidence",
+                "paragraph": "You don't need to provide evidence if you are deaf or have a hearing impairment and asked for support related to deafness, as well as extra time. If you asked for any other type of support you will need to provide evidence."
+            },
+            "evidenceRequirements": {
+                "heading": "Your evidence",
+                "title": "Make sure your evidence:",
+                "point1": "states your condition",
+                "point2": "contains your first and last name",
+                "point3": "is a letter, email, diagnostic assessment or report",
+                "point4": "is from an educational or medical professional, an occupational therapist or an official organisation",
+                "point5": "signed and on headed paper, if it's a letter or report",
+                "linkIntro": "You can learn more about evidence on the government's website here:",
+                "link": "https://www.nidirect.gov.uk/articles/taking-theory-test-if-you-have-special-requirements"
+            },
+            "evidenceRecieved": {
+                "header": "When we receive your evidence",
+                "paragraph": "We will check your evidence to make sure it enables you to get the right support. We will contact you when we have done this."
+            },
+            "contactInformation":{
+                "header": "You can also contact us",
+                "testEnquiries": "DVA theory test enquiries",
+                "email": "dva.theorytestsupportni@dvsa.gov.uk",
+                "telephone": "Telephone: 0345 600 6700",
+                "openingHours": "Monday to Friday, 8am to 4pm"
+            },
+            "iWillDecideThisLater": "To be decided later",
+            "youMayNeedEvidence": {
+                "title": "You may need to provide evidence",
+                "paragraph": "For some kinds of support you may be asked to provide evidence. This is usually a letter, email, diagnostic assessment or report from an educational or medical professional, an occupational therapist or an official organisation."
+            },
+            "evidenceAlreadyProvided": {
+                "title": "Evidence",
+                "paragraph1": "Some kinds of support require evidence. This is usually a letter, email, diagnostic assessment or report from an educational or medical professional, an occupational therapist or an official organisation.",
+                "subHeading": "If you have provided evidence before",
+                "paragraph2": "If you provided evidence for a theory test you failed, we don't need to see it again unless the support you need has changed."
+            }
+        }
+    },
+    "changeLocationTime": {
+        "heading": "What do you want to change?",
+        "changeAlert": "You can change your previous response here or {{-openLink}}go back and keep it{{-closeLink}}.",
+        "description": "Select one option. Your existing booking will be held until you make and confirm any changes.",
+        "validationError": "Please select what you want to change",
+        "loadingScreen": {
+            "loadingHeading": "Checking information",
+            "loadingCaption": "Please wait a few moments while the availability is checked. This can take up to one minute."
+        },
+        "changeTimeOnlyOption": {
+            "label": "Just the time of the theory test",
+            "hint": "New time slots on your existing test day may not be available."
+        },
+        "changeTimeAndDateOption": {
+            "label": "Time and date of the theory test",
+            "hint": "Your existing time slot may be unavailable on a different day."
+        },
+        "changeLocationOption": {
+            "label": "Location of the theory test",
+            "hint": "Your existing date and time slot may be unavailable at a different location."
+        },
+        "confirmChangeButton": "Change and continue",
+        "cancelChangeButton": "Cancel and keep your selection"
+    },
+    "manageBookingLogin": {
+        "heading": "Enter the booking reference and driving licence number of the person taking the theory test",
+        "bookingReferenceField": {
+            "label": "Booking reference",
+            "descriptionLine1": "The booking reference number was sent to the email address used to book the theory test.",
+            "descriptionLine2": "If you do not have a booking reference {{-openLink}}contact DVA{{-closeLink}}",
+            "descriptionLine2Link": "https://www.nidirect.gov.uk/articles/driving-theory-test",
+            "inlineLabel": "Enter the booking reference number"
+        },
+        "licenceNumberField": {
+            "heading": "Driving licence number",
+            "label": "Enter your driving licence number",
+            "description": "It's important that the driving licence number is entered exactly as it looks on the driving licence of the person taking the test.",
+            "hint": "See section 5 of the driving licence",
+            "exampleLabel": "See example"
+        },
+        "errorMessages": {
+            "fieldsLeftBlank": "Enter both the booking reference and candidate's driving licence number to access this booking",
+            "incorrectDetails": "You must use the most recent driving licence number and the correct booking reference. Please check the details you have entered, then try again."
+        },
+        "retry": {
+            "description": "A technical problem interrupted this service. You can {{-openLink}}try again to manage your theory tests{{-closeLink}} or wait and try later. If this problem persists, contact DVA."
+        },
+        "loadingScreen": {
+            "loadingHeading": "Retrieving booking",
+            "loadingCaption": "Please wait a few moments while the booking is retrieved."
+        }
+    },
+    "manageBookingHome": {
+        "heading": "Your theory test bookings",
+        "noBookings": "You have no theory tests booked.",
+        "tableHeaderC2": "Date of test",
+        "tableHeaderC2Nsa": "Test slot",
+        "tableHeaderC3": "Booking reference",
+        "tableHeaderC4": "Status",
+        "tableHeaderC5": "Actions",
+        "or": "or",
+        "buttonViewBooking": "View booking",
+        "buttonBookReplacementTest": "Book replacement test",
+        "buttonRequestRefund": "request refund",
+        "bookingIsCancelled": "CANCELLED",
+        "bookingIsBooked": "BOOKED",
+        "bookingsWithErrors": {
+            "header": "A technical problem means these test bookings cannot be found:",
+            "contentLine1": "Please contact DVA to recover or reschedule this test.",
+            "contact": {
+                "email": "DVA.TheoryCustomerServiceNI@dvsa.gov.uk",
+                "telephone": "Telephone: {{-openBold}}0345 6006700{{-closeBold}}",
+                "openingHours": "{{-openBold}}Monday{{-closeBold}} to {{-openBold}}Friday{{-closeBold}}, {{-openBold}}8am{{-closeBold}} to {{-openBold}}4pm{{-closeBold}}"
+            }
+        },
+        "bookingCompensationAlert": "One or more of your booked theory tests have been cancelled. You can {{-openLink}}book a replacement test{{-closeLink}} using the fee already paid or request a fee refund.",
+        "bookingReplacementTest": "{{-openLink}}Book a replacement test{{-closeLink}}",
+        "bookingReferenceLabel": "for booking reference ",
+        "nsa": {
+            "AwaitingCandidateSlotConfirmation": "Test Slots Offered",
+            "selectTimeOption": "Book slot"
+        }
+    },
+    "manageBookingChange": {
+        "heading": "Change, reschedule or cancel this theory test",
+        "sameDayRefundWarning": "Booking cannot be cancelled or refunded on the day they are booked.",
+        "refundWarningText": "You cannot get a refund or reschedule this test after {{date}}.",
+        "rescheduleWarningText": "You cannot reschedule this test after {{date}}.",
+        "cannotMakeChange": "You cannot make changes to this theory test. Please contact DVA.",
+        "testTodayWarningText": "This test is today. Changes are no longer possible.",
+        "changeIneligibleWarningText": "You cannot make changes to this theory test. Please contact DVA.",
+        "technicalProblemWarningText": "A technical problem means this booking cannot currently be cancelled or changed. Please try again later.",
+        "testTypes": "Test type",
+        "testTimeDate": "Test time and date",
+        "testLocation": "Test location",
+        "testLanguage": "On-screen language",
+        "bsl": "On-screen British Sign Language",
+        "voiceover": "Voiceover language",
+        "cancelTest": "Cancel this test",
+        "buttonCancel": "Cancel test",
+        "buttonChange": "Change",
+        "visuallyHidden": {
+            "testTimeDateLocation": "test time, date, location",
+            "onScreenLanguage": "on-screen language",
+            "signLanguage": "sign language",
+            "voiceoverLanguage": "voiceover language"
+        },
+        "testSupportNeeded": {
+            "heading": "Additional support during the test",
+            "bslInterpreter": "Sign language (Interpreter)",
+            "extraTime":"Extra time",
+            "extraTimeWithBreak": "Extra time – pause HPT and /or breaks",
+            "foreignLanguageInterpreter": "Foreign language interpreter: ",
+            "homeTest": "Home test",
+            "lipSpeaker": "Lip speaker",
+            "nonStandardAccommodationRequest": "Non-standard accommodation request",
+            "oralLanguageModifier": "Oral language modifier",
+            "otherSigner": "Other signer / interpreter",
+            "reader": "Reader",
+            "familiarReaderToCandidate": "Reader familiar to candidate",
+            "readerRecorder": "Reader / recorder",
+            "seperateRoom": " Separate room",
+            "testInIsolation": "Test in isolation",
+            "specialTestingEquipment": "Medication/ drink/ special testing equipment"
+        }
+    },
+    "manageBookingCancel": {
+        "heading": "Cancel this theory test",
+        "description": "Select one option. When you select",
+        "description-2": "your existing booking will be permanently removed.",
+        "buttonCancel": "Confirm theory test cancellation",
+        "buttonKeep": "Keep existing booking",
+        "help": "Help with your booking",
+        "contact": "Contact the Driver and Vehicle Agency (DVA) to get help cancelling your theory test appointment.",
+        "support": "DVA theory test booking support",
+        "telephone": "Telephone 0345 6006700",
+        "differentServicePrompt": "There is a different service to {{-openLink}}cancel your theory test in England, Scotland and Wales{{-closeLink}}.",
+        "differentServiceLink": "https://www.gov.uk/cancel-theory-test",
+        "loadingScreen": {
+            "loadingHeading": "Cancelling booking",
+            "loadingCaption": "Please wait a few moments while the booking is cancelled."
+        }
+    },
+    "manageBookingCancelConfirmation": {
+        "heading": "Theory test cancelled",
+        "bannerSubtitle": "Your reference number",
+        "cancelDescription": "This driving theory test has been cancelled.",
+        "summaryListRows": {
+            "testType": "Test type",
+            "testTimeDate": "Test time and date",
+            "testLocation": "Test location",
+            "testLanguage": "Test language",
+            "bsl": "On-screen British Sign Language",
+            "voiceover": "Voiceover language"
+        },
+        "buttonChange": "Change another booking",
+        "error": {
+            "heading": "Booking not cancelled",
+            "contentLine1": "A technical problem prevented this booking from being cancelled.",
+            "contentLine2": "You can {{-openLink}}try again to cancel this booking{{-closeLink}}. If this problem persists, contact DVA."
+        }
+    },
+    "manageBookingCheckChange": {
+        "heading": "Confirm change to theory test",
+        "buttonConfirm": "Confirm change",
+        "buttonCancel": "Cancel and keep previous details",
+        "error": {
+            "heading": "Booking change not successful",
+            "general": {
+                "contentLine1": "A technical problem prevented this test from being changed.",
+                "contentLine2": "You can {{-openLink}}try again to change this booking{{-closeLink}}. If this problem persists, contact DVA."
+            },
+            "slotUnavailable": {
+                "contentLine1": "The new test slot you attempted to book is no longer available. {{-openLink}}Select another slot and try again{{-closeLink}}.",
+                "contentLine2": "Contact DVA if you have any questions. The existing booking remains unchanged."
+            },
+            "noRetry": {
+                "contentLine1": "A technical problem means your booking cannot be found.",
+                "contentLine2": "Please contact DVA to recover or reschedule this test."
+            }
+        },
+        "loadingScreen": {
+            "loadingHeading": "Updating booking",
+            "loadingCaption": "Please wait a few moments while the booking is updated."
+        },
+        "loadingScreenRescheduling": {
+            "loadingHeading": "Rescheduling booking",
+            "loadingCaption": "Please wait a few moments while the booking is rescheduled."
+        }
+    },
+    "manageBookingChangeConfirmation": {
+        "heading": "Theory test updated",
+        "buttonViewAllBookings": "View all bookings",
+        "buttonMakeAnotherChange": "Make another change"
+    },
+    "manageBookingRequestRefund": {
+        "heading": "Request refund for a cancelled test",
+        "body-1": "Select one option. Select '{{-openBold}}Confirm refund request{{-closeBold}}' to send your request. Or you can use the fee from your cancelled test to pay for a replacement test.",
+        "body-2": "Refunds are sent to the account used for the original payment",
+        "confirmRefundButton": "Confirm refund request",
+        "payReplacementTestButton": "Use my fee to pay for a replacement test"
+    },
+    "manageBookingRefundConfirmation": {
+        "heading": "Refund request sent",
+        "bannerSubtitle": "Your reference number",
+        "whatHappensNext": "What happens next",
+        "body-1": "Refunds are sent to the account used for the original payment.",
+        "body-2": "We have sent you an email confirming details of this refund request.",
+        "bookNewTest": "Book a new theory test",
+        "manageExistingBookings": "Manage existing test bookings",
+        "support": "DVA theory test booking support"
+    },
+    "voiceover": {
+        "heading": "Which voiceover language do you want?",
+        "validationError": "You must select one option.",
+        "editMode": {
+            "heading": "Do you want a voiceover used during the test?",
+            "validationError": "You must select a voiceover language. Alternatively, select 'I do not want a voiceover'.",
+            "contentLine1": "Instructions and the test questions will be read aloud through headphones provided in the test room.",
+            "changeAlert": "You can change your mind here about hearing a voiceover used during the test, or ",
+            "changeAlertLink": "go back and keep your previous choice",
+            "yesOptionPrefix": "Yes, I want a voiceover in ",
+            "noOption": "No, I do not want a voiceover",
+            "confirmChangeButton": "Confirm change and continue",
+            "cancelChangeButton": "Cancel and keep your existing choice"
+        },
+        "supportMode": {
+            "paragraph1": "You can select from these available voiceover languages.",
+            "paragraph2": "If the language you want is not available, you can {{-openLink}}return to the previous screen{{-closeLink}} and request a translator."
+        }
+    },
+    "manageBookingChangeBSL": {
+        "heading": "Do you want On-screen British Sign Language used during the test?",
+        "formHint": "Instructions and the test questions will be signed on screen",
+        "errorBannerNotification": "You need to select an option.",
+        "bslFormOption": "Yes, I want On-screen British Sign Language",
+        "noneFormOption": "No, I do not want On-screen British Sign Language",
+        "editMode": {
+            "heading": "Do you want On-screen British Sign Language?",
+            "changeAlert": "You can change your mind about including On-screen British Sign Language in this theory test or {{-openLink}}go back and keep your previous choice{{-closeLink}}.",
+            "cancelChangeButton": "Cancel and keep your existing choice"
+        }
+    },
+    "leavingNsa": {
+        "heading": "You do not need to provide evidence for the support type you selected",
+        "paragraph1": "You can select 'Continue' to book your theory test online now.",
+        "paragraph2": "Or, if you prefer, select 'Ask us to contact you about support' and we'll contact you to:",
+        "bullet1": "match your needs to the right support",
+        "bullet2": "help you book your test",
+        "supportButton": "Ask us to contact you about support"
+    },
+    "returningCandidate": {
+        "heading": "We'll contact you to arrange your test with support",
+        "paragraph1": "We'll contact you as soon as possible to:",
+        "paragraph1-bullet1": "discuss your needs",
+        "paragraph1-bullet2": "arrange your test with the right kind of support",
+        "evidenceHeading": "Evidence",
+        "evidenceParagraph": "Some kinds of support require evidence. This is usually a letter, email, diagnostic assessment or report from an educational or medical professional, an occupational therapist or an official organisation.",
+        "providedEvidenceBeforeHeading": "If you've provided evidence before",
+        "providedEvidenceBeforeParagraph": "If you previously provided evidence to DVA and it was accepted, we don't need to see it again unless the support you need has changed.",
+        "continue": "Continue"
+    },
+    "customSupport": {
+        "heading": "Tell us what support you need",
+        "paragraph1": "You can provide more information about what you need here.",
+        "paragraph2": "Some types of support need time to arrange. This means you may not be able to book online now.",
+        "inputHint": "Tell us what you need (optional)",
+        "errorMessage": "The text you enter here must be 4000 characters or fewer",
+        "editMode": {
+            "changeAlert": "You can tell us more about the support you need here. Or you {{-openLink}}can use the information you have already provided{{-closeLink}}.",
+            "cancelChangeButton": "Cancel and use information already provided"
+        },
+        "skipLink": "Skip this step"
+    },
+    "selectSupportType": {
+        "heading": "What test support do you need?",
+        "para1": "Select all the support types you need. If the support type you need is not in this list, select 'I need something else'.",
+        "onScreenBsl": "On-screen British Sign Language (BSL)",
+        "bslInterpreter": "An interpreter next to me using a sign language",
+        "voiceover": "Headphones and voiceover",
+        "translator": "A translator",
+        "extraTime": "Extra time",
+        "readingSupport": "Help with reading the test questions or entering your answers",
+        "other": "I need something else",
+        "errors": {
+            "noneSelected": "You must select at least one option. If the support you want is not listed, select 'I need something else'.",
+            "badCombination": "You have selected sign language and voiceover. Please select only one of these options. If the support you want is not listed, select 'I need something else'.",
+            "invalidOptionSelected": "The support type selected is not available for this theory test. You can try again and select other types of support."
+        },
+        "editMode": {
+            "changeAlert": "You can tell us more about the support you need here. Or you can {{-openLink}}use the information you have already provided{{-closeLink}}.",
+            "importantWarning": "If you change your choices here, all details previously entered will be replaced.",
+            "cancelChangeButton": "Cancel and use information already provided"
+        }
+    },
+    "voicemail": {
+        "heading": "Can we leave telephone messages if we can't reach you?",
+        "errorBannerNotification": "You must select an option"
+    },
+    "selectStandardSupportType": {
+        "heading": "Which support would you like?",
+        "para1": "Select the type of support you would like in your theory test. If neither option would be useful, select 'I do not want support'.",
+        "onScreenBsl": "On-screen using British Sign Language",
+        "voiceover": "Voiceover",
+        "noSupportWanted": "I do not want support",
+        "errors": {
+            "noneSelected": "You must select at least one option. If the support you want is not listed, select 'The support type I want is not here'."
+        },
+        "editMode": {
+            "changeAlert": "You can tell us more about the support you need here. Or you can {{-openLink}}use the information you have already provided{{-closeLink}}.",
+            "importantWarning": "If you change your choices here, all details previously entered will be replaced.",
+            "cancelChangeButton": "Cancel and use information already provided"
+        }
+    },
+    "preferredDay": {
+        "heading": "Is there a day and time that's best for you?",
+        "paragraph1": "Tell us if there's a particular time of day, or day of the week that's better for you. We will try to arrange your test around these choices.",
+        "paragraph2": "If you are flexible about when you take your test, select 'I will decide this later'.",
+        "radioHint": "Select one option.",
+        "option1": "I want a particular time or day",
+        "option1Hint": "Enter more details (optional)",
+        "option2": "I will decide this later",
+        "validationError": "You must select an option.",
+        "errorMessage": "The text you enter here must be 4000 characters or fewer"
+    },
+    "preferredLocation": {
+        "heading": "Which test locations are most convenient?",
+        "paragraph1": "Our test centre network gives you the flexibility to take your theory test near where you live, work or study.",
+        "paragraph2": "If you're not sure of the best place yet, select 'I will decide this later'.",
+        "radioHint": "Select one option.",
+        "option1": "I know which locations I want",
+        "option1Content": {
+            "paragraph1": "Tell us if there are particular locations that would be better for taking your test. For example, 'Leeds and Bradford' or 'south London'."
+        },
+        "option1Hint": "Enter the test locations you want",
+        "option2": "I will decide this later",
+        "validationError": "You must select an option.",
+        "errorMessage": "The text you enter here must be 4000 characters or fewer"
+    },
+    "telephoneContact": {
+        "heading": "Would you prefer to be contacted by telephone?",
+        "hintText": "Select one option.",
+        "telephoneLabel": "Enter your telephone number",
+        "noSelectionError": "You must select an option",
+        "noTelephoneError": "Enter a telephone number",
+        "telephoneTooLongError": "The telephone number must be 50 characters or fewer",
+        "editMode": {
+            "changeAlert": "You can change your mind about this or {{-openLink}}keep your existing choice{{-closeLink}}."
+        }
+    },
+    "alreadyReceivedSupportRequest": {
+        "heading": "We have already received a Support Request",
+        "paragraph1": "There is already a theory test support request with these details in our response queue.",
+        "paragraph2": "We are currently responding to a high number of enquiries but we will contact you as soon as possible.",
+        "paragraph3": "You can make changes to your support request when a member of our team contacts you."
+    },
+    "errors": {
+        "500": {
+            "heading": "Service temporarily unavailable",
+            "description": "A technical problem with our system means this service isn't available right now.",
+            "apology": "We're very sorry. Please try again later."
+        },
+        "404": {
+            "heading": "This page cannot be found",
+            "paragraph1": "Sorry, the page you're looking for cannot be found.",
+            "paragraph2": "Check the web address is correct and try again.",
+            "gbServiceLinkText": "You can {{-openLink}}book your theory test in England, Scotland or Wales{{-closeLink}}.",
+            "gbServiceLinkUrl": "https://www.gov.uk/book-theory-test",
+            "niServiceLinkText": "There's a different service to {{-openLink}}book your theory test in Northern Ireland{{-closeLink}}.",
+            "niServiceLinkUrl": "https://www.nidirect.gov.uk/services/book-change-or-cancel-your-theory-test-online"
+        },
+        "slotUnavailable": {
+            "title": "Error: Booking not successful",
+            "heading": "Booking not successful",
+            "description": "Unfortunately the test slot you have attempted to book is no longer available.",
+            "button": "Select another slot and try again"
+        },
+        "timeout": {
+            "title": "Error: Booking timed out",
+            "heading": "Booking timed out",
+            "description": "Sorry your booking has timed out due to inactivity.",
+            "action": "You will need to {{-openLink}}start again{{-closeLink}}"
+        },
+        "technical": {
+            "title": "Error: booking failure",
+            "heading": "There is a problem",
+            "description": "A technical problem interrupted this service.",
+            "startAgain": "Please {{-openLink}}start your booking again{{-closeLink}}, or try again later.",
+            "contact": "If this problem persists, ",
+            "contactLinkCaption": "{{-openLink}}contact DVA{{-closeLink}}.",
+            "contactLink": "https://www.nidirect.gov.uk/contacts/driver-vehicle-agency-driving-theory-test-booking"
+        }
+    },
+    "timeout": {
+        "line1": "Your booking will time out soon.",
+        "line2": "We will reset your booking if you do not respond in 5 minutes. We do this to keep your information secure.",
+        "button": "Continue booking",
+        "nonjs": {
+            "line1": "Your booking will time out after 30 minutes of inactivity.",
+            "line2": "We will reset your booking if you do not continue from this screen within 30 minutes. We do this to keep your information secure."
+        }
+    },
+    "privacyPolicy": {
+        "heading": "Book and manage your theory test: privacy notice",
+        "guidance": "Guidance",
+        "updated": "Updated 23 April 2021",
+        "contents": "Contents",
+        "aboutThisService": {
+            "heading": "About This Service",
+            "paragraph1": "This privacy notice applies to theory tests booked to take place after 3 September 2021.",
+            "paragraph2": "The Driver and Vehicle Standards Agency (DVSA) provides the service to book and manage your driving test. DVSA is an executive agency of the Department for Transport (DfT).",
+            "paragraph3": "We carry out theory tests in Great Britain. This service lets you choose the date, time and theory test centre you want to take your theory test at. It also lets you change your appointment or cancel it.",
+            "paragraph4": "The data controller for DVSA is DfT - a data controller determines the reasons and how personal data is processed. For more information see the Information Commissioner’s Office (ICO) {{-openLink}}Data Protection Public Register{{-closeLink}}. DfT’s registration number is Z7122992.",
+            "paragraph5": "We may use GOV.UK Notify to send you emails or text messages about your theory test. This is a service provided by the Government Digital Service, which is part of the Cabinet Office. We are the data controller for your data within that service. The Cabinet Office is the data processor.",
+            "dataProtectionRegisterLink": "https://ico.org.uk/ESDWebPages/Entry/Z7122992"
+        },
+        "dataWeNeed": {
+            "heading": "What data we need",
+            "paragraph1": "The personal data we collect from you will include:",
+            "list1-1": "full name and title",
+            "list1-2": "address, telephone number and email address",
+            "list1-3": "date of birth",
+            "list1-4": "gender",
+            "list1-5": "disability, health conditions and learning difficulties, if you say you have any and need reasonable adjustments for your theory test",
+            "list1-6": "driving licence number and entitlement details (provided by DVLA), disqualification dates (if you’ve been disqualified) and previous driving licence numbers (if you have any)",
+            "list1-7": "type of test you’re taking - if you’re taking an instructor theory test, we will also collect your personal reference number",
+            "list1-8": "the language you’ve asked to use when you take your test (English and Welsh)",
+            "list1-9": "your Safe Road User Award (if you have one) unique learner reference number, pass date and date your record was last updated",
+            "list1-10": "information about past health and safety incidents that stop you from booking online",
+            "list1-11": "payment details - including card holder’s name, card holder’s billing address, card number (numbers are encrypted and access is restricted), dates the card is valid from and to, issue number and card type (for example, MasterCard)",
+            "paragraph2": "The legal basis for processing this data is:",
+            "list2-1": "Road Traffic Act 1988 (as amended) specifically Part III and V (vocational licences), sections 125, 132, 159a and 162A",
+            "list2-2": "The Motor Vehicles (Driving Licences) Regulations 1999 (SI 1999/2864) (as amended), specifically Part III",
+            "list2-3": "The Motor Cars (Driving Instruction) Regulations 2005 (SI 2005/1902) (as amended), specifically part II and V",
+            "list2-4": "The Vehicle Drivers (Certificates of Professional Competence) Regulations 2007 (as amended) (SI 2007/605) (made under powers in European Communities Act 1972, Part III of the Road Traffic Act 1988; and Finance Act 1973) specifically regulations 5 and 8."
+        },
+        "whyWeNeed": {
+            "heading": "Why we need it",
+            "paragraph1": "We need the personal data we collect from you to:",
+            "list1-1": "check you’re entitled to take a theory test",
+            "list1-2": "book your theory test appointment",
+            "list1-3": "take the payment for your theory test and give you a refund if you cancel your test giving 3 clear working days’ notice (Sundays and public holidays do not count as working days)",
+            "list1-4": "send you a confirmation of your appointment",
+            "list1-5": "contact you if we need to change your test appointment or let you know about disruption to our services",
+            "list1-6": "contact you if the way the theory test works is changing, and you need the information to properly prepare for your test",
+            "list1-7": "carry out your theory test - including making any reasonable adjustments for any disability, health condition or learning difficulty",
+            "list1-8": "give you your test result",
+            "list1-9": "record your test result so we know if you’re eligible to take your driving test",
+            "list1-10": "produce anonymised statistics and",
+            "list1-11": "ask you to take part in research projects to help us understand how easy our services are to use and how we improve road safety"
+        },
+        "whatWeDo": {
+            "heading": "What we do with it",
+            "paragraph1": "We collect, use and store the data you give us for the reasons set out in this policy.",
+            "paragraph2": "Pearson VUE and Reed In Partnership act as our data processor to administer and carry out theory tests. They are allowed to collect and process personal data on our behalf.",
+            "paragraph3": "Our contracts with Pearson VUE and Reed In Partnership say that they must make sure any of their subcontractors meet the same data protection requirements and standards",
+            "paragraph4": "We will not:",
+            "list1-1": "sell or rent your data to third parties",
+            "list1-2": "share your data with third parties for marketing purposes",
+            "paragraph5": "We will share your data if we are required to do so by law - for example, by court order, or to prevent fraud or other crime."
+        },
+        "howLongWeKeep": {
+            "heading": "How long we keep your data",
+            "paragraph1": "We will only keep your personal data for as long as it is needed for the reasons set out in this policy or for as long as is required by law.",
+            "paragraph2": "We will hold your personal data for:",
+            "list1-1": "30 months to administer your theory test booking, including checking you’re eligible to take the test",
+            "list1-2": "7 years for your payment details",
+            "list1-3": "42 months for data about your Safe Road User Award, if you have one",
+            "paragraph3": "We will hold personal data about you and your behaviour that’s a threat to our staff or other candidates for whichever of these is the shortest:",
+            "list2-1": "until you’ve passed your theory test",
+            "list2-2": "until you’ve failed your theory test, but didn’t display any further abusive behaviour",
+            "list2-3": "2 years since your last test, unless you’ve been charged with a criminal offence - in this case, your data is kept until you pass your theory test",
+            "list2-4": "where a quarterly review shows the threat you pose has reduced"
+        },
+        "whereItMightGo": {
+            "heading": "Where it might go",
+            "paragraph1": "Our IT infrastructure and technology has been checked to make sure it is safe and secure.",
+            "paragraph2": "Pearson VUE and Reed In Partnership are allowed to collect and process personal information within the UK."
+        },
+        "protectingYourData": {
+            "paragraph1": "The {{-openLink}}DVSA personal information charter{{-closeLink}} sets out what steps are taken to protect your data, and the rights you have over your data.",
+            "heading": "Protecting your data and your rights",
+            "informationCharterLink": "https://www.gov.uk/government/organisations/driver-and-vehicle-standards-agency/about/personal-information-charter"
+        },
+        "changesToNotice": {
+            "heading": "Changes to this notice",
+            "paragraph1": "We may change this privacy notice at our discretion at any time.",
+            "paragraph2": "When we change this notice, the date on the page will be updated. Any changes to this privacy notice will be applied to you and your data as of that revision date.",
+            "paragraph3": "We encourage you to periodically review this privacy notice to be informed about your data is protected."
+        },
+        "contactUs": {
+            "heading": "How to contact us",
+            "paragraph1": "If you have any questions about anything in this document or if you consider that your personal data has been misused or mishandled you can contact the DVSA data protection manager.",
+            "paragraph2": "DVSA data protection manager",
+            "addressLine1": "Data Protection Manager",
+            "addressLine2": "Driver and Vehicle Standards Agency ",
+            "addressLine3": "The Axis Building",
+            "addressLine4": "112 Upper Parliament Street",
+            "addressLine5": "Nottingham",
+            "addressLine6": "NG1 6LP",
+            "infoHandlingEmailLink": "information.handling@dvsa.gov.uk",
+            "paragraph3": "You may also make a complaint to the Information Commissioner, who is an independent regulator.",
+            "contactDvsaLink": "https://www.gov.uk/contact-dvsa/y",
+            "icoHeading": "Information Commissioner's Office",
+            "commissionerEmail": "Email {{-openLink}}icocasework@ico.org.uk{{-closeLink}}",
+            "commissionerEmailLink": "icocasework@ico.org.uk",
+            "telephone": "Telephone 0303 123 1113",
+            "textphone": "Textphone 01625 545 860",
+            "paragraphEmail": "Email {{-openLink}}information.handling@dvsa.gov.uk{{-closeLink}}",
+            "contactDvsa": "{{-openLink}}Contact DVSA customer services{{-closeLink}} if you have a query that is not about how your personal data is used.",
+            "contactFormLink": "https://ico.org.uk/global/contact-us/",
+            "contactForm": "Contact form {{-openLink}}https://ico.org.uk/global/contact-us/{{-closeLink}}"
+        }
+    },
+    "evidence": {
+        "notRequired": {
+            "heading": "We'll contact you to arrange your test with support",
+            "description": "We'll contact you as soon as possible to:",
+            "line1": "discuss your needs",
+            "line2": "arrange your test with the right kind of support"
+        },
+        "required": {
+            "heading": "Send us evidence and we'll contact you to arrange your test with support",
+            "description": "You must send us evidence before your test can be booked. We’ll show you how to do it shortly.",
+            "subheader": "Avoid delaying your test by sending your evidence now",
+            "subdescription": "Send your evidence as soon as possible to avoid delay in booking your test.",
+            "listCaption": "Make sure your evidence:",
+            "line1": "states your condition",
+            "line2": "contains your first and last name",
+            "line3": "is a letter, email, diagnostic assessment or report",
+            "line4": "is from an educational or medical professional, an occupational therapist or an official organisation",
+            "line5": "signed and on headed paper, if it’s a letter or report"
+        },
+        "mayBeRequired": {
+            "heading": "We'll contact you to arrange your test with support",
+            "description": "We'll contact you as soon as possible to:",
+            "line1": "discuss your needs",
+            "line2": "arrange your test with the right kind of support",
+            "subsection": {
+                "header": "You may need to provide evidence",
+                "listDescription": "To get some kinds of support you may have to provide evidence. When we know more about what support you need:",
+                "line1": "we will tell you if you must provide evidence",
+                "line2": "what kinds of evidence can be used",
+                "footer": "Evidence is usually a letter, email, diagnostic assessment or report from an educational or medical professional, an occupational therapist or an official organisation."
+            }
+
+        },
+        "deafCandidate": {
+            "header": "When you don't need to provide evidence",
+            "description": "You don't need to provide evidence if you are deaf or have a hearing impairment and asked for support related to deafness, as well as extra time. If you asked for any other type of support you will need to provide evidence."
+        }
+    },
+    "paymentConfirmationLoading": {
+        "heading": "Booking In Progress",
+        "content": {
+            "paragraph1": "Please wait while your payment and booking are confirmed.",
+            "paragraph2": "This can take up to one minute.",
+            "paragraph3": "Do not refresh this page or use the browser back button.",
+            "paragraph4": "It could affect your payment or booking."
+        } 
+    }
+}

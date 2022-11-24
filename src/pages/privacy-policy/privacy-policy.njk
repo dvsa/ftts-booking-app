@@ -1,0 +1,212 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/panel/macro.njk" import govukPanel %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% block page_title %}
+  {{ t('privacyPolicy.heading') }}
+  {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  <div role="navigation" aria-label="back">
+    {{ govukBackLink({
+      text: t('generalContent.back'),
+      href: backLink,
+      attributes: {
+        'data-automation-id': 'back-link'
+      }
+    }) }}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <p class="govuk-body">{{ t('privacyPolicy.guidance') }}</p>
+      <h1 class="govuk-panel__title" data-automation-id="privacy-policy-heading">
+        {{ t('privacyPolicy.heading') }}
+      </h1>
+      <div class="govuk-panel__body">
+        <p>{{ t('privacyPolicy.updated') }}</p>
+      </div>
+    </div>
+  </div>
+
+  <main class="govuk-main-wrapper">
+
+    <div class="govuk-grid-row">
+
+      <div class="govuk-grid-column-one-third">
+        <h2 class="govuk-heading-s">{{ t('privacyPolicy.contents') }}</h2>
+        <ol class="govuk-list govuk-list--number">
+          <li>
+            <a class="govuk-link" href="#about-this-service">{{ t('privacyPolicy.aboutThisService.heading') }}</a>
+          </li>
+          <li>
+            <a class="govuk-link" href="#data-we-need">{{ t('privacyPolicy.dataWeNeed.heading') }}</a>
+          </li>
+          <li>
+            <a class="govuk-link" href="#why-we-need">{{ t('privacyPolicy.whyWeNeed.heading') }}</a>
+          </li>
+          <li>
+            <a class="govuk-link" href="#what-we-do">{{ t('privacyPolicy.whatWeDo.heading') }}</a>
+          </li>
+          <li>
+            <a class="govuk-link" href="#how-long-we-keep">{{ t('privacyPolicy.howLongWeKeep.heading') }}</a>
+          </li>
+          <li>
+            <a class="govuk-link" href="#where-it-might-go">{{ t('privacyPolicy.whereItMightGo.heading') }}</a>
+          </li>
+          <li>
+            <a class="govuk-link" href="#protecting-your-data">{{ t('privacyPolicy.protectingYourData.heading') }}</a>
+          </li>
+          <li>
+            <a class="govuk-link" href="#changes-to-notice">{{ t('privacyPolicy.changesToNotice.heading') }}</a>
+          </li>
+          <li>
+            <a class="govuk-link" href="#contact-us">{{ t('privacyPolicy.contactUs.heading') }}</a>
+          </li>
+        </ol>
+      </div>
+
+      <div class="govuk-grid-column-two-thirds">
+        <p class="govuk-body">{{ t('privacyPolicy.aboutThisService.paragraph1') }}</p>
+        <h2 class="govuk-heading-m" id="about-this-service">1. {{ t('privacyPolicy.aboutThisService.heading') }}</h2>
+        <p class="govuk-body">{{ t('privacyPolicy.aboutThisService.paragraph2') }}</p>
+        <p class="govuk-body">{{ t('privacyPolicy.aboutThisService.paragraph3') }}</p>
+        <p class="govuk-body">
+          {{ t('privacyPolicy.aboutThisService.paragraph4', {
+            openLink: '<a class="govuk-link" href="' + t('privacyPolicy.aboutThisService.dataProtectionRegisterLink') + '">',
+            closeLink: '</a>'
+          }) | safe }}
+        </p>
+        <p class="govuk-body">{{ t('privacyPolicy.aboutThisService.paragraph5') }}</p>
+        <h2 class="govuk-heading-m" id="data-we-need">2. {{ t('privacyPolicy.dataWeNeed.heading') }}</h2>
+        <p class="govuk-body">{{ t('privacyPolicy.dataWeNeed.paragraph1') }}</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li> {{ t('privacyPolicy.dataWeNeed.list1-1') }} </li>
+          <li> {{ t('privacyPolicy.dataWeNeed.list1-2') }} </li>
+          <li> {{ t('privacyPolicy.dataWeNeed.list1-3') }} </li>
+          <li> {{ t('privacyPolicy.dataWeNeed.list1-4') }} </li>
+          <li> {{ t('privacyPolicy.dataWeNeed.list1-5') }} </li>
+          <li> {{ t('privacyPolicy.dataWeNeed.list1-6') }} </li>
+          <li> {{ t('privacyPolicy.dataWeNeed.list1-7') }} </li>
+          <li> {{ t('privacyPolicy.dataWeNeed.list1-8') }} </li>
+          <li> {{ t('privacyPolicy.dataWeNeed.list1-9') }} </li>
+          <li> {{ t('privacyPolicy.dataWeNeed.list1-10') }} </li>
+          <li> {{ t('privacyPolicy.dataWeNeed.list1-11') }} </li>
+        </ul>
+        <p class="govuk-body">{{ t('privacyPolicy.dataWeNeed.paragraph2') }}</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li> {{ t('privacyPolicy.dataWeNeed.list2-1') }} </li>
+          <li> {{ t('privacyPolicy.dataWeNeed.list2-2') }} </li>
+          <li> {{ t('privacyPolicy.dataWeNeed.list2-3') }} </li>
+          <li> {{ t('privacyPolicy.dataWeNeed.list2-4') }} </li>
+        </ul>
+        <h2 class="govuk-heading-m" id="why-we-need">3. {{ t('privacyPolicy.whyWeNeed.heading') }}</h2>
+        <p class="govuk-body">{{ t('privacyPolicy.whyWeNeed.paragraph1') }}</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li> {{ t('privacyPolicy.whyWeNeed.list1-1') }} </li>
+          <li> {{ t('privacyPolicy.whyWeNeed.list1-2') }} </li>
+          <li> {{ t('privacyPolicy.whyWeNeed.list1-3') }} </li>
+          <li> {{ t('privacyPolicy.whyWeNeed.list1-4') }} </li>
+          <li> {{ t('privacyPolicy.whyWeNeed.list1-5') }} </li>
+          <li> {{ t('privacyPolicy.whyWeNeed.list1-6') }} </li>
+          <li> {{ t('privacyPolicy.whyWeNeed.list1-7') }} </li>
+          <li> {{ t('privacyPolicy.whyWeNeed.list1-8') }} </li>
+          <li> {{ t('privacyPolicy.whyWeNeed.list1-9') }} </li>
+          <li> {{ t('privacyPolicy.whyWeNeed.list1-10') }} </li>
+          <li> {{ t('privacyPolicy.whyWeNeed.list1-11') }} </li>
+        </ul>
+        <h2 class="govuk-heading-m" id="what-we-do">4. {{ t('privacyPolicy.whatWeDo.heading') }}</h2>
+        <p class="govuk-body">{{ t('privacyPolicy.whatWeDo.paragraph1') }}</p>
+        <p class="govuk-body">{{ t('privacyPolicy.whatWeDo.paragraph2') }}</p>
+        <p class="govuk-body">{{ t('privacyPolicy.whatWeDo.paragraph3') }}</p>
+        <p class="govuk-body">{{ t('privacyPolicy.whatWeDo.paragraph4') }}</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li> {{ t('privacyPolicy.whatWeDo.list1-1') }} </li>
+          <li> {{ t('privacyPolicy.whatWeDo.list1-2') }} </li>
+        </ul>
+        <p class="govuk-body">{{ t('privacyPolicy.whatWeDo.paragraph5') }}</p>
+        <h2 class="govuk-heading-m" id="how-long-we-keep">5. {{ t('privacyPolicy.howLongWeKeep.heading') }}</h2>
+        <p class="govuk-body">{{ t('privacyPolicy.howLongWeKeep.paragraph1') }}</p>
+        <p class="govuk-body">{{ t('privacyPolicy.howLongWeKeep.paragraph2') }}</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li> {{ t('privacyPolicy.howLongWeKeep.list1-1') }} </li>
+          <li> {{ t('privacyPolicy.howLongWeKeep.list1-2') }} </li>
+          <li> {{ t('privacyPolicy.howLongWeKeep.list1-3') }} </li>
+        </ul>
+        <p class="govuk-body">{{ t('privacyPolicy.howLongWeKeep.paragraph3') }}</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li> {{ t('privacyPolicy.howLongWeKeep.list2-1') }} </li>
+          <li> {{ t('privacyPolicy.howLongWeKeep.list2-2') }} </li>
+          <li> {{ t('privacyPolicy.howLongWeKeep.list2-3') }} </li>
+          <li> {{ t('privacyPolicy.howLongWeKeep.list2-4') }} </li>
+        </ul>
+        <h2 class="govuk-heading-m" id="where-it-might-go">6. {{ t('privacyPolicy.whereItMightGo.heading') }}</h2>
+        <p class="govuk-body">{{ t('privacyPolicy.whereItMightGo.paragraph1') }}</p>
+        <p class="govuk-body">{{ t('privacyPolicy.whereItMightGo.paragraph2') }}</p>
+        <h2 class="govuk-heading-m" id="protecting-your-data">7. {{ t('privacyPolicy.protectingYourData.heading') }}</h2>
+        <p class="govuk-body">
+          {{ t('privacyPolicy.protectingYourData.paragraph1', {
+            openLink: '<a class="govuk-link" href="' + t('privacyPolicy.protectingYourData.informationCharterLink') + '">',
+            closeLink: '</a>'
+          }) | safe }}
+        </p>
+        <h2 class="govuk-heading-m" id="changes-to-notice">8. {{ t('privacyPolicy.changesToNotice.heading') }}</h2>
+        <p class="govuk-body">{{ t('privacyPolicy.changesToNotice.paragraph1') }}</p>
+        <p class="govuk-body">{{ t('privacyPolicy.changesToNotice.paragraph2') }}</p>
+        <p class="govuk-body">{{ t('privacyPolicy.changesToNotice.paragraph3') }}</p>
+        <h2 class="govuk-heading-m" id="contact-us">9. {{ t('privacyPolicy.contactUs.heading') }}</h2>
+        <p class="govuk-body">{{ t('privacyPolicy.contactUs.paragraph1') }}</p>
+        <p class="govuk-body">{{ t('privacyPolicy.contactUs.paragraph2') }}</p>
+        <p class="govuk-body">
+          {{ t('privacyPolicy.contactUs.addressLine1') }}<br>
+          {{ t('privacyPolicy.contactUs.addressLine2') }}<br>
+          {{ t('privacyPolicy.contactUs.addressLine3') }}<br>
+          {{ t('privacyPolicy.contactUs.addressLine4') }}<br>
+          {{ t('privacyPolicy.contactUs.addressLine5') }}<br>
+          {{ t('privacyPolicy.contactUs.addressLine6') }}<br>
+        </p>
+        <p class="govuk-body">
+          {{ t('privacyPolicy.contactUs.paragraphEmail', {
+            openLink: '<a class="govuk-link" href="mailto:' + t('privacyPolicy.contactUs.infoHandlingEmailLink') + '">',
+            closeLink: '</a>'
+          }) | safe }}
+        </p>
+        <p class="govuk-body">{{ t('privacyPolicy.contactUs.paragraph3') }}</p>
+        {% set contactForm %}
+          <p class="govuk-body">
+            {{ t('privacyPolicy.contactUs.contactDvsa', {
+            openLink: '<a class="govuk-link" href="' + t('privacyPolicy.contactUs.contactDvsaLink') + '">',
+            closeLink: '</a>'
+            }) | safe }}
+          </p>
+        {% endset %}
+        {{ govukInsetText({
+          html: contactForm
+        }) }}
+        <p class="govuk-body">{{ t('privacyPolicy.contactUs.icoHeading') }}</p>
+        <p class="govuk-body">
+          {{ t('privacyPolicy.contactUs.commissionerEmail', {
+            openLink: '<a class="govuk-link" href="mailto:' + t('privacyPolicy.contactUs.commissionerEmailLink') + '">',
+            closeLink: '</a>'
+          }) | safe }}
+        </p>
+        <p class="govuk-body">
+          {{ t('privacyPolicy.contactUs.contactForm', {
+            openLink: '<a class="govuk-link" href="' + t('privacyPolicy.contactUs.contactFormLink') + '">',
+            closeLink: '</a>'
+          }) | safe }}
+        </p>
+        <p class="govuk-body">{{ t('privacyPolicy.contactUs.telephone') }}</p>
+        <p class="govuk-body">{{ t('privacyPolicy.contactUs.textphone') }}</p>
+      </div>
+
+    </div>
+
+  </main>
+
+{% endblock %}

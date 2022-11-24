@@ -1,0 +1,50 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+{% block page_title %}
+  {{ t('receivedSupportRequest.heading') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  <div role="navigation" aria-label="back">
+    {{ govukBackLink({
+      text: t('generalContent.back'),
+      href: backLink,
+      attributes: { 'data-automation-id': 'back' }
+    }) }}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl" data-automation-id="main-heading">{{ t('receivedSupportRequest.heading') }}</h1>
+
+      <p>{{ t('receivedSupportRequest.paragraph1') }}</p>
+      <p>{{ t('receivedSupportRequest.paragraph2') }}</p>
+      <p>{{ t('receivedSupportRequest.paragraph3') }}</p>
+
+      <h2 class="govuk-heading-m" data-automation-id="warning-text">{{ t('receivedSupportRequest.warningText') }}</h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>{{ t('receivedSupportRequest.warningOption1') }}</li>
+        <li>{{ t('receivedSupportRequest.warningOption2', {
+            openBold: '<span class="govuk-!-font-weight-bold">',
+            closeBold: '</span>'
+          }) | safe }}</li>
+      </ul>
+
+      {{ govukButton({
+        href: continueLink,
+        text: t('receivedSupportRequest.continue'),
+        classes: 'govuk-!-margin-right-1'
+      }) }}
+
+    </div>
+  </div>
+
+{% endblock %}}

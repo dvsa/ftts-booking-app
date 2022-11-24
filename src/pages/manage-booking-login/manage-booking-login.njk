@@ -1,0 +1,108 @@
+{% extends "layout.njk" %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/details/macro.njk" import govukDetails %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "loading-component.njk" import loadingComponent %}
+
+{% block page_title %}
+  {{ t('manageBookingLogin.heading') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  <div role="navigation" aria-label="back">
+    {{ govukBackLink({
+      text: t('generalContent.back'),
+      href: backLink,
+      attributes: {
+        'data-automation-id': 'back',
+        id: 'backButton'
+      }
+    }) }}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+{% include "error-banner.njk" %}
+{{ loadingComponent(t('manageBookingLogin.loadingScreen.loadingHeading'), t('manageBookingLogin.loadingScreen.loadingCaption')) }}
+
+<div class="govuk-grid-row" id="pageContent">
+  <div class="govuk-grid-column-two-thirds">
+    {% call govukFieldset({
+      legend: {
+        text: t('manageBookingLogin.heading'),
+        classes: 'govuk-fieldset__legend--xl',
+        isPageHeading: true
+      }
+    }) %}
+    <form method="post" action="/manage-booking/login" id="form">
+      <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+      <h2 class="govuk-heading-m">{{ t('manageBookingLogin.bookingReferenceField.label') }}</h2>
+      <p class="govuk-body">{{ t('manageBookingLogin.bookingReferenceField.descriptionLine1') }}</p>
+      <p class="govuk-body">
+        {{ t('manageBookingLogin.bookingReferenceField.descriptionLine2', {
+          openLink: '<a class="govuk-link" data-automation-id="contact-page" href="' + t('manageBookingLogin.bookingReferenceField.descriptionLine2Link') + '">',
+          closeLink: '</a>'
+        }) | safe }}
+      </p>
+
+      {{ govukInput({
+        label: {
+          text: t('manageBookingLogin.bookingReferenceField.inlineLabel')
+        },
+        id: 'bookingReference',
+        name: 'bookingReference',
+        value: bookingReference
+      }) }}
+
+      <h2 class="govuk-heading-m">{{ t('manageBookingLogin.licenceNumberField.heading') }}</h2>
+      <p class="govuk-body">{{ t('manageBookingLogin.licenceNumberField.description') }}</p>
+      {{ govukInput({
+        label: {
+          text: t('manageBookingLogin.licenceNumberField.label')
+        },
+        hint: {
+          text: t('manageBookingLogin.licenceNumberField.hint')
+        },
+        id: 'licenceNumber',
+        name: 'licenceNumber',
+        value: licenceNumber
+      }) }}
+
+      {% set licenceNumberImgPath = (imgRoot + 'example-licence-number.png') | asset %}
+      {{ govukDetails({
+        summaryText: t('details.seeExampleLabel'),
+        html: '<img src="' + licenceNumberImgPath + '" alt="example" class="govuk-!-width-three-quarters">'
+      }) }}
+
+      {{ govukButton({
+        text: t('generalContent.continueButton'),
+        attributes: {
+          'data-automation-id': 'submit',
+          id: 'continueButton'
+        }
+      }) }}
+    </form>
+    {% endcall %}
+  </div>
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+  <script src="{{ 'javascripts/loading-spinner.min.js' | asset }}"></script>
+  <script nonce="{{scriptNonce}}">
+    new LoadingSpinner(
+      {
+        formId: "form",
+        elementsToHide: ["pageContent", "backButton", "error-banner"],
+        elementsToDisable: ["continueButton"],
+        triggerElements: ["form"],
+        triggerEvent: "submit",
+      }
+    )
+  </script>
+{% endblock %}

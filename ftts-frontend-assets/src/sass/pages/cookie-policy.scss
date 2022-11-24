@@ -1,0 +1,9 @@
+.cookie-policy {
+    display: none;
+}
+
+.js-enabled {
+    .cookie-policy {
+        display: block;
+    }
+}

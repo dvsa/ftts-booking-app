@@ -1,0 +1,45 @@
+<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+    <entity name="ftts_bookingproduct">
+        <attribute name="ftts_bookingproductid" alias="bookingProductId" />
+        <attribute name="ftts_reference" alias="bookingProductReference" />
+        <attribute name="ftts_bookingstatus" />
+        <attribute name="ftts_selected" />
+        <attribute name="ftts_productid" />
+        <attribute name="ftts_bookingid" alias="bookingId" />
+        <attribute name="ftts_bookingproductid" />
+        <attribute name="ftts_candidateid" />
+        <order attribute="ftts_productid" descending="false" />
+        <attribute name="ftts_price" alias="price" />
+        <filter type="and">
+            <condition attribute="ftts_selected" operator="eq" value="1" />
+        </filter>
+
+        <link-entity name="contact" from="contactid" to="ftts_candidateid" visible="false" link-type="inner" alias="candidate">
+            <attribute name="firstname" alias="candidateName" />
+            <attribute name="contactid" alias="candidateId" />
+            <filter type="and">
+                <condition attribute="contactid" operator="eq" value="${candidateId}" />
+            </filter>
+        </link-entity>
+
+        <link-entity name="ftts_booking" from="ftts_bookingid" to="ftts_bookingid" link-type="inner" alias="booking">
+            <attribute name="ftts_owedcompbookingassigned" alias="compensationAssigned" />
+            <attribute name="ftts_owedcompbookingrecognised" alias="compensationRecognised" />
+            <attribute name="ftts_bookingstatus" alias="bookingStatus"/>
+            <attribute name="ftts_reference" alias="bookingReference"/>
+            <attribute name="ftts_governmentagency" alias="governmentAgency"/>
+            <attribute name="ftts_pricepaid" alias="pricePaid" />
+            <attribute name="ftts_pricelist" alias="priceListId" />
+            <filter type="and">
+                <condition attribute="ftts_owedcompbookingassigned" operator="not-null" />
+                <condition attribute="ftts_owedcompbookingrecognised" operator="null" />
+                <condition attribute="ftts_bookingstatus" operator="eq" value="675030008" />
+                <condition attribute="ftts_governmentagency" operator="eq" value="${governmentAgency}" />
+            </filter>
+        </link-entity>
+
+        <link-entity name="product" from="productid" to="ftts_productid" link-type="inner" alias="product">
+            <attribute name="productnumber" alias="productNumber" />
+        </link-entity>
+    </entity>
+</fetch>

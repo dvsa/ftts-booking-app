@@ -1,0 +1,112 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% block page_title %}
+  {{ t('testLanguage.heading') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% if not inEditMode %}
+    <div role="navigation" aria-label="back">
+      {{ govukBackLink({
+        text: t('generalContent.back'),
+        href: backLink,
+        attributes: {
+          'data-automation-id': 'back-link'
+        }
+      }) }}
+    </div>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+  {% include "error-banner.njk" %}
+
+  {% if inEditMode and not errors %}
+    <div class="alert govuk-body govuk-!-margin-bottom-8">
+      {{ t('testLanguage.changeAlert', {
+      openLink: '<a href="' + backLink + '" data-automation-id="keep-choice" class="govuk-link">',
+      closeLink: '</a>'
+    }) | safe }}
+    </div>
+  {% endif %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-form-group">
+        <form method="post">
+          <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+          {% set header = t('testLanguage.heading')%}
+          {% set rows = [] %}
+          {% call govukFieldset({
+          legend: {
+            text: header,
+            classes: 'govuk-fieldset__legend--xl',
+            attributes: {
+              'data-automation-id': 'header'
+            },
+            isPageHeading: true
+          },
+          classes: 'govuk-!-margin-bottom-4'
+        }) %}
+          <p id="changed-name-hint" class="govuk-body">
+            {{ t('testLanguage.subheading') }}
+          </p>
+          {% set fieldName = 'testLanguage' %}
+          {% set hasError = fieldName | existsAsAnErrorIn(errors) %}
+          <div class="govuk-radios govuk-radios--inline {% if hasError %}govuk-form-group--error{% endif %}">
+            {% for languageKey, languageLabel in availableLanguages %}
+              {% set rows = (rows.push({
+                  value: languageKey,
+                  text: t('generalContent.language.' + languageKey),
+                  checked: languageKey == chosenTestLanguage,
+                  attributes: {
+                    'data-automation-id': languageKey
+                  }
+                }), rows) %}
+            {% endfor %}
+            {{ govukRadios({
+              classes: 'govuk-radios--inline',
+              idPrefix: 'testLanguage',
+              name: 'testLanguage',
+              items: rows,
+              errorMessage: 'testLanguage' | fieldErrorObject(errors)
+            }) }}
+          </div>
+          {% endcall %}
+          {% if inEditMode %}
+            {{ govukButton({
+            text: t('generalContent.confirmChangeButton'),
+            type: 'submit',
+            classes: 'govuk-!-margin-right-1',
+            attributes: {
+              'data-automation-id': 'submit'
+            }
+          }) }}
+            {{ govukButton({
+            text: t('testLanguage.cancelChangeButton'),
+            href: backLink,
+            classes: 'govuk-button--secondary',
+            attributes: {
+              'data-automation-id': 'cancel'
+            }
+          }) }}
+          {% else %}
+            {{ govukButton({
+            text: t('generalContent.continueButton'),
+            type: 'submit',
+            attributes: {
+              'data-automation-id': 'submit'
+            }
+          }) }}
+          {% endif %}
+        </form>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

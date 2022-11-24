@@ -1,0 +1,37 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block page_title %}
+  {{ t('evidence.notRequired.heading') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  <div role="navigation" aria-label="back">
+    {{ govukBackLink({
+      text: t('generalContent.back'),
+      href: backLink,
+      attributes: { 'data-automation-id': 'back' }
+    }) }}
+  </div>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl" data-automation-id="heading">{{ t('evidence.notRequired.heading') }}</h1>
+      <p class="govuk-body">{{ t('evidence.notRequired.description') }}</p>
+      <ol class="govuk-list govuk-list--bullet">
+        <li>{{ t('evidence.notRequired.line1') }}</li>
+        <li>{{ t('evidence.notRequired.line2') }}</li>
+      </ol>
+      {{ govukButton({
+        text: t('generalContent.continueButton'),
+        href: 'preferred-day',
+        attributes: {
+          'data-automation-id': 'submit'
+        }
+      }) }}
+    </div>
+  </div>
+{% endblock %}

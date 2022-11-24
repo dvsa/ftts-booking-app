@@ -1,0 +1,53 @@
+.govuk-cookie-banner {
+    background-color: $nidirect-cookie-banner-background;
+
+    .radio-groups .govuk-radios__divider,
+    .govuk-heading-m {
+        color: $nidirect-white;
+    }
+
+    p,
+    .govuk-body,
+    .govuk-body-m {
+        color: $nidirect-white;
+    }
+
+    .govuk-button {
+        color: $nidirect-white;
+        background-color: $nidirect-green;
+        border-color: $nidirect-green;
+        padding-right: 40px;
+
+        &:active,
+        &:focus,
+        &:hover,
+        &:focus:not(:active):not(:hover) {
+            background-color: darken($nidirect-green, 5%);
+            color: $nidirect-white;
+        }
+
+        &:before {
+            border: solid $nidirect-white;
+            border-width: 2px 2px 0 0;
+            transform: rotate(45deg);
+            height: 10px;
+            width: 10px;
+            left: auto;
+            right: 16px;
+            top: 16px;
+            bottom: auto;
+        }
+    }
+
+    .govuk-link {
+        color: $nidirect-white;
+        text-decoration: none;
+
+        &:active,
+        &:focus,
+        &:hover,
+        &:focus:not(:active):not(:hover) {
+            text-decoration: underline;
+        }
+    }
+}

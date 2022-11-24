@@ -1,0 +1,126 @@
+.responsive-table {
+  thead {
+    border: 0;
+    clip: rect(1px,1px,1px,1px);
+    height: 1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    @include govuk-media-query($from: desktop) {
+      clip: auto;
+      display: table-header-group;
+      height: auto;
+      overflow: auto;
+      position: relative;
+      width: auto;
+    }
+
+    tr {
+      th {
+        padding-right: govuk-spacing(3) !important;
+      }
+    }
+  }
+
+  tbody {
+    @include govuk-media-query($from: desktop) {
+      display: table-row-group;
+    }
+
+    tr {
+      display: block;
+      border-bottom: 1px solid $govuk-border-colour;
+      margin-top: govuk-spacing(2);
+      margin-bottom: govuk-spacing(2);
+
+      &:first-of-type {
+        border-top: 1px solid $govuk-border-colour;
+        padding-top: govuk-spacing(2);
+
+        @include govuk-media-query($from: desktop) {
+          padding-top: 0;
+        }
+      }
+
+      @include govuk-media-query($from: desktop) {
+        display: table-row;
+        margin-bottom: govuk-spacing(0);
+      }
+    }
+
+    td {
+      display: block;
+      border: none;
+      white-space: normal;
+      @include govuk-media-query($from: desktop) {
+        vertical-align: middle;
+        display: table-cell;
+
+        &:last-child {
+          margin-left: govuk-spacing(9);
+
+          div {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    .table-heading {
+      text-align: left;
+      font-weight: 700;
+      @include govuk-media-query($from: desktop) {
+        display: none;
+      }
+    }
+  }
+
+  td, th {
+    padding: govuk-spacing(2) govuk-spacing(3);
+    text-align: left;
+    border-bottom: 1px solid #bfc1c3;
+    white-space: nowrap;
+    
+    &:first-child {
+      white-space: initial;
+      padding-right: 1em;
+    }
+
+    @include govuk-media-query($from: desktop) {
+      &:last-child {
+        text-align: right;
+      }
+    }
+  }
+
+  .table-button-cell {
+    padding-top: 8px;
+    padding-right: govuk-spacing(3);
+    margin-bottom: govuk-spacing(3);
+    @include govuk-media-query($from: desktop) {
+      margin: 0;
+    }
+  }
+
+  form {
+    width: 100%;
+  }
+
+  .table-button {
+    margin: 0;
+    width: 100%;
+    @include govuk-media-query($from: desktop) {
+      width: auto;
+      margin: govuk-spacing(2) 0;
+    }
+  }
+}
+
+.table-link {
+  display: block;
+  margin-top: govuk-spacing(1);
+  @include govuk-media-query($from: desktop) {
+    margin: govuk-spacing(2) 0;
+  }
+}

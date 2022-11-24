@@ -1,0 +1,1401 @@
+{
+    "generalContent": {
+        "pageTitle": "Archebu eich prawf theori - GOV.UK",
+        "serviceName": "Archebu prawf theori",
+        "skipToMainContent": "Neidio i'r prif gynnwys",
+        "niDirect": "NI Direct",
+        "errorPrefix": "Gwall",
+        "back": "Yn ôl",
+        "changeLink": "Newid",
+        "continueButton": "Parhau",
+        "confirmChangeButton": "Cadarnhau newid a pharhau",
+        "cancelChangeButton": "Canslo a chadw'r dewis presennol",
+        "warning": "Rhybudd",
+        "important": "Pwysig",
+        "errorSummaryTitle": "Mae problem",
+        "contactEmail": "theorycustomerservices@dvsa.gov.uk",
+        "contactLink": "https://www.gov.uk/contact-dvsa",
+        "linkOpensInNewTab": "yn agor mewn tab newydd",
+        "testTypes": {
+            "car": "Car",
+            "motorcycle": "Beic modur",
+            "lgvmc": "LGV - aml-ddewis",
+            "lgvhpt": "LGV - canfod peryglon",
+            "lgvcpc": "LGV - Tystysgrif Cymhwysedd Proffesiynol ar gyfer Gyrwyr (CPC)",
+            "lgvcpcc": "Trosi LGV i PCV",
+            "pcvmc": "PCV - aml-ddewis",
+            "pcvhpt": "PCV - canfod peryglon",
+            "pcvcpc": "PCV - Tystysgrif Cymhwysedd Proffesiynol ar gyfer Gyrwyr (CPC)",
+            "pcvcpcc": "Trosi PCV i LGV",
+            "taxi": "Tacsi",
+            "adip1": "Rhan 1 Hyfforddwr Gyrru Cymeradwy (ADI)",
+            "adihpt": "Canfod peryglon (ADI)",
+            "ers": "Cynllun Gwella Beicwyr",
+            "adip1dva": "Rhan 1 Hyfforddwr Gyrru Cymeradwy (ADI)",
+            "amip1": "Rhan 1 Hyfforddwr Beic Modur Cymeradwy (AMI)"
+        },
+        "abbreviatedSupportTypes": {
+            "onScreenBsl": "Iaith arwyddion (sgrin)",
+            "bslInterpreter": "Iaith arwyddion (dehonglydd)",
+            "extraTime": "Amser ychwanegol",
+            "readingSupport": "Cymorth darllen wrth nodi atebion",
+            "other": "Arall",
+            "translator": "Cyfieithydd",
+            "voiceover": "Troslais"
+        },
+        "phaseBanner": {
+            "tag": "beta",
+            "content": "Gwasanaeth newydd yw hwn – bydd eich {{-openLink}}adborth{{-closeLink}} yn ein helpu i’w wella."
+        },
+        "notificationBanner": {
+            "tags": {
+                "success": "Llwyddiant"
+            }
+        },
+        "yes": "Do",
+        "no": "Naddo",
+        "footer": {
+            "moreInfo": "Dod o hyd i fwy o wybodaeth ynghylch",
+            "bookingLink": "archebu prawf theori",
+            "bookingLinkUrl": "https://www.gov.uk/archebu-prawf-gyrru-theori",
+            "instructorBookingLinkUrl": "https://www.gov.uk/book-your-instructor-theory-test",
+            "enquiriesHeader": "Ymholiadau prawf theori’r DVSA ",
+            "enquiryInformation": "Dewch o hyd i'r rhif ffôn neu'r cyfeiriad e-bost os byddwch yn dymuno {{-openLink}}cysylltu â'r DVSA{{-closeLink}}.",
+            "telephone": "Ffôn: 0300-2001122",
+            "openingHours": "dydd Llun i ddydd Gwener, 8am i 4pm (ac eithrio gwyliau cyhoeddus)",
+            "callCharges": "Dysgwch ynghylch costau ffonio",
+            "callChargesUrl": "https://www.gov.uk/call-charges",
+            "cookiesLink": "Cwcis",
+            "termsLink": "Telerau ac Amodau",
+            "govUk": {
+                "englishLink": "English",
+                "welshLink": "Cymraeg",
+                "privacyLink": "Hysbysiad Gwybodaeth Preifatrwydd",
+                "accessibilityLink": "Hygyrchedd",
+                "supportLinks": "Dolenni Cymorth",
+                "builtBy": "Adeiladwyd gan {{-openLink}}yr Asiantaeth Safonau Gyrwyr a Cherbydau{{-closeLink}}",
+                "footerLicence": "Mae'r holl gynnwys ar gael o dan {{-openLink}}Trwydded Llywodraeth Agored v3.0{{-closeLink}}, oni nodir fel arall",
+                "copyright": "© Hawlfraint y goron"
+            },
+            "niDirect": {
+                "crownLink": "Hawlfraint y goron",
+                "privacyLink": "Preifatrwydd",
+                "accessibilityLink": "Hygyrchedd"
+            }
+        },
+        "cookie": {
+            "cookieHeader": "Defnydd cwcis",
+            "cookieP1": "Rydym yn defnyddio rhai cwcis hanfodol i wneud i'r gwasanaeth hwn weithio.",
+            "cookieP2": "Byddem hefyd yn hoffi defnyddio cwcis dadansoddeg fel y gallwn ddeall sut rydych yn defnyddio'r gwasanaeth a gwneud gwelliannau.",
+            "acceptButton": "Derbyn cwcis",
+            "viewLink": "Gweld cwcis",
+            "acceptLabel": "derbyn",
+            "rejectLabel": "gwrthod"
+        },
+        "bookingReference": "Cyfeirnod archeb",
+        "cancelContact": {
+            "phone": "0300-2001122"
+        },
+        "time": {
+            "am": "am",
+            "pm": "pm"
+        },
+        "language": {
+            "english": "Saesneg",
+            "welsh": "Cymraeg",
+            "turkish": "Tyrceg",
+            "portuguese": "Portiwgaleg",
+            "polish": "Pwyleg",
+            "farsi": "Ffarsi",
+            "cantonese": "Cantoneg",
+            "arabic": "Arabeg"
+        },
+        "editMode": {
+            "changeAlert": "Gallwch newid eich meddwl am hyn neu {{-openLink}}gallwch gadw'ch dewis presennol{{-closeLink}}."
+        },
+        "loadingScreen": {
+            "loadingHeading": "Archebu ar y gweill",
+            "loadingCaption": "Arhoswch i'r archebu hon gael ei gwneud."
+        }
+    },
+    "bookingExists": {
+        "heading": "Mae archeb wedi'i chadarnhau ar gyfer y prawf hwn eisoes yn bodoli",
+        "paragraph1": "Mae eisoes archeb wedi'i chadarnhau ar gyfer y prawf rydych chi'n ceisio'i archebu.",
+        "paragraph2": "Ni allwch archebu'r prawf hwn tra bod archeb union yr un fath yn bodoli yn y system.",
+        "paragraph3": "Gallwch {{-openLink}}wirio manylion eich apwyntiad prawf theori presennol{{-closeLink}}."
+    },
+    "cookiePolicy": {
+        "notificationPreferenceSet": {
+            "heading": "Rydych wedi gosod eich dewisiadau cwcis. ",
+            "link": "Mynd yn ôl i'r dudalen roeddech yn edrych arni"
+        },
+        "heading": "Defnydd cwcis ar y gwasanaeth hwn",
+        "heading2": "Cwcis a ddefnyddiwyd ar y gwasanaeth hwn",
+        "heading3": "Cwcis defnyddio gwasanaeth",
+        "heading4": "Cwcis dadansoddeg",
+        "heading5": "Cwcis trydydd parti",
+        "para1": "Mae'r gwasanaeth hwn yn rhoi ffeiliau bach (a elwir yn 'cwcis') ar eich cyfrifiadur i gasglu gwybodaeth ynghylch sut i ddefnyddio'r gwasanaeth",
+        "para2": "Defnyddir cwcis i gofio'r hysbysiadau rydych wedi'u gweld fel nad ydym yn eu dangos i chi eto. Ni chânt eu defnyddio i'ch adnabod yn bersonol",
+        "para3": "Fel rheol byddwch yn gweld neges cyn i gwci gael ei storio ar eich cyfrifiadur.",
+        "para4": "Mae'r gwasanaeth hwn yn defnyddio mathau o gwcis sy'n caniatáu i'r system weithio'n ddiogel ac yn gyson. Y rhain yw:",
+        "para5": "Mae'r gwasanaeth hwn yn gosod nifer o gwcis i gofio'r hyn rydych wedi'i wneud ar y wefan a pha negeseuon rydych wedi'u gweld.",
+        "para6": "Mae’n bosibl y byddwch yn gweld ffenestr naid ynghylch cwcis pan fyddwch yn ymweld â'r gwasanaeth am y tro cyntaf. Byddwn yn storio cwci fel bod eich cyfrifiadur yn gwybod eich bod wedi'i weld ac yn gwybod peidio â'i ddangos eto.",
+        "para7": "Rydym yn defnyddio meddalwedd Google Analytics i gasglu gwybodaeth ynghylch sut rydych yn defnyddio'r gwasanaeth. Mae hyn yn ein helpu i wneud y gwasanaeth yn well i'n defnyddwyr. Mae Google Analytics yn storio gwybodaeth am:",
+        "para8": "Nid yw Google yn casglu nac yn storio eich gwybodaeth bersonol, er enghraifft eich enw neu gyfeiriad, felly ni ellir defnyddio'r wybodaeth hon i nodi pwy ydych chi. Nid ydym yn caniatáu i Google ddefnyddio na rhannu ein data dadansoddeg.",
+        "para9": "Mae Google Analytics yn defnyddio'r cwcis hyn:",
+        "para10": "Arolwg adborth",
+        "para11": "Rydym yn defnyddio SmartSurvey i gasglu sylwadau adborth. Os byddwch yn defnyddio'r arolwg adborth, bydd SmartSurvey yn cadw cwcis ychwanegol i'ch cyfrifiadur i olrhain eich cynnydd trwy'r arolwg. Gweler polisi preifatrwydd SmartSurvey i gael mwy o wybodaeth.",
+        "para12": "Gwasanaethau'r llywodraeth",
+        "para13": "Mae'r rhan fwyaf o wasanaethau rydym yn gysylltiedig â nhw’n cael eu rhedeg gan wahanol adrannau'r llywodraeth, er enghraifft Cyllid a Thollau EM (Cyllid a Thollau EM) neu'r Swyddfa Gartref",
+        "para14": "Mae’n bosibl bydd y gwasanaethau hyn yn gosod cwcis ychwanegol ac, os felly, bydd ganddynt eu polisi cwcis eu hunain.",
+        "list1-1": "cwcis defnyddio gwasanaeth",
+        "list1-2": "cwcis dadansoddeg",
+        "list1-3": "cwcis trydydd parti",
+        "list2-1": "tudalennau’r gwasanaeth rydych yn ymweld â nhw",
+        "list2-2": "pa mor hir rydych yn ei dreulio ar bob tudalen",
+        "list2-3": "sut gyrhaeddoch y wefan",
+        "list2-4": "yr hyn rydych yn clicio arno tra'ch bod yn ymweld â'r wefan",
+        "table1": {
+            "head1": "Enw",
+            "head2": "Pwrpas",
+            "head3": "Dod i ben",
+            "row1-1": "dewisiadau-sy’n-well-gan-y-defnyddiwr-cm",
+            "row1-2": "Mae'n storio eich cydnabyddiaeth o ddefnyddio cwcis ar y gwasanaeth hwn",
+            "row1-3": "1 flwyddyn",
+            "row2-1": "ftts",
+            "row2-2": "Mae’n storio dyfais adnabod sesiwn i olrhain eich dewisiadau a data rydych wedi’u nodi. Mae hyn yn ofynnol i gwblhau archeb neu wneud unrhyw newidiadau yn ystod y broses archebu.",
+            "row2-3": "30 munud"
+        },
+        "table2": {
+            "head1": "Enw",
+            "head2": "Pwrpas",
+            "head3": "Dod i ben",
+            "row1-1": "_ga",
+            "row1-2": "Mae hyn yn ein helpu i gyfrif faint o bobl sy'n ymweld â'r gwasanaeth wrth olrhain a ydych wedi ymweld o'r blaen",
+            "row1-3": "2 flynedd",
+            "row2-1": "_gat",
+            "row2-2": "Fe'i defnyddir i reoli'r gyfradd y mae'r ceisiadau gweld tudalen yn cael eu gwneud",
+            "row2-3": "10 munud",
+            "row3-1": "_gid",
+            "row3-2": "Fe'i defnyddir i wahaniaethu rhwng defnyddwyr y gwasanaeth",
+            "row3-3": "24 awr"
+        },
+        "table3": {
+            "head1": "Enw",
+            "head2": "Pwrpas",
+            "head3": "Dod i ben",
+            "row1-1": "_visid_incap_{ID}",
+            "row1-2": "Fe'i defnyddir i gysylltu sesiynau â dyfais ymwelwyr benodol",
+            "row1-3": "1 flwyddyn",
+            "row2-1": "_incap_ses_{ID}",
+            "row2-2": "Fe'i defnyddir i gysylltu ceisiadau HTTP ag ymweliad penodol",
+            "row2-3": "Pan fyddwch yn cau'ch porwr",
+            "row3-1": "_nlbi_{ID}",
+            "row3-2": "Fe'i defnyddir i gyfeirio llwyth traffig gwefan at weinyddion",
+            "row3-3": "Pan fyddwch yn cau'ch porwr",
+            "row4-1": "reese84",
+            "row4-2": "Yn parhau'r tocyn a ddefnyddir i ganiatáu mynediad i bwyntiau terfyn gwarchodedig",
+            "row4-3": "5 munud"            ,
+            "row5-1": "reese84-resubmit-token",
+            "row5-2": "Lliniaru problem rhai porwr yn gollwng y corff post wrth ddangos tudalen groestoriadol (i orfodi llwyth Imperva JavaScript) ar gais POST. Gwneir hyn trwy gadw'r corff post gwreiddiol fel llwyth tâl wedi'i amgryptio yn y cwci.",
+            "row5-3": "60 eiliad"
+        },
+        "table4": {
+            "head1": "Enw",
+            "head2": "Pwrpas",
+            "head3": "Dod i ben",
+            "row1-1": "Queue-it",
+            "row1-2": "Mae'r cwci hwn yn caniatáu rheoli nifer y defnyddwyr pan fydd galw mawr am y gwasanaeth.",
+            "row1-3": "1 flwyddyn",
+            "row2-1": "QueueITAccepted-{ID}",
+            "row2-2": "Mae'r cwci hwn yn caniatáu rheoli nifer y defnyddwyr pan fydd galw mawr am y gwasanaeth.",
+            "row2-3": "30 munud"
+        },
+        "legendText": "Gallwch ddewis diffodd cwcis dadansoddeg",
+        "cookiesOn": "Ymlaen",
+        "cookiesOff": "I ffwrdd",
+        "submitButton": "Cadw gosodiadau cwcis",
+        "imperva": {
+            "heading": "Cwcis Imperva Incapsula",
+            "para1": "Mae cwcis Imperva Incapsula yn helpu gwasanaeth incapsula Imperva i nodi gweithgaredd maleisus.",
+            "para2": "Mae'r cwcis yn storio gwybodaeth mewn ffurf anhysbys. Nid ydynt yn casglu nac yn storio unrhyw wybodaeth bersonol, (e.eenwau neu gyfeiriadau), felly ni ellir defnyddio'r wybodaeth hon yn hawdd i nodi pwy yw'r defnyddiwr."
+        },
+        "queueit": {
+            "heading": "Queue-It cwcis"
+        },
+        "nonJs": {
+            "heading1": "Defnydd cwcis ar y gwasanaeth hwn",
+            "para1": "Mae cwcis yn ffeiliau a gedwir ar eich ffôn, llechen neu gyfrifiadur pan fyddwch yn ymweld â gwefan.",
+            "para2": "Rydym yn defnyddio cwcis i storio gwybodaeth ynghylch sut rydych yn defnyddio'r gwasanaeth hwn, megis y tudalennau rydych yn ymweld â nhw.",
+            "para3": "Gosodiadau cwcis",
+            "para4": "Rydym yn defnyddio Javascript i osod y rhan fwyaf o'n cwcis. Yn anffodus nid yw Javascript yn rhedeg ar eich porwr, felly ni allwch newid eich gosodiadau. Gallwch roi cynnig ar:",
+            "list1-1": "ail-lwytho’r dudalen",
+            "list1-2": "troi Javascript ymlaen ar eich porwr",
+            "para5": "Gwasanaethau trydydd parti a'r llywodraeth",
+            "para6": "Mae'r rhan fwyaf o wasanaethau rydym yn gysylltiedig â nhw’n cael eu rhedeg gan wahanol adrannau'r llywodraeth, er enghraifft Cyllid a Thollau EM (Cyllid a Thollau EM) neu'r Swyddfa Gartref Rydym yn defnyddio SmartSurvey i gasglu sylwadau adborth.",
+            "para7": "Mae’n bosibl bydd y gwasanaethau hyn yn gosod cwcis ychwanegol ac, os felly, bydd ganddynt eu polisi cwcis eu hunain.",
+            "para8": "Gwasanaethau'r llywodraeth",
+            "para9": "Mae'r rhan fwyaf o wasanaethau rydym yn gysylltiedig â nhw’n cael eu rhedeg gan wahanol adrannau'r llywodraeth, er enghraifft Cyllid a Thollau EM (Cyllid a Thollau EM) neu'r Swyddfa Gartref",
+            "para10": "Mae’n bosibl bydd y gwasanaethau hyn yn gosod cwcis ychwanegol ac, os felly, bydd ganddynt eu polisi cwcis eu hunain."
+        }
+    },
+    "accessibilityStatement": {
+        "heading": "Datganiad hygyrchedd",
+        "para1": "Mae'r datganiad hygyrchedd hwn yn berthnasol i gynnwys a gyhoeddir ar {{-openBold}}www.book-theory-test.service.gov.uk{{-closeBold}}",
+        "para2": "Cynhelir y wefan hon gan yr Asiantaeth Safonau Gyrwyr a Cherbydau. Rydym am i gynifer o bobl â phosibl allu defnyddio'r wefan hon. Er enghraifft, mae hyn yn golygu y dylech fod yn gallu:",
+        "list1-1": "newid lliwiau, lefelau cyferbynnedd a ffontiau",
+        "list1-2": "chwyddo mewn hyd at 300% heb i'r testun orlifo oddi ar y sgrin",
+        "list1-3": "gwe-lywio’r rhan fwyaf o'r wefan gan ddefnyddio bysellfwrdd yn unig",
+        "list1-4": "gwe-lywio’r rhan fwyaf o'r wefan gan ddefnyddio meddalwedd adnabod llais",
+        "list1-5": "defnyddio'r rhan fwyaf o'r wefan gan ddefnyddio rhaglen darllenydd sgrin (gan gynnwys y fersiynau diweddaraf o JAWS, NVDA a VoiceOver)",
+        "para3": "Mae'r testun rydym wedi'i ddefnyddio wedi'i gynllunio i fod yn glir ac yn hawdd ei ddeall.",
+        "para4": "Mae gan {{-openLink}}AbilityNet{{-closeLink}} gyngor ar wneud eich dyfais yn haws i'w defnyddio os oes gennych anabledd.",
+        "heading2": "Pa mor hygyrch yw'r wefan hon",
+        "para5": "Nid yw rhannau o'r wefan hon yn gwbl hygyrch. Er enghraifft:",
+        "list2-1": "ni fydd y testun yn addasu i un golofn pan fyddwch yn newid maint ffenestr y porwr",
+        "list2-2": "mae rhai o’r ffurflenni ar-lein yn anodd i’w gwe-lywio gan ddefnyddio bysellfwrdd yn unig",
+        "list2-3": "nid yw rhai o'n negeseuon gwallau yn darparu digon o wybodaeth i alluogi defnyddiwr i gywiro'r gwall",
+        "list2-4": "mae cyfyngiadau wrth wneud y map ar y dudalen ‘Dewis canolfan prawf’ yn fwy",
+        "list2-5": "mae gan ein gwasanaeth amser sesiwn yn dod i ben a allai ymyrryd â defnyddwyr yn cwblhau tasgau",
+        "para6": "Mae pob adran ac asiantaeth sy'n cyhoeddi cynnwys ar GOV.UK yn gyfrifol am sicrhau ei bod yn bodloni rheoliadau hygyrchedd. Byddwn yn diweddaru'r datganiad pan fydd materion wedi'u datrys neu pan fyddwn yn disgwyl iddynt gael eu datrys.",
+        "heading3": "Adborth a gwybodaeth gyswllt",
+        "para7": "{{-openLink}}Cysylltwch â ni{{-closeLink}} os bydd angen gwybodaeth mewn fformat arall arnoch, er enghraifft PDF hygyrch, print bras, fersiwn hawdd ei deall, recordiad sain neu braille. Nodwch:",
+        "list3-1": "gyfeiriad gwe (URL) y cynnwys",
+        "list3-2": "eich cyfeiriad e-bost a'ch enw",
+        "list3-3": "y fformat sydd ei angen arnoch",
+        "para8": "Os na allwch edrych ar y map sy'n dangos lleoliadau'r canolfannau prawf  {{-openLink}}cysylltwch â ni{{-closeLink}} i gael cyfarwyddiadau.",
+        "heading4": "Rhoi gwybod am broblemau hygyrchedd gyda'r wefan hon",
+        "para9": "Rydym bob amser yn chwilio am ffyrdd i wella hygyrchedd y wefan hon. Os byddwch yn ymwybodol o unrhyw broblemau nad ydynt wedi'u rhestru ar y dudalen hon neu os na fyddwch o'r farn ein bod yn bodloni gofynion hygyrchedd gallwch {{-openLink}}gysylltu â ni{{-closeLink}}.",
+        "heading5": "Gweithdrefn orfodi",
+        "para10": "Y Comisiwn Cydraddoldeb a Hawliau Dynol (EHRC) sy’n gyfrifol am orfodi Rheoliadau Hygyrchedd Cyrff y Sector Cyhoeddus (Gwefannau ac Apiau ar gyfer Dyfeisiau Symudol) (Rhif 2) 2018 (y ‘rheoliadau hygyrchedd’). Os byddwch yn anhapus â'r ffordd rydym yn ymateb i'ch cwyn, gallwch {{-openLink}}gysylltu â'r Gwasanaeth Cynghori a Chefnogi Cydraddoldeb (EASS){{-closeLink}}.",
+        "heading6": "Cysylltu â ni wrth ffonio neu ymweld â ni yn bersonol",
+        "para11": "{{-openLink}}Dysgu sut i gysylltu â ni{{-closeLink}}",
+        "heading7": "Gwybodaeth dechnegol am hygyrchedd y wefan hon",
+        "para12": "Mae'r Asiantaeth Safonau Gyrwyr a Cherbydau wedi ymrwymo i wneud ei gwefan yn hygyrch, yn unol â Rheoliadau Hygyrchedd Cyrff Sector Cyhoeddus (Gwefannau ac Apiau Symudol) (Rhif 2) 2018.",
+        "heading8": "Statws cydymffurfio",
+        "para13": "Mae'r wefan hon yn cydymffurfio'n rhannol â safon AA  {{-openLink}}Canllawiau Hygyrchedd Cynnwys y We fersiwn 2.1 {{-closeLink}} o ganlyniad i'r enghreifftiau nad ydynt yn cydymffurfio a restrir isod.",
+        "heading9": "Cynnwys nad yw’n hygyrch",
+        "para14": "Nodwyd y cynnwys nad yw’n hygyrch yma gyda'r rhesymau dros ei anhygyrchedd.",
+        "heading10": "Heb gydymffurfio â'r rheoliadau hygyrchedd",
+        "heading11": "Cyrchu gwybodaeth ",
+        "heading12": "2. Rhestr wedi'i marcio'n anghywir (A)",
+        "list4-1": "Mae rhestrau o nodweddion 'Ynglŷn â'r ganolfan prawf hon' ar y dudalen 'Dewiswch eich canolfan prawf' yn brin o elfennau cywir.",
+        "list4-2": "Mae'n methu maen prawf llwyddiant 1.3.1 Gwybodaeth a Pherthnasoedd (Lefel A)",
+        "list4-3": "Rydym yn bwriadu cywiro hyn erbyn Medi 2021.",
+        "heading13": "3. Pwrpas dolen amwys (A)",
+        "list5-1": "Nid yw dolenni ar y dudalen 'cadarnhawyd archeb' yn disgrifio beth fydd yn digwydd pan fydd yn cael ei weithredu. Bwriad hyn yw gwneud y dolenni'n ddefnyddiadwy pan gânt eu hargraffu.",
+        "list5-2": "Mae'n methu Maen Prawf lwyddiant: 2.4.4 Pwrpas Dolen (Mewn Cyd-Destun) (Lefel A)",
+        "list5-3": "Rydym yn bwriadu cywiro hyn erbyn Medi 2021.",
+        "heading14": "Offer rhyngweithiol",
+        "heading15": "10. Mynediad calendr (A)",
+        "list6-1": "Mae'r gwasanaeth yn defnyddio dynodwr dyddiad calendr atodol i boblogi maes dyddiad nad yw'n gweithio'n gywir ar gyfer defnyddwyr technolegau cynorthwyol. Mae dull cofnodi testun amgen ar gyfer dewis dyddiad.",
+        "list6-2": "Mae hyn yn methu meini prawf llwyddiant 4.1.2 Enw, Rôl, Gwerth (Lefel A), 2.1.1 Bysellfwrdd (Lefel A)",
+        "list6-3": "Rydym yn bwriadu cywiro hyn erbyn Medi 2021.",
+        "heading16": "Porth talu",
+        "heading17": "1. Delwedd amgen amwys (A)",
+        "list7-1": "Mae delwedd logo testun amgen darparwr diogelwch talu ar goll a all ddrysu defnyddwyr darllenydd sgrin. ",
+        "list7-2": "Mae'n methu maen prawf llwyddiant 1.1.1 cynnwys nad yw'n destun (lefel A)",
+        "heading18": "2. Dolenni neidio (A)",
+        "list8-1": "Nid yw dolenni neidio'n bresennol bob tro, a all atal darllenydd sgrin a defnyddwyr bysellfwrdd yn unig rhag neidio dros gynnwys ailadroddus.",
+        "list8-2": "Mae'n methu maen prawf llwyddiant 2.4.1 Blociau Osgoi (Lefel A)",
+        "heading19": "3. Strwythurau penawdau (A)",
+        "list9-1": "Ni ddefnyddir strwythur penawdau a all atal defnyddwyr sy'n defnyddio'r strwythur penawdau'n bennaf i lywio'n effeithlon.",
+        "list9-2": "Mae'n methu meini prawf llwyddiant 2.4.1 Osgoi Blociau (Lefel A) ac 1.3.1 Gwybodaeth a Pherthnasoedd (Lefel A)",
+        "para15": "Rydym yn gweithio gyda'n darparwr porth talu i gytuno ar ddyddiad i ddatrys y materion hyn.",
+        "heading20": "Baich anghymesur",
+        "para16": "Rydym yn bwriadu gwneud ein gwasanaethau i gydymffurfio â'r {{-openLink}}Canllawiau Hygyrchedd Cynnwys y We fersiwn 2.1{{-closeLink}} safon AA. Nid ydym yn hawlio baich anghymesur ar gyfer unrhyw ran o'n cynllun hygyrchedd.",
+        "heading21": "Cynnwys nad yw o fewn cwmpas y rheoliadau hygyrchedd",
+        "para17": "Er mwyn archebu prawf theori, bydd angen i chi ddarparu gwybodaeth o'ch trwydded yrru. Mae gan y ffurflen rydych yn ychwanegu'r wybodaeth hon ati negeseuon gwall sy'n fwriadol yn aneglur os nodir unrhyw wybodaeth yn anghywir. Mae'n rhaid i negeseuon gwall ar y sgrin hon beidio â dweud wrth hacwyr os bydd rhywfaint o'r wybodaeth yn anghywir.",
+        "heading22": "Yr hyn rydym yn ei wneud i wella hygyrchedd",
+        "para18": "Mae gennym atgyweiriadau hygyrchedd wedi'u cipio yn ein map ffordd gwasanaeth. Fe'u rhoddir ar waith erbyn Medi 2021.",
+        "heading23": "Paratoi'r datganiad hygyrchedd hwn",
+        "para19": "Cafodd y datganiad hwn ei baratoi ar 24 Mai 2021. Cafodd ei adolygu ddiwethaf ar 11 Mehefin 2021.",
+        "para20": "Cafodd y wefan hon ei phrofi ddiwethaf ar 17 Mai 2021. Cynhaliwyd y prawf gan y Ganolfan Hygyrchedd Digidol (DAC). Cafodd pob tudalen eu profi. "
+    },
+    "confirmSupport": {
+        "heading": "Ni wnaethoch ddweud wrthym pa fath o gefnogaeth sydd ei hangen arnoch",
+        "paragraph1": "Efallai y bydd eich cais yn cymryd mwy o amser i drefnu os na fyddwch yn dweud wrthym pa gymorth sydd ei angen arnoch",
+        "paragraph2": "Dewiswch un opsiwn",
+        "radio1": "Dywedwch wrthym pa gefnogaeth sydd ei hangen arnoch",
+        "radio2": "Archebwch eich prawf theori nawr heb gefnogaeth",
+        "radio3": "Parhewch heb ddweud wrthym pa gefnogaeth sydd ei hangen arnoch - gall hyn gymryd mwy o amser i'w drefnu",
+        "error": "Dewiswch un opsiwn o'r rhestr"
+    },
+    "supportAlert": {
+        "heading": "Cyn i chi barhau â'ch cais am gymorth",
+        "para1-heading": "Ceisiwch y cymorth sydd ei angen arnoch",
+        "para1": "Fe welwch y gwahanol fathau o gymorth sydd ar gael ar ôl i chi gofnodi rhagormwy o wybodaeth.",
+        "para2-heading": "Mae angen tystiolaeth ar rai mathau o gymorth",
+        "para2": "Ar gyfer rhai mathau o gymorth, mae angen i ni weld tystiolaeth. Gall hwn fod ar ffurf llythyr, e-bost, asesiad neu adroddiad sy'n profi bod gennych gyflwr iechyd neu anabledd ar hyn o bryd, neu'n ei chael hi'n anodd i ddarllen.",
+        "para3-heading": "Pryd nad oes angen i chi ddarparu tystiolaeth",
+        "para3": "Nid oes angen tystiolaeth i gael:",
+        "list1-1": "troslais â chlustffonau",
+        "list1-2": "Iaith Arwyddion Prydain ar y sgrin (BSL) - gydag amser ychwanegol, os caiff ei ddewis",
+        "list1-3": "cyfieithydd neu siaradwr gwefusau iaith arwyddion - gydag amser ychwanegol, os caiff ei ddewis",
+        "list1-4": "support of language interpreter",
+        "continue": "Parhau a chael cefnogaeth",
+        "go-back": "Archebwch ar-lein heb gefnogaeth"
+    },
+    "chooseSupport": {
+        "heading": "Sicrhau’r cymorth cywir yn ystod eich prawf theori",
+        "heading2": "Efallai y gallwch ddewis y gefnogaeth sydd ei hangen arnoch ac archebu'ch prawf ar-lein nawr",
+        "para1": "Rydym yn dymuno i chi gael popeth sydd ei angen arnoch i sefyll eich prawf.",
+        "para2": "Mae sawl math o gymorth ar gael os, er enghraifft:",
+        "para3": "byddwch yn gallu {{-openLink}}dysgu mwy ynghylch y mathau o gymorth sydd ar gael{{-closeLink}}. Mae’r rhain yn cynnwys:",
+        "para4": "Neu, gallwch ddweud wrthym  bod angen  cymorth arnoch a byddwn yn cysylltu â chi.",
+        "para5": "Mae’n bosibl y bydd hyn yn fwy addas i chi oherwydd eich bod:",
+        "list1-1": "yn ei chael hi’n anodd darllen",
+        "list1-2": "ag anabledd",
+        "list1-3": "â chyflwr iechyd",
+        "list2-1": "darperir troslais gyda chlustffonau",
+        "list2-2": "Iaith Arwyddion Prydain (sgrin neu'n bersonol)",
+        "list2-3": "dehonglydd",
+        "list2-4": "amser ychwanegol i gwblhau eich prawf",
+        "list2-5": "rhywun yn darllen y cwestiynau i chi",
+        "list2-6": "cael y cwestiynau wedi'u geirio'n wahanol",
+        "list3-1": "siarad â chi ynghylch sut y gallwn helpu",
+        "list3-2": "gwneud unrhyw drefniadau arbennig y gallai fod eu hangen arnoch",
+        "list3-3": "siarad am a oes angen unrhyw dystiolaeth arnom i gefnogi'ch cais",
+        "legend": "A oes angen cefnogaeth arnoch ar gyfer eich prawf theori?",
+        "errorMessage": "Mae'n rhaid i chi ddewis naill ai 'Ie' neu 'Na'.",
+        "yes": "Oes",
+        "no": "Nac oes",
+        "warning": {
+            "banner-heading": "Pwysig",
+            "banner-part1": "Dim ond yn Saesneg, Cymraeg, neu iaith arwyddion y gallwch chi sefyll y prawf.",
+            "banner-part2": "Ni ddarperir cymorth mewn unrhyw iaith arall."
+        },
+        "editMode": {
+            "changeAlert": "Gallwch newid eich meddwl ynghylch derbyn cymorth neu {{-openLink}}gallwch gadw'ch dewis presennol{{-closeLink}}.",
+            "importantWarning": "Pwysig: Os byddwch yn newid eich meddwl, mae’n bosibl y bydd angen i chi ddiweddaru gwybodaeth arall yn yr archeb hon.",
+            "confirmChangeButton": "Cadarnhau newid a pharhau",
+            "cancelChangeButton": "Canslo a chadw dewis presennol"
+        }
+    },
+    "details": {
+        "heading": "Manylion yr unigolyn sy'n sefyll y prawf theori",
+        "headingSupport": "Rhowch ychydig o fanylion i dderbyn y cymorth cywir",
+        "p1": "Nodwch fanylion trwydded yrru'r unigolyn sy'n sefyll y prawf.",
+        "p2": "Mae'r manylion hyn yn cael eu gwirio a'u defnyddio i ddangos pa fathau o brofion sydd ar gael.",
+        "p3": "Mae'n bwysig bod yr wybodaeth yn cael ei nodi'n union fel y mae'n ymddangos ar y drwydded yrru.",
+        "seeExampleLabel": "Gweler enghraifft",
+        "firstNamesExampleLabel": "- o ble i ddod o hyd i enwau cyntaf a chanol ar drwydded yrru",
+        "lastNameExampleLabel": "- o ble i ddod o hyd i gyfenw ar drwydded yrru",
+        "licenceNumberExampleLabel": "- o ble i ddod o hyd i rif trwydded yrru ar drwydded yrru",
+        "exampleLabelSupport": "Enghraifft",
+        "errorMessage": "Mae'n rhaid i chi nodi'r manylion hyn yn fel maen nhw'n ymddangos ar y drwydded yrru. Gwiriwch nhw'n ofalus a rhowch gynnig arni eto.",
+        "firstnamesField": {
+            "label": "Enwau cyntaf a chanol",
+            "description": "Nodwch enwau cyntaf a chanol yr unigolyn sy’n sefyll y prawf. Peidiwch â chynnwys Miss, Ms, Mrs neu Mr.",
+            "hint": "Gweler adran 2 y drwydded yrru.",
+            "example": "Er enghraifft, JOHN WILLIAM.",
+            "imageAltText": "Delwedd sy’n dangos ble i ddod o hyd i enwau cyntaf a chanol ar drwydded yrru"
+        },
+        "surnameField": {
+            "label": "Cyfenwau",
+            "description": "Nodwch gyfenw’r unigolyn sy’n sefyll y prawf.",
+            "hint": "Gweler adran 1 y drwydded yrru.",
+            "example": "Er enghraifft, JONES.",
+            "imageAltText": "Delwedd sy’n dangos ble i ddod o hyd i gyfenw ar drwydded yrru"
+        },
+        "licenceNumberField": {
+            "label": "Rhif trwydded yrru",
+            "description": "Nodwch rif trwydded yrru 16 digid yr unigolyn sy'n sefyll y prawf.",
+            "hint": "Gweler adran 5 y drwydded yrru.",
+            "example": "Er enghraifft, DHILL787FTT8RT89.",
+            "imageAltText": "Delwedd sy’n dangos ble i ddod o hyd i rif trwydded yrru ar drwydded yrru"
+        },
+        "dobField": {
+            "label": "Dyddiad geni",
+            "description": "Nodwch ddyddiad geni’r unigolyn sy'n sefyll y prawf.",
+            "hint": "Er enghraifft, 21 10 1998",
+            "dayLabel": "Diwrnod",
+            "monthLabel": "Mis",
+            "yearLabel": "Blwyddyn"
+        },
+        "personalReference": {
+            "label": "Cyfeirnod personol",
+            "description": "Nodwch y cyfeirnod o'ch e-bost cofrestru fel hyfforddwr"
+        },
+        "noTests": {
+            "heading": "Nid ydych yn gymwys i sefyll profion theori gyrru",
+            "description": "Yn seiliedig ar yr wybodaeth a ddarperir, nid ydych yn gymwys i sefyll unrhyw brofion. Cysylltwch â’r DVSA i gael rhagor o wybodaeth."
+        },
+        "retry": {
+            "heading": "Roedd problem",
+            "description": "Amharodd problem dechnegol ar y gwasanaeth hwn. Gallwch {{-openLink}}roi cynnig arall arni i archebu’r prawf theori hwn{{-closeLink}} neu aros a rhoi cynnig arall arni’n hwyrach. Os bydd y broblem yn parhau, cysylltwch â’r DVSA."
+        },
+        "loadingScreen": {
+            "loadingHeading": "Gwirio gwybodaeth",
+            "loadingCaption": "Arhoswch ychydig eiliadau tra bo'r manylion hyn yn cael eu gwirio."
+        }
+    },
+    "emailContact": {
+        "heading": "E-bost yr unigolyn sy’n sefyll y prawf theori",
+        "description": "Mae angen cyfeiriad e-bost arnom i anfon cadarnhad o’r archeb a derbynneb talu.",
+        "emailDescription": "Byddwn yn defnyddio hwn i anfon e-bost cadarnhau, derbynneb taliad a chanlyniad y prawf.",
+        "hint": "Mae’n rhaid bod yr unigolyn sy'n sefyll y prawf yn gallu cael mynediad i’r cyfrif e-bost hwn.",
+        "changeAlert": "Gallwch newid y cyfeiriad e-bost sy’n gysylltiedig â’r archeb hwn neu {{-openLink}}gadw’r un a gadwyd ddiwethaf{{-closeLink}}.",
+        "emailLabel": "Cyfeiriad e-bost",
+        "confirmEmailLabel": "Cadarnhau cyfeiriad e-bost",
+        "emailValidationError": "Nodi cyfeiriad e-bost dilys",
+        "confirmEmailValidationError": "Nodwch gyfeiriad e-bost dilys i gadarnhau",
+        "emailTooLong": "Mae’n rhaid i'r cyfeiriad e-bost fod yn 100 nod neu lai",
+        "unmatchingError": "Sicrhau bod cyfeiriad e-bost cadarnhau yn cyd-fynd â’r cyfeiriad e-bost",
+        "cancelChangeButton": "Canslo a chadw’r e-bost presennol",
+        "nonStandardAccommodation": {
+            "heading": "Darparwch gyfeiriad e-bost",
+            "description": "Byddwn ond yn defnyddio'r cyfeiriad e-bost hwn i gadarnhau eich cais am gymorth."
+        }
+    },
+    "testType": {
+        "heading": "Pa brawf theori rydych yn ei archebu?",
+        "support-heading": "Pa fath o brawf theori maeangen cymorth arnoch ar ei gyfer?",
+        "hintLine1": "Rydych yn gymwys i sefyll profion ar gyfer y mathau hyn o gerbydau.",
+        "hintLine2": "Dewis yr un rydych am ei archebu nawr",
+        "compensationHint": "Mae prawf theori wedi cael ei ganslo i chi yn ddiweddar. Dewiswch yr opsiwn hwn i ddewis prawf arall.",
+        "compensationRefundLink": "{{-openLink}}Gofynnwch am ad-daliad{{-closeLink}} os nad oes angen prawf theori arnoch rhagor. ",
+        "lgvGroupHeading": "Cerbyd nwyddau mawr (LGV)",
+        "pcvGroupHeading": "Cerbyd cludo teithwyr (PCV)",
+        "taxiGroupHeading": "Tacsi",
+        "changeAlert": "Gallwch newid y math o brawf neu {{-openLink}}gadw eich dewis presennol{{-closeLink}}.",
+        "changeWarning": "Pwysig: os byddwch yn newid y math o brawf ac yn parhau, bydd angen i chi nodi manylion yr archeb eto.",
+        "cancelChangeButton": "Canslo a chadw’r math o brawf presennol",
+        "subheading": "Archebu mathau eraill o brofion theori",
+        "entitlementText": "Mae’n rhaid bod gennych hawl categori ar eich trwydded yrru ar gyfer unrhyw fath o gerbyd rydych am ei yrru.",
+        "licenceCategoryLinkText": "Dysgu mwy ynghylch categorïau trwyddedau gyrru",
+        "licenceCategoryLinkUrl": "https://www.gov.uk/driving-licence-categories",
+        "validationError": "Mae angen i chi ddewis prawf theori"
+    },
+    "supportedLanguages": {
+        "heading": "Cefnogaeth iaith i'r prawf theori",
+        "description": "Mae profion theori ar gael yn {{-openBold}}Saesneg{{-closeBold}}, {{-openBold}}Cymraeg{{-closeBold}} a {{-openBold}}iaith arwyddion{{-closeBold}}.",
+        "descriptionERS": "Mae profion theori ar gael yn {{-openBold}}Saesneg{{-closeBold}} a {{-openBold}}iaith arwyddion{{-closeBold}}.",
+        "hint": "Nid oes unrhyw ieithoedd eraill ar gael."
+    },
+    "receivedSupportRequest": {
+        "heading": "Rydym wedi derbyn y cais am gefnogaeth",
+        "paragraph1": "Mae cais am gymorth ar gyfer prawf theori â'r manylion hyn eisoes yn ein ciw ymateb.",
+        "paragraph2": "Ar hyn o bryd rydym yn ymateb i nifer fawr o ymholiadau ond byddwn yn eich ffonio cyn gynted â phosibl.",
+        "paragraph3": "Gallwch barhau i archebu prawf newydd ar-lein nawr, neu aros i ni gysylltu â chi.",
+        "warningText": "Os ydych chi'n parhau i archebu prawf newydd nawr:",
+        "warningOption1": "bydd eich opsiynau cymorth yn gyfyngedig i cyfieithu neu iaith arwyddion ar y sgrin",
+        "warningOption2": "bydd eich cais cymorth presennol yn {{-openBold}}cael ei ganslo{{-closeBold}}",
+        "continue": "Parhau ac archebu"
+    },
+    "testLanguage": {
+        "heading": "Pa iaith ydych yn dymuno iddi ymddangos ar y sgrîn yn ystod y prawf theori?",
+        "subheading": "Dewis iaith",
+        "validationError": "Mae’n rhaid i chi ddewis iaith",
+        "changeAlert": "Gallwch newid iaith y prawf neu {{-openLink}}gadw eich dewis presennol{{-closeLink}}.",
+        "cancelChangeButton": "Canslo a chadw'r iaith bresennol"
+    },
+    "translator": {
+        "heading": "Pa iaith rydych yn dymuno iddi gael ei chyfieithu?",
+        "description": "Dweud wrthym pa iaith rydych yn dymuno iddi gael ei chyfieithu fel y gallwch sefyll eich prawf theori gyrru.",
+        "hint": "Nodi iaith",
+        "errorMessages": {
+            "empty": "Nodi'r iaith y mae angen ei chyfieithu arnoch",
+            "tooLong": "Mae'n rhaid i ddisgrifiad iaith y cyfieithiad fod yn 100 nod neu lai."
+        },
+        "editMode": {
+            "changeAlert": "Gallwch newid eich meddwl ynghylch pa iaith rydych yn dymuno iddi gael ei chyfieithu yn ystod eich prawf. Neu gallwch {{-openLink}}gadw eich dewis presennol{{-closeLink}}."
+        }
+    },
+    "findTestCentre": {
+        "heading": "Dod o hyd i ganolfan prawf theori",
+        "subheading": "Dod o hyd i'ch canolfan prawf fwyaf cyfleus",
+        "listHeader": "Gallwch:",
+        "listItem1": "weld canolfannau prawf ar fap",
+        "listItem2": "derbyn cyfeiriadau a gwybodaeth arall ynghylch canolfannau prawf",
+        "searchLabel": "Nodi cod post, tref, dinas neu ranbarth. Gallwch hefyd ddefnyddio tirnodau.",
+        "searchButton": "Dod o hyd i ganolfan prawf theori",
+        "errorNotRecognised": "Nid oes unrhyw ganlyniadau lleoliad yn cyfateb i'ch chwiliad. Rhowch gynnig arall arni.",
+        "editMode": {
+            "changeAlert": "Gallwch newid lleoliad y prawf yma neu {{-openLink}}gadw eich dewis presennol{{-closeLink}}.",
+            "importantWarning": "Os byddwch yn dewis lleoliad newydd yma, bydd yn lle eich dewis blaenorol. Bydd slotiau dyddiad ac amser yn parhau i fod yn ddarostyngedig i argaeledd.",
+            "cancelChangeButton": "Canslo a chadw dewis blaenorol y lleoliad prawf"
+        }
+    },
+    "selectTestCentre": {
+        "heading": "Dewis canolfan prawf theori",
+        "thereAre": "Mae",
+        "testCentresNear": "o ganolfannau prawf ger",
+        "changeLinkMore": "chwiliad lleoliad canolfan y prawf theori",
+        "kilometers": "cilometrau",
+        "miles": "milltiroedd",
+        "milesLink": "Gweler milltiroedd",
+        "kmLink": "Gweler cilometrau",
+        "mapLink": "Edrychwch ar ganolfan prawf {{-centre}} ar Google Maps",
+        "aboutCentreHeading": "Ynghylch y ganolfan prawf hon",
+        "description": "Disgrifiad",
+        "select": "Dewis",
+        "centre": "canolfan",
+        "selectButton": "Dewis",
+        "seeMoreButton": "Gweler {{incrementValue}} mwy",
+        "mapSelectHint": "Dewis canolfan prawf ar y map",
+        "listTabLabel": "Rhestr o ganolfannau",
+        "mapTabLabel": "Gweler ar y map",
+        "error": {
+            "heading": "Nid oedd y chwiliad hwnnw'n gweithio",
+            "paragraph1": "Amharodd broblem dechnegol ar y chwiliad lleoliad.",
+            "paragraph2": "Gallwch {{-openLink}}roi cynnig arall ar chwiliad nawr{{-closeLink}} neu aros a rhoi cynnig arall arni'n hwyrach. Os bydd y broblem hon yn parhau, cysylltwch â’r DVSA."
+        },
+        "editMode": {
+            "changeAlert": "Gallwch newid lleoliad y prawf yma neu {{-openLink}}gadw eich dewis presennol{{-closeLink}}."
+        }
+    },
+    "selectDate": {
+        "heading": "Nodi dyddiad i wirio argaeledd slotiau amser prawf theori",
+        "description": "Os nad oes slotiau prawf ar gael ar y dyddiad hwn, gall y gwasanaeth hwn eich helpu i ddod o hyd i un ar ddiwrnod arall.",
+        "importantWarning": "Gallwch symud neu ganslo'ch prawf hyd at 3 niwrnod cyn dyddiad y prawf heb golli'ch ffi",
+        "hint": "Er enghraifft, 31 10 2022",
+        "dayLabel": "Diwrnod",
+        "monthLabel": "Mis",
+        "yearLabel": "Blwyddyn",
+        "selectDate": "Dewis dyddiad",
+        "loadingScreen": {
+            "loadingHeading": "Gwirio'r wybodaeth",
+            "loadingCaption": "Arhoswch ychydig o eiliadau tra bod argaeledd yn cael ei wirio. Gall hyn gymryd hyd at un funud."
+        },
+        "manageBooking": {
+            "heading": "Rhowch ddyddiad ar gyfer y prawf theori",
+            "li1": "Gallwch symud neu ganslo prawf <strong>hyd at 3 niwrnod cyn</strong> dyddiad y prawf heb golli'ch ffi"
+        },
+        "errorMessages": {
+            "dayEmpty": "Mae angen i chi nodi diwrnod",
+            "monthEmpty": "Mae angen i chi nodi mis",
+            "yearEmpty": "Mae angen i chi nodi blwyddyn",
+            "dateNotValid": "Nodi dyddiad dilys",
+            "dateInPast": "Mae’n rhaid i’r dyddiad fod yn y dyfodol",
+            "dateIsTodayOrTomorrow": "Nid oes slotiau prawf ar gael heddiw nac yfory. Rhowch gynnig ar ddyddiad arall",
+            "dateBeyond6Months": "Mae'n rhaid i'r dyddiad fod o fewn 6 mis o heddiw"
+        },
+        "editMode": {
+            "changeAlert": "Gallwch newid slot y prawf yma neu {{-openLink}}gadw'r dyddiad a'r amser a ddewiswyd yn flaenorol{{-closeLink}}.",
+            "importantWarning": "Os byddwch yn dewis dyddiad ac amser newydd yma, byddant yn lle'r manylion a nodwyd yn flaenorol. Mae slotiau dyddiad yn ogystal ag amser yn ddarostyngedig i argaeledd.",
+            "cancelChangeButton": "Canslo a chadw dyddiad ac amser a ddewiswyd yn flaenorol"
+        }
+    },
+    "chooseAppointment": {
+        "heading": "Nodi amser ar gyfer y prawf theori",
+        "instruction": "Gwirio slotiau amser mewn canolfannau prawf gwahanol",
+        "desktop": {
+            "previous": "Yr wythnos flaenorol",
+            "next": "Yr wythnos nesaf"
+        },
+        "mobile": {
+            "previous": "Blaenorol",
+            "next": "Nesaf"
+        },
+        "morning": "Bore",
+        "afternoon": "Prynhawn",
+        "editMode": {
+            "changeAlert": "Gallwch newid amser y prawf yma neu {{-openLink}}gadw'r amser a ddewiswyd yn flaenorol{{-closeLink}}.\nMae slotiau dyddiad yn ogystal ag amser yn ddarostyngedig i argaeledd."
+        },
+        "warning1": "Dim slotiau ar gael ar y diwrnod hwn. Rhowch gynnig ar ddiwrnod arall.",
+        "warningPast": "Ni ellir edrych ar ddiwrnodau yn y gorffennol",
+        "warningAfterEligibility": "Nid ydych yn gymwys i sefyll profion ar y diwrnod a ddewiswyd. Ar gyfer ymholiadau cymhwysedd, cysylltwch â'r DVSA.",
+        "warningBeforeEligibility": "Nid ydych yn gymwys i sefyll profion ar y dyddiad a ddewiswyd. Y dyddiad cynharaf y gallwch archebu'r prawf yw",
+        "warningSixMonths": "Nid yw'r diwrnod hwn ar gael eto i'w archebu. Gwiriwch yn rheolaidd oherwydd gallai hyn newid.",
+        "selectAnotherDateLink": "Dewis dyddiad arall",
+        "errorMessages": {
+            "invalidSlot": "Amharodd problem dechnegol ar y gwasanaeth hwn. Dewiswch y slot apwyntiad eto."
+        },
+        "noSlots": "Dim slotiau",
+        "slotsAvailable": "slotiau",
+        "OneSlotAvailable": "1 slot"
+    },
+    "checkYourAnswers": {
+        "heading": "Gwirio eich manylion cyn talu",
+        "headingNoPayment": "Gwirio eich manylion",
+        "personalDetails": {
+            "heading": "Manylion personol",
+            "nameLabel": "Enw",
+            "dobLabel": "Dyddiad geni",
+            "licenceNumLabel": "Rhif trwydded yrru",
+            "emailLabel": "Cyfeiriad e-bost",
+            "telephoneLabel": "Ffôn",
+            "voicemailLabel": "Caniatâd i adael negeseuon ffôn i chi"
+        },
+        "testDetails": {
+            "heading": "Manylion y prawf",
+            "testTypeLabel": "Math o brawf",
+            "testSlot": "cy-Test slot",
+            "costLabel": "Cost",
+            "alreadyPaidLabel": "Talwyd yn barod",
+            "timeDateLabel": "Amser a dyddiad y prawf",
+            "locationLabel": "Lleoliad y prawf",
+            "timeDateLocationLabel": "Amser prawf, dyddiad neu leoliad",
+            "testLanguageLabel": "Iaith sgrin"
+        },
+        "supportDetails": {
+            "heading": "Manylion cymorth",
+            "supportRequestedLabel": "Gofynnwyd am gymorth",
+            "supportTypesLabel": "Mathau o gymorth a ddewiswyd gennych",
+            "voiceoverLabel": "Iaith troslais",
+            "bslLabel": "Iaith Arwyddion Prydain ar sgrin",
+            "translatorLabel": "Iaith y cyfieithydd",
+            "supportDetailsLabel": "Manylion cymorth a ychwanegwyd gennych",
+            "preferredDayLabel": "Amser sy'n well gennych ar gyfer y prawf",
+            "particularDay": "Mae angen amser neu ddiwrnod penodol arnaf",
+            "preferredLocationLabel": "Lleoliadau sy'n well gennych ar gyfer y prawf",
+            "particularLocation": "Rwy'n gwybod pa leoliadau rwyf am sefyll fy mhrawf ynddynt",
+            "addedNoDetails": "Nid ydych wedi ychwanegu unrhyw fanylion",
+            "decideLater": "Byddaf yn gwneud y penderfyniad hwn yn hwyrach",
+            "bslUnchangeable": "I ychwanegu iaith arwyddion at y prawf hwn mae'n rhaid i chi dynnu troslais yn gyntaf",
+            "voiceoverUnchangeable": "I ychwanegu troslais at y prawf hwn mae'n rhaid i chi dynnu iaith arwyddion yn gyntaf"
+        },
+        "paymentWarning": "Cwblhau'r broses talu o fewn 30 munud. Os na fyddwch yn gwneud hynny, bydd yr archeb hon yn cael ei chanslo ond mae'n bosibl y codir tâl arnoch o hyd. Bydd yn rhaid i chi ddechrau eich archeb eto ac mae'n bosibl na fydd y slot prawf yr oeddech yn ceisio ei archebu ar gael mwyach.",
+        "bookingCancelled": {
+            "heading": "Canslwyd y broses archebu",
+            "contentLine1": "Mae'r broses archebu hon wedi'i chanslo. Nid oes archeb wedi'i gwneud ac ni chodwyd tâl arnoch.",
+            "contentLine2": "Gallwch ddechrau eich archeb eto ond mae'n bosibl na fydd y slot prawf yr oeddech yn ceisio ei archebu ar gael mwyach.",
+            "startAgainButton": "Dechrau eto"
+        },
+        "error": {
+            "heading": "Roedd problem",
+            "general": {
+                "contentLine1": "Amharodd problem dechnegol ar y gwasanaeth hwn.",
+                "contentLine2": "Gallwch {{-openLink}}roi cynnig arall arni i gyflwyno eich cais am gymorth{{-closeLink}} ",
+                "contentLine3": "neu aros a rhoi cynnig arni'n ddiweddarach. ",
+                "contentLine4": "Os bydd y broblem hon yn parhau, cysylltwch â’r DVSA."
+            },
+            "paymentInitiation": {
+                "contentLine1": "Mae problem dechnegol yn golygu na ellir gwneud taliadau ar hyn o bryd. Gallwch {{-openLink}}roi cynnig arall arni i dalu{{-closeLink}} neu aros a rhoi cynnig arall arni'n ddiweddarach. Os bydd y broblem hon yn parhau, cysylltwch â’r DVSA."
+            },
+            "paymentConfirmation": {
+                "contentLine1": "Mae problem dechnegol yn golygu na ellir cadarnhau eich taliad. Mae'r archeb hon wedi'i chanslo",
+                "contentLine2": "Os canfyddir bod y taliad wedi bod yn llwyddiannus, bydd yn cael ei ad-dalu cyn gynted â phosibl.",
+                "contentLine3": "Mae'n ddrwg iawn gennym. Rhowch {{-openLink}}gynnig arall arni i archebu eich prawf theori{{-closeLink}}.",
+                "contentLine4": "Os bydd y broblem hon yn parhau, cysylltwch â’r DVSA."
+            },
+            "paymentUnsuccessful": {
+                "contentLine1": "Mae problem dechnegol yn golygu nad oedd eich taliad yn llwyddiannus. Mae'r archeb hon wedi'i chanslo",
+                "contentLine2": "Mae'n ddrwg iawn gennym. Rhowch {{-openLink}}gynnig arall arni i archebu eich prawf theori{{-closeLink}}.",
+                "contentLine3": "Os bydd y broblem hon yn parhau, {{-openLink}}cysylltwch â’r DVSA{{-closeLink}}."
+            },
+            "paymentSystemError": {
+                "heading": "Yn anffodus, mae problem gyda'r gwasanaeth",
+                "contentLine1": "Ceisiwch eto wedyn.",
+                "contentLine2": "Nid ydym wedi arbed eich archeb. Bydd yn rhaid i chi {{-openLink}}ddechrau eto{{-closeLink}}.",
+                "contentLine3": "Os aeth eich taliad drwodd, bydd DVSA yn eich ad-dalu o fewn 7 diwrnod busnes",
+                "contentLine4": "{{-openLink}}Cysylltwch â DVSA{{-closeLink}} os ydych yn parhau i gael problemau gyda’ch archeb. Defnyddiwch y cyfeirnod {{bookingReference}}",
+                "contact": "https://www.gov.uk/contact-dvsa"
+            },
+            "slotConfirmation": {
+                "contentLine1": "Mae'n ddrwg iawn gennym. Amharodd problem dechnegol ar yr archeb hon. Mae'r archeb wedi'i chanslo. Ei chyfeirnod yw {{bookingReference}}.",
+                "contentLine2": "Os oedd eich taliad wedi’i gwblhau, bydd y DVSA yn ei ad-dalu o fewn 7 diwrnod busnes.",
+                "contentLine3": "Gallwch {{-openLink}}roi cynnig arall ar archebu eto nawr{{-closeLink}} neu aros a rhoi cynnig arall arni'n ddiweddarach. Os bydd y broblem hon yn parhau, cysylltwch â’r DVSA."
+            },
+            "bslVoiceoverOption": {
+                "contentLine1": "Nid yw'r cyfuniad o iaith arwyddion a throslais ar gael. Dewiswch un o'r opsiynau hyn a rhowch gynnig arall arni."
+            }
+        },
+        "continueButton": "Parhau",
+        "continueAndPayButton": "Parhau a thalu"
+    },
+    "checkYourDetails": {
+        "heading": "Gwirio eich manylion",
+        "manageBooking": {
+            "heading": "cy-Check theory test details",
+            "bsl": "cy-On-screen British Sign Language (BSL)",
+            "voiceover": "cy-Voiceover with headphones"
+        }
+    },
+    "bookingConfirmation": {
+        "heading": "Cadarnhawyd eich archeb prawf theori",
+        "panelBookingRef": "Mae eich cyfeirnod archeb yn bwysig",
+        "keepItSafe": "Cadwch y cyfeirnod yn ddiogel",
+        "keepBookingRef": "Cadwch eich cyfeirnod archeb yn ddiogel.",
+        "bookingRefPrompt": "Bydd ei angen arnoch i wirio, newid neu ganslo'r prawf hwn. Ystyriwch gymryd sgrinlun, neu",
+        "printLink": "argraffu'r dudalen hon.",
+        "testTypeLabel": "Math o brawf",
+        "dateLabel": "Amser a dyddiad y prawf",
+        "locationLabel": "Lleoliad y prawf",
+        "testLanguageLabel": "Iaith sgrîn",
+        "bslLabel": "Iaith Arwyddion Prydain ar sgrin",
+        "voiceoverLabel": "Iaith troslais",
+        "importantSubheading": "Pwysig",
+        "personMust": "Mae'n rhaid i'r unigolyn sy'n sefyll y prawf:",
+        "arrive": "gyrraedd 15 munud cyn amser cychwyn y prawf",
+        "bringLicence": "dod â'u trwydded yrru (dylai deiliaid sy'n berchen ar yr hen ddull o drwydded papur hefyd ddod â phasport dilys, neu ID ffotograff arall)",
+        "centreSubheading": "Diogelwch yn y ganolfan prawf",
+        "security": "Monitrir diogelwch ym mhob canolfan prawf.",
+        "itemsCheck": "Wrth i chi fynd i mewn i'r ystafell prawf, gwirir nad oes eitemau gennych y gellid eu defnyddio i dwyllo. Ni fydd eich prawf yn cael ei gynnal os na fyddwch yn caniatáu i’r gwiriad hwn ddigwydd.",
+        "cheatWarning": "Mae'n anghyfreithlon twyllo mewn prawf theori. Gallwch gael eich anfon i'r carchar a'ch gwahardd rhag gyrru.",
+        "belongingsSubheading": "Eiddo personol",
+        "itemsPrompt": "Pan fyddwch yn cyrraedd y ganolfan brawf, dylai pob dyfais gael eu diffodd ac mae'n rhaid rhoi eitemau personol yn y locer diogel a ddarperir. Mae eitemau'n cynnwys ond heb fod yn gyfyngedig i:",
+        "items": {
+            "food": "bwyd a diod",
+            "earpieces": "darnau clust neu glustffonau",
+            "phones": "ffonau symudol a dyfeisiau electronig arall",
+            "hats": "hetiau, bagiau a chotiau",
+            "watches": "watshis",
+            "books": "llyfrau a nodiadau adolygu"
+        },
+        "largeItems": "Ni ellir storio eitemau mawr yn ein canolfannau prawf.",
+        "securityChecks": "Fel rhan o'n gwiriadau diogelwch, efallai y gofynnir i chi dynnu i ffwrdd neu addasu dillad allanol, eiddo personol neu ategolion.",
+        "foundItems": "Os na allwch storio'ch holl eitemau neu os canfyddir bod gennych unrhyw un o'r eitemau hyn yn yr ystafell brawf:",
+        "voided": "mae'n bosibl y bydd eich prawf yn cael ei atal a'i ddirymu",
+        "leave": "mae'n bosibl y gofynnir i chi adael",
+        "refunded": "mae'n bosibl na ad-delir ffi'r prawf",
+        "waitingSubheading": "Dim cyfleusterau aros",
+        "noWaiting": "Nid oes gan ganolfannau prawf gyfleusterau aros ar gyfer unrhyw oedolion na phlant sy'n dod gydag ymgeiswyr.",
+        "prepare": "Paratoi ar gyfer y prawf",
+        "learnMore": "Dysgwch fwy am baratoi ar gyfer prawf theori car gan gynnwys profion ymarfer am ddim yma",
+        "learnMoreLink": "https://www.gov.uk/theory-test/revision-and-practice",
+        "afterTheTestSubheading": "Ar ôl y prawf",
+        "afterTheTestParagraph": "Byddwn yn anfon crynodeb canlyniad y prawf i'r cyfeiriad e-bost y gwnaethoch archebu gydag ef.",
+        "cancelSubheading": "Gwirio, newid neu ganslo'r prawf hwn",
+        "cancellationThreeDays": "Gallwch symud neu ganslo'r prawf hwn hyd at 3 niwrnod cyn dyddiad y prawf heb golli'ch ffi.",
+        "cancellationPolicy": "Os bydd yr archeb hon yn cael ei newid neu'i chanslo ar ôl",
+        "cancellationPolicyEnd": "ni roddir ad-daliad.",
+        "checkDetails": "Gwiriwch fanylion y prawf hwn",
+        "checkDetailsLink": "https://www.gov.uk/check-theory-test",
+        "reschedule": "Newid neu aildrefnu'r prawf hwn",
+        "rescheduleLink": "https://www.gov.uk/change-theory-test",
+        "cancel": "Canslo'r prawf hwn",
+        "cancelLink": "https://www.gov.uk/cancel-theory-test",
+        "checkChangeCancel": "Gwiriwch, newid neu ganslo'r prawf hwn",
+        "checkChangeCancelLink": "https://www.nidirect.gov.uk/services/change-or-cancel-your-theory-test-online",
+        "nonStandardAccommodation": {
+            "evidenceNeededHeading": "Anfonwch dystiolaeth atom nawr i gwblhau eich cais",
+            "evidenceNotNeededHeading": "Mae eich cais am gymorth prawf theori wedi'i anfon",
+            "panelContact": "Ni fydd eich cais yn cael ei brosesu hyd nes y derbynnir y dystiolaeth hon",
+            "panelBookingRef": "Cadwch y cyfeirnod hwn yn ddiogel ",
+            "printPagePrompt": "Gall fod yn ddefnyddiol i chi i ",
+            "importantBanner": "Ar hyn o bryd rydym yn ymateb i nifer fawr o ymholiadau ond byddwn yn cysylltu â chi cyn gynted â phosibl er mwyn trefnu eich prawf theori.",
+            "emailAlsoSent": "Rydym hefyd wedi anfon e-bost atoch yn cadarnhau eich cais am gymorth.",
+            "testAndSupportDetails": {
+                "header": "Eich manylion prawf a chymorth",
+                "testType": "Math o brawf",
+                "onScreenLanguage": "Iaith ar sgrîn",
+                "supportRequested": "Cymorth sydd angen",
+                "supportTypesSelected": "Amser sy'n well gennych ar gyfer y prawf",
+                "preferedTime": "Y lleoliadau sy'n well gennych ar gyfer y prawf",
+                "preferedLocation": "Paratoi ar gyfer y prawf"
+            },
+            "whatToDoNow": {
+                "header": "Yr hyn mae'n rhaid i chi ei wneud nawr",
+                "emailEvidence":"E-bostio eich tystiolaeth",
+                "emailEvidenceParagraph1":"E-bostio eich dogfennau tystiolaeth at: theorytestsupport@dvsa.gov.uk",
+                "emailEvidenceParagraph2":"Gallwch anfon cymaint o ddogfennau ag sydd eu hangen arnoch i ddarparu eich tystiolaeth."
+            }, 
+            "importantInfo": {
+                "header": "Pwysig",
+                "paragraph": "Er mwyn helpu i gyflymu'ch cais am gymorth, cynhwyswch eich:",
+                "supportRquestRef": "1. cyfeirnod cais am gymorth:",
+                "fullname": "2. enw llawn",
+                "drivingLicenceNo": "3. rhif trwydded yrru"
+            },
+            "otherWaysToSendEvidence": {
+                "heading": "Ffyrdd eraill i anfon tystiolaeth",
+                "paragraph": "Fel arall, gallwch bostio eich tystiolaeth i:", 
+                "addressLine1": "Asiantaeth Safonau Gyrwyr a Cherbydau",
+                "addressLine2": "PO Box 349",
+                "addressLine3": "Newcastle upon Tyne",
+                "addressLine4": "NE12 2GN"
+            },
+            "additionalTextForDeafUsers": {
+                "title": "Achosion pan nad oes angen i chi ddarparu tystiolaeth",
+                "paragraph": "Nid oes angen i chi ddarparu tystiolaeth os ydych yn fyddar neu os oes gennych nam ar y clyw ac yn gofyn am gymorth yn ymwneud â byddardod, yn ogystal ag amser ychwanegol. Os gwnaethoch ofyn am unrhyw fath arall o gymorth bydd angen i chi ddarparu tystiolaeth."
+            },
+            "evidenceRequirements": {
+                "heading": "Eich tystiolaeth",
+                "title": "Sicrhewch bod eich tystiolaeth:",
+                "point1": "yn nodi eich cyflwr",
+                "point2": "yn cynnwys eich enw cyntaf a chyfenw",
+                "point3": "ar ffurf llythyr, e-bost, asesiad diagnostig neu adroddiad",
+                "point4": "yn dod o weithiwr proffesiynol addysgol neu feddygol, therapydd galwedigaethol neu sefydliad swyddogol",
+                "point5": "wedi'i lofnodi ac ar bapur swyddogol, os yw'n llythyr neu'n adroddiad",
+                "linkIntro": "Gallwch ddysgu mwy am dystiolaeth ar wefan y llywodraeth yma:",
+                "link": "https://www.gov.uk/theory-test/reading-difficulty-disability-or-health-condition"
+            },
+            "evidenceRecieved": {
+                "header": "Pan dderbyniwn eich tystiolaeth",
+                "paragraph": "Byddwn yn gwirio'ch tystiolaeth i sicrhau ei fod yn eich galluogi i gael y cymorth cywir. Byddwn yn cysylltu â chi pan fyddwn wedi gwneud hyn."
+            },
+            "contactInformation":{
+                "header": "Gallwch hefyd gysylltu â ni",
+                "testEnquiries": "Ymholiadau prawf theori DVSA E-bost:",
+                "email": "theorycustomerservices@dvsa.gov.uk",
+                "telephone": "Ffôn: 0300 200 1122",
+                "openingHours": "Dydd Llun i ddydd Gwener, 8yb i 4yh"
+            },
+            "iWillDecideThisLater": "Bydd hyn yn cael ei benderfynu yn ddiweddarach",
+            "youMayNeedEvidence": {
+                "title": "Achosion pan nad oes angen i chi ddarparu tystiolaeth",
+                "paragraph": "Ar gyfer rhai mathau o gymorth efallai y gofynnir i chi ddarparu tystiolaeth. Mae hwn fel arfer ar ffurf llythyr, e-bost, asesiad diagnostig neu adroddiad gan weithiwr proffesiynol addysgol neu feddygol, therapydd galwedigaethol neu sefydliad swyddogol."
+            },
+            "evidenceAlreadyProvided": {
+                "title": "Tystiolaeth",
+                "paragraph1": "Ar gyfer rhai mathau o gymorth efallai y gofynnir i chi ddarparu tystiolaeth. Mae hwn fel arfer ar ffurf llythyr, e-bost, asesiad diagnostig neu adroddiad gan weithiwr proffesiynol addysgol neu feddygol, therapydd galwedigaethol neu sefydliad swyddogol.",
+                "subHeading": "Os ydych wedi darparu tystiolaeth o’r blaen",
+                "paragraph2": "Os gwnaethoch ddarparu tystiolaeth i DVSA yn flaenorol a’i bod wedi cael ei dderbyn, nid oes angen i ni ei weld eto oni bai bod y cymorth sydd ei angen arnoch wedi newid."
+            }
+        }
+    },
+    "changeLocationTime": {
+        "heading": "Beth rydych yn dymuno ei newid?",
+        "changeAlert": "Gallwch newid eich ymateb blaenorol yma neu {{-openLink}}fynd yn ôl a'i gadw{{-closeLink}}.",
+        "description": "Dewiswch un opsiwn. Cedwir eich archeb bresennol hyd eich bod yn gwneud ac yn cadarnhau unrhyw newidiadau.",
+        "validationError": "Dewiswch yr hyn rydych yn dymuno ei newid",
+        "loadingScreen": {
+            "loadingHeading": "Gwirio'r wybodaeth",
+            "loadingCaption": "Arhoswch ychydig o eiliadau tra bod argaeledd yn cael ei wirio. Gall hyn gymryd hyd at un funud."
+        },
+        "changeTimeOnlyOption": {
+            "label": "Amser y prawf theori'n unig",
+            "hint": "Mae'n bosibl na fydd slotiau amser newydd ar gael ar ddiwrnod eich prawf presennol."
+        },
+        "changeTimeAndDateOption": {
+            "label": "Amser a dyddiad y prawf theori",
+            "hint": "Mae'n bosibl na fydd eich slot amser presennol ar gael ar ddiwrnod gwahanol."
+        },
+        "changeLocationOption": {
+            "label": "Lleoliad y prawf theori",
+            "hint": "Mae'n bosibl na fydd eich slot dyddiad ac amser presennol ar gael mewn lleoliad gwahanol."
+        },
+        "confirmChangeButton": "Newid a pharhau",
+        "cancelChangeButton": "Canslo a chadw'ch dewis"
+    },
+    "manageBookingLogin": {
+        "heading": "Nodwch gyfeirnod yr archeb a rhif trwydded yrru'r unigolyn sy'n sefyll y prawf.",
+        "bookingReferenceField": {
+            "label": "Cyfeirnod archeb",
+            "descriptionLine1": "Anfonwyd y cyfeirnod archeb i'r e-bost a ddefnyddiwyd i archebu'r prawf theori.",
+            "descriptionLine2": "Os nad oes gennych gyfeirnod archeb {{-openLink}}cysylltwch â'r DVSA{{-closeLink}}",
+            "descriptionLine2Link": "https://www.gov.uk/contact-dvsa",
+            "inlineLabel": "Nodwch y cyfeirnod archeb"
+        },
+        "licenceNumberField": {
+            "heading": "Rhif trwydded yrru",
+            "label": "Nodwch eich Rhif trwydded yrru",
+            "description": "Mae'n bwysig bod rhif y drwydded yrru'n cael ei nodi'n union fel y mae'n ymddangos ar y drwydded yrru'r unigolyn sy'n sefyll y prawf.",
+            "hint": "Gweler adran 5 y drwydded yrru",
+            "exampleLabel": "Gweler enghraifft"
+        },
+        "errorMessages": {
+            "fieldsLeftBlank": "Nodwch gyfeirnod yr archeb yn ogystal â rhif trwydded yrru'r ymgeisydd i gael mynediad i'r archeb hon",
+            "incorrectDetails": "Mae'n rhaid i chi ddefnyddio'r rhif trwydded yrru diweddaraf a'r cyfeirnod archebu cywir. Gwiriwch y manylion rydych chi wedi eu nodi, yna rhowch gynnig arni eto. "
+        },
+        "retry": {
+            "description": "Amharodd problem dechnegol ar y gwasanaeth hwn. Gallwch {{-openLink}}roi cynnig arall arni i reoli eich profion theori{{-closeLink}} neu aros a rhoi cynnig arall arni'n hwyrach. Os bydd y broblem hon yn parhau, cysylltwch â’r DVSA."
+        },
+        "loadingScreen": {
+            "loadingHeading": "Cael y gorchymyn",
+            "loadingCaption": "Arhoswch ychydig eiliadau i ni gael y manylion."
+        }
+    },
+    "manageBookingHome": {
+        "heading": "Eich archebion prawf theori",
+        "noBookings": "Nid oes gennych unrhyw brofion theori wedi'u harchebu.",
+        "tableHeaderC1": "Math o brawf",
+        "tableHeaderC2": "Amser a dyddiad y prawf",
+        "tableHeaderC2Nsa": "cy-Test slot",
+        "tableHeaderC3": "Cyfeirnod archeb",
+        "tableHeaderC4": "Edrych ar yr archeb",
+        "tableHeaderC5": "Gweithrediadau",
+        "or": "neu",
+        "buttonViewBooking": "Gweld yr archeb",
+        "buttonBookReplacementTest": "Archebu prawf theori arall",
+        "buttonRequestRefund": "cais am ad-daliad",
+        "bookingIsCancelled": "WEDI'I DDILEU",
+        "bookingIsBooked": "WEDI'I ARCHEBU",
+        "bookingsWithErrors": {
+            "header": "Mae problem dechnegol yn golygu na ellir dod o hyd i'r archebion prawf hyn:",
+            "contentLine1": "Cysylltwch â'r DVSA i ddod o hyd i neu ail-drefnu'r prawf hwn.",
+            "contact": {
+                "email": "theorycustomerservices@dvsa.gov.uk",
+                "telephone": "Ffôn: {{-openBold}}0300 2001122{{-closeBold}}",
+                "openingHours": "{{-openBold}}dydd Llun{{-closeBold}} i {{-openBold}}dydd Gwener{{-closeBold}}, {{-openBold}}8am{{-closeBold}} i {{-openBold}}4pm{{-closeBold}}"
+            }
+        },
+        "bookingCompensationAlert": "Mae un neu fwy o'ch profion theori a drefnwyd wedi cael eu canslo. Gallwch {{-openLink}}archebu prawf arall{{-closeLink}} gan ddefnyddio'r ffi rydych wedi'i dalu'n barod.",
+        "bookingReplacementTest": "{{-openLink}}Archebu prawf theori arall{{-closeLink}}",
+        "bookingReferenceLabel": "am Cyfeirnod archeb ",
+        "nsa": {
+            "AwaitingCandidateSlotConfirmation": "cy-Test Slots Offered",
+            "selectTimeOption": "cy-Book slot"
+        }
+    },
+    "manageBookingChange": {
+        "heading": "Newid, aildrefnu neu ganslo'r prawf theori hwn",
+        "sameDayRefundWarning": "Ni ellir canslo neu ad-dalu'r archeb ar y diwrnod maent wedi'u harchebu.",
+        "refundWarningText": "Ni ellir derbyn ad-daliad neu aildrefnu'r prawf hwn ar ôl {{date}}.",
+        "rescheduleWarningText": "Ni ellir aildrefnu'r prawf hwn ar ôl {{date}}.",
+        "cannotMakeChange": "Ni allwch wneud newidiadau i’r prawf theori hwn. Cysylltwch â'r DVSA.",
+        "testTodayWarningText": "Mae'r prawf hwn heddiw. Nid oes modd gwneud newidiadau bellach",
+        "changeIneligibleWarningText": "Ni allwch wneud newidiadau i’r prawf theori hwn. Cysylltwch â'r DVSA.",
+        "technicalProblemWarningText": "Mae problem dechnegol yn golygu na ellir canlso na newid yr archeb hon ar hyn o bryd. Rhowch gynnig arall arni'n ddiweddarach.",
+        "testTypes": "Math o brawf",
+        "testTimeDate": "Amser a dyddiad y prawf",
+        "testLocation": "Lleoliad y prawf",
+        "testLanguage": "Iaith sgrîn",
+        "bsl": "Iaith Arwyddion Prydain ar sgrin",
+        "voiceover": "Iaith troslais",
+        "cancelTest": "Canslwch y prawf hwn",
+        "buttonCancel": "Canslwch y prawf",
+        "buttonChange": "Newid",
+        "visuallyHidden": {
+            "testTimeDateLocation": "amser, dyddiad, lleoliad y prawf",
+            "onScreenLanguage": "ar iaith sgrîn",
+            "signLanguage": "iaith arwyddion",
+            "voiceoverLanguage": "iaith troslais"
+        },
+        "testSupportNeeded": {
+            "heading": "Y mathau o gymorth a ddewiswyd",
+            "bslInterpreter": " Iaith arwyddion (Cyfieithydd)",
+            "extraTime":"Amser ychwanegol",
+            "extraTimeWithBreak": "Amser ychwanegol – saib HPT a /neu egwyliau",
+            "foreignLanguageInterpreter": "Cyfieithydd iaith dramor: ",
+            "homeTest": "Prawf cartref",
+            "lipSpeaker": "Siaradwr gwefusau",
+            "nonStandardAccommodationRequest": "Cais am lety ansafonol",
+            "oralLanguageModifier": "Addasydd iaith lafar",
+            "otherSigner": " Arwyddwr/ cyfieithydd arall",
+            "reader": "Darllenydd",
+            "familiarReaderToCandidate": "Darllenydd sy'n gyfarwydd i'r ymgeisydd",
+            "readerRecorder": "Darllenydd / cofnodwr",
+            "seperateRoom": "Ystafell ar wahân",
+            "testInIsolation": "Prawf ar eich pen eich hun",
+            "specialTestingEquipment": "Meddyginiaeth/ diod/ cyfarpar profi arbennig"
+        }
+    },
+    "manageBookingCancel": {
+        "heading": "Canslwch y prawf theori hwn",
+        "description": "Dewiswch un opsiwn. Pan fyddwch yn dewis",
+        "description-2": "bydd eich archeb bresennol yn cael ei thynnu'n barhaol.",
+        "buttonCancel": "Cadarnhau canslo'r prawf theori",
+        "buttonKeep": "Cadwch yr archeb bresennol",
+        "help": "Cymorth gyda'ch archeb",
+        "contact": "Cysylltwch â'r Asiantaeth Safonau Gyrwyr a Cherbydau (y DVSA) i gael cymorth i ganslo'ch apwyntiad prawf theori.",
+        "support": "Cymorth archebu prawf theori’r DVSA",
+        "telephone": "Ffôn 0300-2001122",
+        "differentServicePrompt": "Mae gwasanaeth gwahanol i ganslo'ch prawf theori yng Ngogledd Iwerddon.",
+        "differentServiceLink": "https://www.gov.uk/cancel-theory-test",
+        "loadingScreen": {
+            "loadingHeading": "Canslo'r archeb",
+            "loadingCaption": "Arhoswch ychydig eiliadau tra bydd y gorchymyn yn cael ei ganslo."
+        }
+    },
+    "manageBookingCancelConfirmation": {
+        "heading": "Canslwyd y prawf theori",
+        "bannerSubtitle": "Eich cyfeirnod",
+        "cancelDescription": "Mae'r prawf theori gyrru hwn wedi'i ganslo",
+        "summaryListRows": {
+            "testType": "Math o brawf",
+            "testTimeDate": "Amser a dyddiad y prawf",
+            "testLocation": "Lleoliad y prawf",
+            "voiceover": "Iaith troslais",
+            "testLanguage": "Iaith y prawf",
+            "bsl": "Iaith Arwyddion Prydain ar sgrin"
+        },
+        "buttonChange": "Newid archeb arall",
+        "error": {
+            "heading": "Ni chanslwyd yr archeb",
+            "contentLine1": "Mae problem dechnegol yn golygu na ellir canslo'r archeb hon.",
+            "contentLine2": "Gallwch {{-openLink}}roi cynnig arall arni i ganslo'r archeb hon{{-closeLink}} Os bydd y broblem hon yn parhau, cysylltwch â’r DVSA."
+        }
+    },
+    "manageBookingCheckChange": {
+        "heading": "Cadarnhau'r newid i'r prawf theori",
+        "buttonConfirm": "Cadarnhau'r newid",
+        "buttonCancel": "Canslo a chadw manylion blaenorol",
+        "error": {
+            "heading": "Newid archeb heb fod yn llwyddiannus",
+            "general": {
+                "contentLine1": "Mae problem dechnegol yn golygu na ellir newid y prawf hwn.",
+                "contentLine2": "Gallwch {{-openLink}}roi cynnig arall arni i newid yr archeb hon{{-closeLink}} Os bydd y broblem hon yn parhau, cysylltwch â’r DVSA."
+            },
+            "slotUnavailable": {
+                "contentLine1": "Nid yw'r slot prawf newydd rydych wedi ceisio'i archebu ar gael bellach. {{-openLink}}Dewiswch slot arall a rhowch gynnig arall arni{{-closeLink}}.",
+                "contentLine2": "Cysylltwch â'r DVSA os bydd unrhyw gwestiynau gennych. Mae'r archeb bresennol yn aros heb gael ei newid."
+            },
+            "noRetry": {
+                "contentLine1": "Mae problem dechnegol yn golygu na ellir dod o hyd i'ch archeb.",
+                "contentLine2": "Cysylltwch â'r DVSA i ddod o hyd i neu ail-drefnu'r prawf hwn."
+            }
+        },
+        "loadingScreen": {
+            "loadingHeading": "Diweddariad archebu",
+            "loadingCaption": "Arhoswch ychydig eiliadau tra bo'r archeb yn cael ei diweddaru."
+        },
+        "loadingScreenRescheduling": {
+            "loadingHeading": "Newid trefn",
+            "loadingCaption": "Arhoswch ychydig eiliadau i newid y gorchymyn."
+        }
+    },
+    "manageBookingChangeConfirmation": {
+        "heading": "Diweddarwyd y prawf theori",
+        "buttonViewAllBookings": "Gweld yr holl archebion",
+        "buttonMakeAnotherChange": "Gwneud newid arall"
+    },
+    "manageBookingRequestRefund": {
+        "heading": "Cais am ad-daliad am brawf sydd wedi cael ei ganslo",
+        "body-1": "Dewis un opsiwn. Dewisiwch '{{-openBold}}Cadarnhau cais am ad-daliad{{-closeBold}}' i anfon eich cais. Neu gallwch ddefnyddio'r ffi o'r prawf sydd wedi cael ei ganslo i dalu am brawf newydd.",
+        "body-2": "Anfonir ad-daliadau i'r cyfrif a ddefnyddiwyd ar gyfer y taliad gwreiddiol.",
+        "confirmRefundButton": "Cadarnhau cais am ad-daliad",
+        "payReplacementTestButton": "Defnyddiwch fy ffi i dalu am brawf newydd"
+    },
+    "manageBookingRefundConfirmation": {
+        "heading": "Cais am ad-daliad wedi cael ei anfon",
+        "bannerSubtitle": "Eich rhif cyfeirnod",
+        "whatHappensNext": "Beth sy'n digwydd nesaf",
+        "body-1": "Anfonir ad-daliadau i'r cyfrif a ddefnyddiwyd ar gyfer y taliad gwreiddiol.",
+        "body-2": "Rydym wedi anfon e-bost atoch yn cadarnhau manylion y cais am yr ad-daliad yma.",
+        "bookNewTest": "Archebu prawf theori newydd",
+        "manageExistingBookings": "Rheoli archebion prawf presennol",
+        "support": "Cymorth archebu prawf theori’r DVSA"
+    },
+    "voiceover": {
+        "heading": "Pa iaith troslais rydych yn dymuno?",
+        "validationError": "Mae’n rhaid i chi ddewis un opsiwn.",
+        "editMode": {
+            "heading": "Ydych chi'n dymuno defnyddio troslais yn ystod y prawf?",
+            "validationError": "Mae’n rhaid i chi ddewis iaith troslais Fel arall, dewiswch 'Nid wyf yn dymuno defnyddio troslais'.",
+            "contentLine1": "Darllenir y cyfarwyddiadau a'r cwestiynau prawf yn uchel trwy glustffonau a ddarperir yn yr ystafell prawf.",
+            "changeAlert": "Gallwch newid eich meddwl yma ynghylch defnyddio clywed troslais yn ystod y prawf, neu ",
+            "changeAlertLink": "fynd yn ôl a chadw'ch dewis blaenorol",
+            "yesOptionPrefix": "Ydw, rwy'n dymuno defnyddio troslais yn ",
+            "noOption": "Nac ydw, nid wyf yn dymuno defnyddio troslais",
+            "confirmChangeButton": "Cadarnhau'r newid a pharhau",
+            "cancelChangeButton": "Canslo a chadw'ch dewis presennol"
+        },
+        "supportMode": {
+            "paragraph1": "Gallwch ddewis o'r ieithoedd troslais hyn sydd ar gael.",
+            "paragraph2": "Os na fydd yr iaith rydych yn dymuno ei defnyddio ar gael, gallwch {{-openLink}}ddychwelyd i'r sgrin flaenorol{{-closeLink}} a gofyn am gyfieithydd."
+        }
+    },
+    "manageBookingChangeBSL": {
+        "heading": "Ydych chi'n dymuno defnyddio Iaith Arwyddion Prydain ar sgrin yn ystod y prawf?",
+        "formHint": "Arwyddir y cyfarwyddiadau a'r cwestiynau prawf ar sgrîn.",
+        "errorBannerNotification": "Mae angen i chi ddewis opsiwn.",
+        "bslFormOption": "Ydw, rwy'n dymuno defnyddio Iaith Arwyddion Prydain ar sgrin",
+        "noneFormOption": "Nac ydw, nid wyf yn dymuno defnyddio Iaith Arwyddion Prydain ar sgrin",
+        "editMode": {
+            "heading": "Ydych chi'n dymuno defnyddio Iaith Arwyddion Prydain ar sgrin?",
+            "changeAlert": "Gallwch newid eich meddwl ynghylch defnyddio Iaith Arwyddion Prydain ar sgrin yn y prawf theori hwn neu {{-openLink}}fynd yn ôl a chadw'ch dewis blaenorol{{-closeLink}}.",
+            "cancelChangeButton": "Canslo a chadw'ch dewis presennol"
+        }
+    },
+    "leavingNsa": {
+        "heading": "Nid oes angen i chi ddarparu tystiolaeth ar gyfer y math o gymorth a ddewisoch",
+        "paragraph1": "Gallwch ddewis 'Parhau' i archebu'ch prawf theori ar-lein nawr.",
+        "paragraph2": "Neu, os yw'n well gennych, dewiswch 'Gofynnwch i ni gysylltu â chi ynglŷn â chymorth' ac fe wnewn ni gysylltu â chi er mwyn:",
+        "bullet1": "paru eich anghenion â'r cymorth cywir",
+        "bullet2": "rhoi cymorth i chi archebu'ch prawf",
+        "supportButton": "Gofynnwch i ni gysylltu â chi ynglŷn â chymorth"
+    },
+    "returningCandidate": {
+        "heading": "Byddwn yn cysylltu â chi i drefnu eich prawf gyda chefnogaeth",
+        "paragraph1": "Byddwn yn cysylltu â chi yn fuan i:",
+        "paragraph1-bullet1": "drafod eich anghenion",
+        "paragraph1-bullet2": "drefnu eich prawf gyda'r math cywir o gymorth",
+        "evidenceHeading": "Tystiolaeth",
+        "evidenceParagraph": "Ar gyfer rhai mathau o gymorth efallai y gofynnir i chi ddarparu tystiolaeth. Mae hwn fel arfer ar ffurf llythyr, e-bost, asesiad diagnostig neu adroddiad gan weithiwr proffesiynol addysgol neu feddygol, therapydd galwedigaethol neu sefydliad swyddogol.",
+        "providedEvidenceBeforeHeading": "Os ydych wedi darparu tystiolaeth o’r blaen",
+        "providedEvidenceBeforeParagraph": "Os gwnaethoch ddarparu tystiolaeth i DVSA yn flaenorol a’i bod wedi cael ei dderbyn, nid oes angen i ni ei weld eto oni bai bod y cymorth sydd ei angen arnoch wedi newid.",
+        "continue": "Parhau"
+    },
+    "customSupport": {
+        "heading": "Ni wnaethoch ddweud wrthym pa fath o gefnogaeth sydd ei hangen arnoch",
+        "paragraph1": "Efallai y bydd eich cais yn cymryd mwy o amser i drefnu os na fyddwch yn dweud wrthym pa gymorth sydd ei angen arnoch.",
+        "paragraph2": "Mae angen amser ar rai mathau o gymorth i'w trefnu. Mae hyn yn golygu na fyddwch o bosibl yn gallu archebu ar-lein ar hyn o bryd.",
+        "inputHint": "Dywedwch wrthym pa gymorth y mae ei angen arnoch (opsiynol)",
+        "errorMessage": "Mae'n rhaid i'r testun a nodir yma gennych fod yn 4000 nod neu lai.",
+        "editMode": {
+            "changeAlert": "Gallwch ddweud mwy wrthym yma ynghylch y cymorth sydd ei angen arnoch. Neu gallwch {{-openLink}}ddefnyddio'r wybodaeth rydych wedi'i chyflwyno'n barod{{-closeLink}}.",
+            "cancelChangeButton": "Canslo a defnyddio'r wybodaeth a gyflwynwyd yn barod"
+        },
+        "skipLink": "Hepgor y cam hwn"
+    },
+    "selectSupportType": {
+        "heading": "Pa gymorth prawf sydd ei angen arnoch chi?",
+        "para1": "Dewiswch yr holl fathau o gymorth sydd eu hangen arnoch chi. Os nad yw'r math o gymorth sydd ei angen arnoch ar y rhestr hon, dewiswch 'Mae angen rhywbeth arall arnaf i'.",
+        "onScreenBsl": "Iaith Arwyddion Prydain ar sgrin (BSL)",
+        "bslInterpreter": "Dehonglydd wrth fy ymyl yn defnyddio iaith arwyddion",
+        "voiceover": "Clustffonau a throslais",
+        "translator": "Cyfieithydd",
+        "extraTime": "Amser ychwanegol",
+        "readingSupport": "Cymorth i ddarllen cwestiynau'r prawf neu nodi'ch atebion",
+        "other": "Mae angen rhywbeth arall arnaf i",
+        "errors": {
+            "noneSelected": "Mae’n rhaid i chi ddewis o leiaf un opsiwn. Os na restrir y cymorth rydych yn dymuno ei dderbyn, dewiswch 'Mae angen rhywbeth arall arnaf i'.",
+            "badCombination": "Rydych wedi dewis o'r iaith arwyddion a throslais. Dewiswch un o'r opsiynau hyn yn unig. Os na restrir y cymorth rydych yn dymuno ei dderbyn, dewiswch 'Mae angen rhywbeth arall arnaf i'.",
+            "invalidOptionSelected": "Nid yw'r math o gefnogaeth a ddewiswyd ar gael ar gyfer y prawf theori hwn. Gallwch geisio eto a dewis mathau eraill o gefnogaeth."
+        },
+        "editMode": {
+            "changeAlert": "Gallwch ddweud mwy wrthym yma ynghylch y cymorth sydd ei angen arnoch. Neu gallwch {{-openLink}}ddefnyddio'r wybodaeth rydych wedi'i chyflwyno'n barod{{-closeLink}}.",
+            "importantWarning": "Os byddwch yn newid eich dewisiadau yma, byddant yn lle'r holl fanylion a gyflwynwyd yn flaenorol.",
+            "cancelChangeButton": "Canslo a defnyddio'r wybodaeth a gyflwynwyd yn barod"
+        }
+    },
+    "selectStandardSupportType": {
+        "heading": "Pa gymorth sydd angen arnoch?",
+        "para1": "Dewiswch y math o gefnogaeth yr hoffech yn ystod eich prawf theori.  Os na fyddai'r naill opsiwn yn ddefnyddiol, dewiswch 'Nid wyf am gael cefnogaeth'.",
+        "onScreenBsl": "Iaith Arwyddion Prydain ar sgrin",
+        "voiceover": "Troslais",
+        "noSupportWanted": "Nid wyf am gael cefnogaeth",
+        "errors": {
+            "noneSelected": "Mae’n rhaid i chi ddewis o leiaf un opsiwn. Os na restrir y cymorth rydych yn dymuno ei dderbyn, dewiswch 'Nid yw'r math cymorth yr wyf ei eisiau yma'."
+        },
+        "editMode": {
+            "changeAlert": "Gallwch ddweud mwy wrthym yma ynghylch y cymorth sydd ei angen arnoch. Neu gallwch {{-openLink}}ddefnyddio'r wybodaeth rydych wedi'i chyflwyno'n barod{{-closeLink}}.",
+            "importantWarning": "Os byddwch yn newid eich dewisiadau yma, byddant yn lle'r holl fanylion a gyflwynwyd yn flaenorol.",
+            "cancelChangeButton": "Canslo a defnyddio'r wybodaeth a gyflwynwyd yn barod"
+        }
+    },
+    "voicemail": {
+        "heading": "A oes modd i ni adael negeseuon ffôn os na allwn gysylltu â chi?",
+        "errorBannerNotification": "Mae’n rhaid i chi ddewis un opsiwn"
+    },
+    "preferredDay": {
+        "heading": "Oes diwrnod ac amser sydd orau i chi?",
+        "paragraph1": "Dywedwch wrthym os oes adeg arbennig o'r diwrnod, neu ddiwrnod o'r wythnos sy'n well i chi. Byddwn yn ceisio trefnu'ch prawf o amgylch y dewisiadau hyn.",
+        "paragraph2": "Os byddwch yn hyblyg ynghlych pryd y byddwch yn sefyll eich prawf, dewiswch 'Byddaf yn gwneud y penderfyniad hwn yn hwyrach'.",
+        "radioHint": "Dewis un opsiwn.",
+        "option1": "Mae angen amser neu ddiwrnod penodol arnaf",
+        "option1Hint": "Nodwch fwy o fanylion (opsiynol)",
+        "option2": "Byddaf yn gwneud y penderfyniad hwn yn hwyrach",
+        "validationError": "Mae’n rhaid i chi ddewis un opsiwn.",
+        "errorMessage": "Mae'n rhaid i'r testun a nodir yma gennych fod yn 4000 nod neu lai."
+    },
+    "preferredLocation": {
+        "heading": "Pa leoliadau prawf sydd fwyaf cyfleus?",
+        "paragraph1": "Mae ein rhwydwaith canolfannau prawf yn rhoi'r hyblygrwydd i chi sefyll eich prawf theori ger ble rydych yn byw, gweithio neu astudio. ",
+        "paragraph2": "Os nad ydych yn siŵr ynghylch y lleoliad gorau eto, dewiswch 'Byddaf yn gwneud y penderfyniad hwn yn hwyrach'.",
+        "radioHint": "Dewis un opsiwn.",
+        "option1": "Rwy'n gwybod pa leoliadau rwyf am sefyll fy mhrawf ynddynt",
+        "option1Content": {
+            "paragraph1": "Dywedwch wrthym a oes lleoliadau penodol a fyddai'n well i chi sefyll eich prawf ynddynt. Er enghraifft, 'Leeds a Bradford' neu 'de Llundain'."
+        },
+        "option1Hint": "Nodi'r lleoliadau prawf rydych am sefyll eich prawf ynddynt",
+        "option2": "Byddaf yn gwneud y penderfyniad hwn yn ddiweddarach",
+        "validationError": "Mae’n rhaid i chi ddewis un opsiwn.",
+        "errorMessage": "Mae'n rhaid i'r testun a nodir yma gennych fod yn 4000 nod neu lai."
+    },
+    "telephoneContact": {
+        "heading": "A fyddai'n well gennych dderbyn galwad ffôn?",
+        "hintText": "Dewis un opsiwn.",
+        "telephoneLabel": "Nodi'ch rhif ffôn",
+        "noSelectionError": "Mae’n rhaid i chi ddewis opsiwn",
+        "noTelephoneError": "Nodi rhif ffôn",
+        "telephoneTooLongError": "Mae'n rhaid i'r rhif ffôn fod yn 50 nod neu lai.",
+        "editMode": {
+            "changeAlert": "Gallwch newid eich meddwl ynghylch hyn neu {{-openLink}}gadw'ch dewis presennol{{-closeLink}}."
+        }
+    },
+    "alreadyReceivedSupportRequest": {
+        "heading": "Rydym eisoes wedi derbyn cais am gymorth",
+        "paragraph1": "Mae cais am gymorth ar gyfer prawf theori â'r manylion hyn eisoes yn ein ciw ymateb.",
+        "paragraph2": "Ar hyn o bryd rydym yn ymateb i nifer fawr o ymholiadau ond byddwn yn cysylltu â chi cyn gynted â phosibl.",
+        "paragraph3": "Gallwch wneud newidiadau i'ch cais am gefnogaeth pan fydd aelod o'n tîm yn cysylltu â chi."
+    },
+    "errors": {
+        "500": {
+            "heading": "Nid yw'r gwasanaeth ar gael dros dro",
+            "description": "Mae problem dechnegol gyda'n system yn golygu nad yw'r gwasanaeth hwn ar gael ar hyn o bryd.",
+            "apology": "Mae'n ddrwg iawn gennym. Rhowch gynnig arall arni'n hwyrach."
+        },
+        "404": {
+            "heading": "Ni ellir dod o hyd i'r dudalen hon",
+            "paragraph1": "Mae'n ddrwg gennym, ni ellir dod o hyd i'r dudalen rydych yn chwilio amdani.",
+            "paragraph2": "Sicrhewch fod y cyfeiriad gwe'n gywir a rhowch gynnig arall arni eto.",
+            "gbServiceLinkText": "Gallwch {{-openLink}}archebu eich prawf theori yn Lloegr, yr Alban neu Gymru{{-closeLink}}.",
+            "gbServiceLinkUrl": "https://www.gov.uk/book-theory-test",
+            "niServiceLinkText": "Mae gwasanaeth gwahanol i {{-openLink}}archebu eich prawf theori yng Ngogledd Iwerddon{{-closeLink}}.",
+            "niServiceLinkUrl": "https://www.nidirect.gov.uk/services/book-change-or-cancel-your-theory-test-online"
+        },
+        "slotUnavailable": {
+            "title": "Gwall: Archeb heb fod yn llwyddiannus",
+            "heading": "Archeb heb fod yn llwyddiannus",
+            "description": "Yn anffodus, nid yw'r slot prawf rydych wedi ceisio'i archebu ar gael bellach.",
+            "button": "Dewiswch slot arall a rhowch gynnig arall arni"
+        },
+        "timeout": {
+            "title": "Gwall: Daethpwyd â therfyn amser sesiwn eich archeb i ben",
+            "heading": "Daethpwyd â therfyn amser sesiwn eich archeb i ben",
+            "description": "Mae’n ddrwg gennym ond mae terfyn amser sesiwn eich archeb wedi dod i ben oherwydd diffyg defnydd.",
+            "action": "Bydd angen i chi {{-openLink}}gychwyn eto{{-closeLink}}"
+        },
+        "technical": {
+            "title": "Gwall: gwasanaeth archebu wedi methu",
+            "heading": "Mae problem",
+            "description": "Mae yna broblem dechnegol. Amharwyd ar y gwasanaeth.",
+            "startAgain": "{{-openLink}}Dechreuwch eich bwciad eto{{-closeLink}}, neu ceisiwch eto yn nes ymlaen.",
+            "contact": "Os bydd y broblem hon yn parhau ",
+            "contactLinkCaption": "{{-openLink}}cysylltwch â DVSA{{-closeLink}}.",
+            "contactLink": "https://www.gov.uk/contact-dvsa"
+        }
+    },
+    "timeout": {
+        "line1": "Bydd terfyn amser sesiwn eich archeb yn dod i ben yn fuan.",
+        "line2": "Byddwn yn ailosod eich archeb os na fyddwch yn ymateb ymhen 5 munud. Rydym yn gwneud hyn i gadw’ch gwybodaeth yn ddiogel.",
+        "button": "Parhewch i archebu",
+        "nonjs": {
+            "line1": "Bydd terfyn amser sesiwn eich archeb yn dod i ben ar ôl 30 munud oherwydd diffyg defnydd.",
+            "line2": "Byddwn yn ailosod eich archeb os na fyddwch yn parhau o’r sgrîn hon ymhen 30 munud. Rydym yn gwneud hyn i gadw’ch gwybodaeth yn ddiogel."
+        }
+    },
+    "privacyPolicy": {
+        "heading": "Archebwch a rheolwch eich prawf theori: hysbysiad preifatrwydd",
+        "guidance": "Canllawiau",
+        "updated": "Diweddarwyd 23 Ebrill 2021",
+        "contents": "Cynnwys",
+        "aboutThisService": {
+            "heading": "Ynghylch y gwasanaeth hwn",
+            "paragraph1": "Mae'r hysbysiad preifatrwydd hwn yn berthnasol i brofion theori a archebir i ddigwydd ar ôl 3 Medi 2021.",
+            "paragraph2": "Mae'r Asiantaeth Safonau Gyrwyr a Cherbydau (DVSA) yn darparu'r gwasanaeth i archebu a rheoli'ch prawf gyrru. Mae'r DVSA yn asiantaeth weithredol o'r Adran dros Drafnidiaeth (DfT).",
+            "paragraph3": "Rydym yn cynnal profion theori ym Mhrydain Fawr. Mae'r gwasanaeth hwn yn caniatáu i chi ddewis dyddiad, amser a chanolfan prawf theori rydych yn dymuno sefyll  eich prawf theori ynddi. Hefyd, mae'n caniatáu i chi newid eich apwyntiad neu ei ganslo.",
+            "paragraph4": "Y rheolydd data ar gyfer y DVSA yw DfT - mae rheolydd data yn pennu'r rhesymau a sut mae data personol yn cael eu prosesu. I gael mwy o wybodaeth gweler Swyddfa'r Comisiynydd Gwybodaeth (ICO) {{-openLink}}Cofrestr Gyhoeddus Diogelu Data{{-closeLink}}. Rhif cofrestru DfT yw Z7122992.",
+            "paragraph5": "Mae'n bosibl y byddwn yn defnyddio GOV.UK Hysbysu i anfon e-byst neu negeseuon testun atoch ynghylch eich prawf theori. Mae hwn yn wasanaeth wedi'i ddarparu gan Wasanaeth Digidol y Llywodraeth, sy'n rhan o Swyddfa'r Cabinet. Ni yw'r rheolydd data ar gyfer eich data o fewn y gwasanaeth hwnnw. Swyddfa'r Cabinet yw'r prosesydd data.",
+            "dataProtectionRegisterLink": "https://ico.org.uk/ESDWebPages/Entry/Z7122992"
+        },
+        "dataWeNeed": {
+            "heading": "Pa ddata sydd eu hangen arnom",
+            "paragraph1": "Bydd y data personol y byddwn yn eu casglu oddi wrthych yn cynnwys:",
+            "list1-1": "enw llawn a theitl",
+            "list1-2": "cyfeiriad, rhif ffôn a chyfeiriad e-bost",
+            "list1-3": "dyddiad geni",
+            "list1-4": "rhyw",
+            "list1-5": "anabledd, cyflyrau iechyd ac anawsterau dysgu, os byddwch yn dweud bod gennych chi rai a bod angen addasiadau rhesymol ar gyfer eich prawf theori",
+            "list1-6": "rhif trwydded yrru a manylion hawl (wedi'u darparu gan y DVLA), dyddiadau gwahardd (os byddwch wedi'ch gwahardd) a rhifau unrhyw drwyddedau gyrru blaenorol (os bydd gennych chi rai) ",
+            "list1-7": "math o brawf rydych yn ei sefyll - os byddwch chi'n sefyll prawf theori hyfforddwr, byddwn hefyd yn casglu'ch rhif cyfeirnod personol",
+            "list1-8": "yr iaith rydych wedi gofyn i'w defnyddio pan fyddwch yn sefyll eich prawf (Saesneg a Chymraeg)",
+            "list1-9": "eich Dyfarniad Defnyddiwr Ffordd Diogel (os bydd gennych chi un) rhif cyfeirnod dysgwr unigryw, dyddiad llwyddo a'r dyddiad y cafodd eich cofnod ei ddiweddaru ddiwethaf",
+            "list1-10": "gwybodaeth am ddigwyddiadau iechyd a diogelwch yn y gorffennol sy'n eich atal rhag archebu ar-lein",
+            "list1-11": "manylion talu - gan gynnwys enw deilydd y cerdyn, cyfeiriad anfonebu deilydd y cerdyn, rhif y cerdyn (mae rhifau wedi'u hamgryptio ac mae mynediad yn gyfyngedig), dyddiadau mae'r cerdyn yn ddilys o ac i, rhif dosbarthu a math o gerdyn (er enghraifft, MasterCard)",
+            "paragraph2": "Y sail gyfreithiol dros brosesu'r data hyn yw:",
+            "list2-1": "Deddf Traffig y Ffordd 1988 (fel y'i diwygiwyd) yn benodol Rhan III a V (trwyddedau galwedigaethol), adrannau 125, 132, 159a a 162A",
+            "list2-2": "Rheoliadau Cerbydau Modur (Trwyddedau Gyrru) 1999 (SI 1999/2864) (fel y'u diwygiwyd), yn benodol Rhan III",
+            "list2-3": "Rheoliadau Ceir Modur (Hyfforddi Gyrru) 2005 (SI 2005/1902) (fel y'u diwygiwyd), yn benodol rhan II a V",
+            "list2-4": "Rheoliadau Gyrwyr Cerbydau (Tystysgrifau Cymhwyster Proffesiynol) 2007 (fel y'u diwygiwyd) (SI 2007/605) (gwnaed o dan bwerau yn Neddf Cymunedau Ewropeaidd 1972, Rhan III Deddf Traffig y Ffordd 1988; a Deddf Cyllid 1973) yn benodol rheoliadau 5 a 8."
+        },
+        "whyWeNeed": {
+            "heading": "Pam bod angen y data arnom",
+            "paragraph1": "Mae angen y data personol rydym yn casglu oddi wrthych i:",
+            "list1-1": "wirio bod gennych hawl i sefyll prawf theori",
+            "list1-2": "archebu'ch apwyntiad prawf theori",
+            "list1-3": "cymryd y taliad am eich prawf theori a rhoi ad-daliad i chi os byddwch yn canslo'ch prawf gan roi  rhybudd 3 diwrnod gwaith clir (nid yw dydd Sul a gwyliau cyhoeddus yn cyfrif fel dyddiau gwaith)",
+            "list1-4": "anfon cadarnhad atoch o'ch apwyntiad",
+            "list1-5": "cysylltu â chi os bydd angen newid apwyntiad eich prawf neu roi gwybod i chi am amhariad ar ein gwasanaethau",
+            "list1-6": "cysylltu â chi os bydd y ffordd mae'r prawf theori'n gweithio yn newid, a bod angen y wybodaeth arnoch i baratoi ar gyfer eich prawf",
+            "list1-7": "sefyll eich prawf theori - gan gynnwys gwneud unrhyw addasiadau rhesymol ar gyfer unrhyw anabledd, cyflwr iechyd neu anhawster dysgu",
+            "list1-8": "rhoi canlyniad eich prawf",
+            "list1-9": "cofnodi canlyniad eich prawf fel ein bod yn gwybod eich bod yn gymwys i sefyll eich prawf gyrru",
+            "list1-10": "cynhyrchu ystadegau wedi'u hanonymeiddio a",
+            "list1-11": "gofyn i chi gymryd rhan mewn prosiectau ymchwil i'n helpu ni i ddeall pa mor hawdd yw ein gwasanaethau i'w defnyddio a sut rydym yn gwella diogelwch y ffordd."
+        },
+        "whatWeDo": {
+            "heading": "Beth rydym yn ei wneud â'r data",
+            "paragraph1": "Rydym yn casglu, defnyddio a storio'r data rydych yn eu rhoi i ni am y rhesymau a amlinellir yn y polisi hwn.",
+            "paragraph2": "Mae Pearson VUE a Reed In Partnership yn gweithredu fel ein prosesydd data i weinyddu a cynnal profion theori. Caniateir iddynt gasglu a phrosesu data personol ar ein rhan.",
+            "paragraph3": "Mae ein cytundebau â Pearson VUE a Reed In Partnership yn dweud bod rhaid iddynt sicrhau bod unrhyw un o'u his-gontractwyr yn bodloni'r un gofynion a safonau diogelu data.",
+            "paragraph4": "Ni fyddwn yn:",
+            "list1-1": "gwerthu na rhentu'ch data i drydydd partïon",
+            "list1-2": "rhannu eich data â thrydydd partïon at ddibenion marchnata",
+            "paragraph5": "Byddwn yn rhannu eich data os bydd gofyn i ni wneud hynny trwy'r gyfraith - er enghraifft, trwy orchymyn llys, neu i atal twyll neu drosedd arall."
+        },
+        "howLongWeKeep": {
+            "heading": "Am faint o amser y byddwn yn cadw'ch data",
+            "paragraph1": "Y rhesymau a nodir yn y polisi hwn neu am gyhyd ag sy'n ofynnol yn ôl y gyfraith y byddwn yn cadw'ch data personol.",
+            "paragraph2": "Byddwn yn cadw'ch data personol am:",
+            "list1-1": "30 mis i weinyddu'ch archeb prawf theori, gan gynnwys gwirio eich bod yn gymwys i sefyll y prawf",
+            "list1-2": "7 mlynedd ar gyfer manylion eich taliad",
+            "list1-3": "42 mis ar gyfer data am eich Dyfarniad Defnyddiwr Ffordd Diogel, os bydd gennych un",
+            "paragraph3": "Byddwn yn cadw data personol amdanoch a'ch ymddygiad sy'n fygythiad i'n staff neu ymgeiswyr eraill am ba bynnag un o'r rhain yw'r cyfnod byrraf:",
+            "list2-1": "tan eich bod wedi llwyddo yn eich prawf theori",
+            "list2-2": "tan eich bod wedi methu'ch prawf theori, ond na wnaethoch ddangos ymddygiad difrïol ychwanegol",
+            "list2-3": "2 flynedd ers eich prawf diwethaf, oni bai eich bod wedi'ch cyhuddo â throsedd - yn yr achos hwn, mae'ch data yn cael eu cadw tan eich bod yn llwyddo yn eich prawf theori",
+            "list2-4": "lle mae adolygiad chwarterol yn dangos bod y bygythiad rydych yn ei gyflwyno wedi lleihau"
+        },
+        "whereItMightGo": {
+            "heading": "Ble gallai'r data fynd",
+            "paragraph1": "Mae'n hisadeiledd a thechnoleg TG wedi cael eu gwirio i sicrhau eu bod yn ddiogel.",
+            "paragraph2": "Caniateir i Pearson VUE a Reed In Partnership gasglu a phrosesu gwybodaeth bersonol o fewn y DU."
+        },
+        "protectingYourData": {
+            "paragraph1": "Mae {{-openLink}}siarter gwybodaeth bersonol y DVSA{{-closeLink}} yn amlinellu pa gamau sy'n cael eu cymryd i ddiogelu'ch data, a'r hawliau sydd gennych dros eich data.",
+            "heading": "Diogelu'ch data a'ch hawliau",
+            "informationCharterLink": "https://www.gov.uk/government/organisations/driver-and-vehicle-standards-agency/about/personal-information-charter"
+        },
+        "changesToNotice": {
+            "heading": "Newidiadau i'r hysbysiad hwn",
+            "paragraph1": "Rydym yn gallu newid yr hysbysiad preifatrwydd hwn yn ôl ein disgresiwn ar unrhyw adeg.",
+            "paragraph2": "Pan fyddwn yn newid yr hysbysiad hwn, bydd y dyddiad ar y dudalen yn cael ei ddiweddaru. Bydd unrhyw newidiadau i'r hysbysiad preifatrwydd hwn yn berthnasol i chi a'ch data o ddyddiad yr adolygiad hwnnw.",
+            "paragraph3": "Rydym yn eich annog i adolygu'r hysbysiad preifatrwydd hwn yn rheolaidd  i gael y diweddaraf ynghylch sut mae'ch data'n cael eu diogelu."
+        },
+        "contactUs": {
+            "heading": "Sut i gysylltu â ni",
+            "paragraph1": "Oes bydd gennych unrhyw gwestiynau am unrhyw beth yn y ddogfen hon neu os byddwch yn ystyried bod eich data personol wedi'u camddefnyddio neu'u camdrafod gallwch gysylltu â rheolwr diogelu data'r DVSA.",
+            "paragraph2": "Rheolwr diogelu data'r DVSA",
+            "addressLine1": "Rheolwr Diogelu Data",
+            "addressLine2": "Asiantaeth Safonau Gyrwyr a Cherbydau",
+            "addressLine3": "The Axis Building",
+            "addressLine4": "112 Upper Parliament Street",
+            "addressLine5": "Nottingham",
+            "addressLine6": "NG1 6LP",
+            "infoHandlingEmailLink": "information.handling@dvsa.gov.uk",
+            "paragraph3": "Gallwch hefyd wneud cwyn i'r Comisiynydd Gwybodaeth, sy'n rheoleiddiwr annibynnol.",
+            "contactDvsaLink": "https://www.gov.uk/contact-dvsa/y",
+            "icoHeading": "Swyddfa'r Comisiynydd Gwybodaeth",
+            "commissionerEmail": "E-bost {{-openLink}}icocasework@ico.org.uk{{-closeLink}}",
+            "commissionerEmailLink": "icocasework@ico.org.uk",
+            "telephone": "Ffôn 0303 123 1113",
+            "textphone": "Ffôn testun 01625 545 860",
+            "paragraphEmail": "E-bost {{-openLink}}information.handling@dvsa.gov.uk{{-closeLink}}",
+            "contactDvsa": "{{-openLink}}Cysylltwch â gwasanaethau cwsmeriaid y DVSA{{-closeLink}} os bydd gennych ymholiad nad yw'n ymwneud  sut mae'ch data personol yn cael eu defnyddio.",
+            "contactFormLink": "https://ico.org.uk/global/contact-us/",
+            "contactForm": "Ffurflen gyswllt {{-openLink}}https://ico.org.uk/global/contact-us/{{-closeLink}}"
+        }
+    },
+    "evidence": {
+        "notRequired": {
+            "heading": "Byddwn yn cysylltu â chi i drefnu eich prawf gyda chymorth",
+            "description": "Byddwn yn cysylltu â chi yn fuan i:",
+            "line1": "drafod eich anghenion",
+            "line2": "drefnu eich prawf gyda'r math cywir o gymorth"
+        },
+        "required": {
+            "heading": "Anfonwch dystiolaeth atom a byddwn yn cysylltu â chi i drefnu'ch prawf â chymorth",
+            "description": "Mae'n rhaid i chi anfon tystiolaeth atom cyn y gellir archebu eich prawf. Byddwn yn dangos i chi sut i'w wneud hyn yn fuan.",
+            "subheader": "Er mwyn osgoi oedi, anfonwch eich tystiolaeth nawr",
+            "subdescription": "Anfonwch eich tystiolaeth cyn gynted â phosibl er mwyn osgoi oedi wrth archebu'ch prawf.",
+            "listCaption": "Sicrhewch bod eich tystiolaeth:",
+            "line1": "yn nodi eich cyflwr",
+            "line2": "yn cynnwys eich enw cyntaf a chyfenw",
+            "line3": "ar ffurf llythyr, e-bost, asesiad diagnostig neu adroddiad",
+            "line4": "yn dod o weithiwr proffesiynol addysgol neu feddygol, therapydd galwedigaethol neu sefydliad swyddogol",
+            "line5": "wedi'i lofnodi ac ar bapur swyddogol, os yw'n llythyr neu'n adroddiad"
+        },
+        "mayBeRequired": {
+            "heading": "Anfonwch dystiolaeth atom a byddwn yn cysylltu â chi i drefnu'ch prawf â chymorth",
+            "description": "Byddwn yn cysylltu â chi yn fuan i:",
+            "line1": "drafod eich anghenion",
+            "line2": "drefnu eich prawf gyda'r math cywir o gymorth",
+            "subsection": {
+                "header": "Achosion pan nad oes angen i chi ddarparu tystiolaeth",
+                "listDescription": "Ar gyfer derbyn rhai mathau o gymorth efallai y gofynnir i chi i ddarparu tystiolaeth. Pan fyddwn yn gwybod mwy am ba gymorth sydd ei angen arnoch:",
+                "line1": "byddwn yn dweud wrthych a oes rhaid i chi ddarparu tystiolaeth",
+                "line2": "pa fathau o dystiolaeth y gellir ddefnyddio",
+                "footer": "Mae hwn fel arfer ar ffurf llythyr, e-bost, asesiad diagnostig neu adroddiad gan weithiwr proffesiynol addysgol neu feddygol, therapydd galwedigaethol neu sefydliad swyddogol."
+            }
+
+        },
+        "deafCandidate": {
+            "header": "Achosion pan nad oes angen i chi ddarparu tystiolaeth",
+            "description": "Nid oes angen i chi ddarparu tystiolaeth os ydych yn fyddar neu os oes gennych nam ar y clyw ac yn gofyn am gymorth yn ymwneud â byddardod, yn ogystal ag amser ychwanegol. Os gwnaethoch ofyn am unrhyw fath arall o gymorth bydd angen i chi ddarparu tystiolaeth."
+        }
+    },
+    "paymentConfirmationLoading": {
+        "heading": "Archebu ar y gweill",
+        "content": {
+            "paragraph1": "Arhoswch tra bod eich taliad a'ch archeb wedi'u cadarnhau. ",
+            "paragraph2": "Gall hyn gymryd hyd at un funud.",
+            "paragraph3": "Peidiwch ag adnewyddu'r dudalen hon na defnyddio botwm 'nôl y porwr'. ",
+            "paragraph4": "Gallai effeithio ar eich taliad neu archeb."
+        } 
+    }
+}

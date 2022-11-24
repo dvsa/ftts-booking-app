@@ -1,0 +1,55 @@
+header.govuk-header {
+    background-color: $nidirect-brand-blue;
+    color: $nidirect-white;
+    padding-top: 3px;
+    position: relative;
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        background-color: $nidirect-mid-grey;
+        z-index: 3;
+    }
+
+    .govuk-header__ {
+        &container {
+            border-bottom-color: $nidirect-brand-blue;
+        }
+
+        &logotype-text {
+            visibility: hidden;
+        }
+
+        &content {
+            @include govuk-grid-column(full);
+            float: none;
+            padding-left: 0;
+            position: relative;
+        }
+
+        &link--service-name {
+            &:active,
+            &:focus,
+            &:hover,
+            &:link,
+            &:visited {
+                font-size: 1.8rem;
+                font-weight: 300;
+                margin: 12px 0;
+                color: $nidirect-brand-blue;
+                background-color: $nidirect-mid-grey;
+                box-shadow: none;
+                position: relative;
+                z-index: 4;
+            }
+        }
+    }
+}
+
+.govuk-phase-banner__content__tag {
+    background-color: $nidirect-brand-blue;
+}

@@ -1,0 +1,481 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+{% block page_title %}
+  {{ t('cookiePolicy.heading') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  <div role="navigation" aria-label="back">
+    {{ govukBackLink({
+      text: t('generalContent.back'),
+      href: cookiePageBackLink,
+      attributes: {
+        'data-automation-id': 'back-link'
+      }
+    }) }}
+  </div>
+{% endblock %}
+{% block content %}
+
+{% set html %}
+  <p class="govuk-notification-banner__heading" data-automation-id="notification-heading">{{ t('cookiePolicy.notificationPreferenceSet.heading') }}<a class="govuk-notification-banner__link" href="{{ cookiePageBackLink }}" data-automation-id="notification-back-link">{{ t('cookiePolicy.notificationPreferenceSet.link') }}</a>.</p>
+{% endset %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {% if cookiePreferenceSet %}
+      {{ govukNotificationBanner({
+        html: html,
+        type: 'success',
+        titleText: t('generalContent.notificationBanner.tags.success'),
+        attributes: {
+          'data-automation-id': 'notification-success'
+        }
+      }) }}
+    {% endif %}
+
+    <div class="cookie-policy">
+      <h1 class="govuk-heading-xl govuk-!-margin-top-3" data-automation-id="cookie-policy-heading-1">{{ t('cookiePolicy.heading') }}</h1>
+
+      <p class="govuk-body">{{ t('cookiePolicy.para1') }}</p>
+      <p class="govuk-body">{{ t('cookiePolicy.para2') }}</p>
+      <p class="govuk-body">{{ t('cookiePolicy.para3') }}</p>
+
+      {# Cookies used on this service #}
+      <h2 class="govuk-heading-m" data-automation-id="cookie-policy-heading-2">{{ t('cookiePolicy.heading2') }}</h2>
+
+      <p class="govuk-body">{{ t('cookiePolicy.para4') }}</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>{{ t('cookiePolicy.list1-1') }}</li>
+        <li>{{ t('cookiePolicy.list1-2') }}</li>
+        <li>{{ t('cookiePolicy.list1-3') }}</li>
+      </ul>
+
+      {# Service application cookies #}
+      <h2 class="govuk-heading-m" data-automation-id="cookie-policy-heading-3">{{ t('cookiePolicy.heading3') }}</h2>
+
+      <p class="govuk-body">{{ t('cookiePolicy.para5') }}</p>
+      <p class="govuk-body">{{ t('cookiePolicy.para6') }}</p>
+
+      {{ govukTable({
+        firstCellIsHeader: true,
+        head: [
+          {
+            text: t('cookiePolicy.table1.head1')
+          },
+          {
+            text: t('cookiePolicy.table1.head2')
+          },
+          {
+            text: t('cookiePolicy.table1.head3')
+          }
+        ],
+        rows: [
+          [
+            {
+              text: t('cookiePolicy.table1.row1-1')
+            },
+            {
+              text: t('cookiePolicy.table1.row1-2')
+            },
+            {
+              text: t('cookiePolicy.table1.row1-3')
+            }
+          ],
+          [
+            {
+              text: t('cookiePolicy.table1.row2-1')
+            },
+            {
+              text: t('cookiePolicy.table1.row2-2')
+            },
+            {
+              text: t('cookiePolicy.table1.row2-3')
+            }
+          ]
+        ]
+      }) }}
+
+      {# Analytics cookies #}
+      <h2 class="govuk-heading-m" data-automation-id="cookie-policy-heading-4">{{ t('cookiePolicy.heading4') }}</h2>
+
+      <p class="govuk-body">{{ t('cookiePolicy.para7') }}</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>{{ t('cookiePolicy.list2-1') }}</li>
+        <li>{{ t('cookiePolicy.list2-2') }}</li>
+        <li>{{ t('cookiePolicy.list2-3') }}</li>
+        <li>{{ t('cookiePolicy.list2-4') }}</li>
+      </ul>
+      <p class="govuk-body">{{ t('cookiePolicy.para8') }}</p>
+      <p class="govuk-body">{{ t('cookiePolicy.para9') }}</p>
+
+      {{ govukTable({
+        firstCellIsHeader: true,
+        head: [
+          {
+            text: t('cookiePolicy.table2.head1')
+          },
+          {
+            text: t('cookiePolicy.table2.head2')
+          },
+          {
+            text: t('cookiePolicy.table2.head3')
+          }
+        ],
+        rows: [
+          [
+            {
+              text: t('cookiePolicy.table2.row1-1')
+            },
+            {
+              text: t('cookiePolicy.table2.row1-2')
+            },
+            {
+              text: t('cookiePolicy.table2.row1-3')
+            }
+          ],
+          [
+            {
+              text: t('cookiePolicy.table2.row2-1')
+            },
+            {
+              text: t('cookiePolicy.table2.row2-2')
+            },
+            {
+              text: t('cookiePolicy.table2.row2-3')
+            }
+          ],
+          [
+            {
+              text: t('cookiePolicy.table2.row3-1')
+            },
+            {
+              text: t('cookiePolicy.table2.row3-2')
+            },
+            {
+              text: t('cookiePolicy.table2.row3-3')
+            }
+          ]
+        ]
+      }) }}
+
+      <form method="GET">
+        {{ govukRadios({
+          classes: 'govuk-radios--inline',
+          idPrefix: 'cookies-enabled',
+          name: 'cookies',
+          attributes: {
+            'data-automation-id': 'cookie-policy-radio'
+          },
+          fieldset: {
+            legend: {
+              text: t('cookiePolicy.legendText'),
+              isPageHeading: true,
+              classes: 'govuk-fieldset__legend--m'
+            }
+          },
+          items: [
+            {
+              value: 'accept',
+              text: t('cookiePolicy.cookiesOn')
+            },
+            {
+              value: 'reject',
+              text: t('cookiePolicy.cookiesOff')
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: t('cookiePolicy.submitButton'),
+          type: 'submit',
+          attributes: {
+            'data-automation-id': 'submit-button'
+          }
+        }) }}
+      </form>
+
+      {# Third-party cookies #}
+      <h2 class="govuk-heading-m" data-automation-id="cookie-policy-heading-5">{{ t('cookiePolicy.heading5') }}</h2>
+
+      {# Feedback survey #}
+      <h3 class="govuk-heading-s">{{ t('cookiePolicy.para10') }}</h3>
+      <p class="govuk-body">{{ t('cookiePolicy.para11') }}</p>
+
+      {# Imperva Incapsula cookies #}
+      <h3 class="govuk-heading-s">{{ t('cookiePolicy.imperva.heading') }}</h3>
+
+      <p class="govuk-body">{{ t('cookiePolicy.imperva.para1') }}</p>
+      <p class="govuk-body">{{ t('cookiePolicy.imperva.para2') }}</p>
+
+      {{ govukTable({
+        firstCellIsHeader: true,
+        head: [
+          {
+            text: t('cookiePolicy.table3.head1')
+          },
+          {
+            text: t('cookiePolicy.table3.head2')
+          },
+          {
+            text: t('cookiePolicy.table3.head3')
+          }
+        ],
+        rows: [
+          [
+            {
+              text: t('cookiePolicy.table3.row1-1')
+            },
+            {
+              text: t('cookiePolicy.table3.row1-2')
+            },
+            {
+              text: t('cookiePolicy.table3.row1-3')
+            }
+          ],
+          [
+            {
+              text: t('cookiePolicy.table3.row2-1')
+            },
+            {
+              text: t('cookiePolicy.table3.row2-2')
+            },
+            {
+              text: t('cookiePolicy.table3.row2-3')
+            }
+          ],
+          [
+            {
+              text: t('cookiePolicy.table3.row3-1')
+            },
+            {
+              text: t('cookiePolicy.table3.row3-2')
+            },
+            {
+              text: t('cookiePolicy.table3.row3-3')
+            }
+          ],
+          [
+            {
+              text: t('cookiePolicy.table3.row4-1')
+            },
+            {
+              text: t('cookiePolicy.table3.row4-2')
+            },
+            {
+              text: t('cookiePolicy.table3.row4-3')
+            }
+          ],
+          [
+            {
+              text: t('cookiePolicy.table3.row5-1')
+            },
+            {
+              text: t('cookiePolicy.table3.row5-2')
+            },
+            {
+              text: t('cookiePolicy.table3.row5-3')
+            }
+          ]
+        ]
+      }) }}
+
+      {# Queue It cookies #}
+      <h3 class="govuk-heading-s">{{ t('cookiePolicy.queueit.heading') }}</h3>
+
+      {{ govukTable({
+        firstCellIsHeader: true,
+        head: [
+          {
+            text: t('cookiePolicy.table4.head1')
+          },
+          {
+            text: t('cookiePolicy.table4.head2')
+          },
+          {
+            text: t('cookiePolicy.table4.head3')
+          }
+        ],
+        rows: [
+          [
+            {
+              text: t('cookiePolicy.table4.row1-1')
+            },
+            {
+              text: t('cookiePolicy.table4.row1-2')
+            },
+            {
+              text: t('cookiePolicy.table4.row1-3')
+            }
+          ],
+          [
+            {
+              text: t('cookiePolicy.table4.row2-1')
+            },
+            {
+              text: t('cookiePolicy.table4.row2-2')
+            },
+            {
+              text: t('cookiePolicy.table4.row2-3')
+            }
+          ]
+        ]
+      }) }}
+
+      {# Government services #}
+      <h3 class="govuk-heading-s">{{ t('cookiePolicy.para12') }}</h3>
+      <p class="govuk-body">{{ t('cookiePolicy.para13') }}</p>
+      <p class="govuk-body">{{ t('cookiePolicy.para14') }}</p>
+    </div>
+
+    <noscript>
+      <h1 class="govuk-heading-xl govuk-!-margin-top-3" data-automation-id="cookie-policy-nonjs-heading-1">{{ t('cookiePolicy.nonJs.heading1') }}</h1>
+      <p class="govuk-body">{{ t('cookiePolicy.nonJs.para1') }}</p>
+      <p class="govuk-body">{{ t('cookiePolicy.nonJs.para2') }}</p>
+
+      <p class="govuk-body govuk-!-font-weight-bold">{{ t('cookiePolicy.nonJs.para3') }}</p>
+      <p class="govuk-body">{{ t('cookiePolicy.nonJs.para4') }}</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>{{ t('cookiePolicy.nonJs.list1-1') }}</li>
+        <li>{{ t('cookiePolicy.nonJs.list1-2') }}</li>
+      </ul>
+
+      {% if target == 'gb' %}
+        <p class="govuk-body govuk-!-font-weight-bold">{{ t('cookiePolicy.nonJs.para5') }}</p>
+        <p class="govuk-body">{{ t('cookiePolicy.nonJs.para6') }}</p>
+        <p class="govuk-body">{{ t('cookiePolicy.nonJs.para7') }}</p>
+      {% else %}
+        <p class="govuk-body govuk-!-font-weight-bold">{{ t('cookiePolicy.nonJs.para8') }}</p>
+        <p class="govuk-body">{{ t('cookiePolicy.nonJs.para9') }}</p>
+        <p class="govuk-body">{{ t('cookiePolicy.nonJs.para10') }}</p>
+      {% endif %}
+
+      {# Imperva Incapsula cookies #}
+      <h3 class="govuk-heading-s">{{ t('cookiePolicy.imperva.heading') }}</h3>
+
+      <p class="govuk-body">{{ t('cookiePolicy.imperva.para1') }}</p>
+      <p class="govuk-body">{{ t('cookiePolicy.imperva.para2') }}</p>
+
+      {{ govukTable({
+        firstCellIsHeader: true,
+        head: [
+          {
+            text: t('cookiePolicy.table3.head1')
+          },
+          {
+            text: t('cookiePolicy.table3.head2')
+          },
+          {
+            text: t('cookiePolicy.table3.head3')
+          }
+        ],
+        rows: [
+          [
+            {
+              text: t('cookiePolicy.table3.row1-1')
+            },
+            {
+              text: t('cookiePolicy.table3.row1-2')
+            },
+            {
+              text: t('cookiePolicy.table3.row1-3')
+            }
+          ],
+          [
+            {
+              text: t('cookiePolicy.table3.row2-1')
+            },
+            {
+              text: t('cookiePolicy.table3.row2-2')
+            },
+            {
+              text: t('cookiePolicy.table3.row2-3')
+            }
+          ],
+          [
+            {
+              text: t('cookiePolicy.table3.row3-1')
+            },
+            {
+              text: t('cookiePolicy.table3.row3-2')
+            },
+            {
+              text: t('cookiePolicy.table3.row3-3')
+            }
+          ],
+          [
+            {
+              text: t('cookiePolicy.table3.row4-1')
+            },
+            {
+              text: t('cookiePolicy.table3.row4-2')
+            },
+            {
+              text: t('cookiePolicy.table3.row4-3')
+            }
+          ],
+          [
+            {
+              text: t('cookiePolicy.table3.row5-1')
+            },
+            {
+              text: t('cookiePolicy.table3.row5-2')
+            },
+            {
+              text: t('cookiePolicy.table3.row5-3')
+            }
+          ]
+        ]
+      }) }}
+
+      {# Queue It cookies #}
+      <h3 class="govuk-heading-s">{{ t('cookiePolicy.queueit.heading') }}</h3>
+
+      {{ govukTable({
+        firstCellIsHeader: true,
+        head: [
+          {
+            text: t('cookiePolicy.table4.head1')
+          },
+          {
+            text: t('cookiePolicy.table4.head2')
+          },
+          {
+            text: t('cookiePolicy.table4.head3')
+          }
+        ],
+        rows: [
+          [
+            {
+              text: t('cookiePolicy.table4.row1-1')
+            },
+            {
+              text: t('cookiePolicy.table4.row1-2')
+            },
+            {
+              text: t('cookiePolicy.table4.row1-3')
+            }
+          ],
+          [
+            {
+              text: t('cookiePolicy.table4.row2-1')
+            },
+            {
+              text: t('cookiePolicy.table4.row2-2')
+            },
+            {
+              text: t('cookiePolicy.table4.row2-3')
+            }
+          ]
+        ]
+      }) }}
+    </noscript>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "loading-component.njk" import loadingComponent %}
+
+{% block page_title %}
+  {{ t('changeLocationTime.heading') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block content %}
+
+{% include "error-banner.njk" %}
+{{ loadingComponent(t('changeLocationTime.loadingScreen.loadingHeading'), t('changeLocationTime.loadingScreen.loadingCaption')) }}
+
+{% if inEditMode %}
+  <div class="alert govuk-body govuk-!-margin-bottom-8" id="editModeBanner">
+    {{ t('changeLocationTime.changeAlert', {
+      openLink: '<a href="' + checkAnswersLink + '" class="govuk-link">',
+      closeLink: '</a>'
+    }) | safe }}
+  </div>
+{% endif %}
+
+<div class="govuk-grid-row" id="pageContent">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-form-group">
+      <form method="POST" id="form">
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+        {% set fieldName = "changeLocationOrTime" %}
+        {% set hasError = fieldName|existsAsAnErrorIn(errors) %}
+        {% set errorObject = null %}
+        {% if hasError %}
+          {% set errorObject = {
+            text: fieldName|fieldErrorMessage(errors)
+          } %}
+        {% endif %}
+        {{ govukRadios({
+          name: fieldName,
+          fieldset: {
+            legend: {
+              text: t('changeLocationTime.heading'),
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          hint: {
+            text: t('changeLocationTime.description')
+          },
+          errorMessage: errorObject,
+          items: options
+        }) }}
+        <br>
+        <button id="continueButton" type="submit" class="govuk-button govuk-!-margin-right-1">{{ t('changeLocationTime.confirmChangeButton') }}</button>
+        <a href="{{checkAnswersLink}}" id="cancel" class="govuk-button govuk-button--secondary">{{ t('changeLocationTime.cancelChangeButton') }}</a>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block pageScripts %}
+<script src="{{ 'javascripts/loading-spinner.min.js' | asset }}"></script>
+<script nonce="{{scriptNonce}}">
+  new LoadingSpinner(
+    {
+      formId: "form",
+      elementsToHide: ["pageContent", "editModeBanner", "error-banner"],
+      elementsToDisable: ["continueButton"],
+      skipIfChecked: ["changeLocationOrTime-2", "changeLocationOrTime-3"],
+      triggerElements: ["form"],
+      triggerEvent: "submit",
+    }
+  );
+</script>
+{% endblock %}

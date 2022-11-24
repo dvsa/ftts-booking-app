@@ -1,0 +1,7 @@
+// Restyle govuk radios 'divider' as a subgroup heading
+.radio-groups .govuk-radios__divider {
+  @extend %govuk-heading-m;
+  @include govuk-responsive-margin(5, "top");
+  width: 100%;
+  text-align: left;
+}

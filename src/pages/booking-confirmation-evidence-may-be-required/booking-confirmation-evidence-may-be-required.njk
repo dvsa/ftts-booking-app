@@ -1,0 +1,77 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/panel/macro.njk" import govukPanel %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+{% from "collapsed-centre-location.njk" import collapsedCentreLocation %}
+
+{% block timeoutNotification %}
+{% endblock %}
+
+{% block page_title %}
+   {{t('bookingConfirmation.nonStandardAccommodation.evidenceNotNeededHeading')}} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    {% set panelHTML %}
+      <span class="govuk-!-font-size-36">{{ t('bookingConfirmation.nonStandardAccommodation.panelBookingRef') }}</span>
+      <br>
+      <span class="govuk-!-font-size-36 govuk-!-font-weight-bold">{{ bookingRef }}</span>
+      <br>
+    {% endset %}
+    {{
+      govukPanel({
+        titleText: t('bookingConfirmation.nonStandardAccommodation.evidenceNotNeededHeading'),
+        html: panelHTML,
+        attributes: { 'data-automation-id': 'confirmation-panel' }
+      })
+    }}
+  </div>
+  <br>
+  <div class="govuk-grid-column-two-thirds">
+
+    {% include "booking-confirmation-nsa-general-info.njk" %}
+
+    <h3 class="govuk-heading-m" data-automation-id="when-evidence-might-be-needed">{{ t('bookingConfirmation.nonStandardAccommodation.youMayNeedEvidence.title') }}</h3>
+    <p class="govuk-body">{{ t('bookingConfirmation.nonStandardAccommodation.youMayNeedEvidence.paragraph') }}</p>
+
+    {% if deafCandidate %}
+      <h3 class="govuk-heading-m" data-automation-id="when-no-evidence-required">{{ t('bookingConfirmation.nonStandardAccommodation.additionalTextForDeafUsers.title') }}</h3>
+      <p class="govuk-body">{{ t('bookingConfirmation.nonStandardAccommodation.additionalTextForDeafUsers.paragraph') }}</p>
+    {% endif %}
+
+    {% include "contact-information.njk" %}
+  </div>
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script nonce="{{scriptNonce}}">
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', enablePrintButton);
+  } else {
+    enablePrintButton();
+  }
+
+  function printPage(e) {
+    window.print();
+    e.stopPropagation();
+  }
+
+  function enablePrintButton() {
+    const printTrigger = document.getElementById('printTrigger');
+    printTrigger.classList.remove('hidden');
+    printTrigger.onclick = printPage;
+
+    const nonJsPrintSpan = document.getElementById('nonJsPrint');
+    nonJsPrintSpan.classList.add('hidden');
+  }
+</script>
+{% endblock %}

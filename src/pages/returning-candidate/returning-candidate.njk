@@ -1,0 +1,41 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block page_title %}
+  {{ t('returningCandidate.heading') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  <div role="navigation" aria-label="back">
+    {{ govukBackLink({
+      text: t('generalContent.back'),
+      href: backLink,
+      attributes: { 'data-automation-id': 'back' }
+    }) }}
+  </div>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl" data-automation-id="heading">{{ t('returningCandidate.heading') }}</h1>
+      <p class="govuk-body" data-automation-id="paragraph1">{{ t('returningCandidate.paragraph1') }}</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li data-automation-id="bullet1">{{ t('returningCandidate.paragraph1-bullet1') }}</li>
+        <li data-automation-id="bullet2">{{ t('returningCandidate.paragraph1-bullet2') }}</li>
+      </ul>
+      <h3 class="govuk-heading-s">{{ t('returningCandidate.evidenceHeading') }}</h3>
+      <p class="govuk-body" data-automation-id="paragraph2">{{ t('returningCandidate.evidenceParagraph') }}</p>
+      <h3 class="govuk-heading-s">{{ t('returningCandidate.providedEvidenceBeforeHeading') }}</h3>
+      <p class="govuk-body" data-automation-id="paragraph3">{{ t('returningCandidate.providedEvidenceBeforeParagraph') }}</p>
+      {{ govukButton({
+        text: t('generalContent.continueButton'),
+        href: '/nsa/preferred-day',
+        attributes: {
+          'data-automation-id': 'submit'
+        }
+      }) }}
+    </div>
+  </div>
+{% endblock %}

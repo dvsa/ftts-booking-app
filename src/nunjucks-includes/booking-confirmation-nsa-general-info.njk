@@ -1,0 +1,102 @@
+<div class="govuk-!-margin-bottom-5">
+  <p class="govuk-body">
+    {{ t('bookingConfirmation.nonStandardAccommodation.printPagePrompt') }} <span id="nonJsPrint" data-automation-id="nonJsPrint">{{ t('bookingConfirmation.printLink') }}</span><a id="printTrigger" data-automation-id="printTrigger" href="#" class="govuk-link hidden">{{ t('bookingConfirmation.printLink') }}</a>
+    {{ t('bookingConfirmation.nonStandardAccommodation.emailAlsoSent') }}
+  </p>
+</div>
+{% set importantHTMLBanner %}
+    <p class="govuk-notification-banner__heading">
+      {{ t('bookingConfirmation.nonStandardAccommodation.importantBanner')}}
+    </p>
+{% endset %}
+{% set supportTypesHtml %}
+  <ul class="govuk-list">
+  {% for supportType in supportTypes %}
+    <li>{{ t('generalContent.abbreviatedSupportTypes.' + supportType)}}</li>
+  {% endfor %}
+  </ul>
+{% endset %}
+{% set testTypeHeaderValue %}
+  <strong>{{ t('bookingConfirmation.nonStandardAccommodation.testAndSupportDetails.testType') }}</strong>
+{% endset %}
+{% set onScreenLanguageHeaderValue %}
+    <strong>{{ t('bookingConfirmation.nonStandardAccommodation.testAndSupportDetails.onScreenLanguage') }}</strong>
+{% endset %}
+{% set supportRequestedHeaderValue %}
+  <strong>{{ t('bookingConfirmation.nonStandardAccommodation.testAndSupportDetails.supportRequested') }}</strong>
+{% endset %}
+{% set supportTypesSelectedHeaderValue %}
+    <strong>{{ t('bookingConfirmation.nonStandardAccommodation.testAndSupportDetails.supportTypesSelected') }}</strong>
+{% endset %}
+{% set preferedTimeHeaderValue %}
+    <strong>{{ t('bookingConfirmation.nonStandardAccommodation.testAndSupportDetails.preferedTime') }}</strong>
+{% endset %}
+{% set preferedLocationHeaderValue %}
+  <strong>{{ t('bookingConfirmation.nonStandardAccommodation.testAndSupportDetails.preferedLocation') }}</strong>
+{% endset %}
+
+{{ govukNotificationBanner ({
+  html: importantHTMLBanner,
+  titleText: t('generalContent.important'),
+  titleId: 'govuk-notification-compensationEligible',
+  attributes: {
+    id: 'bookingConfirmationNotification',
+    'data-automation-id': 'bookingConfirmationImportantBanner'
+    }
+  })
+}}
+<br>
+<h3 class="govuk-heading-m" data-automation-id="test-and-support-details">{{t('bookingConfirmation.nonStandardAccommodation.testAndSupportDetails.header')}}</h3>
+{{ govukTable({
+    firstCellIsHeader: false,
+  rows: [
+    [
+      {
+        html:testTypeHeaderValue
+      },
+      {
+        text: testType
+      }
+    ],
+    [
+      {
+        html: onScreenLanguageHeaderValue
+      },
+      {
+        text: language
+      }
+    ],
+    [
+      {
+        html:  supportRequestedHeaderValue
+      },
+      {
+        text: t('generalContent.yes')
+      }
+    ],
+    [
+      {
+        html: supportTypesSelectedHeaderValue
+      },
+      {
+        html: supportTypesHtml
+      }
+    ],
+    [
+      {
+        html:  preferedTimeHeaderValue
+      },
+      {
+        text: preferDay
+      }
+    ],
+    [
+      {
+        html: preferedLocationHeaderValue
+      },
+      {
+        text: preferLocation
+      }
+    ]
+  ]
+}) }}

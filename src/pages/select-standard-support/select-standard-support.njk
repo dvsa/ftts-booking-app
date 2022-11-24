@@ -1,0 +1,50 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% block page_title %}
+  {{ t('selectStandardSupportType.heading') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  <div role="navigation" aria-label="back">
+    {{ govukBackLink({
+      text: t('generalContent.back'),
+      href: backLink,
+      attributes: {
+        'data-automation-id': 'back'
+      }
+    }) }}
+  </div>
+{% endblock %}
+
+{% block content %}
+
+{% include "error-banner.njk" %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl" data-automation-id="heading">{{ t('selectStandardSupportType.heading') }}</h1>
+    <p class="govuk-body">{{ t('selectStandardSupportType.para1') }}</p>
+    <form method="post">
+      <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+      {% set fieldName = 'selectStandardSupportType' %}
+      {{ govukRadios({
+        idPrefix: fieldName,
+        name: fieldName,
+        errorMessage: fieldName | fieldErrorObject(errors),
+        items: options
+      }) }}
+      {{ govukButton({
+        attributes: {
+          'data-automation-id': 'submit'
+        },
+        text: t('generalContent.continueButton')
+      }) }}
+    </form>
+  </div>
+</div>
+
+{% endblock %}

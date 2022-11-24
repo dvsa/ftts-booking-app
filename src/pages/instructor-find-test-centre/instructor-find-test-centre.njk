@@ -1,0 +1,109 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block page_title %}
+  {{ t('findTestCentre.heading') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% if not inEditMode %}
+    <div role="navigation" aria-label="back">
+      {{ govukBackLink({
+        text: t('generalContent.back'),
+        href: backLink,
+        attributes: {
+        'data-automation-id': 'back'
+      }
+      }) }}
+    </div>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+{% include "error-banner.njk" %}
+
+{% if inEditMode %}
+  <div class="alert govuk-body govuk-!-margin-bottom-8">
+    {{ t('findTestCentre.editMode.changeAlert', {
+      openLink: '<a href="check-your-answers" data-automation-id="change-your-mind-link" class="govuk-link">',
+      closeLink: '</a>'
+    }) | nl2br | safe }}
+    <br>
+    {{ govukWarningText({
+      text: t('findTestCentre.editMode.importantWarning'),
+      iconFallbackText: "Important",
+      classes: 'govuk-!-margin-bottom-0'
+    }) }}
+  </div>
+{% endif %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-xl" data-automation-id="heading">{{ t('findTestCentre.heading') }}</h1>
+    <p class="govuk-body">{{ t('findTestCentre.subheading') }}</p>
+    <p class="govuk-body">{{ t('findTestCentre.listHeader') }}</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        {{ t('findTestCentre.listItem1') }}
+      </li>
+      <li>
+        {{ t('findTestCentre.listItem2') }}
+      </li>
+    </ul>
+    <div class="govuk-grid-column-two-thirds grey-bounding">
+      <form method="POST" id="searchForm">
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+        <fieldset class="govuk-fieldset" role="group">
+          {{ govukInput({
+            label: {
+              text: t('findTestCentre.searchLabel')
+            },
+            id: 'searchQuery',
+            name: 'searchQuery',
+            value: searchQuery,
+            errorMessage: 'searchQuery' | fieldErrorObject(errors),
+            attributes: {
+              'data-automation-id':'searchQuery'
+            }
+          }) }}
+        </fieldset>
+        {% if inEditMode %}
+          {{ govukButton({
+            text: t('findTestCentre.searchButton'),
+            classes: 'govuk-!-margin-right-1',
+            type: 'submit',
+            attributes: { 'data-automation-id': 'search', 'id': 'search' }
+          }) }}
+          {{ govukButton({
+            text: t('findTestCentre.editMode.cancelChangeButton'),
+            classes: 'govuk-button--secondary',
+            href: 'check-your-answers',
+            attributes: { 'data-automation-id': 'cancel' }
+          }) }}
+        {% else %}
+          {{ govukButton({
+            text: t('findTestCentre.searchButton'),
+            classes: 'govuk-!-margin-right-1',
+            type: 'submit',
+            attributes: { 'data-automation-id': 'search', 'id': 'search' }
+          }) }}
+        {% endif %}
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+  {% if cookiesEnabled %}
+    <script src="{{ 'javascripts/google-analytics-helper.min.js' | asset }}"></script>
+    <script nonce="{{scriptNonce}}">
+      configureEnteredLocationEvent('searchForm', 'searchQuery', {{ noResultsError }}, '{{ organisation }}', '{{ journeyName }}');
+    </script>
+  {% endif %}
+{% endblock %}

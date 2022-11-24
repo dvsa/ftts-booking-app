@@ -1,0 +1,32 @@
+@include govuk-media-query($from: tablet) {
+    .ftts-summary-list {
+        .govuk-summary-list__row {
+            display: flex;
+            flex-flow: row nowrap;
+        }
+
+        .govuk-summary-list__value {
+            display: flex;
+            flex-flow: column;
+        }
+
+        .govuk-summary-list__ {
+            &key,
+            &value,
+            &actions {
+                display: flex;
+                margin-bottom: 5px;
+            }
+        }
+        
+        .no-action .govuk-summary-list__ {
+            &value {
+                width: 70%;
+            }
+
+            &actions {
+                display: none;
+            }
+        }
+    }
+}

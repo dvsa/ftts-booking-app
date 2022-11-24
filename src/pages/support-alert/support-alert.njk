@@ -1,0 +1,79 @@
+{% extends "layout.njk" %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block page_title %}
+  {{ t('supportAlert.heading') }}
+  {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% if not inEditMode %}
+    <div role="navigation" aria-label="back">
+      {{ govukBackLink({
+        text: t('generalContent.back'),
+        href: backLink,
+        attributes: {
+          'data-automation-id': 'back-link'
+        }
+      }) }}
+    </div>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl" data-automation-id="main-heading">{{ t('supportAlert.heading') }}</h1>
+      <div class="govuk-body govuk-!-margin-bottom-6">
+        <h2 class="govuk-heading-m" data-automation-id="sub-heading1">{{ t('supportAlert.para1-heading') }}</h2>
+        <p>{{ t('supportAlert.para1') }}</p>
+      </div>
+
+      <div class="govuk-body govuk-!-margin-bottom-6">
+        <h2 class="govuk-heading-m" data-automation-id="sub-heading2">{{ t('supportAlert.para2-heading') }}</h2>
+        <p>{{ t('supportAlert.para2') }}</p>
+      </div>
+
+      <div class="govuk-body govuk-!-margin-bottom-8">
+        <h2 class="govuk-heading-m" data-automation-id="sub-heading3">{{ t('supportAlert.para3-heading') }}</h2>
+        <p>{{ t('supportAlert.para3') }}</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li>{{ t('supportAlert.list1-1') }}</li>
+          <li>{{ t('supportAlert.list1-2') }}</li>
+          <li>{{ t('supportAlert.list1-3') }}</li>
+          {% if target == 'ni' %}
+            <li>{{ t('supportAlert.list1-4') }}</li>
+          {% endif %}
+        </ul>
+      </div>
+
+      <form method="post" action="support-alert">
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+        {{ govukButton({
+          type: 'submit',
+          text: t('supportAlert.continue'),
+          classes: 'govuk-!-margin-right-1',
+          attributes: {
+            'data-automation-id': 'submit'
+          }
+        }) }}
+
+        {{ govukButton({
+          href: 'candidate-details',
+          text: t('supportAlert.go-back'),
+          classes: "govuk-button--secondary",
+          attributes: {
+            'data-automation-id': 'cancel'
+          }
+        }) }}
+      </form>
+    </div>
+  </div
+
+
+{% endblock %}

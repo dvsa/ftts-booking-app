@@ -1,0 +1,74 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% block page_title %}
+  {{ t('confirmSupport.heading') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  <div role="navigation" aria-label="back">
+    {{ govukBackLink({
+      text: t('generalContent.back'),
+      href: backLink,
+      attributes: { 'data-automation-id': 'back' }
+    }) }}
+  </div>
+{% endblock %}
+
+{% block content %}
+  {% include "error-banner.njk" %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl"> {{ t('confirmSupport.heading') }} </h1>
+      <p class="govuk-body"> {{ t('confirmSupport.paragraph1') }} </p>
+      <form method="post">
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+        {% call govukFieldset({
+          legend: {
+            text: t('confirmSupport.paragraph2'),
+            isPageHeading: false
+          }
+        }) %}
+          {{ govukRadios({
+            id: 'confirmSupport',
+            name: 'confirmSupport',
+            errorMessage: 'confirmSupport' | fieldErrorObject(errors),
+            items: [
+              {
+                value: '1',
+                text: t('confirmSupport.radio1'),
+                checked: false,
+                attributes: {
+                  'data-automation-id': 'tell-us-what-support'
+                }
+              },
+              {
+                value: '2',
+                text: t('confirmSupport.radio2'),
+                checked: false,
+                attributes: {
+                  'data-automation-id': 'book-without-support'
+                }
+              },
+              {
+                value: '3',
+                text: t('confirmSupport.radio3'),
+                checked: false,
+                attributes: {
+                  'data-automation-id': 'continue-without-telling-us'
+                }
+              }
+            ]
+          })}}
+        {% endcall %}
+        {{ govukButton({
+          text: t('generalContent.continueButton'),
+          attributes: { 'data-automation-id': 'submit', 'type': 'submit' }
+        }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

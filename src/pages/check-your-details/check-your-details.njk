@@ -1,0 +1,381 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "loading-component.njk" import loadingComponent %}
+
+{% include "error-banner.njk" %}
+
+{% block page_title %}
+  {{ t('checkYourDetails.heading') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  <div role="navigation" aria-label="back">
+    {{ govukBackLink({
+      text: t('generalContent.back'),
+      href: backLink,
+      attributes: {
+        'data-automation-id': 'back',
+        id: 'backButton'
+      }
+    }) }}
+  </div>
+{% endblock %}
+
+{% block content %}
+{{ loadingComponent(t('generalContent.loadingScreen.loadingHeading'), t('generalContent.loadingScreen.loadingCaption')) }}
+
+<div class="govuk-grid-row" id="pageContent">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+    <h1 class="govuk-heading-xl" data-automation-id="heading">{{ t('checkYourDetails.heading') }}</h1>
+
+    <h2 class="govuk-heading-m" data-automation-id="personal-details-heading">{{ t('checkYourAnswers.personalDetails.heading') }}</h2>
+
+    {% if target === 'gb' and firstNames === '---' %}
+      {% set candidateName = surname %}
+    {% else %}
+      {% set candidateName = [firstNames, surname] | join(' ') %}
+    {% endif %}
+
+    {{ govukSummaryList({
+      classes: 'ftts-summary-list govuk-!-margin-bottom-9',
+      rows: [
+        {
+          key: {
+            text: t('checkYourAnswers.personalDetails.nameLabel')
+          },
+          value: {
+            text: candidateName
+          },
+          classes: 'govuk-summary-list__row--no-border no-action'
+        },
+        {
+          key: {
+            text: t('checkYourAnswers.personalDetails.dobLabel')
+          },
+          value: {
+            text: dateOfBirth | asFullDateWithoutWeekday
+          },
+          classes: 'govuk-summary-list__row--no-border no-action'
+        },
+        {
+          key: {
+            text: t('checkYourAnswers.personalDetails.licenceNumLabel')
+          },
+          value: {
+            text: licenceNumber
+          },
+          classes: 'no-action'
+        },
+        {
+          key: {
+            text: t('checkYourAnswers.personalDetails.telephoneLabel')
+          },
+          value: {
+            text: telephoneNumber or t('checkYourAnswers.supportDetails.addedNoDetails')
+          },
+          actions: {
+            items: [
+              {
+                href: 'telephone-contact',
+                text: t('generalContent.changeLink'),
+                visuallyHiddenText: t('checkYourAnswers.personalDetails.telephoneLabel'),
+                attributes: {
+                  'data-automation-id': 'telephone'
+                }
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: t('checkYourAnswers.personalDetails.emailLabel')
+          },
+          value: {
+            text: emailAddress
+          },
+          actions: {
+            items: [
+              {
+                href: 'email-contact',
+                text: t('generalContent.changeLink'),
+                visuallyHiddenText: t('checkYourAnswers.personalDetails.emailLabel'),
+                attributes: {
+                  'data-automation-id': 'email'
+                }
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: t('checkYourAnswers.personalDetails.voicemailLabel')
+          },
+          value: {
+            text: t('generalContent.yes') if voicemail else t('generalContent.no')
+          },
+          actions: {
+            items: [
+              {
+                href: 'voicemail',
+                text: t('generalContent.changeLink'),
+                visuallyHiddenText: t('checkYourAnswers.personalDetails.voicemailLabel'),
+                attributes: {
+                  'data-automation-id': 'phone-message-consent'
+                }
+              }
+            ]
+          },
+          classes: 'govuk-summary-list__row--no-border'
+        } if telephoneNumber
+      ]
+    }) }}
+
+    <h2 class="govuk-heading-m" data-automation-id="test-details-heading">{{ t('checkYourAnswers.testDetails.heading') }}</h2>
+
+    {{ govukSummaryList({
+      classes: 'ftts-summary-list govuk-!-margin-bottom-9',
+      rows: [
+        {
+          key: {
+            text: t('checkYourAnswers.testDetails.testTypeLabel')
+          },
+          value: {
+            text: t('generalContent.testTypes.' + testType)
+          },
+          actions: {
+            items: [
+              {
+                href: 'test-type',
+                text: t('generalContent.changeLink'),
+                visuallyHiddenText: t('checkYourAnswers.testDetails.testTypeLabel'),
+                attributes: {
+                  'data-automation-id': 'test-type'
+                }
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: t('checkYourAnswers.testDetails.testLanguageLabel')
+          },
+          value: {
+            text: t('generalContent.language.' + testLanguage)
+          },
+          classes: 'no-action' if not canChangeTestLanguage,
+          actions: {
+            items: [
+              {
+                href: 'test-language',
+                text: t('generalContent.changeLink'),
+                visuallyHiddenText: t('checkYourAnswers.testDetails.testLanguageLabel'),
+                attributes: {
+                  'data-automation-id': 'test-language'
+                }
+              }
+            ]
+          } if canChangeTestLanguage
+        }
+      ]
+    }) }}
+
+    <h2 class="govuk-heading-m" data-automation-id="support-heading">{{ t('checkYourAnswers.supportDetails.heading') }}</h2>
+
+    {% set supportTypesHtml %}
+      <ul class="govuk-list">
+      {% for supportType in supportTypes %}
+        <li>{{ t('generalContent.abbreviatedSupportTypes.' + supportType)}}</li>
+      {% endfor %}
+      </ul>
+    {% endset %}
+    {% set preferredDayHtml %}
+      <p class="govuk-body">{{ t('checkYourAnswers.supportDetails.' + preferredDayOption) }}</p>
+      {% if preferredDay %}
+        <p class="govuk-body">{{ preferredDay }}</p>
+      {% endif %}
+    {% endset %}
+    {% set preferredLocationHtml %}
+      <p class="govuk-body">{{ t('checkYourAnswers.supportDetails.' + preferredLocationOption) }}</p>
+      {% if preferredLocation %}
+        <p class="govuk-body">{{ preferredLocation }}</p>
+      {% endif %}
+    {% endset %}
+
+    {{ govukSummaryList({
+      classes: 'ftts-summary-list govuk-!-margin-bottom-9',
+      rows: [
+        {
+          key: {
+            text: t('checkYourAnswers.supportDetails.supportRequestedLabel')
+          },
+          value: {
+            text: t('generalContent.yes')
+          },
+          actions: {
+            items: [
+              {
+                href: '/choose-support',
+                text: t('generalContent.changeLink'),
+                visuallyHiddenText: t('checkYourAnswers.supportDetails.supportRequestedLabel'),
+                attributes: {
+                  'data-automation-id': 'support-requested'
+                }
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: t('checkYourAnswers.supportDetails.supportTypesLabel')
+          },
+          value: {
+            html: supportTypesHtml
+          },
+          actions: {
+            items: [
+              {
+                href: 'select-support-type',
+                text: t('generalContent.changeLink'),
+                visuallyHiddenText: t('checkYourAnswers.supportDetails.supportTypesLabel'),
+                attributes: {
+                  'data-automation-id': 'support-types'
+                }
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: t('checkYourAnswers.supportDetails.voiceoverLabel')
+          },
+          value: {
+            text: t('generalContent.language.' + voiceover) if voiceover else t('generalContent.no')
+          },
+          classes: 'no-action' if not canChangeVoiceover,
+          actions: {
+            items: [
+              {
+                href: 'change-voiceover',
+                text: t('generalContent.changeLink'),
+                visuallyHiddenText: t('checkYourAnswers.supportDetails.voiceoverLabel'),
+                attributes: {
+                  'data-automation-id': 'voiceover'
+                }
+              }
+            ]
+          } if canChangeVoiceover
+        } if showVoiceoverRow,
+        {
+          key: {
+            text: t('checkYourAnswers.supportDetails.translatorLabel')
+          },
+          value: {
+            text: translator
+          },
+          actions: {
+            items: [
+              {
+                href: 'translator',
+                text: t('generalContent.changeLink'),
+                visuallyHiddenText: t('checkYourAnswers.supportDetails.translatorLabel'),
+                attributes: {
+                  'data-automation-id': 'translator'
+                }
+              }
+            ]
+          }
+        } if showTranslatorRow,
+        {
+          key: {
+            text: t('checkYourAnswers.supportDetails.supportDetailsLabel')
+          },
+          value: {
+            text: customSupport or t('checkYourAnswers.supportDetails.addedNoDetails')
+          },
+          actions: {
+            items: [
+              {
+                href: 'custom-support',
+                text: t('generalContent.changeLink'),
+                visuallyHiddenText: t('checkYourAnswers.supportDetails.supportDetailsLabel'),
+                attributes: {
+                  'data-automation-id': 'support-details'
+                }
+              }
+            ]
+          }
+        } if showCustomSupportRow,
+        {
+          key: {
+            text: t('checkYourAnswers.supportDetails.preferredDayLabel')
+          },
+          value: {
+            html: preferredDayHtml
+          },
+          actions: {
+            items: [
+              {
+                href: 'preferred-day',
+                text: t('generalContent.changeLink'),
+                visuallyHiddenText: t('checkYourAnswers.supportDetails.preferredDayLabel'),
+                attributes:  {
+                  'data-automation-id': 'preferred-day'
+                }
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: t('checkYourAnswers.supportDetails.preferredLocationLabel')
+          },
+          value: {
+            html: preferredLocationHtml
+          },
+          actions: {
+            items: [
+              {
+                href: 'preferred-location',
+                text: t('generalContent.changeLink'),
+                visuallyHiddenText: t('checkYourAnswers.supportDetails.preferredLocationLabel'),
+                attributes:  {
+                  'data-automation-id': 'preferred-location'
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }) }}
+
+    <form method="POST" id="form">
+      <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+      {{ govukButton({
+        text: t('generalContent.continueButton'),
+        attributes: {
+          'data-automation-id': 'continue',
+          id: 'continueButton'
+        }
+      }) }}
+    </form>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+  <script src="{{ 'javascripts/loading-spinner.min.js' | asset }}"></script>
+  <script nonce="{{scriptNonce}}">
+    new LoadingSpinner(
+      {
+        formId: "form",
+        elementsToHide: ["pageContent", "backButton", "error-banner"],
+        elementsToDisable: ["continueButton"],
+        triggerElements: ["form"],
+        triggerEvent: "submit",
+      }
+    )
+  </script>
+{% endblock %}

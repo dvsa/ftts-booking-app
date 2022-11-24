@@ -1,0 +1,50 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block page_title %}
+  {{ t('leavingNsa.heading') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  <div role="navigation" aria-label="back">
+    {{ govukBackLink({
+      text: t('generalContent.back'),
+      href: backLink,
+      attributes: { 'data-automation-id': 'back' }
+    }) }}
+  </div>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl" data-automation-id="heading">{{ t('leavingNsa.heading') }}</h1>
+      <p class="govuk-body" data-automation-id="paragraph1">{{ t('leavingNsa.paragraph1') }}</p>
+      <p class="govuk-body" data-automation-id="paragraph2">{{ t('leavingNsa.paragraph2') }}</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li data-automation-id="bullet1">{{ t('leavingNsa.bullet1') }}</li>
+        <li data-automation-id="bullet2">{{ t('leavingNsa.bullet2') }}</li>
+      </ul>
+      <form method="post">
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+        {{ govukButton({
+          text: t('generalContent.continueButton'),
+          classes: 'govuk-!-margin-right-1',
+          attributes: { 'data-automation-id': 'submit' },
+          type: 'submit',
+          name: 'accommodation',
+          value: 'standard'
+        }) }}
+        {{ govukButton({
+            text: t('leavingNsa.supportButton'),
+            classes: "govuk-button--secondary",
+            attributes: { 'data-automation-id': 'talk-to-support' },
+            type: 'submit',
+            name: 'accommodation',
+            value: 'nonStandard'
+          }) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}

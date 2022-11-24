@@ -1,0 +1,308 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "collapsed-centre-location.njk" import collapsedCentreLocation %}
+{% from "govuk/components/tag/macro.njk" import govukTag %}
+{% from "loading-component.njk" import loadingComponent %}
+
+{% include "error-banner.njk" %}
+
+{% if bookingRequiresPayment %}
+  {% set heading = t('checkYourAnswers.heading') %}
+{% else %}
+  {% set heading = t('checkYourAnswers.headingNoPayment') %}
+{% endif %}
+
+{% block page_title %}
+  {{ heading }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+  <div role="navigation" aria-label="back">
+    {{ govukBackLink({
+      text: t('generalContent.back'),
+      href: 'choose-appointment',
+      attributes: {
+        'data-automation-id': 'back',
+        id: 'backButton'
+      }
+    }) }}
+  </div>
+{% endblock %}
+
+{% block content %}
+{{ loadingComponent(t('generalContent.loadingScreen.loadingHeading'), t('generalContent.loadingScreen.loadingCaption')) }}
+
+<div class="govuk-grid-row" id="pageContent">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+    <h1 class="govuk-heading-xl" data-automation-id="heading">
+      {{ heading }}
+    </h1>
+
+    <h2 class="govuk-heading-m" data-automation-id="personal-details-heading">{{ t('checkYourAnswers.personalDetails.heading') }}</h2>
+
+    {% if target === 'gb' and firstNames === '---' %}
+      {% set candidateName = surname %}
+    {% else %}
+      {% set candidateName = [firstNames, surname] | join(' ') %}
+    {% endif %}
+
+    {{ govukSummaryList({
+      classes: 'ftts-summary-list govuk-!-margin-bottom-9',
+      rows: [
+        {
+          key: {
+            text: t('checkYourAnswers.personalDetails.nameLabel')
+          },
+          value: {
+            text: candidateName
+          },
+          classes: 'govuk-summary-list__row--no-border no-action'
+        },
+        {
+          key: {
+            text: t('checkYourAnswers.personalDetails.dobLabel')
+          },
+          value: {
+            text: dateOfBirth | asFullDateWithoutWeekday
+          },
+          classes: 'govuk-summary-list__row--no-border no-action'
+        },
+        {
+          key: {
+            text: t('checkYourAnswers.personalDetails.licenceNumLabel')
+          },
+          value: {
+            text: licenceNumber
+          },
+          classes: 'no-action'
+        },
+        {
+          key: {
+            text: t('checkYourAnswers.personalDetails.emailLabel')
+          },
+          value: {
+            text: emailAddress
+          },
+          actions: {
+            items: [{
+              href: 'email-contact',
+              text: t('generalContent.changeLink'),
+              visuallyHiddenText: t('checkYourAnswers.personalDetails.emailLabel'),
+              attributes: {
+                'data-automation-id': 'email'
+              }
+            }]
+          }
+        }
+      ]
+    }) }}
+
+    <h2 class="govuk-heading-m" data-automation-id="test-details-heading">{{ t('checkYourAnswers.testDetails.heading') }}</h2>
+
+    {% if canChangeTestLanguage %}
+      {% set languageActionItems = [{
+        href: 'test-language',
+        text: t('generalContent.changeLink'),
+        visuallyHiddenText: t('checkYourAnswers.testDetails.testLanguageLabel'),
+        attributes: {
+          'data-automation-id': 'test-language'
+        }
+      }]
+      %}
+    {% endif %}
+
+    {% if target === 'ni'%}
+      {% set languageClasses = 'no-action' %}
+    {% endif %}
+
+    {% if voiceover == t('generalContent.no') %}
+      {% set voiceoverValue = t('generalContent.no') %}
+    {% else %}
+      {% set voiceoverValue = t('generalContent.language.' + voiceover) %}
+    {% endif %}
+
+    {% set priceHtml %}
+      <p class="govuk-!-display-inline-block">{{ (price | formatPrice) }}</p>
+    {% endset %}
+
+    {% set compensationHtml %}
+      {% if isCompensationBooking %}
+        {{ govukTag({
+          text: t('checkYourAnswers.testDetails.alreadyPaidLabel')
+        }) }}
+      {% endif %}
+    {% endset %}
+
+    {% set shouldHidePrice = isZeroCostBooking %}
+
+    {% set priceWrapperHtml %}
+      <div class="govuk-!-display-inline-block">
+        {{ priceHtml | safe }} {{ compensationHtml | safe }}
+      </div>
+    {% endset %}
+
+    {{ govukSummaryList({
+      classes: 'ftts-summary-list govuk-!-margin-bottom-9',
+      rows: [
+      {
+        key: {
+          text: t('checkYourAnswers.testDetails.testTypeLabel')
+        },
+        value: {
+          text: t('generalContent.testTypes.' + testType)
+        },
+        classes: 'no-action'
+      },
+      {
+        key: {
+          text: t('checkYourAnswers.testDetails.costLabel')
+        },
+        value: {
+          html: priceWrapperHtml
+        },
+        classes: 'no-action'
+      } if not shouldHidePrice,
+      {
+        key: {
+          text: t('checkYourAnswers.testDetails.timeDateLabel')
+        },
+        value: {
+          text: dateTime | asFullDateTimeWithoutWeekday
+        },
+        actions: {
+          items: [{
+            href: 'change-location-time',
+            text: t('generalContent.changeLink'),
+            visuallyHiddenText: t('checkYourAnswers.testDetails.timeDateLocationLabel'),
+            attributes: {
+              'data-automation-id': 'time'
+            }
+          }]
+        },
+        classes: 'govuk-summary-list__row--no-border'
+      },
+      {
+        key: {
+          text: t('checkYourAnswers.testDetails.locationLabel')
+        },
+        value: {
+          text: collapsedCentreLocation(testCentre)
+        },
+        classes: 'no-action'
+      },
+      {
+        key: {
+          text: t('checkYourAnswers.testDetails.testLanguageLabel')
+        },
+        value: {
+          text: testLanguage
+        },
+        actions: {
+          items: languageActionItems
+        },
+        classes: languageClasses
+      },
+      {
+        key: {
+          text: t('checkYourAnswers.supportDetails.supportRequestedLabel')
+        },
+        value: {
+          text: supportRequested
+        },
+        actions: {
+          items: [
+            {
+              href: 'choose-support',
+              text: t('generalContent.changeLink'),
+              visuallyHiddenText: t('checkYourAnswers.supportDetails.supportRequestedLabel'),
+              attributes: {
+                'data-automation-id': 'support-requested'
+              }
+            }
+          ]
+        }
+      } if canChooseSupport,
+      {
+        key: {
+          text: t('checkYourAnswers.supportDetails.bslLabel')
+        },
+        value: {
+          text: bsl
+        },
+        actions: {
+          items: [
+            {
+              href: 'bsl',
+              text: t('generalContent.changeLink'),
+              visuallyHiddenText: t('checkYourAnswers.supportDetails.bslLabel'),
+              attributes: {
+                'data-automation-id': 'bsl'
+              }
+            }
+          ]
+        }
+      } if canChooseSupport and bslAvailable,
+      {
+        key: {
+          text: t('checkYourAnswers.supportDetails.voiceoverLabel')
+        },
+        value: {
+          text: voiceoverValue
+        },
+        actions: {
+          items: [
+            {
+              href: 'change-voiceover',
+              text: t('generalContent.changeLink'),
+              visuallyHiddenText: t('checkYourAnswers.supportDetails.voiceoverLabel'),
+              attributes: {
+                'data-automation-id': 'voiceover'
+              }
+            }
+          ]
+        }
+      } if canChooseSupport
+      ]
+    }) }}
+
+    {% if bookingRequiresPayment and not isCompensationBooking %}
+      {{ govukWarningText({
+        text: t('checkYourAnswers.paymentWarning'),
+        iconFallbackText: t('generalContent.warning')
+      }) }}
+    {% endif %}
+
+    <form action="check-your-answers" method="POST" id="form">
+      <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+      {{ govukButton({
+        text: t('checkYourAnswers.continueAndPayButton') if bookingRequiresPayment and not isCompensationBooking else t('checkYourAnswers.continueButton'),
+        attributes: {
+          'data-automation-id': 'continue',
+          id: 'continueButton'
+        }
+      }) }}
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+  <script src="{{ 'javascripts/loading-spinner.min.js' | asset }}"></script>
+  <script nonce="{{scriptNonce}}">
+    new LoadingSpinner(
+      {
+        formId: "form",
+        elementsToHide: ["pageContent", "backButton", "error-banner"],
+        elementsToDisable: ["continueButton"],
+        triggerElements: ["form"],
+        triggerEvent: "submit",
+      }
+    )
+  </script>
+{% endblock %}
+

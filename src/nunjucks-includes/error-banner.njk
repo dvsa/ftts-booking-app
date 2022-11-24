@@ -1,0 +1,20 @@
+{% if errors | length %}
+<div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary" id="error-banner">
+	<h2 class="govuk-error-summary__title" id="error-summary-title">
+    {{ t('generalContent.errorSummaryTitle') }}
+  </h2>
+	<div class="govuk-error-summary__body">
+		<ul class="govuk-list govuk-error-summary__list">
+			{% for error in errors %}
+        <li class="govuk-error-message">
+          {% if error.param %}
+            <a href="#{{ error.param }}" class="govuk-link">{{ error.msg }}</a>
+          {% else %}
+            {{ error.msg }}
+          {% endif %}
+        </li>
+			{% endfor %}
+		</ul>
+	</div>
+</div>
+{% endif %}

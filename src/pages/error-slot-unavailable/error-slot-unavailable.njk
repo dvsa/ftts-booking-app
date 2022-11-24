@@ -1,0 +1,22 @@
+{% extends "layout.njk" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block page_title %}
+  {{ t('errors.slotUnavailable.title') }} {{ t('generalContent.pageTitle') }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-xl">{{ t('errors.slotUnavailable.heading') }}</h1>
+      <p class="govuk-body">{{ t('errors.slotUnavailable.description') }}</p>
+      {{ govukButton({
+        href: 'select-date',
+        text: t('errors.slotUnavailable.button'),
+        attributes: {
+          'data-automation-id': 'try-again-button'
+        }
+      }) }}
+    </div>
+  </div>
+{% endblock %}

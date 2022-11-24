@@ -1,0 +1,32 @@
+{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+<noscript>
+  {% set nonJsHtml %}
+    <p class="govuk-notification-banner__heading">
+      {{ t('timeout.nonjs.line1') }}
+    </p>
+    <p> {{ t('timeout.nonjs.line2') }}</p>
+  {% endset %}
+
+  {{ govukNotificationBanner({
+    html: nonJsHtml,
+    titleText: t('generalContent.important'),
+    classes: 'fttsTimeoutBannerNonJs',
+    attributes: {
+      id: 'nonJsTimeoutNotification',
+      'data-automation-id': 'nonJsTimeoutNotification'
+    }
+  }) }}
+</noscript>
+
+<script src="{{ 'javascripts/session-timeout.min.js' | asset }}"></script>
+<script nonce="{{scriptNonce}}">
+  if (document.readyState === 'loading') {
+    new SessionTimeout({
+      countdown: parseInt("{{expiryDelay}}"),
+      dialogDelay: parseInt("{{notificationDelay}}"),
+      timeoutUrl: '/timeout?source={{source}}&target={{target}}&lang={{locale}}',
+      language: '{{locale}}',
+    });
+  }
+</script>

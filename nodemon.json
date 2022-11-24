@@ -1,0 +1,6 @@
+{
+    "ext": "njk,ts,json,scss,js",
+    "exec": "npm run local:debug",
+    "watch": ["./src", "./ftts-frontend-assets"],
+    "delay": "2500"
+}
