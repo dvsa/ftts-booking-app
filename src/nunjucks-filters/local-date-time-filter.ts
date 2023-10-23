@@ -11,8 +11,21 @@ export const asLocalTime = localDateFormat('h:mma'); // "3:30pm" (GDS recommende
 export const asLocalTimeWithoutAmPm = localDateFormat('h:mm'); // "3:30"
 export const asWeekday = localDateFormat('dddd'); // "Tuesday"
 
+const replacements = [
+  { pattern: /12:00am/i, replacement: 'midnight' },
+  { pattern: /12:00pm/i, replacement: 'midday' }
+];
+
 function localDateFormat(mask: string): (isoDate: string) => string {
-  return (isoDate: string): string => dayjs(isoDate).tz(config.defaultTimeZone).format(mask);
+  return (isoDate: string): string => {
+    let formattedTime = dayjs(isoDate).tz(config.defaultTimeZone).format(mask);
+
+    replacements.forEach(({ pattern, replacement }) => {
+      formattedTime = formattedTime.replace(pattern, replacement);
+    });
+
+    return formattedTime;
+  };
 }
 
 export function toISODateString(date: string): string {
