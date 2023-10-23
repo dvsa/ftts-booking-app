@@ -22,10 +22,13 @@ describe('Nunjucks custom date/time dateTimeFilters tests', () => {
     });
   });
 
-  describe('asFullDateTimeWithoutWeekday', () => {
-    test('returns the date in the format "10:00am, 8 November 2018" given an ISO datetime string', () => {
-      const isoDateString = '2018-11-08T10:00:56Z';
-      expect(asFullDateTimeWithoutWeekday(isoDateString)).toBe('10:00am, 8 November 2018');
+  describe.each([
+    ['2018-11-08T10:00:56Z', '10:00am, 8 November 2018'],
+    ['2018-11-08T12:00:00Z', 'midday, 8 November 2018'],
+    ['2018-11-08T00:00:00Z', 'midnight, 8 November 2018']
+  ])('asFullDateTimeWithoutWeekday', (isoDateString, expectedResult) => {
+    test(`returns the date as ${expectedResult} given an ISO datetime string: ${isoDateString}`, () => {
+      expect(asFullDateTimeWithoutWeekday(isoDateString)).toBe(expectedResult);
     });
   });
 
@@ -43,10 +46,13 @@ describe('Nunjucks custom date/time dateTimeFilters tests', () => {
     });
   });
 
-  describe('asLocalTime', () => {
-    test('returns the local time in the format "5:30pm" given an ISO datetime string', () => {
-      const isoDateString = '2018-11-08T17:30:56Z';
-      expect(asLocalTime(isoDateString)).toBe('5:30pm');
+  describe.each([
+      ['2018-11-08T17:30:56Z', '5:30pm'],
+      ['2018-11-08T12:00:00Z', 'midday'],
+      ['2018-11-08T00:00:00Z', 'midnight']
+  ])('asLocalTime', (isoDateString, expectedResult) => {
+    test(`returns the local time as ${expectedResult} given an ISO datetime string: ${isoDateString}`, () => {
+      expect(asLocalTime(isoDateString)).toBe(expectedResult);
     });
   });
 
